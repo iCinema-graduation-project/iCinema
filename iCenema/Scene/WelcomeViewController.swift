@@ -12,7 +12,7 @@ class WelcomeViewController: ViewController {
     //
     private let imageView: UIImageView = {
         let imageView = UIImageView(image: ImageManager.welcomeImage)
-        imageView.sizeConstraints(width: 310, height: 240)
+        imageView.sizeConstraints(width: 250, height: 180)
         return imageView
     }()
     
@@ -27,13 +27,13 @@ class WelcomeViewController: ViewController {
     
     private let registerButton: iCinemaButton = {
         let button = iCinemaButton()
-        button.setTitle("Register", for: .normal)
+        button.setTitle(LanguageManager.register, for: .normal)
         return button
     }()
     
     private let guestButton: iCinemaButton = {
         let button = iCinemaButton()
-        button.setTitle("Guest", for: .normal)
+        button.setTitle(LanguageManager.guest, for: .normal)
         button.setTitleColor(ColorManager.iCinemaReverce, for: .normal)
         button.backgroundColor = .white
         button.layer.shadowColor = ColorManager.iCinemaReverce?.cgColor
@@ -56,7 +56,7 @@ class WelcomeViewController: ViewController {
     private func addImageView() {
         view.addSubview(imageView)
         imageView.centerXInSuperview()
-        imageView.makeConstraints(topAnchor: view.topAnchor, padding: UIEdgeInsets(top: 120, left: 0, bottom: 0, right: 0))
+        imageView.makeConstraints(topAnchor: view.topAnchor, padding: UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0))
     }
     
     private func addDescriptionLabel() {
