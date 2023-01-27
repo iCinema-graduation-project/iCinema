@@ -1,6 +1,6 @@
 //
 //  Background.swift
-//  iCenema
+//  iCinema
 //
 //  Created by Ahmed Yamany on 27/01/2023.
 //
@@ -10,12 +10,13 @@ import UIKit
 
 struct BackgroundView: View {
     @State var animate: Bool = false
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
 
     var body: some View {
         ZStack {
             CircleBackground(color: Color("circle1"))
                 .blur(radius: animate ? 30 : 100)
-                .offset(x: animate ? -50 : -130, y: animate ? -30 : -100)
+                .offset(x: animate ? -30 : -130, y: animate ? -30 : -100)
                 .task {
                     withAnimation(.easeInOut(duration: 7).repeatForever()){
                         animate.toggle()
@@ -24,12 +25,19 @@ struct BackgroundView: View {
 
             CircleBackground(color: Color("circle2"))
 
-                .blur(radius: animate ? 40 : 100)
+                .blur(radius: animate ? 30 : 100)
                 .offset(x: animate ? 30 : 130, y: animate ? 30 : 100)
 
-            VisualEffect(style: .systemChromeMaterialDark)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                .ignoresSafeArea()
+            if colorScheme == .dark {
+                VisualEffect(style: .systemChromeMaterialDark)
+                    .ignoresSafeArea()
+
+
+            } else{
+                VisualEffect(style: .regular)
+                    .ignoresSafeArea()
+
+            }
 
             VStack(spacing: 30.0) {}
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

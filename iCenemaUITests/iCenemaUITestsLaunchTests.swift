@@ -1,13 +1,13 @@
 //
-//  iCenemaUITestsLaunchTests.swift
-//  iCenemaUITests
+//  iCinemaUITestsLaunchTests.swift
+//  iCinemaUITests
 //
 //  Created by Ahmed Yamany on 27/01/2023.
 //
 
 import XCTest
 
-final class iCenemaUITestsLaunchTests: XCTestCase {
+final class iCinemaUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

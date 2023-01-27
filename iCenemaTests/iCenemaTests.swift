@@ -1,14 +1,14 @@
 //
-//  iCenemaTests.swift
-//  iCenemaTests
+//  iCinemaTests.swift
+//  iCinemaTests
 //
 //  Created by Ahmed Yamany on 27/01/2023.
 //
 
 import XCTest
-@testable import iCenema
+@testable import iCinema
 
-final class iCenemaTests: XCTestCase {
+final class iCinemaTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
