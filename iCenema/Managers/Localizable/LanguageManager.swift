@@ -5,8 +5,8 @@
 //  Created by Ahmed Yamany on 27/01/2023.
 //
 
-import Foundation
+import UIKit
 
 struct LanguageManager {
-    
+    static let welecomeDescriptionLabel = NSLocalizedString("welecomeDescriptionLabel", comment: "")
 }

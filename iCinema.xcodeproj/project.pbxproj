@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73A30CA929835B1F00D672E6 /* Localizable.strings */; };
 		73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAB29835B4000D672E6 /* LanguageManager.swift */; };
+		73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */; };
+		73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB029835EE200D672E6 /* ImageManager.swift */; };
+		73A30CB32983639000D672E6 /* iCinemaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB22983639000D672E6 /* iCinemaButton.swift */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
 		73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918D29834531002F3568 /* SceneDelegate.swift */; };
 		73EC919529834533002F3568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919429834533002F3568 /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		73A30CA829835B1F00D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73A30CAA29835B2500D672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73A30CAB29835B4000D672E6 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		73A30CB029835EE200D672E6 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		73A30CB22983639000D672E6 /* iCinemaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCinemaButton.swift; sourceTree = "<group>"; };
 		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC918B29834531002F3568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73EC918D29834531002F3568 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,10 +101,18 @@
 		73A30C9E29835A6800D672E6 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
-				73A30CA929835B1F00D672E6 /* Localizable.strings */,
 				73A30CAB29835B4000D672E6 /* LanguageManager.swift */,
+				73A30CA929835B1F00D672E6 /* Localizable.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		73A30CAD29835D2500D672E6 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		73EC917F29834531002F3568 = {
@@ -129,6 +143,7 @@
 				73EC91BE2983460D002F3568 /* Managers */,
 				73EC91E029834ED7002F3568 /* UI */,
 				73EC91E129835128002F3568 /* View */,
+				73A30CAD29835D2500D672E6 /* Scene */,
 				73EC919629834533002F3568 /* LaunchScreen.storyboard */,
 				73EC919929834533002F3568 /* Info.plist */,
 			);
@@ -167,6 +182,7 @@
 			children = (
 				73EC91BF2983462E002F3568 /* ColorsManager.swift */,
 				73A30C9E29835A6800D672E6 /* Localizable */,
+				73A30CB029835EE200D672E6 /* ImageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -194,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				73EC91C1298348F5002F3568 /* BackgroundView.swift */,
+				73A30CB22983639000D672E6 /* iCinemaButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -340,6 +357,8 @@
 			files = (
 				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
 				73EC91BC29834569002F3568 /* ViewController.swift in Sources */,
+				73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */,
+				73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
 				73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */,
 				73EC918C29834531002F3568 /* AppDelegate.swift in Sources */,
@@ -347,6 +366,7 @@
 				73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */,
 				73EC91C02983462E002F3568 /* ColorsManager.swift in Sources */,
 				73EC91C2298348F5002F3568 /* BackgroundView.swift in Sources */,
+				73A30CB32983639000D672E6 /* iCinemaButton.swift in Sources */,
 				73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
