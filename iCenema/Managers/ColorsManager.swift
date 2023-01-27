@@ -1,6 +1,6 @@
 //
 //  ColorsManager.swift
-//  iCenema
+//  iCinema
 //
 //  Created by Ahmed Yamany on 27/01/2023.
 //

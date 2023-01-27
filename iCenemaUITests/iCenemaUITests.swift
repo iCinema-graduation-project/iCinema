@@ -1,13 +1,13 @@
 //
-//  iCenemaUITests.swift
-//  iCenemaUITests
+//  iCinemaUITests.swift
+//  iCinemaUITests
 //
 //  Created by Ahmed Yamany on 27/01/2023.
 //
 
 import XCTest
 
-final class iCenemaUITests: XCTestCase {
+final class iCinemaUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
