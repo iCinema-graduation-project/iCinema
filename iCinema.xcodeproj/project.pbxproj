@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
 		73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918D29834531002F3568 /* SceneDelegate.swift */; };
-		73EC919029834531002F3568 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918F29834531002F3568 /* ViewController.swift */; };
-		73EC919329834531002F3568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919129834531002F3568 /* Main.storyboard */; };
 		73EC919529834533002F3568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919429834533002F3568 /* Assets.xcassets */; };
 		73EC919829834533002F3568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919629834533002F3568 /* LaunchScreen.storyboard */; };
 		73EC91A329834533002F3568 /* iCenemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91A229834533002F3568 /* iCenemaTests.swift */; };
 		73EC91AD29834533002F3568 /* iCenemaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91AC29834533002F3568 /* iCenemaUITests.swift */; };
 		73EC91AF29834533002F3568 /* iCenemaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91AE29834533002F3568 /* iCenemaUITestsLaunchTests.swift */; };
+		73EC91BC29834569002F3568 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91BB29834569002F3568 /* ViewController.swift */; };
+		73EC91C02983462E002F3568 /* ColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91BF2983462E002F3568 /* ColorsManager.swift */; };
+		73EC91C2298348F5002F3568 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C1298348F5002F3568 /* BackgroundView.swift */; };
+		73EC91D629834D41002F3568 /* UIView+SizeConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C729834D41002F3568 /* UIView+SizeConstraints.swift */; };
+		73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C829834D41002F3568 /* UIView+MakeConstraints.swift */; };
+		73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C929834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift */; };
+		73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91CA29834D41002F3568 /* UIView+FillSuperviewConstraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,19 +41,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		73EC918829834531002F3568 /* iCenema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCenema.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC918B29834531002F3568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73EC918D29834531002F3568 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		73EC918F29834531002F3568 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		73EC919229834531002F3568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		73EC919429834533002F3568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73EC919729834533002F3568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73EC919929834533002F3568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73EC919E29834533002F3568 /* iCenemaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCenemaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		73EC919E29834533002F3568 /* iCinemaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCinemaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC91A229834533002F3568 /* iCenemaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCenemaTests.swift; sourceTree = "<group>"; };
-		73EC91A829834533002F3568 /* iCenemaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCenemaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		73EC91A829834533002F3568 /* iCinemaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCinemaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC91AC29834533002F3568 /* iCenemaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCenemaUITests.swift; sourceTree = "<group>"; };
 		73EC91AE29834533002F3568 /* iCenemaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCenemaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		73EC91BB29834569002F3568 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		73EC91BF2983462E002F3568 /* ColorsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsManager.swift; sourceTree = "<group>"; };
+		73EC91C1298348F5002F3568 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		73EC91C729834D41002F3568 /* UIView+SizeConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SizeConstraints.swift"; sourceTree = "<group>"; };
+		73EC91C829834D41002F3568 /* UIView+MakeConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+MakeConstraints.swift"; sourceTree = "<group>"; };
+		73EC91C929834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CenterInSuperviewConstraints.swift"; sourceTree = "<group>"; };
+		73EC91CA29834D41002F3568 /* UIView+FillSuperviewConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FillSuperviewConstraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +99,9 @@
 		73EC918929834531002F3568 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				73EC918829834531002F3568 /* iCenema.app */,
-				73EC919E29834533002F3568 /* iCenemaTests.xctest */,
-				73EC91A829834533002F3568 /* iCenemaUITests.xctest */,
+				73EC918829834531002F3568 /* iCinema.app */,
+				73EC919E29834533002F3568 /* iCinemaTests.xctest */,
+				73EC91A829834533002F3568 /* iCinemaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,11 +109,11 @@
 		73EC918A29834531002F3568 /* iCenema */ = {
 			isa = PBXGroup;
 			children = (
-				73EC918B29834531002F3568 /* AppDelegate.swift */,
-				73EC918D29834531002F3568 /* SceneDelegate.swift */,
-				73EC918F29834531002F3568 /* ViewController.swift */,
-				73EC919129834531002F3568 /* Main.storyboard */,
-				73EC919429834533002F3568 /* Assets.xcassets */,
+				73EC91BD298345D3002F3568 /* Resources */,
+				73EC91C329834D41002F3568 /* Extensions */,
+				73EC91BE2983460D002F3568 /* Managers */,
+				73EC91E029834ED7002F3568 /* UI */,
+				73EC91E129835128002F3568 /* View */,
 				73EC919629834533002F3568 /* LaunchScreen.storyboard */,
 				73EC919929834533002F3568 /* Info.plist */,
 			);
@@ -127,12 +137,65 @@
 			path = iCenemaUITests;
 			sourceTree = "<group>";
 		};
+		73EC91BD298345D3002F3568 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73EC918B29834531002F3568 /* AppDelegate.swift */,
+				73EC918D29834531002F3568 /* SceneDelegate.swift */,
+				73EC919429834533002F3568 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		73EC91BE2983460D002F3568 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				73EC91BF2983462E002F3568 /* ColorsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		73EC91C329834D41002F3568 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				73EC91C629834D41002F3568 /* UIView */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		73EC91C629834D41002F3568 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				73EC91C729834D41002F3568 /* UIView+SizeConstraints.swift */,
+				73EC91C829834D41002F3568 /* UIView+MakeConstraints.swift */,
+				73EC91C929834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift */,
+				73EC91CA29834D41002F3568 /* UIView+FillSuperviewConstraints.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		73EC91E029834ED7002F3568 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				73EC91C1298348F5002F3568 /* BackgroundView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		73EC91E129835128002F3568 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73EC91BB29834569002F3568 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		73EC918729834531002F3568 /* iCenema */ = {
+		73EC918729834531002F3568 /* iCinema */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 73EC91B229834533002F3568 /* Build configuration list for PBXNativeTarget "iCenema" */;
+			buildConfigurationList = 73EC91B229834533002F3568 /* Build configuration list for PBXNativeTarget "iCinema" */;
 			buildPhases = (
 				73EC918429834531002F3568 /* Sources */,
 				73EC918529834531002F3568 /* Frameworks */,
@@ -142,14 +205,14 @@
 			);
 			dependencies = (
 			);
-			name = iCenema;
+			name = iCinema;
 			productName = iCenema;
-			productReference = 73EC918829834531002F3568 /* iCenema.app */;
+			productReference = 73EC918829834531002F3568 /* iCinema.app */;
 			productType = "com.apple.product-type.application";
 		};
-		73EC919D29834533002F3568 /* iCenemaTests */ = {
+		73EC919D29834533002F3568 /* iCinemaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 73EC91B529834533002F3568 /* Build configuration list for PBXNativeTarget "iCenemaTests" */;
+			buildConfigurationList = 73EC91B529834533002F3568 /* Build configuration list for PBXNativeTarget "iCinemaTests" */;
 			buildPhases = (
 				73EC919A29834533002F3568 /* Sources */,
 				73EC919B29834533002F3568 /* Frameworks */,
@@ -160,14 +223,14 @@
 			dependencies = (
 				73EC91A029834533002F3568 /* PBXTargetDependency */,
 			);
-			name = iCenemaTests;
+			name = iCinemaTests;
 			productName = iCenemaTests;
-			productReference = 73EC919E29834533002F3568 /* iCenemaTests.xctest */;
+			productReference = 73EC919E29834533002F3568 /* iCinemaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		73EC91A729834533002F3568 /* iCenemaUITests */ = {
+		73EC91A729834533002F3568 /* iCinemaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 73EC91B829834533002F3568 /* Build configuration list for PBXNativeTarget "iCenemaUITests" */;
+			buildConfigurationList = 73EC91B829834533002F3568 /* Build configuration list for PBXNativeTarget "iCinemaUITests" */;
 			buildPhases = (
 				73EC91A429834533002F3568 /* Sources */,
 				73EC91A529834533002F3568 /* Frameworks */,
@@ -178,9 +241,9 @@
 			dependencies = (
 				73EC91AA29834533002F3568 /* PBXTargetDependency */,
 			);
-			name = iCenemaUITests;
+			name = iCinemaUITests;
 			productName = iCenemaUITests;
-			productReference = 73EC91A829834533002F3568 /* iCenemaUITests.xctest */;
+			productReference = 73EC91A829834533002F3568 /* iCinemaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -206,7 +269,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 73EC918329834531002F3568 /* Build configuration list for PBXProject "iCenema" */;
+			buildConfigurationList = 73EC918329834531002F3568 /* Build configuration list for PBXProject "iCinema" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -219,9 +282,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				73EC918729834531002F3568 /* iCenema */,
-				73EC919D29834533002F3568 /* iCenemaTests */,
-				73EC91A729834533002F3568 /* iCenemaUITests */,
+				73EC918729834531002F3568 /* iCinema */,
+				73EC919D29834533002F3568 /* iCinemaTests */,
+				73EC91A729834533002F3568 /* iCinemaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -233,7 +296,6 @@
 			files = (
 				73EC919829834533002F3568 /* LaunchScreen.storyboard in Resources */,
 				73EC919529834533002F3568 /* Assets.xcassets in Resources */,
-				73EC919329834531002F3568 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +320,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73EC919029834531002F3568 /* ViewController.swift in Sources */,
+				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
+				73EC91BC29834569002F3568 /* ViewController.swift in Sources */,
+				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
+				73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */,
 				73EC918C29834531002F3568 /* AppDelegate.swift in Sources */,
+				73EC91D629834D41002F3568 /* UIView+SizeConstraints.swift in Sources */,
 				73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */,
+				73EC91C02983462E002F3568 /* ColorsManager.swift in Sources */,
+				73EC91C2298348F5002F3568 /* BackgroundView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,25 +354,17 @@
 /* Begin PBXTargetDependency section */
 		73EC91A029834533002F3568 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 73EC918729834531002F3568 /* iCenema */;
+			target = 73EC918729834531002F3568 /* iCinema */;
 			targetProxy = 73EC919F29834533002F3568 /* PBXContainerItemProxy */;
 		};
 		73EC91AA29834533002F3568 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 73EC918729834531002F3568 /* iCenema */;
+			target = 73EC918729834531002F3568 /* iCinema */;
 			targetProxy = 73EC91A929834533002F3568 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		73EC919129834531002F3568 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				73EC919229834531002F3568 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		73EC919629834533002F3568 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -440,11 +500,13 @@
 				DEVELOPMENT_TEAM = 4U8DMJ33ZN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iCenema/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = iCinema;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,11 +530,13 @@
 				DEVELOPMENT_TEAM = 4U8DMJ33ZN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iCenema/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = iCinema;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,7 +566,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iCenema.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iCenema";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iCinema.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iCinema";
 			};
 			name = Debug;
 		};
@@ -522,7 +586,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iCenema.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iCenema";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iCinema.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iCinema";
 			};
 			name = Release;
 		};
@@ -565,7 +629,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		73EC918329834531002F3568 /* Build configuration list for PBXProject "iCenema" */ = {
+		73EC918329834531002F3568 /* Build configuration list for PBXProject "iCinema" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				73EC91B029834533002F3568 /* Debug */,
@@ -574,7 +638,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		73EC91B229834533002F3568 /* Build configuration list for PBXNativeTarget "iCenema" */ = {
+		73EC91B229834533002F3568 /* Build configuration list for PBXNativeTarget "iCinema" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				73EC91B329834533002F3568 /* Debug */,
@@ -583,7 +647,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		73EC91B529834533002F3568 /* Build configuration list for PBXNativeTarget "iCenemaTests" */ = {
+		73EC91B529834533002F3568 /* Build configuration list for PBXNativeTarget "iCinemaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				73EC91B629834533002F3568 /* Debug */,
@@ -592,7 +656,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		73EC91B829834533002F3568 /* Build configuration list for PBXNativeTarget "iCenemaUITests" */ = {
+		73EC91B829834533002F3568 /* Build configuration list for PBXNativeTarget "iCinemaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				73EC91B929834533002F3568 /* Debug */,
