@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2538D3EC40C7C4D8A26A1CBC /* Pods_iCinema_iCinemaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */; };
+		73861C242984351E0020A63B /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* NewUserViewController.swift */; };
+		73861C2629843A170020A63B /* iCinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* iCinemaTextField.swift */; };
 		73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73A30CA929835B1F00D672E6 /* Localizable.strings */; };
 		73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAB29835B4000D672E6 /* LanguageManager.swift */; };
 		73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */; };
@@ -26,6 +29,12 @@
 		73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C829834D41002F3568 /* UIView+MakeConstraints.swift */; };
 		73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C929834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift */; };
 		73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91CA29834D41002F3568 /* UIView+FillSuperviewConstraints.swift */; };
+		73FED1E029886B0600395727 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1DF29886B0600395727 /* Constants.swift */; };
+		73FED1E2298874CD00395727 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1E1298874CD00395727 /* FontManager.swift */; };
+		73FED1E42988750100395727 /* SizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1E32988750100395727 /* SizeManager.swift */; };
+		73FED1E62988854A00395727 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1E52988854A00395727 /* RadioButton.swift */; };
+		DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECB3E6E71A6E3654F6B2A69 /* Pods_iCinema.framework */; };
+		F3FCE8735845D8DA095FF860 /* Pods_iCinemaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE18D7EA97EFF6D8CF2F7F0 /* Pods_iCinemaTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCinema_iCinemaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CFBF74A68AFC6696F4A77EC /* Pods-iCinema-iCinemaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinema-iCinemaUITests.release.xcconfig"; path = "Target Support Files/Pods-iCinema-iCinemaUITests/Pods-iCinema-iCinemaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		73861C232984351E0020A63B /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		73861C2529843A170020A63B /* iCinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCinemaTextField.swift; sourceTree = "<group>"; };
 		73A30CA429835B0200D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		73A30CA829835B1F00D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73A30CAA29835B2500D672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -71,6 +84,17 @@
 		73EC91C829834D41002F3568 /* UIView+MakeConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+MakeConstraints.swift"; sourceTree = "<group>"; };
 		73EC91C929834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CenterInSuperviewConstraints.swift"; sourceTree = "<group>"; };
 		73EC91CA29834D41002F3568 /* UIView+FillSuperviewConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FillSuperviewConstraints.swift"; sourceTree = "<group>"; };
+		73FED1DF29886B0600395727 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		73FED1E1298874CD00395727 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		73FED1E32988750100395727 /* SizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeManager.swift; sourceTree = "<group>"; };
+		73FED1E52988854A00395727 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		86F3F46257D3F5904BB5020D /* Pods-iCinemaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinemaTests.debug.xcconfig"; path = "Target Support Files/Pods-iCinemaTests/Pods-iCinemaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		98DBFEE5DA2DA7585F88DDC8 /* Pods-iCinema.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinema.debug.xcconfig"; path = "Target Support Files/Pods-iCinema/Pods-iCinema.debug.xcconfig"; sourceTree = "<group>"; };
+		9ECB3E6E71A6E3654F6B2A69 /* Pods_iCinema.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCinema.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE18D7EA97EFF6D8CF2F7F0 /* Pods_iCinemaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCinemaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFCE4B63DC4EBA33B8DDC1E3 /* Pods-iCinema.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinema.release.xcconfig"; path = "Target Support Files/Pods-iCinema/Pods-iCinema.release.xcconfig"; sourceTree = "<group>"; };
+		D43966CC7E40DBDC8C2FE4DB /* Pods-iCinema-iCinemaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinema-iCinemaUITests.debug.xcconfig"; path = "Target Support Files/Pods-iCinema-iCinemaUITests/Pods-iCinema-iCinemaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D66994A36BFCFA9FED681ABE /* Pods-iCinemaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinemaTests.release.xcconfig"; path = "Target Support Files/Pods-iCinemaTests/Pods-iCinemaTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3FCE8735845D8DA095FF860 /* Pods_iCinemaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2538D3EC40C7C4D8A26A1CBC /* Pods_iCinema_iCinemaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */,
+				73861C232984351E0020A63B /* NewUserViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -122,6 +150,8 @@
 				73EC91A129834533002F3568 /* iCenemaTests */,
 				73EC91AB29834533002F3568 /* iCenemaUITests */,
 				73EC918929834531002F3568 /* Products */,
+				FAEEB825EAABE8876B06D960 /* Pods */,
+				C444E3212BA485B0616DCCCE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,9 +210,12 @@
 		73EC91BE2983460D002F3568 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				73EC91BF2983462E002F3568 /* ColorsManager.swift */,
 				73A30C9E29835A6800D672E6 /* Localizable */,
+				73EC91BF2983462E002F3568 /* ColorsManager.swift */,
 				73A30CB029835EE200D672E6 /* ImageManager.swift */,
+				73FED1E1298874CD00395727 /* FontManager.swift */,
+				73FED1DF29886B0600395727 /* Constants.swift */,
+				73FED1E32988750100395727 /* SizeManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -211,6 +244,8 @@
 			children = (
 				73EC91C1298348F5002F3568 /* BackgroundView.swift */,
 				73A30CB22983639000D672E6 /* iCinemaButton.swift */,
+				73861C2529843A170020A63B /* iCinemaTextField.swift */,
+				73FED1E52988854A00395727 /* RadioButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -223,6 +258,29 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C444E3212BA485B0616DCCCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9ECB3E6E71A6E3654F6B2A69 /* Pods_iCinema.framework */,
+				130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */,
+				ACE18D7EA97EFF6D8CF2F7F0 /* Pods_iCinemaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAEEB825EAABE8876B06D960 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98DBFEE5DA2DA7585F88DDC8 /* Pods-iCinema.debug.xcconfig */,
+				CFCE4B63DC4EBA33B8DDC1E3 /* Pods-iCinema.release.xcconfig */,
+				D43966CC7E40DBDC8C2FE4DB /* Pods-iCinema-iCinemaUITests.debug.xcconfig */,
+				2CFBF74A68AFC6696F4A77EC /* Pods-iCinema-iCinemaUITests.release.xcconfig */,
+				86F3F46257D3F5904BB5020D /* Pods-iCinemaTests.debug.xcconfig */,
+				D66994A36BFCFA9FED681ABE /* Pods-iCinemaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,9 +288,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73EC91B229834533002F3568 /* Build configuration list for PBXNativeTarget "iCinema" */;
 			buildPhases = (
+				3AC4F6E1695203F95D282547 /* [CP] Check Pods Manifest.lock */,
 				73EC918429834531002F3568 /* Sources */,
 				73EC918529834531002F3568 /* Frameworks */,
 				73EC918629834531002F3568 /* Resources */,
+				C2FDEA81834EA7F712FE0243 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -247,6 +307,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73EC91B529834533002F3568 /* Build configuration list for PBXNativeTarget "iCinemaTests" */;
 			buildPhases = (
+				13A57CB143429840B5C69CA2 /* [CP] Check Pods Manifest.lock */,
 				73EC919A29834533002F3568 /* Sources */,
 				73EC919B29834533002F3568 /* Frameworks */,
 				73EC919C29834533002F3568 /* Resources */,
@@ -265,9 +326,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73EC91B829834533002F3568 /* Build configuration list for PBXNativeTarget "iCinemaUITests" */;
 			buildPhases = (
+				933A5FD38024B0E1B7E9D46D /* [CP] Check Pods Manifest.lock */,
 				73EC91A429834533002F3568 /* Sources */,
 				73EC91A529834533002F3568 /* Frameworks */,
 				73EC91A629834533002F3568 /* Resources */,
+				7EF7A017FABE729C9A866414 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,7 +366,7 @@
 				};
 			};
 			buildConfigurationList = 73EC918329834531002F3568 /* Build configuration list for PBXProject "iCinema" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -350,24 +413,133 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13A57CB143429840B5C69CA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iCinemaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3AC4F6E1695203F95D282547 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iCinema-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EF7A017FABE729C9A866414 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iCinema-iCinemaUITests/Pods-iCinema-iCinemaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iCinema-iCinemaUITests/Pods-iCinema-iCinemaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iCinema-iCinemaUITests/Pods-iCinema-iCinemaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		933A5FD38024B0E1B7E9D46D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iCinema-iCinemaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2FDEA81834EA7F712FE0243 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iCinema/Pods-iCinema-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iCinema/Pods-iCinema-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iCinema/Pods-iCinema-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		73EC918429834531002F3568 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
+				73FED1E2298874CD00395727 /* FontManager.swift in Sources */,
 				73EC91BC29834569002F3568 /* ViewController.swift in Sources */,
 				73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */,
+				73FED1E42988750100395727 /* SizeManager.swift in Sources */,
+				73FED1E62988854A00395727 /* RadioButton.swift in Sources */,
 				73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
 				73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */,
 				73EC918C29834531002F3568 /* AppDelegate.swift in Sources */,
+				73FED1E029886B0600395727 /* Constants.swift in Sources */,
 				73EC91D629834D41002F3568 /* UIView+SizeConstraints.swift in Sources */,
 				73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */,
 				73EC91C02983462E002F3568 /* ColorsManager.swift in Sources */,
+				73861C2629843A170020A63B /* iCinemaTextField.swift in Sources */,
 				73EC91C2298348F5002F3568 /* BackgroundView.swift in Sources */,
 				73A30CB32983639000D672E6 /* iCinemaButton.swift in Sources */,
 				73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */,
+				73861C242984351E0020A63B /* NewUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +715,7 @@
 		};
 		73EC91B329834533002F3568 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98DBFEE5DA2DA7585F88DDC8 /* Pods-iCinema.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -555,8 +728,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -573,6 +745,7 @@
 		};
 		73EC91B429834533002F3568 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFCE4B63DC4EBA33B8DDC1E3 /* Pods-iCinema.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -585,8 +758,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -603,6 +775,7 @@
 		};
 		73EC91B629834533002F3568 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86F3F46257D3F5904BB5020D /* Pods-iCinemaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -623,6 +796,7 @@
 		};
 		73EC91B729834533002F3568 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D66994A36BFCFA9FED681ABE /* Pods-iCinemaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -643,6 +817,7 @@
 		};
 		73EC91B929834533002F3568 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D43966CC7E40DBDC8C2FE4DB /* Pods-iCinema-iCinemaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -661,6 +836,7 @@
 		};
 		73EC91BA29834533002F3568 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CFBF74A68AFC6696F4A77EC /* Pods-iCinema-iCinemaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

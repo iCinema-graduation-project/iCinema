@@ -8,7 +8,7 @@
 import UIKit
 
 class WelcomeViewController: ViewController {
-    // MARK: - Properties
+    // MARK: - Views
     //
     private let imageView: UIImageView = {
         let imageView = UIImageView(image: ImageManager.welcomeImage)
@@ -25,20 +25,16 @@ class WelcomeViewController: ViewController {
         return label
     }()
     
-    private let registerButton: iCinemaButton = {
-        let button = iCinemaButton()
-        button.setTitle(LanguageManager.register, for: .normal)
-        return button
-    }()
-    
+    private let registerButton: iCinemaButton = iCinemaButton(title: LanguageManager.register)
+        
     private let guestButton: iCinemaButton = {
-        let button = iCinemaButton()
-        button.setTitle(LanguageManager.guest, for: .normal)
-        button.setTitleColor(ColorManager.iCinemaReverce, for: .normal)
+        let button = iCinemaButton(title: LanguageManager.guest)
+        button.setTitleColor(ColorManager.iCinema, for: .normal)
         button.backgroundColor = .white
-        button.layer.shadowColor = ColorManager.iCinemaReverce?.cgColor
-        button.layer.shadowOpacity = 2
+        button.layer.shadowColor = ColorManager.iCinema?.cgColor
+        button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
+        
         return button
     }()
     
@@ -49,6 +45,8 @@ class WelcomeViewController: ViewController {
         addImageView()
         addDescriptionLabel()
         addRegisterAndGuestButtons()
+        
+        registerButton.addTarget(self, action: #selector(self.registerButtonTapped(_:)), for: .touchUpInside)
     }
     
     // MARK: = Helper methods
@@ -56,12 +54,12 @@ class WelcomeViewController: ViewController {
     private func addImageView() {
         view.addSubview(imageView)
         imageView.centerXInSuperview()
-        imageView.makeConstraints(topAnchor: view.topAnchor, padding: UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0))
+        imageView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor)
     }
     
     private func addDescriptionLabel() {
         view.addSubview(descreptionLabel)
-        descreptionLabel.widthConstraints(326)
+        descreptionLabel.widthConstraints(SizeManager.textWidth)        
         descreptionLabel.centerInSuperview()
     }
     
@@ -73,7 +71,13 @@ class WelcomeViewController: ViewController {
         
         view.addSubview(stackview)
         stackview.centerXInSuperview()
-        stackview.makeConstraints(bottomAnchor: view.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0))
+        stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0))
+    }
+    
+    // MARK: - Actions
+    //
+    @objc private func registerButtonTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(NewUserViewController(), animated: true)
     }
     
 }
