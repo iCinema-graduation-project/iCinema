@@ -13,6 +13,8 @@ struct AnchoredConstraints {
     var leading: NSLayoutConstraint?
     var bottom: NSLayoutConstraint?
     var trailing: NSLayoutConstraint?
+    var centerX: NSLayoutConstraint?
+    var centerY: NSLayoutConstraint?
     var width: NSLayoutConstraint?
     var height: NSLayoutConstraint?
 }
@@ -24,6 +26,8 @@ extension UIView {
           bottomAnchor: NSLayoutYAxisAnchor? = nil,
           leadingAnchor: NSLayoutXAxisAnchor? = nil,
           trailingAnchor: NSLayoutXAxisAnchor? = nil,
+          centerXAnchor: NSLayoutXAxisAnchor? = nil,
+          centerYAnchor: NSLayoutYAxisAnchor? = nil,
           padding: UIEdgeInsets = .zero,
           size: CGSize = .zero ) -> AnchoredConstraints {
               
@@ -49,8 +53,19 @@ extension UIView {
             }
                   
             // If a trailing anchor is provided, create a constraint for the trailing edge of the view
+
             if let trailingAnchor = trailingAnchor {
                 anchoredConstraints.trailing = self.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding.right)
+            }
+              
+            // If a centerX anchor is provided, create a constraint for the centerX of the view
+            if let centerXAnchor = centerXAnchor {
+                anchoredConstraints.centerX = self.centerXAnchor.constraint(equalTo: centerXAnchor)
+            }
+            
+            // If a centerY anchor is provided, create a constraint for the centerY of the view
+            if let centerYAnchor = centerYAnchor {
+                anchoredConstraints.centerY = self.centerYAnchor.constraint(equalTo: centerYAnchor)
             }
             
             // If a width value is provided, create a constraint for the width of the view
@@ -64,7 +79,7 @@ extension UIView {
             }
 
             // Activate all of the constraints
-            [anchoredConstraints.top, anchoredConstraints.leading, anchoredConstraints.bottom, anchoredConstraints.trailing, anchoredConstraints.width, anchoredConstraints.height].forEach { $0?.isActive = true }
+              [anchoredConstraints.top, anchoredConstraints.leading, anchoredConstraints.bottom, anchoredConstraints.trailing, anchoredConstraints.width, anchoredConstraints.height, anchoredConstraints.centerX, anchoredConstraints.centerY].forEach { $0?.isActive = true }
 
             // Return the anchoredConstraints instance
             return anchoredConstraints

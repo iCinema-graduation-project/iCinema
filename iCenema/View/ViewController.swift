@@ -24,6 +24,10 @@ class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
         backgroundView.frame = self.view.bounds
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
 }
 

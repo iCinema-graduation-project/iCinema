@@ -1,0 +1,6 @@
+framework module Pods_iCinema {
+  umbrella header "Pods-iCinema-umbrella.h"
+
+  export *
+  module * { export * }
+}

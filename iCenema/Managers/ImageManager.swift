@@ -9,4 +9,6 @@ import UIKit
 
 struct ImageManager {
     static let welcomeImage: UIImage? = UIImage(named: "welcomeImage")
+    static let female: UIImage? = UIImage(named: "female")
+    static let male:UIImage? = UIImage(named: "male")
 }

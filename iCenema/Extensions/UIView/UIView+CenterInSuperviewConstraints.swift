@@ -7,36 +7,52 @@
 
 import UIKit
 
+
 extension UIView {
-    func centerInSuperview(size: CGSize = .zero) {
+    
+    @discardableResult
+    func centerInSuperview(size: CGSize = .zero) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchoredConstraints = AnchoredConstraints()
+
         if let superview = superview {
-            centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
-            centerYAnchor.constraint(equalTo: superview.centerYAnchor).isActive = true
+            anchoredConstraints.centerX = centerXAnchor.constraint(equalTo: superview.centerXAnchor)
+            anchoredConstraints.centerY = centerYAnchor.constraint(equalTo: superview.centerYAnchor)
         }
         
         if size.width != 0 {
-            widthAnchor.constraint(equalToConstant: size.width).isActive = true
+            anchoredConstraints.width = widthAnchor.constraint(equalToConstant: size.width)
         }
         
         if size.height != 0 {
-            heightAnchor.constraint(equalToConstant: size.height).isActive = true
+            anchoredConstraints.height = heightAnchor.constraint(equalToConstant: size.height)
         }
+        
+        [anchoredConstraints.centerX, anchoredConstraints.centerY, anchoredConstraints.width, anchoredConstraints.height].forEach{$0?.isActive = true}
+
+        return anchoredConstraints
     }
     
-    func centerXInSuperview() {
+    @discardableResult
+    func centerXInSuperview() -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
-            centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
-            
+            let constraint = centerXAnchor.constraint(equalTo: superview.centerXAnchor)
+            constraint.isActive = true
+            return constraint
         }
+        return nil
     }
-    func centerYInSuperview() {
+    
+    @discardableResult
+    func centerYInSuperview() -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
          if let superview = superview {
-             centerYAnchor.constraint(equalTo: superview.centerYAnchor).isActive = true
+             let constraint = centerYAnchor.constraint(equalTo: superview.centerYAnchor)
+             constraint.isActive = true
+             return constraint
          }
-        
+        return nil
     }
-
 }
