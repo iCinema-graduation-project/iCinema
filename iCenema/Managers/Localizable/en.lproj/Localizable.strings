@@ -9,7 +9,20 @@
 
 
 "welecomeDescriptionLabel" = "iCinema provides you with a unique experience to know everything related to movies, you can watch, book, and search for everything you want";
-
 "register" = "Register";
 "guest" = "Guest";
-
+"phoneDescriptionLabel" = "Enter your country code and your phone number";
+"country" = "Country";
+"phoneNumber" = "Phone Number";
+"getCode" = "Get Code";
+"newUserDescriptionLabel" = "You do not have an account, please complete your information to have one ";
+"fullName" = "Full Name";
+"age" = "Age";
+"gender" = "Gender";
+"female" = "Female";
+"male" = "Male";
+"createAccount" = "Create Account";
+"otpDescriptionLabel" = "We have sent you access code via SMS for phone number verification";
+"confirm" = "Confirm";
+"newUser" = "New User";
+"verification" = "Verification";

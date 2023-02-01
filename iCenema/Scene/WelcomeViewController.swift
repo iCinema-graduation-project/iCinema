@@ -77,7 +77,7 @@ class WelcomeViewController: ViewController {
     // MARK: - Actions
     //
     @objc private func registerButtonTapped(_ sender: UIButton) {
-        navigationController?.pushViewController(NewUserViewController(), animated: true)
+        navigationController?.pushViewController(PhoneViewController(), animated: true)
     }
     
 }

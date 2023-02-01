@@ -31,7 +31,7 @@ class NewUserViewController: ViewController {
     /// Description Label
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "You do not have an account, please complete your information to have one "
+        label.text = LanguageManager.newUserDescriptionLabel
         label.tintColor = ColorManager.textColor
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -47,17 +47,17 @@ class NewUserViewController: ViewController {
         return stackView
     }()
     
-    private let fullNameTextField: iTextField = iTextField(placeholder: "Full Name")
+    private let fullNameTextField: iTextField = iTextField(placeholder: LanguageManager.fullName)
     
     private let ageTextField: iTextField = {
-        let ageField = iTextField(placeholder: "Age")
+        let ageField = iTextField(placeholder: LanguageManager.age)
         ageField.keyboardType = .numberPad
         return ageField
     }()
     
     /// Gender Select
     private let genderView: iTextField = {
-        let textfield = iTextField(placeholder: "Gender")
+        let textfield = iTextField(placeholder: LanguageManager.gender)
         textfield.text = "."
         textfield.isEnabled = false
         textfield.setState(.normal, for: .disabled)
@@ -67,13 +67,13 @@ class NewUserViewController: ViewController {
     
     private let femaleButton: RadioButton = {
         let button = RadioButton()
-        button.setTitle("Female", for: .normal)
+        button.setTitle(LanguageManager.female, for: .normal)
         return button
     }()
     
     private let maleButton: RadioButton = {
         let button = RadioButton()
-        button.setTitle("Male", for: .normal)
+        button.setTitle(LanguageManager.male, for: .normal)
         return button
     }()
     
@@ -86,7 +86,7 @@ class NewUserViewController: ViewController {
     }()
     
     /// Create Account Button
-    private let createAccountButton = iCinemaButton(title: "Create Account")
+    private let createAccountButton = iCinemaButton(title: LanguageManager.createAccount)
     
     
     // MARK: - Properties
@@ -96,10 +96,13 @@ class NewUserViewController: ViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addDescriptionLabel()
-        self.addTextFieldsStackView()
-        self.addGenderStackView()
-        self.addCreateAccountButton()
+        addDescriptionLabel()
+        addTextFieldsStackView()
+        addGenderStackView()
+        addCreateAccountButton()
+        
+        self.addNavigationTitleView(title: LanguageManager.newUser)
+        
     }
     
     // MARK: - Helper Functions

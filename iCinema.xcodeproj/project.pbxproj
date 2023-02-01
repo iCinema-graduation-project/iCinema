@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2538D3EC40C7C4D8A26A1CBC /* Pods_iCinema_iCinemaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */; };
+		7325B8732988B7FA0009B8EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7325B8722988B7FA0009B8EC /* README.md */; };
 		73861C242984351E0020A63B /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* NewUserViewController.swift */; };
 		73861C2629843A170020A63B /* iCinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* iCinemaTextField.swift */; };
 		73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73A30CA929835B1F00D672E6 /* Localizable.strings */; };
@@ -15,6 +16,7 @@
 		73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */; };
 		73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB029835EE200D672E6 /* ImageManager.swift */; };
 		73A30CB32983639000D672E6 /* iCinemaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB22983639000D672E6 /* iCinemaButton.swift */; };
+		73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFEFA12989EFA600969452 /* OTPViewController.swift */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
 		73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918D29834531002F3568 /* SceneDelegate.swift */; };
 		73EC919529834533002F3568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919429834533002F3568 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 		73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C829834D41002F3568 /* UIView+MakeConstraints.swift */; };
 		73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C929834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift */; };
 		73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91CA29834D41002F3568 /* UIView+FillSuperviewConstraints.swift */; };
+		73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0BC062989C4D800742BA2 /* PhoneViewController.swift */; };
+		73F0BC172989D24600742BA2 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 73F0BC162989D24600742BA2 /* CountryPickerView */; };
 		73FED1E029886B0600395727 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1DF29886B0600395727 /* Constants.swift */; };
 		73FED1E2298874CD00395727 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1E1298874CD00395727 /* FontManager.swift */; };
 		73FED1E42988750100395727 /* SizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1E32988750100395727 /* SizeManager.swift */; };
@@ -57,6 +61,7 @@
 /* Begin PBXFileReference section */
 		130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCinema_iCinemaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFBF74A68AFC6696F4A77EC /* Pods-iCinema-iCinemaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinema-iCinemaUITests.release.xcconfig"; path = "Target Support Files/Pods-iCinema-iCinemaUITests/Pods-iCinema-iCinemaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7325B8722988B7FA0009B8EC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		73861C232984351E0020A63B /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		73861C2529843A170020A63B /* iCinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCinemaTextField.swift; sourceTree = "<group>"; };
 		73A30CA429835B0200D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -66,6 +71,7 @@
 		73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		73A30CB029835EE200D672E6 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		73A30CB22983639000D672E6 /* iCinemaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCinemaButton.swift; sourceTree = "<group>"; };
+		73BFEFA12989EFA600969452 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC918B29834531002F3568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73EC918D29834531002F3568 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 		73EC91C829834D41002F3568 /* UIView+MakeConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+MakeConstraints.swift"; sourceTree = "<group>"; };
 		73EC91C929834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CenterInSuperviewConstraints.swift"; sourceTree = "<group>"; };
 		73EC91CA29834D41002F3568 /* UIView+FillSuperviewConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FillSuperviewConstraints.swift"; sourceTree = "<group>"; };
+		73F0BC062989C4D800742BA2 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		73FED1DF29886B0600395727 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		73FED1E1298874CD00395727 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		73FED1E32988750100395727 /* SizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeManager.swift; sourceTree = "<group>"; };
@@ -102,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73F0BC172989D24600742BA2 /* CountryPickerView in Frameworks */,
 				DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */,
+				73F0BC062989C4D800742BA2 /* PhoneViewController.swift */,
+				73BFEFA12989EFA600969452 /* OTPViewController.swift */,
 				73861C232984351E0020A63B /* NewUserViewController.swift */,
 			);
 			path = Scene;
@@ -146,6 +156,7 @@
 		73EC917F29834531002F3568 = {
 			isa = PBXGroup;
 			children = (
+				7325B8722988B7FA0009B8EC /* README.md */,
 				73EC918A29834531002F3568 /* iCenema */,
 				73EC91A129834533002F3568 /* iCenemaTests */,
 				73EC91AB29834533002F3568 /* iCenemaUITests */,
@@ -299,6 +310,9 @@
 			dependencies = (
 			);
 			name = iCinema;
+			packageProductDependencies = (
+				73F0BC162989D24600742BA2 /* CountryPickerView */,
+			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
 			productType = "com.apple.product-type.application";
@@ -375,6 +389,9 @@
 				ar,
 			);
 			mainGroup = 73EC917F29834531002F3568;
+			packageReferences = (
+				73F0BC152989D24600742BA2 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
+			);
 			productRefGroup = 73EC918929834531002F3568 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -393,6 +410,7 @@
 			files = (
 				73EC919829834533002F3568 /* LaunchScreen.storyboard in Resources */,
 				73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */,
+				7325B8732988B7FA0009B8EC /* README.md in Resources */,
 				73EC919529834533002F3568 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
+				73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */,
 				73FED1E2298874CD00395727 /* FontManager.swift in Sources */,
 				73EC91BC29834569002F3568 /* ViewController.swift in Sources */,
 				73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */,
@@ -532,6 +551,7 @@
 				73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */,
 				73EC918C29834531002F3568 /* AppDelegate.swift in Sources */,
 				73FED1E029886B0600395727 /* Constants.swift in Sources */,
+				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,
 				73EC91D629834D41002F3568 /* UIView+SizeConstraints.swift in Sources */,
 				73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */,
 				73EC91C02983462E002F3568 /* ColorsManager.swift in Sources */,
@@ -893,6 +913,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		73F0BC152989D24600742BA2 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		73F0BC162989D24600742BA2 /* CountryPickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73F0BC152989D24600742BA2 /* XCRemoteSwiftPackageReference "CountryPickerView" */;
+			productName = CountryPickerView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 73EC918029834531002F3568 /* Project object */;
 }

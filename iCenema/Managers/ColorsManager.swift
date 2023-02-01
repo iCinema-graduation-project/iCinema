@@ -10,5 +10,5 @@ import UIKit
 struct ColorManager {
     static let iCinema = UIColor(named: "iCinema")
     static let iCinemaReverce = UIColor(named: "iCinemaReverce")
-    static let textColor = UIColor(named: "textColor")
+    static let textColor: UIColor = UIColor(named: "textColor") ?? .label
 }

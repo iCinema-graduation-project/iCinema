@@ -9,4 +9,21 @@
 "welecomeDescriptionLabel" = "توفر لك iCinema تجربة فريدة لمعرفة كل ما يتعلق بالأفلام ، يمكنك مشاهدة كل ما تريده وحجزه والبحث عنه";
 "register" = "دخول";
 "guest" = "ضيف";
+"phoneDescriptionLabel" = "أدخل رمز بلدك ورقم هاتفك";
+"country" = "الدوله";
+"phoneNumber" = "رقم الهاتف";
+"getCode" = "احصل على الرمز";
+"newUserDescriptionLabel" = "ليس لديك حساب ، يرجى استكمال المعلومات الخاصة بك للحصول على حساب";
+"fullName" = "الاسم بالكامل";
+"age" = "العمر";
+"gender" = "ذكر او انثي";
+"female" = "أنثى";
+"male" = "ذكر";
+"createAccount" = "إنشاء حساب";
+"otpDescriptionLabel" = "لقد أرسلنا لك رمز الدخول عبر الرسائل القصيرة للتحقق من رقم الهاتف";
+"confirm" = "تأكيد";
+"newUser" = "مستخدم جديد";
+"verification" = "تَحَقّق";
+
+
 

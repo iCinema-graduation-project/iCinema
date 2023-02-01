@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addBackgroundView()
+        addBackgroundView()
+        configureNavegationControllar()
     }
     
     override func viewDidLayoutSubviews() {
@@ -27,6 +28,29 @@ class ViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    
+    // MARK: - Helper Functions
+    //
+    
+    private func configureNavegationControllar() {
+        navigationController?.navigationBar.tintColor = ColorManager.textColor
+        navigationItem.backButtonTitle = ""
+        navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.backward.square")
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "chevron.backward.square")
+      
+    }
+    
+    public func addNavigationTitleView(title: String) {
+        let label = UILabel()
+        label.text = title
+        label.textColor = ColorManager.textColor
+        navigationItem.titleView = label
+    }
+    
+    public func addNavigationTitleView(view: UIView) {
+        
     }
 
 }

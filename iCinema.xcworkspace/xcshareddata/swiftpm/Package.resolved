@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "countrypickerview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kizitonwose/CountryPickerView.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "711740bcca36626c99a4901c8fc9fbc880a2debb"
+      }
+    }
+  ],
+  "version" : 2
+}
