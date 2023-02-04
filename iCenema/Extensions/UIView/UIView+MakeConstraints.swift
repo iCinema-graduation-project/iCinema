@@ -60,12 +60,12 @@ extension UIView {
               
             // If a centerX anchor is provided, create a constraint for the centerX of the view
             if let centerXAnchor = centerXAnchor {
-                anchoredConstraints.centerX = self.centerXAnchor.constraint(equalTo: centerXAnchor)
+                anchoredConstraints.centerX = self.centerXAnchor.constraint(equalTo: centerXAnchor, constant: padding.right > 0 ? -padding.right : padding.left)
             }
             
             // If a centerY anchor is provided, create a constraint for the centerY of the view
             if let centerYAnchor = centerYAnchor {
-                anchoredConstraints.centerY = self.centerYAnchor.constraint(equalTo: centerYAnchor)
+                anchoredConstraints.centerY = self.centerYAnchor.constraint(equalTo: centerYAnchor, constant: padding.top > 0 ? padding.top : -padding.bottom)
             }
             
             // If a width value is provided, create a constraint for the width of the view

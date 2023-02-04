@@ -17,13 +17,17 @@ class ViewController: UIViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBackgroundView()
         configureNavegationControllar()
+        
+        self.backgroundView = UIBackgroundView()
+//        self.view.addSubview(self.backgroundView)
+        view.backgroundColor =  UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1.0)
+
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        backgroundView.frame = self.view.bounds
+//        backgroundView.frame = self.view.bounds
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -33,7 +37,6 @@ class ViewController: UIViewController {
     
     // MARK: - Helper Functions
     //
-    
     private func configureNavegationControllar() {
         navigationController?.navigationBar.tintColor = ColorManager.textColor
         navigationItem.backButtonTitle = ""
@@ -55,13 +58,3 @@ class ViewController: UIViewController {
 
 }
 
-// MARK: - Add background view
-//
-extension ViewController {
-    private func addBackgroundView(){
-        let hostingController = UIHostingController(rootView: BackgroundView())
-        guard let backgroundView = hostingController.view else { return}
-        self.backgroundView = backgroundView
-        self.view.addSubview(backgroundView)
-    }
-}

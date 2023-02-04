@@ -8,6 +8,22 @@
 import SwiftUI
 import UIKit
 
+
+class UIBackgroundView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        let hostingController = UIHostingController(rootView: BackgroundView())
+        guard let backgroundView = hostingController.view else { return }
+        addSubview(backgroundView)
+        backgroundView.fillSuperviewConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
 struct BackgroundView: View {
     @State var animate: Bool = false
     @Environment(\.colorScheme) var colorScheme: ColorScheme
