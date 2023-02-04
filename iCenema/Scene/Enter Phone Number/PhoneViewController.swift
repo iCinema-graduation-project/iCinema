@@ -31,7 +31,7 @@ class PhoneViewController:  ViewController {
         return stackView
     }()
     
-    /// Country Select
+    /// Select Country
     private let countryView: iTextField = {
         let textfield = iTextField(placeholder: LanguageManager.country)
         textfield.text = "."
@@ -58,17 +58,38 @@ class PhoneViewController:  ViewController {
     /// button
     private let getCodeButton = iCinemaButton(title: LanguageManager.getCode)
     
+    // MARK: - Properites
+    //
+    lazy var viewModel: PhoneViewModelTypes = PhoneViewModel(onPhoneNumberChanged: { isValid in
+        if isValid {
+            self.phoneNumberTextField.setState(.success, for: .editing)
+            self.phoneNumberTextField.setState(.normal, for: .normal)
+
+        }else {
+            self.phoneNumberTextField.setState(.fail, with: "The Phone number is not valid", for: .editing)
+            self.phoneNumberTextField.setState(.fail, with: "The Phone number is not valid", for: .normal)
+
+        }
+    })
+
+    
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addNavigationTitleView(title: LanguageManager.register)
+        
+        phoneNumberTextField.delegate = self
+        phoneNumberTextField.addTarget(self, action: #selector(self.phoneNumberTextFieldEditingChanged(_:)), for: .editingChanged)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         addDescriptionLabel()
         addTextFieldsStackView()
         addCountryPickerView()
         addGetCodeButton()
-        self.addNavigationTitleView(title: LanguageManager.register)
         
-        getCodeButton.addTarget(self, action: #selector(self.getCodeButtonTapped(_:)), for: .touchUpInside)
     }
     
     // MARK: - Helper Functions
@@ -96,8 +117,6 @@ class PhoneViewController:  ViewController {
         countryPickerView.makeConstraints(leadingAnchor: countryView.leadingAnchor , centerYAnchor: countryView.centerYAnchor,
                                           padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
         countryPickerView.hostViewController = self
-        countryPickerView.delegate = self
-        countryPickerView.dataSource = self
     }
 
     private func addGetCodeButton(){
@@ -105,27 +124,32 @@ class PhoneViewController:  ViewController {
         getCodeButton.centerXInSuperview()
         getCodeButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
                                       padding: UIEdgeInsets(top: 0, left: 0, bottom: SizeManager.viewPadding, right: 0))
+        getCodeButton.addTarget(self, action: #selector(self.getCodeButtonTapped(_:)), for: .touchUpInside)
+
     }
     
-    // MARK: - Action
+    // MARK: - Actions
+    //
     @objc private func getCodeButtonTapped(_ sender: iCinemaButton){
-        navigationController?.pushViewController(OTPViewController(), animated: true)
-
+        sender.addAnimate {
+            self.navigationController?.pushViewController(OTPViewController(), animated: true)
+        }
     }
-
+    
+    @objc private func phoneNumberTextFieldEditingChanged(_ sender: iTextField) {
+        self.viewModel.inputs.didChange(phoneNumber: sender.text!)
+    }
+    
 }
 
 
-extension PhoneViewController: CountryPickerViewDelegate {
-    func countryPickerView(_ countryPickerView: CountryPickerView, didSelectCountry country: CPVCountry) {
-        print(country)
+extension PhoneViewController : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        return prospectiveText.count <= 11
     }
 }
 
-extension PhoneViewController: CountryPickerViewDataSource {
-    func preferredCountries(in countryPickerView: CountryPickerView) -> [Country] {
-        let egp = countryPickerView.getCountryByCode("EG")!
 
-        return [egp]
-    }
-}
+

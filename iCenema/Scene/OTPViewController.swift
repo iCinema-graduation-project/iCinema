@@ -79,7 +79,9 @@ class OTPViewController: ViewController {
     // MARK: - Actions
     //
     @objc private func confirmButtonTapped(_ sender: iCinemaButton) {
-        navigationController?.pushViewController(NewUserViewController(), animated: true)
+        sender.addAnimate {
+            self.navigationController?.pushViewController(NewUserViewController(), animated: true)
+        }
     }
     
 }

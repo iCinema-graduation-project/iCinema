@@ -8,7 +8,7 @@
 import UIKit
 
 
-extension UIView {
+public extension UIView {
     
     @discardableResult
     func centerInSuperview(size: CGSize = .zero) -> AnchoredConstraints {

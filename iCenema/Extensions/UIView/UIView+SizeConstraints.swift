@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView{
+public extension UIView{
     func widthConstraints(_ constant: CGFloat) {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: constant).isActive = true

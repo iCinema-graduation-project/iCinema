@@ -142,9 +142,6 @@ class NewUserViewController: ViewController {
 
 
 
-
-
-
 struct NewUserView: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = UIViewController

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct AnchoredConstraints {
+public struct AnchoredConstraints {
     // These properties store the constraints for the edges and size of the view
     var top: NSLayoutConstraint?
     var leading: NSLayoutConstraint?
@@ -18,10 +18,10 @@ struct AnchoredConstraints {
     var width: NSLayoutConstraint?
     var height: NSLayoutConstraint?
 }
-extension UIView {
+public extension UIView {
     // This method creates constraints for the edges and size of the view
     @discardableResult
-      func makeConstraints(
+    func makeConstraints(
           topAnchor: NSLayoutYAxisAnchor? = nil,
           bottomAnchor: NSLayoutYAxisAnchor? = nil,
           leadingAnchor: NSLayoutXAxisAnchor? = nil,

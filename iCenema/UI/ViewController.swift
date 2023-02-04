@@ -20,14 +20,19 @@ class ViewController: UIViewController {
         configureNavegationControllar()
         
         self.backgroundView = UIBackgroundView()
-//        self.view.addSubview(self.backgroundView)
-        view.backgroundColor =  UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1.0)
+        self.view.addSubview(self.backgroundView)
+//        view.backgroundColor =  UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1.0)
 
+        let mediumGenerator = UIImpactFeedbackGenerator(style: .medium)
+        mediumGenerator.impactOccurred()
+        
+//        view.addSubview(mediumGenerator)
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        backgroundView.frame = self.view.bounds
+        backgroundView.frame = self.view.bounds
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

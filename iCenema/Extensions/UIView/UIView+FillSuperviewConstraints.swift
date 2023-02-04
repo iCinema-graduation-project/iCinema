@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView{
+public extension UIView{
     
     func fillSuperviewConstraints(_ padding: UIEdgeInsets = .zero) {
         self.fillYSuperViewConstraints(paddingTop: padding.top, paddingBottom: padding.bottom)
