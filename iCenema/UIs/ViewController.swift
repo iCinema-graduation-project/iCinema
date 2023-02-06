@@ -21,13 +21,7 @@ class ViewController: UIViewController {
         
         self.backgroundView = UIBackgroundView()
         self.view.addSubview(self.backgroundView)
-//        view.backgroundColor =  UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1.0)
-
-        let mediumGenerator = UIImpactFeedbackGenerator(style: .medium)
-        mediumGenerator.impactOccurred()
-        
-//        view.addSubview(mediumGenerator)
-        
+  
     }
     
     override func viewDidLayoutSubviews() {
@@ -39,15 +33,15 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    
     // MARK: - Helper Functions
     //
     private func configureNavegationControllar() {
         navigationController?.navigationBar.tintColor = ColorManager.textColor
         navigationItem.backButtonTitle = ""
+        
+        // change navigarionBar back button Image
         navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.backward.square")
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "chevron.backward.square")
-      
     }
     
     public func addNavigationTitleView(title: String) {
@@ -58,7 +52,7 @@ class ViewController: UIViewController {
     }
     
     public func addNavigationTitleView(view: UIView) {
-        
+        navigationItem.titleView = view
     }
 
 }

@@ -60,17 +60,7 @@ class PhoneViewController:  ViewController {
     
     // MARK: - Properites
     //
-    lazy var viewModel: PhoneViewModelTypes = PhoneViewModel(onPhoneNumberChanged: { isValid in
-        if isValid {
-            self.phoneNumberTextField.setState(.success, for: .editing)
-            self.phoneNumberTextField.setState(.normal, for: .normal)
-
-        }else {
-            self.phoneNumberTextField.setState(.fail, with: "The Phone number is not valid", for: .editing)
-            self.phoneNumberTextField.setState(.fail, with: "The Phone number is not valid", for: .normal)
-
-        }
-    })
+    var viewModel: PhoneViewModelTypes = PhoneViewModel()
 
     
     // MARK: - Life Cycle
@@ -78,19 +68,17 @@ class PhoneViewController:  ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavigationTitleView(title: LanguageManager.register)
-        
-        phoneNumberTextField.delegate = self
-        phoneNumberTextField.addTarget(self, action: #selector(self.phoneNumberTextFieldEditingChanged(_:)), for: .editingChanged)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         addDescriptionLabel()
         addTextFieldsStackView()
         addCountryPickerView()
         addGetCodeButton()
+        self.bindViewModelOutput()
+        self.bindViewModelInput()
+
+        phoneNumberTextField.delegate = self
         
     }
+    
     
     // MARK: - Helper Functions
     //
@@ -125,7 +113,7 @@ class PhoneViewController:  ViewController {
         getCodeButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
                                       padding: UIEdgeInsets(top: 0, left: 0, bottom: SizeManager.viewPadding, right: 0))
         getCodeButton.addTarget(self, action: #selector(self.getCodeButtonTapped(_:)), for: .touchUpInside)
-
+        getCodeButton.isEnabled = false
     }
     
     // MARK: - Actions
@@ -135,14 +123,10 @@ class PhoneViewController:  ViewController {
             self.navigationController?.pushViewController(OTPViewController(), animated: true)
         }
     }
-    
-    @objc private func phoneNumberTextFieldEditingChanged(_ sender: iTextField) {
-        self.viewModel.inputs.didChange(phoneNumber: sender.text!)
-    }
-    
 }
 
 
+// MARK: - UITextFieldDelegate
 extension PhoneViewController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
@@ -151,5 +135,35 @@ extension PhoneViewController : UITextFieldDelegate {
     }
 }
 
+// MARK: - Bind ViewModel Output
+//
+extension PhoneViewController {
+    private func bindViewModelOutput() {
+        viewModel.output.onPhoneNumberChanged { isValid in
+            if isValid {
+                self.phoneNumberTextField.setState(.success, for: .editing)
+                self.phoneNumberTextField.setState(.normal, for: .normal)
+                self.getCodeButton.isEnabled = true
+
+            }else {
+                self.phoneNumberTextField.setState(.fail, with: "The Phone number is not valid", for: .editing)
+                self.phoneNumberTextField.setState(.fail, with: "The Phone number is not valid", for: .normal)
+                self.getCodeButton.isEnabled = false
+            }
+        }
+    }
+}
+
+// MARK: - Bind ViewModel Input
+//
+extension PhoneViewController {
+    private func bindViewModelInput() {
+        phoneNumberTextField.addTarget(self, action: #selector(self.phoneNumberTextFieldEditingChanged(_:)), for: .editingChanged)
+    }
+    
+    @objc private func phoneNumberTextFieldEditingChanged(_ sender: iTextField) {
+        self.viewModel.inputs.didChange(phoneNumber: sender.text!)
+    }
+}
 
 

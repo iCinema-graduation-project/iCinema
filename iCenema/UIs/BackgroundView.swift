@@ -12,10 +12,12 @@ import UIKit
 class UIBackgroundView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         let hostingController = UIHostingController(rootView: BackgroundView())
         guard let backgroundView = hostingController.view else { return }
         addSubview(backgroundView)
         backgroundView.fillSuperviewConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -40,19 +42,15 @@ struct BackgroundView: View {
                 }
 
             CircleBackground(color: Color("circle2"))
-
                 .blur(radius: animate ? 30 : 100)
                 .offset(x: animate ? 30 : 130, y: animate ? 30 : 100)
 
             if colorScheme == .dark {
                 VisualEffect(style: .systemChromeMaterialDark)
                     .ignoresSafeArea()
-
-
             } else{
                 VisualEffect(style: .regular)
                     .ignoresSafeArea()
-
             }
 
             VStack(spacing: 30.0) {}

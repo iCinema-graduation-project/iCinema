@@ -10,9 +10,11 @@
 		2538D3EC40C7C4D8A26A1CBC /* Pods_iCinema_iCinemaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */; };
 		730FA8E7298ED92C00F3B955 /* UIView+addAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FA8E6298ED92C00F3B955 /* UIView+addAnimate.swift */; };
 		7325B8732988B7FA0009B8EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7325B8722988B7FA0009B8EC /* README.md */; };
+		733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733116B72990A9AE00EFD002 /* OTPViewModel.swift */; };
 		736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736674E4298EE37C009CA617 /* PhoneViewModel.swift */; };
 		73861C242984351E0020A63B /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* NewUserViewController.swift */; };
 		73861C2629843A170020A63B /* iCinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* iCinemaTextField.swift */; };
+		73975B0D299080D000AD955C /* UICollectionView+SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73975B0C299080D000AD955C /* UICollectionView+SectionType.swift */; };
 		73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73A30CA929835B1F00D672E6 /* Localizable.strings */; };
 		73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAB29835B4000D672E6 /* LanguageManager.swift */; };
 		73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */; };
@@ -33,6 +35,10 @@
 		73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C829834D41002F3568 /* UIView+MakeConstraints.swift */; };
 		73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C929834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift */; };
 		73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91CA29834D41002F3568 /* UIView+FillSuperviewConstraints.swift */; };
+		73EF78B1298F2AF400A5DF2D /* CollectionViewSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EF78B0298F2AF400A5DF2D /* CollectionViewSectionType.swift */; };
+		73EF78B8298F3E5100A5DF2D /* UICollectionViewCell+identifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EF78B7298F3E5100A5DF2D /* UICollectionViewCell+identifer.swift */; };
+		73EF78BC298F3EC900A5DF2D /* UICollectionView+register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EF78BA298F3EC900A5DF2D /* UICollectionView+register.swift */; };
+		73EF78BD298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EF78BB298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift */; };
 		73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0BC062989C4D800742BA2 /* PhoneViewController.swift */; };
 		73F0BC172989D24600742BA2 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 73F0BC162989D24600742BA2 /* CountryPickerView */; };
 		73F39A69298DF77400C68EFB /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F39A68298DF77400C68EFB /* CustomTabBarController.swift */; };
@@ -66,9 +72,11 @@
 		2CFBF74A68AFC6696F4A77EC /* Pods-iCinema-iCinemaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinema-iCinemaUITests.release.xcconfig"; path = "Target Support Files/Pods-iCinema-iCinemaUITests/Pods-iCinema-iCinemaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		730FA8E6298ED92C00F3B955 /* UIView+addAnimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addAnimate.swift"; sourceTree = "<group>"; };
 		7325B8722988B7FA0009B8EC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		733116B72990A9AE00EFD002 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		736674E4298EE37C009CA617 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		73861C232984351E0020A63B /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		73861C2529843A170020A63B /* iCinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCinemaTextField.swift; sourceTree = "<group>"; };
+		73975B0C299080D000AD955C /* UICollectionView+SectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+SectionType.swift"; sourceTree = "<group>"; };
 		73A30CA429835B0200D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		73A30CA829835B1F00D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73A30CAA29835B2500D672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -95,6 +103,10 @@
 		73EC91C829834D41002F3568 /* UIView+MakeConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+MakeConstraints.swift"; sourceTree = "<group>"; };
 		73EC91C929834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CenterInSuperviewConstraints.swift"; sourceTree = "<group>"; };
 		73EC91CA29834D41002F3568 /* UIView+FillSuperviewConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FillSuperviewConstraints.swift"; sourceTree = "<group>"; };
+		73EF78B0298F2AF400A5DF2D /* CollectionViewSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSectionType.swift; sourceTree = "<group>"; };
+		73EF78B7298F3E5100A5DF2D /* UICollectionViewCell+identifer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+identifer.swift"; sourceTree = "<group>"; };
+		73EF78BA298F3EC900A5DF2D /* UICollectionView+register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+register.swift"; sourceTree = "<group>"; };
+		73EF78BB298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeReusable.swift"; sourceTree = "<group>"; };
 		73F0BC062989C4D800742BA2 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		73F39A68298DF77400C68EFB /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		73FED1DF29886B0600395727 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -139,13 +151,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		736674E3298EE27B009CA617 /* Enter Phone Number */ = {
+		733116B62990A99600EFD002 /* OTP */ = {
+			isa = PBXGroup;
+			children = (
+				73BFEFA12989EFA600969452 /* OTPViewController.swift */,
+				733116B72990A9AE00EFD002 /* OTPViewModel.swift */,
+			);
+			path = OTP;
+			sourceTree = "<group>";
+		};
+		733116B92990B43000EFD002 /* New User */ = {
+			isa = PBXGroup;
+			children = (
+				73861C232984351E0020A63B /* NewUserViewController.swift */,
+			);
+			path = "New User";
+			sourceTree = "<group>";
+		};
+		736674E3298EE27B009CA617 /* Phone Number */ = {
 			isa = PBXGroup;
 			children = (
 				73F0BC062989C4D800742BA2 /* PhoneViewController.swift */,
 				736674E4298EE37C009CA617 /* PhoneViewModel.swift */,
 			);
-			path = "Enter Phone Number";
+			path = "Phone Number";
 			sourceTree = "<group>";
 		};
 		73A30C9E29835A6800D672E6 /* Localizable */ = {
@@ -157,15 +186,15 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
-		73A30CAD29835D2500D672E6 /* Scene */ = {
+		73A30CAD29835D2500D672E6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */,
-				736674E3298EE27B009CA617 /* Enter Phone Number */,
-				73BFEFA12989EFA600969452 /* OTPViewController.swift */,
-				73861C232984351E0020A63B /* NewUserViewController.swift */,
+				736674E3298EE27B009CA617 /* Phone Number */,
+				733116B62990A99600EFD002 /* OTP */,
+				733116B92990B43000EFD002 /* New User */,
 			);
-			path = Scene;
+			path = Base;
 			sourceTree = "<group>";
 		};
 		73EC917F29834531002F3568 = {
@@ -197,8 +226,9 @@
 				73EC91BD298345D3002F3568 /* Resources */,
 				73EC91C329834D41002F3568 /* Extensions */,
 				73EC91BE2983460D002F3568 /* Managers */,
-				73EC91E029834ED7002F3568 /* UI */,
-				73A30CAD29835D2500D672E6 /* Scene */,
+				73EF78AF298F294600A5DF2D /* ViewModel */,
+				73EC91E029834ED7002F3568 /* UIs */,
+				73A30CAD29835D2500D672E6 /* Base */,
 				73EC919629834533002F3568 /* LaunchScreen.storyboard */,
 				73EC919929834533002F3568 /* Info.plist */,
 			);
@@ -248,6 +278,8 @@
 		73EC91C329834D41002F3568 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				73EF78B9298F3EC900A5DF2D /* UICollectionView */,
+				73EF78B6298F3E5100A5DF2D /* UICollectionViewCell */,
 				73EC91C629834D41002F3568 /* UIView */,
 			);
 			path = Extensions;
@@ -265,7 +297,7 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
-		73EC91E029834ED7002F3568 /* UI */ = {
+		73EC91E029834ED7002F3568 /* UIs */ = {
 			isa = PBXGroup;
 			children = (
 				73EC91C1298348F5002F3568 /* BackgroundView.swift */,
@@ -275,7 +307,33 @@
 				73FED1E52988854A00395727 /* RadioButton.swift */,
 				73F39A68298DF77400C68EFB /* CustomTabBarController.swift */,
 			);
-			path = UI;
+			path = UIs;
+			sourceTree = "<group>";
+		};
+		73EF78AF298F294600A5DF2D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				73EF78B0298F2AF400A5DF2D /* CollectionViewSectionType.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		73EF78B6298F3E5100A5DF2D /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				73EF78B7298F3E5100A5DF2D /* UICollectionViewCell+identifer.swift */,
+			);
+			path = UICollectionViewCell;
+			sourceTree = "<group>";
+		};
+		73EF78B9298F3EC900A5DF2D /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				73EF78BA298F3EC900A5DF2D /* UICollectionView+register.swift */,
+				73EF78BB298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift */,
+				73975B0C299080D000AD955C /* UICollectionView+SectionType.swift */,
+			);
+			path = UICollectionView;
 			sourceTree = "<group>";
 		};
 		C444E3212BA485B0616DCCCE /* Frameworks */ = {
@@ -549,12 +607,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
+				73EF78B1298F2AF400A5DF2D /* CollectionViewSectionType.swift in Sources */,
 				73F39A69298DF77400C68EFB /* CustomTabBarController.swift in Sources */,
+				73EF78BD298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift in Sources */,
 				73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */,
 				73FED1E2298874CD00395727 /* FontManager.swift in Sources */,
 				73EC91BC29834569002F3568 /* ViewController.swift in Sources */,
 				73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */,
 				73FED1E42988750100395727 /* SizeManager.swift in Sources */,
+				73EF78B8298F3E5100A5DF2D /* UICollectionViewCell+identifer.swift in Sources */,
 				73FED1E62988854A00395727 /* RadioButton.swift in Sources */,
 				73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
@@ -565,10 +626,13 @@
 				73EC91D629834D41002F3568 /* UIView+SizeConstraints.swift in Sources */,
 				730FA8E7298ED92C00F3B955 /* UIView+addAnimate.swift in Sources */,
 				73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */,
+				733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */,
 				73EC91C02983462E002F3568 /* ColorsManager.swift in Sources */,
 				73861C2629843A170020A63B /* iCinemaTextField.swift in Sources */,
 				73EC91C2298348F5002F3568 /* BackgroundView.swift in Sources */,
 				73A30CB32983639000D672E6 /* iCinemaButton.swift in Sources */,
+				73EF78BC298F3EC900A5DF2D /* UICollectionView+register.swift in Sources */,
+				73975B0D299080D000AD955C /* UICollectionView+SectionType.swift in Sources */,
 				736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */,
 				73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */,
 				73861C242984351E0020A63B /* NewUserViewController.swift in Sources */,

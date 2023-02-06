@@ -11,19 +11,21 @@ import UIKit
 protocol PhoneViewModelInput {
     func didChange(phoneNumber: String)
 }
+protocol PhoneViewModelOutput {
+    func onPhoneNumberChanged(completion: @escaping (Bool) -> Void )
+}
 
 protocol PhoneViewModelTypes {
     var inputs: PhoneViewModelInput { get }
+    var output: PhoneViewModelOutput { get }
 }
 
 class PhoneViewModel: PhoneViewModelTypes {
     var inputs: PhoneViewModelInput { self }
+    var output: PhoneViewModelOutput { self }
+    private var didPhoneNumberChanged: (_ isValid: Bool) -> Void = { _ in }
     
-    private var onPhoneNumberChanged: (_ isValid: Bool) -> Void = { _ in }
-    
-    init(onPhoneNumberChanged: @escaping (_ isValid: Bool) -> Void) {
-        self.onPhoneNumberChanged = onPhoneNumberChanged
-    }
+    init() {}
     
     private func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
         
@@ -35,12 +37,20 @@ class PhoneViewModel: PhoneViewModelTypes {
 }
 
 
-extension PhoneViewModel : PhoneViewModelInput {
+extension PhoneViewModel: PhoneViewModelInput {
     
     func didChange(phoneNumber: String) {
         let isValidPhoneNumber = self.isValidPhoneNumber(phoneNumber)
-        self.onPhoneNumberChanged(isValidPhoneNumber)
+        self.didPhoneNumberChanged(isValidPhoneNumber)
     }
+    
+}
+
+extension PhoneViewModel: PhoneViewModelOutput {
+    func onPhoneNumberChanged(completion: @escaping (Bool) -> Void) {
+        self.didPhoneNumberChanged = completion
+    }
+    
     
 }
 

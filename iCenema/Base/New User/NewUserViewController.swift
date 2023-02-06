@@ -96,12 +96,18 @@ class NewUserViewController: ViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addNavigationTitleView(title: LanguageManager.newUser)
+        
+        createAccountButton.addTarget(self, action: #selector(self.createAccountButtonTapped(_:)), for: .touchUpInside)
+        createAccountButton.isEnabled = false
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         addDescriptionLabel()
         addTextFieldsStackView()
         addGenderStackView()
         addCreateAccountButton()
         
-        self.addNavigationTitleView(title: LanguageManager.newUser)
         
     }
     
@@ -136,6 +142,13 @@ class NewUserViewController: ViewController {
         createAccountButton.centerXInSuperview()
         createAccountButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: SizeManager.viewPadding, right: 0))
     }
+    
+    
+    // MARK: - Actins
+    @objc func createAccountButtonTapped(_ sender: iCinemaButton) {
+        sender.addAnimate()
+    }
+    
 }
 
 

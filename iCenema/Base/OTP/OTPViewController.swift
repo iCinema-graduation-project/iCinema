@@ -26,15 +26,6 @@ class OTPViewController: ViewController {
         stackview.axis = .horizontal
         stackview.distribution = .fillEqually
         stackview.spacing = 10
-        
-        for i in 1...5 {
-            let input = iTextField(placeholder: "")
-            stackview.addArrangedSubview(input)
-            input.tag = i
-            input.textAlignment = .center
-            input.keyboardType = .numberPad
-        }
-        
         return stackview
     }()
 
@@ -44,12 +35,21 @@ class OTPViewController: ViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.addNavigationTitleView(title: LanguageManager.verification)
+        confirmButton.addTarget(self, action: #selector(self.confirmButtonTapped(_:)), for: .touchUpInside)
         addDescriptionLabel()
         addverificationCodeStackView()
         addConfirmButton()
-        self.addNavigationTitleView(title: LanguageManager.verification)
-        confirmButton.addTarget(self, action: #selector(self.confirmButtonTapped(_:)), for: .touchUpInside)
-        
+
+        for i in 0...4 {
+            let input = iTextField(placeholder: "")
+            input.delegate = self
+            verificationCodeStackView.addArrangedSubview(input)
+            input.tag = i
+            input.textAlignment = .center
+            input.keyboardType = .numberPad
+        }
         
     }
     
@@ -64,7 +64,6 @@ class OTPViewController: ViewController {
     
     private func addverificationCodeStackView() {
         view.addSubview(verificationCodeStackView)
-        
         verificationCodeStackView.widthConstraints(SizeManager.textWidth)
         verificationCodeStackView.centerXInSuperview()
         verificationCodeStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor, padding: UIEdgeInsets(top: SizeManager.viewPadding, left: 0, bottom: 0, right: 0))
@@ -86,9 +85,19 @@ class OTPViewController: ViewController {
     
 }
 
+// MARK: - UITextFieldDelegate
+//
+extension OTPViewController : UITextFieldDelegate {
+    // limit the count of charecters in text field
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        return prospectiveText.count <= 1
+    }
+}
+
 
 struct OTPView: UIViewControllerRepresentable {
-    
     typealias UIViewControllerType = UIViewController
 
     func makeUIViewController(context: Context) -> UIViewController {

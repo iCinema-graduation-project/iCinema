@@ -10,6 +10,7 @@ import UIKit
 class iCinemaButton: UIButton {
     init(title: String) {
         super.init(frame: .zero)
+        
         sizeConstraints(width: 200, height: 40)
         backgroundColor = ColorManager.iCinema
         setTitleColor(.white, for: .normal)
