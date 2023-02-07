@@ -9,7 +9,7 @@ import UIKit
 import CountryPickerView
 
 
-class PhoneViewController:  ViewController {
+class PhoneViewController:  ICinemaViewController {
     // MARK: - Views
     //
     private let descriptionLabel: UILabel = {
@@ -32,8 +32,8 @@ class PhoneViewController:  ViewController {
     }()
     
     /// Select Country
-    private let countryView: iTextField = {
-        let textfield = iTextField(placeholder: LanguageManager.country)
+    private let countryView: ICinemaTextField = {
+        let textfield = ICinemaTextField(placeholder: LanguageManager.country)
         textfield.text = "."
         textfield.isEnabled = false
         textfield.setState(.normal, for: .disabled)
@@ -49,20 +49,20 @@ class PhoneViewController:  ViewController {
         return countryView
     }()
     
-    private let phoneNumberTextField: iTextField = {
-        let textfield = iTextField(placeholder: LanguageManager.phoneNumber)
+    private let phoneNumberTextField: ICinemaTextField = {
+        let textfield = ICinemaTextField(placeholder: LanguageManager.phoneNumber)
         textfield.keyboardType = .phonePad
         return textfield
     }()
     
     /// button
-    private let getCodeButton = iCinemaButton(title: LanguageManager.getCode)
+    private let getCodeButton = ICinemaButton(title: LanguageManager.getCode)
     
     // MARK: - Properites
     //
     var viewModel: PhoneViewModelTypes = PhoneViewModel()
 
-    
+        
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
@@ -118,9 +118,9 @@ class PhoneViewController:  ViewController {
     
     // MARK: - Actions
     //
-    @objc private func getCodeButtonTapped(_ sender: iCinemaButton){
+    @objc private func getCodeButtonTapped(_ sender: ICinemaButton){
         sender.addAnimate {
-            self.navigationController?.pushViewController(OTPViewController(), animated: true)
+            self.coordinator?.push()
         }
     }
 }
@@ -161,7 +161,7 @@ extension PhoneViewController {
         phoneNumberTextField.addTarget(self, action: #selector(self.phoneNumberTextFieldEditingChanged(_:)), for: .editingChanged)
     }
     
-    @objc private func phoneNumberTextFieldEditingChanged(_ sender: iTextField) {
+    @objc private func phoneNumberTextFieldEditingChanged(_ sender: ICinemaTextField) {
         self.viewModel.inputs.didChange(phoneNumber: sender.text!)
     }
 }

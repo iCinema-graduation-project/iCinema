@@ -8,24 +8,8 @@
 import UIKit
 import SwiftUI
 
-protocol NewUserViewInput {}
-protocol NewUserViewOutput {}
-protocol NewUserViewType {
-    var input: NewUserViewInput { get }
-    var  output: NewUserViewOutput {get}
-}
-class NewUserViewModel: NewUserViewType {
-    var input: NewUserViewInput { self }
-    var output: NewUserViewOutput { self }
-}
-extension NewUserViewModel: NewUserViewInput {
-    
-}
-extension NewUserViewModel: NewUserViewOutput {
-    
-}
 
-class NewUserViewController: ViewController {
+class NewUserViewController: ICinemaViewController {
     // MARK: - Views
     //
     /// Description Label
@@ -47,17 +31,17 @@ class NewUserViewController: ViewController {
         return stackView
     }()
     
-    private let fullNameTextField: iTextField = iTextField(placeholder: LanguageManager.fullName)
+    private let fullNameTextField: ICinemaTextField = ICinemaTextField(placeholder: LanguageManager.fullName)
     
-    private let ageTextField: iTextField = {
-        let ageField = iTextField(placeholder: LanguageManager.age)
+    private let ageTextField: ICinemaTextField = {
+        let ageField = ICinemaTextField(placeholder: LanguageManager.age)
         ageField.keyboardType = .numberPad
         return ageField
     }()
     
     /// Gender Select
-    private let genderView: iTextField = {
-        let textfield = iTextField(placeholder: LanguageManager.gender)
+    private let genderView: ICinemaTextField = {
+        let textfield = ICinemaTextField(placeholder: LanguageManager.gender)
         textfield.text = "."
         textfield.isEnabled = false
         textfield.setState(.normal, for: .disabled)
@@ -86,30 +70,26 @@ class NewUserViewController: ViewController {
     }()
     
     /// Create Account Button
-    private let createAccountButton = iCinemaButton(title: LanguageManager.createAccount)
+    private let createAccountButton = ICinemaButton(title: LanguageManager.createAccount)
     
     
     // MARK: - Properties
-    var viewMode: NewUserViewType = NewUserViewModel()
     
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavigationTitleView(title: LanguageManager.newUser)
-        
-        createAccountButton.addTarget(self, action: #selector(self.createAccountButtonTapped(_:)), for: .touchUpInside)
-        createAccountButton.isEnabled = false
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         addDescriptionLabel()
         addTextFieldsStackView()
         addGenderStackView()
         addCreateAccountButton()
-        
-        
+
+        createAccountButton.addTarget(self, action: #selector(self.createAccountButtonTapped(_:)), for: .touchUpInside)
     }
+    
+  
+    
     
     // MARK: - Helper Functions
     //
@@ -141,35 +121,16 @@ class NewUserViewController: ViewController {
         view.addSubview(createAccountButton)
         createAccountButton.centerXInSuperview()
         createAccountButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: SizeManager.viewPadding, right: 0))
+        
     }
     
     
     // MARK: - Actins
-    @objc func createAccountButtonTapped(_ sender: iCinemaButton) {
-        sender.addAnimate()
+    @objc func createAccountButtonTapped(_ sender: ICinemaButton) {
+        sender.addAnimate {}
     }
     
 }
 
 
 
-
-
-struct NewUserView: UIViewControllerRepresentable {
-    
-    typealias UIViewControllerType = UIViewController
-
-    func makeUIViewController(context: Context) -> UIViewController {
-        return NewUserViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-    }
-}
-
-struct NewUserView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewUserView()
-            .ignoresSafeArea()
-    }
-}

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2538D3EC40C7C4D8A26A1CBC /* Pods_iCinema_iCinemaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */; };
 		730FA8E7298ED92C00F3B955 /* UIView+addAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FA8E6298ED92C00F3B955 /* UIView+addAnimate.swift */; };
+		7311C3132991B9D500C0610F /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */; };
+		7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311C3162991BA3000C0610F /* AppCoordinator.swift */; };
 		7325B8732988B7FA0009B8EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7325B8722988B7FA0009B8EC /* README.md */; };
 		733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733116B72990A9AE00EFD002 /* OTPViewModel.swift */; };
 		736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736674E4298EE37C009CA617 /* PhoneViewModel.swift */; };
@@ -19,7 +21,7 @@
 		73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAB29835B4000D672E6 /* LanguageManager.swift */; };
 		73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */; };
 		73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB029835EE200D672E6 /* ImageManager.swift */; };
-		73A30CB32983639000D672E6 /* iCinemaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB22983639000D672E6 /* iCinemaButton.swift */; };
+		73A30CB32983639000D672E6 /* ICinemaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB22983639000D672E6 /* ICinemaButton.swift */; };
 		73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFEFA12989EFA600969452 /* OTPViewController.swift */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
 		73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918D29834531002F3568 /* SceneDelegate.swift */; };
@@ -28,7 +30,7 @@
 		73EC91A329834533002F3568 /* iCenemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91A229834533002F3568 /* iCenemaTests.swift */; };
 		73EC91AD29834533002F3568 /* iCenemaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91AC29834533002F3568 /* iCenemaUITests.swift */; };
 		73EC91AF29834533002F3568 /* iCenemaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91AE29834533002F3568 /* iCenemaUITestsLaunchTests.swift */; };
-		73EC91BC29834569002F3568 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91BB29834569002F3568 /* ViewController.swift */; };
+		73EC91BC29834569002F3568 /* ICinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91BB29834569002F3568 /* ICinemaViewController.swift */; };
 		73EC91C02983462E002F3568 /* ColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91BF2983462E002F3568 /* ColorsManager.swift */; };
 		73EC91C2298348F5002F3568 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C1298348F5002F3568 /* BackgroundView.swift */; };
 		73EC91D629834D41002F3568 /* UIView+SizeConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91C729834D41002F3568 /* UIView+SizeConstraints.swift */; };
@@ -42,6 +44,7 @@
 		73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0BC062989C4D800742BA2 /* PhoneViewController.swift */; };
 		73F0BC172989D24600742BA2 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 73F0BC162989D24600742BA2 /* CountryPickerView */; };
 		73F39A69298DF77400C68EFB /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F39A68298DF77400C68EFB /* CustomTabBarController.swift */; };
+		73FE17F72991EB960009D238 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FE17F62991EB960009D238 /* Coordinator.swift */; };
 		73FED1E029886B0600395727 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1DF29886B0600395727 /* Constants.swift */; };
 		73FED1E2298874CD00395727 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1E1298874CD00395727 /* FontManager.swift */; };
 		73FED1E42988750100395727 /* SizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1E32988750100395727 /* SizeManager.swift */; };
@@ -71,6 +74,8 @@
 		130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCinema_iCinemaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFBF74A68AFC6696F4A77EC /* Pods-iCinema-iCinemaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinema-iCinemaUITests.release.xcconfig"; path = "Target Support Files/Pods-iCinema-iCinemaUITests/Pods-iCinema-iCinemaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		730FA8E6298ED92C00F3B955 /* UIView+addAnimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addAnimate.swift"; sourceTree = "<group>"; };
+		7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
+		7311C3162991BA3000C0610F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7325B8722988B7FA0009B8EC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		733116B72990A9AE00EFD002 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		736674E4298EE37C009CA617 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
@@ -83,7 +88,7 @@
 		73A30CAB29835B4000D672E6 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		73A30CB029835EE200D672E6 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
-		73A30CB22983639000D672E6 /* iCinemaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCinemaButton.swift; sourceTree = "<group>"; };
+		73A30CB22983639000D672E6 /* ICinemaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaButton.swift; sourceTree = "<group>"; };
 		73BFEFA12989EFA600969452 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC918B29834531002F3568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +101,7 @@
 		73EC91A829834533002F3568 /* iCinemaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCinemaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC91AC29834533002F3568 /* iCenemaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCenemaUITests.swift; sourceTree = "<group>"; };
 		73EC91AE29834533002F3568 /* iCenemaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCenemaUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		73EC91BB29834569002F3568 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		73EC91BB29834569002F3568 /* ICinemaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaViewController.swift; sourceTree = "<group>"; };
 		73EC91BF2983462E002F3568 /* ColorsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsManager.swift; sourceTree = "<group>"; };
 		73EC91C1298348F5002F3568 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		73EC91C729834D41002F3568 /* UIView+SizeConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SizeConstraints.swift"; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 		73EF78BB298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeReusable.swift"; sourceTree = "<group>"; };
 		73F0BC062989C4D800742BA2 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		73F39A68298DF77400C68EFB /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		73FE17F62991EB960009D238 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		73FED1DF29886B0600395727 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		73FED1E1298874CD00395727 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		73FED1E32988750100395727 /* SizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeManager.swift; sourceTree = "<group>"; };
@@ -151,6 +157,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7311C3112991B99200C0610F /* Auth Flow */ = {
+			isa = PBXGroup;
+			children = (
+				7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */,
+				73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */,
+				736674E3298EE27B009CA617 /* Phone Number */,
+				733116B62990A99600EFD002 /* OTP */,
+				733116B92990B43000EFD002 /* New User */,
+			);
+			path = "Auth Flow";
+			sourceTree = "<group>";
+		};
 		733116B62990A99600EFD002 /* OTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,10 +207,7 @@
 		73A30CAD29835D2500D672E6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */,
-				736674E3298EE27B009CA617 /* Phone Number */,
-				733116B62990A99600EFD002 /* OTP */,
-				733116B92990B43000EFD002 /* New User */,
+				7311C3112991B99200C0610F /* Auth Flow */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -226,7 +241,7 @@
 				73EC91BD298345D3002F3568 /* Resources */,
 				73EC91C329834D41002F3568 /* Extensions */,
 				73EC91BE2983460D002F3568 /* Managers */,
-				73EF78AF298F294600A5DF2D /* ViewModel */,
+				73EF78AF298F294600A5DF2D /* Protocols */,
 				73EC91E029834ED7002F3568 /* UIs */,
 				73A30CAD29835D2500D672E6 /* Base */,
 				73EC919629834533002F3568 /* LaunchScreen.storyboard */,
@@ -258,6 +273,7 @@
 				73EC918B29834531002F3568 /* AppDelegate.swift */,
 				73EC918D29834531002F3568 /* SceneDelegate.swift */,
 				73EC919429834533002F3568 /* Assets.xcassets */,
+				7311C3162991BA3000C0610F /* AppCoordinator.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -301,8 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				73EC91C1298348F5002F3568 /* BackgroundView.swift */,
-				73EC91BB29834569002F3568 /* ViewController.swift */,
-				73A30CB22983639000D672E6 /* iCinemaButton.swift */,
+				73EC91BB29834569002F3568 /* ICinemaViewController.swift */,
+				73A30CB22983639000D672E6 /* ICinemaButton.swift */,
 				73861C2529843A170020A63B /* iCinemaTextField.swift */,
 				73FED1E52988854A00395727 /* RadioButton.swift */,
 				73F39A68298DF77400C68EFB /* CustomTabBarController.swift */,
@@ -310,12 +326,13 @@
 			path = UIs;
 			sourceTree = "<group>";
 		};
-		73EF78AF298F294600A5DF2D /* ViewModel */ = {
+		73EF78AF298F294600A5DF2D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				73EF78B0298F2AF400A5DF2D /* CollectionViewSectionType.swift */,
+				73FE17F62991EB960009D238 /* Coordinator.swift */,
 			);
-			path = ViewModel;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		73EF78B6298F3E5100A5DF2D /* UICollectionViewCell */ = {
@@ -606,13 +623,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
 				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
 				73EF78B1298F2AF400A5DF2D /* CollectionViewSectionType.swift in Sources */,
 				73F39A69298DF77400C68EFB /* CustomTabBarController.swift in Sources */,
 				73EF78BD298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift in Sources */,
 				73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */,
 				73FED1E2298874CD00395727 /* FontManager.swift in Sources */,
-				73EC91BC29834569002F3568 /* ViewController.swift in Sources */,
+				73EC91BC29834569002F3568 /* ICinemaViewController.swift in Sources */,
 				73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */,
 				73FED1E42988750100395727 /* SizeManager.swift in Sources */,
 				73EF78B8298F3E5100A5DF2D /* UICollectionViewCell+identifer.swift in Sources */,
@@ -622,6 +640,7 @@
 				73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */,
 				73EC918C29834531002F3568 /* AppDelegate.swift in Sources */,
 				73FED1E029886B0600395727 /* Constants.swift in Sources */,
+				73FE17F72991EB960009D238 /* Coordinator.swift in Sources */,
 				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,
 				73EC91D629834D41002F3568 /* UIView+SizeConstraints.swift in Sources */,
 				730FA8E7298ED92C00F3B955 /* UIView+addAnimate.swift in Sources */,
@@ -630,7 +649,8 @@
 				73EC91C02983462E002F3568 /* ColorsManager.swift in Sources */,
 				73861C2629843A170020A63B /* iCinemaTextField.swift in Sources */,
 				73EC91C2298348F5002F3568 /* BackgroundView.swift in Sources */,
-				73A30CB32983639000D672E6 /* iCinemaButton.swift in Sources */,
+				7311C3132991B9D500C0610F /* AuthFlowCoordinator.swift in Sources */,
+				73A30CB32983639000D672E6 /* ICinemaButton.swift in Sources */,
 				73EF78BC298F3EC900A5DF2D /* UICollectionView+register.swift in Sources */,
 				73975B0D299080D000AD955C /* UICollectionView+SectionType.swift in Sources */,
 				736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */,

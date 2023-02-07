@@ -7,7 +7,7 @@
 
 import UIKit
 
-class iCinemaButton: UIButton {
+class ICinemaButton: UIButton {
     init(title: String) {
         super.init(frame: .zero)
         

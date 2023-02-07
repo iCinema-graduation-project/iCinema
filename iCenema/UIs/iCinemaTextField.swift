@@ -9,7 +9,7 @@ import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 
-typealias iTextField = MDCOutlinedTextField
+typealias ICinemaTextField = MDCOutlinedTextField
 
 public enum TextFieldState {
     case success, fail, normal

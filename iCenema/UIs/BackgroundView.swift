@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 
-class UIBackgroundView: UIView {
+class ICienmaBackgroundView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         

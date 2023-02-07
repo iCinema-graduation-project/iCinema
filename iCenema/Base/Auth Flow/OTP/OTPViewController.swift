@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class OTPViewController: ViewController {
+class OTPViewController: ICinemaViewController {
     // MARK: - Views
     //
     private let descriptionLabel: UILabel = {
@@ -29,7 +29,10 @@ class OTPViewController: ViewController {
         return stackview
     }()
 
-    private let confirmButton = iCinemaButton(title: LanguageManager.confirm)
+    private let confirmButton = ICinemaButton(title: LanguageManager.confirm)
+    
+    
+    
     
     // MARK: - Life Cycle
     //
@@ -43,7 +46,7 @@ class OTPViewController: ViewController {
         addConfirmButton()
 
         for i in 0...4 {
-            let input = iTextField(placeholder: "")
+            let input = ICinemaTextField(placeholder: "")
             input.delegate = self
             verificationCodeStackView.addArrangedSubview(input)
             input.tag = i
@@ -77,9 +80,9 @@ class OTPViewController: ViewController {
     
     // MARK: - Actions
     //
-    @objc private func confirmButtonTapped(_ sender: iCinemaButton) {
+    @objc private func confirmButtonTapped(_ sender: ICinemaButton) {
         sender.addAnimate {
-            self.navigationController?.pushViewController(NewUserViewController(), animated: true)
+            self.coordinator?.push()
         }
     }
     
@@ -96,21 +99,3 @@ extension OTPViewController : UITextFieldDelegate {
     }
 }
 
-
-struct OTPView: UIViewControllerRepresentable {
-    typealias UIViewControllerType = UIViewController
-
-    func makeUIViewController(context: Context) -> UIViewController {
-        return OTPViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-    }
-}
-
-struct OTPView_Previews: PreviewProvider {
-    static var previews: some View {
-        OTPView()
-            .ignoresSafeArea()
-    }
-}

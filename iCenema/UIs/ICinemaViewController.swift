@@ -9,26 +9,31 @@ import UIKit
 import SwiftUI
 
 
-class ViewController: UIViewController {
+class ICinemaViewController: ViewController {
     // MARK: - Properties
+    //
     var backgroundView: UIView = UIView()
 
+    
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavegationControllar()
         
-        self.backgroundView = UIBackgroundView()
+        self.backgroundView = ICienmaBackgroundView()
         self.view.addSubview(self.backgroundView)
-  
+        
     }
+ 
+   
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         backgroundView.frame = self.view.bounds
     }
     
+    // end editing whene user begin touching
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

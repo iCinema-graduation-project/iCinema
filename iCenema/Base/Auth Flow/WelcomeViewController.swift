@@ -7,7 +7,9 @@
 
 import UIKit
 
-class WelcomeViewController: ViewController {
+
+
+class WelcomeViewController: ICinemaViewController {
     // MARK: - Views
     //
     private let imageView: UIImageView = {
@@ -25,10 +27,10 @@ class WelcomeViewController: ViewController {
         return label
     }()
     
-    private let registerButton: iCinemaButton = iCinemaButton(title: LanguageManager.register)
+    private let registerButton: ICinemaButton = ICinemaButton(title: LanguageManager.register)
         
-    private let guestButton: iCinemaButton = {
-        let button = iCinemaButton(title: LanguageManager.guest)
+    private let guestButton: ICinemaButton = {
+        let button = ICinemaButton(title: LanguageManager.guest)
         button.setTitleColor(ColorManager.iCinema, for: .normal)
         button.backgroundColor = .white
         button.layer.shadowColor = ColorManager.iCinema?.cgColor
@@ -37,7 +39,7 @@ class WelcomeViewController: ViewController {
         
         return button
     }()
-    
+
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
@@ -47,6 +49,8 @@ class WelcomeViewController: ViewController {
         addRegisterAndGuestButtons()
         
         registerButton.addTarget(self, action: #selector(self.registerButtonTapped(_:)), for: .touchUpInside)
+        guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)
+        
     }
     
     // MARK: = Helper methods
@@ -76,10 +80,14 @@ class WelcomeViewController: ViewController {
     
     // MARK: - Actions
     //
-    @objc private func registerButtonTapped(_ sender: UIButton) {
+    @objc private func registerButtonTapped(_ sender: ICinemaButton) {
         sender.addAnimate {
-            self.navigationController?.pushViewController(PhoneViewController(), animated: true)
+            self.coordinator?.push()
         }
+    }
+    
+    @objc private func guestButtonTapped(_ sender: ICinemaButton) {
+        
     }
     
 }
