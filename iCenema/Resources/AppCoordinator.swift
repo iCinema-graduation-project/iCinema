@@ -7,7 +7,29 @@
 
 import UIKit
 
-//class AppCoordinator: Coordinator {
-//    func start() {
-//    }
-//}
+var isAuthed = true
+
+class AppCoordinator: Coordinator {
+    var navigationController: UINavigationController
+    
+    var coordinators: [ViewController.Type] = []
+    
+    init() {
+        
+        if isAuthed {
+            self.navigationController = AuthFlowCoordinator().navigationController
+        }else{
+            navigationController = .init()
+        }
+        
+    }
+    
+    func push() {
+        
+    }
+    
+    func pop() {
+        
+    }
+    
+}

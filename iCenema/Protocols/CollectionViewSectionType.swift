@@ -25,6 +25,7 @@ protocol CollectionViewSectionType: AnyObject, UICollectionViewDelegate, UIColle
 }
 
 
+/// defines the behavior of collectionView
 protocol CollectionViewSectionsDataSource {
     var sections: [any CollectionViewSectionType] { get set }
 }

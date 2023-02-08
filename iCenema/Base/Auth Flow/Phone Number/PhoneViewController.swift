@@ -49,7 +49,7 @@ class PhoneViewController:  ICinemaViewController {
         return countryView
     }()
     
-    private let phoneNumberTextField: ICinemaTextField = {
+    let phoneNumberTextField: ICinemaTextField = {
         let textfield = ICinemaTextField(placeholder: LanguageManager.phoneNumber)
         textfield.keyboardType = .phonePad
         return textfield
@@ -60,7 +60,7 @@ class PhoneViewController:  ICinemaViewController {
     
     // MARK: - Properites
     //
-    var viewModel: PhoneViewModelTypes = PhoneViewModel()
+    lazy var viewModel: PhoneViewModelTypes = PhoneViewModel(view: self)
 
         
     // MARK: - Life Cycle
@@ -68,10 +68,9 @@ class PhoneViewController:  ICinemaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavigationTitleView(title: LanguageManager.register)
-        addDescriptionLabel()
-        addTextFieldsStackView()
-        addCountryPickerView()
-        addGetCodeButton()
+        
+        addAndConfigurSubViews()
+        
         self.bindViewModelOutput()
         self.bindViewModelInput()
 
@@ -82,6 +81,13 @@ class PhoneViewController:  ICinemaViewController {
     
     // MARK: - Helper Functions
     //
+    private func addAndConfigurSubViews() {
+        addDescriptionLabel()
+        addTextFieldsStackView()
+        addCountryPickerView()
+        addGetCodeButton()
+    }
+
     private func addDescriptionLabel() {
         view.addSubview(descriptionLabel)
         descriptionLabel.centerXInSuperview()
@@ -113,14 +119,13 @@ class PhoneViewController:  ICinemaViewController {
         getCodeButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
                                       padding: UIEdgeInsets(top: 0, left: 0, bottom: SizeManager.viewPadding, right: 0))
         getCodeButton.addTarget(self, action: #selector(self.getCodeButtonTapped(_:)), for: .touchUpInside)
-        getCodeButton.isEnabled = false
     }
     
     // MARK: - Actions
     //
     @objc private func getCodeButtonTapped(_ sender: ICinemaButton){
         sender.addAnimate {
-            self.coordinator?.push()
+            self.viewModel.inputs.didGetCodeButtonTapped(sender)
         }
     }
 }
@@ -143,12 +148,10 @@ extension PhoneViewController {
             if isValid {
                 self.phoneNumberTextField.setState(.success, for: .editing)
                 self.phoneNumberTextField.setState(.normal, for: .normal)
-                self.getCodeButton.isEnabled = true
 
             }else {
                 self.phoneNumberTextField.setState(.fail, with: "The Phone number is not valid", for: .editing)
                 self.phoneNumberTextField.setState(.fail, with: "The Phone number is not valid", for: .normal)
-                self.getCodeButton.isEnabled = false
             }
         }
     }
@@ -165,5 +168,4 @@ extension PhoneViewController {
         self.viewModel.inputs.didChange(phoneNumber: sender.text!)
     }
 }
-
 

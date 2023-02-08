@@ -14,6 +14,7 @@
 		7325B8732988B7FA0009B8EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7325B8722988B7FA0009B8EC /* README.md */; };
 		733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733116B72990A9AE00EFD002 /* OTPViewModel.swift */; };
 		736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736674E4298EE37C009CA617 /* PhoneViewModel.swift */; };
+		736EAA8F2993060F00318F2E /* PhoneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */; };
 		73861C242984351E0020A63B /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* NewUserViewController.swift */; };
 		73861C2629843A170020A63B /* iCinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* iCinemaTextField.swift */; };
 		73975B0D299080D000AD955C /* UICollectionView+SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73975B0C299080D000AD955C /* UICollectionView+SectionType.swift */; };
@@ -79,6 +80,7 @@
 		7325B8722988B7FA0009B8EC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		733116B72990A9AE00EFD002 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		736674E4298EE37C009CA617 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
+		736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModelTests.swift; sourceTree = "<group>"; };
 		73861C232984351E0020A63B /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		73861C2529843A170020A63B /* iCinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCinemaTextField.swift; sourceTree = "<group>"; };
 		73975B0C299080D000AD955C /* UICollectionView+SectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+SectionType.swift"; sourceTree = "<group>"; };
@@ -195,6 +197,14 @@
 			path = "Phone Number";
 			sourceTree = "<group>";
 		};
+		736EAA8D299305D000318F2E /* Auth Flow */ = {
+			isa = PBXGroup;
+			children = (
+				736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */,
+			);
+			path = "Auth Flow";
+			sourceTree = "<group>";
+		};
 		73A30C9E29835A6800D672E6 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +263,7 @@
 		73EC91A129834533002F3568 /* iCenemaTests */ = {
 			isa = PBXGroup;
 			children = (
+				736EAA8D299305D000318F2E /* Auth Flow */,
 				73EC91A229834533002F3568 /* iCenemaTests.swift */,
 			);
 			path = iCenemaTests;
@@ -664,6 +675,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73EC91A329834533002F3568 /* iCenemaTests.swift in Sources */,
+				736EAA8F2993060F00318F2E /* PhoneViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

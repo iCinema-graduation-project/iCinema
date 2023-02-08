@@ -50,7 +50,6 @@ class WelcomeViewController: ICinemaViewController {
         
         registerButton.addTarget(self, action: #selector(self.registerButtonTapped(_:)), for: .touchUpInside)
         guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)
-        
     }
     
     // MARK: = Helper methods

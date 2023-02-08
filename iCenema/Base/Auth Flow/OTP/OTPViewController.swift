@@ -28,36 +28,32 @@ class OTPViewController: ICinemaViewController {
         stackview.spacing = 10
         return stackview
     }()
-
+    
+    lazy var verificationCodeTextFields: [ICinemaTextField] = []
+    
     private let confirmButton = ICinemaButton(title: LanguageManager.confirm)
     
     
-    
+    // MARK: - Properties
+    lazy var viewModel = OTPViewModel(view: self)
     
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.addNavigationTitleView(title: LanguageManager.verification)
-        confirmButton.addTarget(self, action: #selector(self.confirmButtonTapped(_:)), for: .touchUpInside)
-        addDescriptionLabel()
-        addverificationCodeStackView()
-        addConfirmButton()
-
-        for i in 0...4 {
-            let input = ICinemaTextField(placeholder: "")
-            input.delegate = self
-            verificationCodeStackView.addArrangedSubview(input)
-            input.tag = i
-            input.textAlignment = .center
-            input.keyboardType = .numberPad
-        }
-        
+        self.addAndConfigureSubviews()
     }
     
     // MARK: - Helper Functions
     //
+    private func addAndConfigureSubviews(){
+        addDescriptionLabel()
+        addverificationCodeStackView()
+        addVerificationCodeTextFields()
+        addConfirmButton()
+    }
+    
     private func addDescriptionLabel() {
         view.addSubview(descriptionLabel)
         descriptionLabel.centerXInSuperview()
@@ -72,18 +68,36 @@ class OTPViewController: ICinemaViewController {
         verificationCodeStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor, padding: UIEdgeInsets(top: SizeManager.viewPadding, left: 0, bottom: 0, right: 0))
     }
     
+    private func addVerificationCodeTextFields() {
+        for index in 0...4{
+            let textField = ICinemaTextField(placeholder: "")
+            textField.delegate = self
+            verificationCodeStackView.addArrangedSubview(textField)
+            self.verificationCodeTextFields.append(textField)
+            textField.tag = index
+            textField.textAlignment = .center
+            textField.keyboardType = .numberPad
+            textField.addTarget(self, action: #selector(self.textFieldsDidChanged(_:)), for: .editingChanged)
+        }
+    }
+    
     private func addConfirmButton() {
         view.addSubview(confirmButton)
         confirmButton.centerXInSuperview()
         confirmButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: SizeManager.viewPadding, right: 0))
+        confirmButton.addTarget(self, action: #selector(self.confirmButtonTapped(_:)), for: .touchUpInside)
     }
     
     // MARK: - Actions
     //
     @objc private func confirmButtonTapped(_ sender: ICinemaButton) {
         sender.addAnimate {
-            self.coordinator?.push()
+            self.viewModel.didConfirmButtonPressed(sender)
         }
+    }
+    
+    @objc private func textFieldsDidChanged(_ textField: ICinemaTextField) {
+        viewModel.textField(didChanged: textField)
     }
     
 }
@@ -97,5 +111,7 @@ extension OTPViewController : UITextFieldDelegate {
         let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
         return prospectiveText.count <= 1
     }
+    
+
 }
 

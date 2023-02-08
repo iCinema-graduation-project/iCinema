@@ -25,8 +25,6 @@ class ICinemaViewController: ViewController {
         self.view.addSubview(self.backgroundView)
         
     }
- 
-   
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -35,7 +33,7 @@ class ICinemaViewController: ViewController {
     
     // end editing whene user begin touching
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        self.endEditing()
     }
     
     // MARK: - Helper Functions
@@ -49,6 +47,8 @@ class ICinemaViewController: ViewController {
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "chevron.backward.square")
     }
     
+    
+    // MARK: - Public Functions
     public func addNavigationTitleView(title: String) {
         let label = UILabel()
         label.text = title
@@ -59,6 +59,23 @@ class ICinemaViewController: ViewController {
     public func addNavigationTitleView(view: UIView) {
         navigationItem.titleView = view
     }
+    private func getViewByTag(_ tag: Int) -> UIView?{
+        return self.view.viewWithTag(tag)
+    }
+    
+    @objc public func endEditing(){
+        self.view.endEditing(true)
+    }
+    
+    public func selectNextTextFieldByTagOrEndEditing(_ textField: UITextField){
+       let nextTFTag = textField.tag + 1
+        guard let nextTextField = self.getViewByTag(nextTFTag) as? UITextField else{
+            self.endEditing()
+           return
+       }
+       nextTextField.becomeFirstResponder()
+    }
 
 }
+
 
