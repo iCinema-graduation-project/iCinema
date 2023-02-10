@@ -23,7 +23,7 @@ class WelcomeViewController: ICinemaViewController {
         label.text = LanguageManager.welecomeDescriptionLabel
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = .white
+        label.textColor = ColorManager.textColor
         return label
     }()
     
@@ -47,12 +47,9 @@ class WelcomeViewController: ICinemaViewController {
         addImageView()
         addDescriptionLabel()
         addRegisterAndGuestButtons()
-        
-        registerButton.addTarget(self, action: #selector(self.registerButtonTapped(_:)), for: .touchUpInside)
-        guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)
     }
     
-    // MARK: = Helper methods
+    // MARK: - Helper methods
     //
     private func addImageView() {
         view.addSubview(imageView)
@@ -75,6 +72,10 @@ class WelcomeViewController: ICinemaViewController {
         view.addSubview(stackview)
         stackview.centerXInSuperview()
         stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0))
+        
+        registerButton.addTarget(self, action: #selector(self.registerButtonTapped(_:)), for: .touchUpInside)
+        guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)
+        
     }
     
     // MARK: - Actions
@@ -83,10 +84,11 @@ class WelcomeViewController: ICinemaViewController {
         sender.addAnimate {
             self.coordinator?.push()
         }
+        
     }
     
     @objc private func guestButtonTapped(_ sender: ICinemaButton) {
-        
+        sender.addAnimate()
     }
     
 }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Foundation
+
 
 class ViewController: UIViewController{
     // the coordinator is responsible for managing navigation between view controllers.
@@ -20,11 +22,50 @@ class ViewController: UIViewController{
     }
 }
 
+
 // defines the expected behavior of coordinators,
 // including managing a navigation controller and managing a stack of view controllers.
-protocol Coordinator: AnyObject {
+@objc protocol Coordinator {
     var navigationController: UINavigationController { get set }
     var coordinators: [ViewController.Type] { get set }
-    func push()
-    func pop()
 }
+
+fileprivate struct currentIndexHolder {
+    static var currentIndex = -1
+}
+
+extension Coordinator {
+    var currentIndex: Int {
+        get {
+            return currentIndexHolder.currentIndex
+        }
+        set {
+            currentIndexHolder.currentIndex = newValue
+        }
+    }
+
+    func push() {
+        increaseCurrentIndex()
+        let currentCoordinator = self.coordinators[currentIndex].init()
+        currentCoordinator.coordinator = self
+        navigationController.pushViewController(currentCoordinator, animated: true)
+    }
+    
+    func pop() {
+        decreaseCurrentIndex()
+    }
+    
+    private func increaseCurrentIndex() {
+         self.currentIndex = currentIndex == coordinators.count - 1 ? currentIndex : currentIndex + 1
+     }
+     
+     private func decreaseCurrentIndex() {
+         self.currentIndex = currentIndex == 0 ? 0 : currentIndex - 1
+     }
+
+
+}
+
+
+
+

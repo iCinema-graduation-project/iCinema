@@ -9,27 +9,19 @@ import UIKit
 
 var isAuthed = true
 
-class AppCoordinator: Coordinator {
-    var navigationController: UINavigationController
-    
-    var coordinators: [ViewController.Type] = []
+class AppCoordinator {
+    var rootViewController: UIViewController
     
     init() {
         
         if isAuthed {
-            self.navigationController = AuthFlowCoordinator().navigationController
-        }else{
-            navigationController = .init()
+            let appFlowCoordinator = AuthFlowCoordinator()
+            rootViewController = appFlowCoordinator.navigationController
+        } else {
+            rootViewController = .init()
         }
         
-    }
-    
-    func push() {
-        
-    }
-    
-    func pop() {
-        
+
     }
     
 }

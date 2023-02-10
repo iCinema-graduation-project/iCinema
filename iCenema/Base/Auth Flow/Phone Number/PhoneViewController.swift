@@ -147,7 +147,8 @@ extension PhoneViewController {
         viewModel.output.onPhoneNumberChanged { isValid in
             if isValid {
                 self.phoneNumberTextField.setState(.success, for: .editing)
-                self.phoneNumberTextField.setState(.normal, for: .normal)
+                self.phoneNumberTextField.setState(.success, for: .normal)
+                self.endEditing()
 
             }else {
                 self.phoneNumberTextField.setState(.fail, with: "The Phone number is not valid", for: .editing)

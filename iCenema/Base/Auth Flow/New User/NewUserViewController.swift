@@ -9,6 +9,11 @@ import UIKit
 import SwiftUI
 
 
+enum Gender: String{
+    case male = "Male"
+    case female = "Female"
+}
+
 class NewUserViewController: ICinemaViewController {
     // MARK: - Views
     //
@@ -49,14 +54,24 @@ class NewUserViewController: ICinemaViewController {
         return textfield
     }()
     
-    private let femaleButton: RadioButton = {
-        let button = RadioButton()
+    private lazy var femaleButton: RadioButton = {
+        let button = RadioButton(onSelected: { isSelected in
+            if isSelected {
+                self.maleButton.isSelected = false
+                self.gender = .female
+            }
+        })
         button.setTitle(LanguageManager.female, for: .normal)
         return button
     }()
     
-    private let maleButton: RadioButton = {
-        let button = RadioButton()
+    private lazy var maleButton: RadioButton = {
+        let button = RadioButton { isSelected in
+            if isSelected {
+                self.femaleButton.isSelected = false
+                self.gender = .male
+            }
+        }
         button.setTitle(LanguageManager.male, for: .normal)
         return button
     }()
@@ -72,8 +87,8 @@ class NewUserViewController: ICinemaViewController {
     /// Create Account Button
     private let createAccountButton = ICinemaButton(title: LanguageManager.createAccount)
     
-    
     // MARK: - Properties
+    var gender: Gender = .female
     
     // MARK: - Life Cycle
     //
@@ -84,12 +99,9 @@ class NewUserViewController: ICinemaViewController {
         addTextFieldsStackView()
         addGenderStackView()
         addCreateAccountButton()
-
-        createAccountButton.addTarget(self, action: #selector(self.createAccountButtonTapped(_:)), for: .touchUpInside)
+        
+        femaleButton.isSelected = true
     }
-    
-  
-    
     
     // MARK: - Helper Functions
     //
@@ -121,16 +133,38 @@ class NewUserViewController: ICinemaViewController {
         view.addSubview(createAccountButton)
         createAccountButton.centerXInSuperview()
         createAccountButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: SizeManager.viewPadding, right: 0))
+        createAccountButton.addTarget(self, action: #selector(self.createAccountButtonTapped(_:)), for: .touchUpInside)
         
     }
     
     
     // MARK: - Actins
     @objc func createAccountButtonTapped(_ sender: ICinemaButton) {
-        sender.addAnimate {}
+        sender.addAnimate {
+            }
     }
     
 }
+
+struct NewUserView: UIViewControllerRepresentable {
+    
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        return NewUserViewController()
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+    }
+}
+
+struct NewUserView_Previews: PreviewProvider {
+    static var previews: some View {
+        NewUserView()
+            .ignoresSafeArea()
+    }
+}
+
 
 
 

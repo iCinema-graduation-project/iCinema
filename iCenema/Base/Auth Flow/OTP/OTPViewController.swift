@@ -14,7 +14,7 @@ class OTPViewController: ICinemaViewController {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = LanguageManager.otpDescriptionLabel
-        label.tintColor = ColorManager.textColor
+        label.textColor = ColorManager.textColor
         label.numberOfLines = 0
         label.textAlignment = .center
         label.widthConstraints(SizeManager.textWidth)
@@ -77,6 +77,7 @@ class OTPViewController: ICinemaViewController {
             textField.tag = index
             textField.textAlignment = .center
             textField.keyboardType = .numberPad
+            textField.textContentType = .oneTimeCode
             textField.addTarget(self, action: #selector(self.textFieldsDidChanged(_:)), for: .editingChanged)
         }
     }

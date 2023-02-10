@@ -14,7 +14,7 @@ final class PhoneViewModelTests: XCTestCase {
     
 
     override func setUpWithError() throws {
-        viewModel = PhoneViewModel()
+        viewModel = PhoneViewModel(view: PhoneViewController())
     }
 
     override func tearDownWithError() throws {

@@ -16,19 +16,19 @@
 		736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736674E4298EE37C009CA617 /* PhoneViewModel.swift */; };
 		736EAA8F2993060F00318F2E /* PhoneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */; };
 		73861C242984351E0020A63B /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* NewUserViewController.swift */; };
-		73861C2629843A170020A63B /* iCinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* iCinemaTextField.swift */; };
+		73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* ICinemaTextField.swift */; };
 		73975B0D299080D000AD955C /* UICollectionView+SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73975B0C299080D000AD955C /* UICollectionView+SectionType.swift */; };
 		73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73A30CA929835B1F00D672E6 /* Localizable.strings */; };
 		73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAB29835B4000D672E6 /* LanguageManager.swift */; };
 		73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */; };
 		73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB029835EE200D672E6 /* ImageManager.swift */; };
 		73A30CB32983639000D672E6 /* ICinemaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB22983639000D672E6 /* ICinemaButton.swift */; };
+		73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */; };
 		73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFEFA12989EFA600969452 /* OTPViewController.swift */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
 		73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918D29834531002F3568 /* SceneDelegate.swift */; };
 		73EC919529834533002F3568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919429834533002F3568 /* Assets.xcassets */; };
 		73EC919829834533002F3568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919629834533002F3568 /* LaunchScreen.storyboard */; };
-		73EC91A329834533002F3568 /* iCenemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91A229834533002F3568 /* iCenemaTests.swift */; };
 		73EC91AD29834533002F3568 /* iCenemaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91AC29834533002F3568 /* iCenemaUITests.swift */; };
 		73EC91AF29834533002F3568 /* iCenemaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91AE29834533002F3568 /* iCenemaUITestsLaunchTests.swift */; };
 		73EC91BC29834569002F3568 /* ICinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91BB29834569002F3568 /* ICinemaViewController.swift */; };
@@ -82,7 +82,7 @@
 		736674E4298EE37C009CA617 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModelTests.swift; sourceTree = "<group>"; };
 		73861C232984351E0020A63B /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
-		73861C2529843A170020A63B /* iCinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCinemaTextField.swift; sourceTree = "<group>"; };
+		73861C2529843A170020A63B /* ICinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaTextField.swift; sourceTree = "<group>"; };
 		73975B0C299080D000AD955C /* UICollectionView+SectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+SectionType.swift"; sourceTree = "<group>"; };
 		73A30CA429835B0200D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		73A30CA829835B1F00D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -91,6 +91,7 @@
 		73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		73A30CB029835EE200D672E6 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		73A30CB22983639000D672E6 /* ICinemaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaButton.swift; sourceTree = "<group>"; };
+		73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
 		73BFEFA12989EFA600969452 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC918B29834531002F3568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		73EC919729834533002F3568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73EC919929834533002F3568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73EC919E29834533002F3568 /* iCinemaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCinemaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		73EC91A229834533002F3568 /* iCenemaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCenemaTests.swift; sourceTree = "<group>"; };
 		73EC91A829834533002F3568 /* iCinemaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCinemaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC91AC29834533002F3568 /* iCenemaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCenemaUITests.swift; sourceTree = "<group>"; };
 		73EC91AE29834533002F3568 /* iCenemaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCenemaUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -184,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				73861C232984351E0020A63B /* NewUserViewController.swift */,
+				73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */,
 			);
 			path = "New User";
 			sourceTree = "<group>";
@@ -252,10 +253,10 @@
 				73EC91C329834D41002F3568 /* Extensions */,
 				73EC91BE2983460D002F3568 /* Managers */,
 				73EF78AF298F294600A5DF2D /* Protocols */,
-				73EC91E029834ED7002F3568 /* UIs */,
+				73EC91E029834ED7002F3568 /* ReusableViews */,
 				73A30CAD29835D2500D672E6 /* Base */,
-				73EC919629834533002F3568 /* LaunchScreen.storyboard */,
 				73EC919929834533002F3568 /* Info.plist */,
+				73EC919629834533002F3568 /* LaunchScreen.storyboard */,
 			);
 			path = iCenema;
 			sourceTree = "<group>";
@@ -264,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				736EAA8D299305D000318F2E /* Auth Flow */,
-				73EC91A229834533002F3568 /* iCenemaTests.swift */,
 			);
 			path = iCenemaTests;
 			sourceTree = "<group>";
@@ -324,17 +324,17 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
-		73EC91E029834ED7002F3568 /* UIs */ = {
+		73EC91E029834ED7002F3568 /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
 				73EC91C1298348F5002F3568 /* BackgroundView.swift */,
 				73EC91BB29834569002F3568 /* ICinemaViewController.swift */,
 				73A30CB22983639000D672E6 /* ICinemaButton.swift */,
-				73861C2529843A170020A63B /* iCinemaTextField.swift */,
+				73861C2529843A170020A63B /* ICinemaTextField.swift */,
 				73FED1E52988854A00395727 /* RadioButton.swift */,
 				73F39A68298DF77400C68EFB /* CustomTabBarController.swift */,
 			);
-			path = UIs;
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 		73EF78AF298F294600A5DF2D /* Protocols */ = {
@@ -658,7 +658,7 @@
 				73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */,
 				733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */,
 				73EC91C02983462E002F3568 /* ColorsManager.swift in Sources */,
-				73861C2629843A170020A63B /* iCinemaTextField.swift in Sources */,
+				73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */,
 				73EC91C2298348F5002F3568 /* BackgroundView.swift in Sources */,
 				7311C3132991B9D500C0610F /* AuthFlowCoordinator.swift in Sources */,
 				73A30CB32983639000D672E6 /* ICinemaButton.swift in Sources */,
@@ -666,6 +666,7 @@
 				73975B0D299080D000AD955C /* UICollectionView+SectionType.swift in Sources */,
 				736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */,
 				73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */,
+				73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */,
 				73861C242984351E0020A63B /* NewUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,7 +675,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73EC91A329834533002F3568 /* iCenemaTests.swift in Sources */,
 				736EAA8F2993060F00318F2E /* PhoneViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -857,7 +857,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -887,7 +887,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

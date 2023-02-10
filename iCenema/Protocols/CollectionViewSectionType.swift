@@ -31,6 +31,7 @@ protocol CollectionViewSectionsDataSource {
 }
 
 extension CollectionViewSectionsDataSource {
+    
     func registerCells(_ collectionView: UICollectionView) {
         sections.forEach { $0.registerCell(collectionView) }
     }
