@@ -42,6 +42,7 @@
 		73EF78B8298F3E5100A5DF2D /* UICollectionViewCell+identifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EF78B7298F3E5100A5DF2D /* UICollectionViewCell+identifer.swift */; };
 		73EF78BC298F3EC900A5DF2D /* UICollectionView+register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EF78BA298F3EC900A5DF2D /* UICollectionView+register.swift */; };
 		73EF78BD298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EF78BB298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift */; };
+		73F04FBD2999333F00F543EE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F04FBC2999333F00F543EE /* Model.swift */; };
 		73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0BC062989C4D800742BA2 /* PhoneViewController.swift */; };
 		73F0BC172989D24600742BA2 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 73F0BC162989D24600742BA2 /* CountryPickerView */; };
 		73F39A69298DF77400C68EFB /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F39A68298DF77400C68EFB /* CustomTabBarController.swift */; };
@@ -114,6 +115,7 @@
 		73EF78B7298F3E5100A5DF2D /* UICollectionViewCell+identifer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+identifer.swift"; sourceTree = "<group>"; };
 		73EF78BA298F3EC900A5DF2D /* UICollectionView+register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+register.swift"; sourceTree = "<group>"; };
 		73EF78BB298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeReusable.swift"; sourceTree = "<group>"; };
+		73F04FBC2999333F00F543EE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		73F0BC062989C4D800742BA2 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		73F39A68298DF77400C68EFB /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		73FE17F62991EB960009D238 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				73BFEFA12989EFA600969452 /* OTPViewController.swift */,
 				733116B72990A9AE00EFD002 /* OTPViewModel.swift */,
+				73F04FBC2999333F00F543EE /* Model.swift */,
 			);
 			path = OTP;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73F04FBD2999333F00F543EE /* Model.swift in Sources */,
 				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
 				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
 				73EF78B1298F2AF400A5DF2D /* CollectionViewSectionType.swift in Sources */,

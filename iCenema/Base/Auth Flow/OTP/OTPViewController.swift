@@ -35,7 +35,7 @@ class OTPViewController: ICinemaViewController {
     
     
     // MARK: - Properties
-    lazy var viewModel = OTPViewModel(view: self)
+    lazy var viewModel: OTPViewModelType = OTPViewModel()
     
     // MARK: - Life Cycle
     //
@@ -45,7 +45,7 @@ class OTPViewController: ICinemaViewController {
         self.addAndConfigureSubviews()
     }
     
-    // MARK: - Helper Functions
+    // MARK: - View Helper Functions
     //
     private func addAndConfigureSubviews(){
         addDescriptionLabel()
@@ -93,12 +93,45 @@ class OTPViewController: ICinemaViewController {
     //
     @objc private func confirmButtonTapped(_ sender: ICinemaButton) {
         sender.addAnimate {
-            self.viewModel.didConfirmButtonPressed(sender)
+            self.viewModel.output.confirm { isOTPEmpty, IsOTPValid in
+                if isOTPEmpty {
+                    self.selectEmptyTextField()
+                } else {
+                    if IsOTPValid {
+                        self.coordinator?.push()
+                    } else {
+                        for textfield in self.verificationCodeTextFields{
+                            textfield.text = ""
+                            textfield.setState(.fail, for: .normal)
+                            // do not forget to show alert with error message
+                        }
+                    }
+                }
+            }
         }
     }
     
     @objc private func textFieldsDidChanged(_ textField: ICinemaTextField) {
-        viewModel.textField(didChanged: textField)
+        
+        let text = textField.text ?? ""
+
+        self.viewModel.input.textField(didChanged: text, at: textField.tag)
+        
+        if !text.isEmpty {
+            self.selectNextTextFieldByTagOrEndEditing(textField)
+        }
+        
+    }
+    
+    // MARK: - Helper Functions
+    private func selectEmptyTextField() {
+        for textField in self.verificationCodeTextFields {
+            let text = textField.text ?? ""
+            if text.isEmpty {
+                textField.becomeFirstResponder()
+                return
+            }
+        }
     }
     
 }
@@ -112,7 +145,6 @@ extension OTPViewController : UITextFieldDelegate {
         let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
         return prospectiveText.count <= 1
     }
-    
 
 }
 

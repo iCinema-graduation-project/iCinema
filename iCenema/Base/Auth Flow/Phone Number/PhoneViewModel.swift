@@ -11,7 +11,6 @@ import UIKit
 //
 protocol PhoneViewModelInput {
     func didChange(phoneNumber: String)
-    func didGetCodeButtonTapped(_ sender: ICinemaButton)
 }
 
 protocol PhoneViewModelOutput {
@@ -21,6 +20,7 @@ protocol PhoneViewModelOutput {
 protocol PhoneViewModelTypes {
     var inputs: PhoneViewModelInput { get }
     var output: PhoneViewModelOutput { get }
+    var isPhoneNumberValid: Bool { get }
 }
 
 // MARK: - PhoneViewModel
@@ -28,14 +28,17 @@ protocol PhoneViewModelTypes {
 class PhoneViewModel: PhoneViewModelTypes {
     var inputs: PhoneViewModelInput { self }
     var output: PhoneViewModelOutput { self }
-    private var didPhoneNumberChanged: (_ isValid: Bool) -> Void = { _ in }
     
-    private var view: PhoneViewController
-    init(view: PhoneViewController) {
-        self.view = view
+    private var didPhoneNumberChanged: (_ isValid: Bool) -> Void = { _ in }
+
+    private var phoneNumber: String = "" {
+        didSet {
+            self.isPhoneNumberValid = self.isValidPhoneNumber(phoneNumber)
+        }
     }
     
-    
+    public var isPhoneNumberValid: Bool = false
+   
     private func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
         
         let phoneRegEx = "(01)[0-9]{9}"
@@ -49,17 +52,8 @@ class PhoneViewModel: PhoneViewModelTypes {
 //
 extension PhoneViewModel: PhoneViewModelInput {
     func didChange(phoneNumber: String) {
-        let isValidPhoneNumber = self.isValidPhoneNumber(phoneNumber)
-        self.didPhoneNumberChanged(isValidPhoneNumber)
-    }
-    
-    func didGetCodeButtonTapped(_ sender: ICinemaButton) {
-        let text = self.view.phoneNumberTextField.text ?? ""
-        if !self.isValidPhoneNumber(text) {
-            self.view.phoneNumberTextField.becomeFirstResponder()
-        }else {
-            self.view.coordinator?.push()
-        }
+        self.phoneNumber = phoneNumber
+        self.didPhoneNumberChanged(isPhoneNumberValid)
     }
 }
 
@@ -69,6 +63,8 @@ extension PhoneViewModel: PhoneViewModelOutput {
     func onPhoneNumberChanged(completion: @escaping (Bool) -> Void) {
         self.didPhoneNumberChanged = completion
     }
+    
+   
 }
 
 

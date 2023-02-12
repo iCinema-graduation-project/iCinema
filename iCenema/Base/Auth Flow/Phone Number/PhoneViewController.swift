@@ -60,7 +60,7 @@ class PhoneViewController:  ICinemaViewController {
     
     // MARK: - Properites
     //
-    lazy var viewModel: PhoneViewModelTypes = PhoneViewModel(view: self)
+    lazy var viewModel: PhoneViewModelTypes = PhoneViewModel()
 
         
     // MARK: - Life Cycle
@@ -125,9 +125,14 @@ class PhoneViewController:  ICinemaViewController {
     //
     @objc private func getCodeButtonTapped(_ sender: ICinemaButton){
         sender.addAnimate {
-            self.viewModel.inputs.didGetCodeButtonTapped(sender)
+            if self.viewModel.isPhoneNumberValid {
+                self.coordinator?.push()
+            } else {
+                self.phoneNumberTextField.becomeFirstResponder()
+            }
         }
     }
+    
 }
 
 

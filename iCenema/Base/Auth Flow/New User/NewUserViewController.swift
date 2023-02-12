@@ -103,7 +103,7 @@ class NewUserViewController: ICinemaViewController {
         femaleButton.isSelected = true
     }
     
-    // MARK: - Helper Functions
+    // MARK: - View Helper Functions
     //
     private func addDescriptionLabel() {
         view.addSubview(descriptionLabel)
@@ -140,8 +140,7 @@ class NewUserViewController: ICinemaViewController {
     
     // MARK: - Actins
     @objc func createAccountButtonTapped(_ sender: ICinemaButton) {
-        sender.addAnimate {
-            }
+        sender.addAnimate { }
     }
     
 }
