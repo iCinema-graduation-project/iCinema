@@ -68,7 +68,7 @@ class PhoneViewController:  ICinemaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavigationTitleView(title: LanguageManager.register)
-        
+       
         addAndConfigurSubViews()
         
         self.bindViewModelOutput()
@@ -125,10 +125,13 @@ class PhoneViewController:  ICinemaViewController {
     //
     @objc private func getCodeButtonTapped(_ sender: ICinemaButton){
         sender.addAnimate {
-            if self.viewModel.isPhoneNumberValid {
-                self.coordinator?.push()
-            } else {
-                self.phoneNumberTextField.becomeFirstResponder()
+            self.viewModel.output.confirm { isPhoneNumberValid, message in
+                if isPhoneNumberValid {
+                    self.coordinator?.push()
+                } else {
+                    self.phoneNumberTextField.becomeFirstResponder()
+                    self.phoneNumberTextField.setState(.fail, with: message, for: .editing)
+                }
             }
         }
     }
@@ -149,15 +152,12 @@ extension PhoneViewController : UITextFieldDelegate {
 //
 extension PhoneViewController {
     private func bindViewModelOutput() {
-        viewModel.output.onPhoneNumberChanged { isValid in
-            if isValid {
+        viewModel.output.onPhoneNumberChanged { isPhoneNumberValid in
+            if isPhoneNumberValid {
                 self.phoneNumberTextField.setState(.success, for: .editing)
                 self.phoneNumberTextField.setState(.success, for: .normal)
                 self.endEditing()
 
-            }else {
-                self.phoneNumberTextField.setState(.fail, with: "The Phone number is not valid", for: .editing)
-                self.phoneNumberTextField.setState(.fail, with: "The Phone number is not valid", for: .normal)
             }
         }
     }

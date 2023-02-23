@@ -8,7 +8,8 @@
 import UIKit
 
 struct ColorManager {
-    static let iCinema = UIColor(named: "iCinema")
-    static let iCinemaReverce = UIColor(named: "iCinemaReverce")
+    static let backgroundColor: UIColor = UIColor(named: "backgroundColor") ?? .systemBackground
+    static let iCinemaYellow = UIColor(named: "iCinemaYellow") ?? .systemYellow
+    static let iCinemaGray = UIColor(named: "iCinemaGray") ?? .systemGray
     static let textColor: UIColor = UIColor(named: "textColor") ?? .label
 }

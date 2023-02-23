@@ -21,9 +21,9 @@ class RadioButton: UIButton {
     init(onSelected: @escaping ((_ isSelected: Bool) -> Void) = {_ in}){
         super.init(frame: .zero)
         self.onSelected = onSelected
-        
         setImage(unSelectedImage, for: .normal)
         setImage(selectedImage, for: .selected)
+        imageView?.tintColor = ColorManager.iCinemaYellow
         addTarget(self, action: #selector(self.radioButtonTapped(_:)), for: .touchUpInside)
     }
     

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SwiftUI
+
 
 class OTPViewController: ICinemaViewController {
     // MARK: - Views
@@ -112,7 +112,6 @@ class OTPViewController: ICinemaViewController {
     }
     
     @objc private func textFieldsDidChanged(_ textField: ICinemaTextField) {
-        
         let text = textField.text ?? ""
 
         self.viewModel.input.textField(didChanged: text, at: textField.tag)
@@ -120,7 +119,6 @@ class OTPViewController: ICinemaViewController {
         if !text.isEmpty {
             self.selectNextTextFieldByTagOrEndEditing(textField)
         }
-        
     }
     
     // MARK: - Helper Functions
@@ -133,7 +131,6 @@ class OTPViewController: ICinemaViewController {
             }
         }
     }
-    
 }
 
 // MARK: - UITextFieldDelegate
@@ -144,6 +141,12 @@ extension OTPViewController : UITextFieldDelegate {
         let currentText = textField.text ?? ""
         let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
         return prospectiveText.count <= 1
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let textField = textField as? ICinemaTextField else { return }
+        textField.setState(.success, for: .editing)
+        textField.setState(.success, for: .normal)
     }
 
 }

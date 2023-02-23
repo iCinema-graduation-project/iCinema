@@ -27,7 +27,7 @@ extension MDCOutlinedTextField {
         var color: UIColor = .label
         switch state {
         case .success:
-            color = .systemGreen
+            color = ColorManager.iCinemaYellow
         case .fail:
             color = .systemRed
         case .normal:

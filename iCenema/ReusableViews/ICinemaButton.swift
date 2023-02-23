@@ -12,8 +12,8 @@ class ICinemaButton: UIButton {
         super.init(frame: .zero)
         
         sizeConstraints(width: 200, height: 40)
-        backgroundColor = ColorManager.iCinema
-        setTitleColor(.white, for: .normal)
+        backgroundColor = ColorManager.iCinemaYellow
+        setTitleColor(ColorManager.iCinemaGray, for: .normal)
         layer.cornerRadius = 10
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 1, height: 1)

@@ -14,13 +14,13 @@ protocol PhoneViewModelInput {
 }
 
 protocol PhoneViewModelOutput {
-    func onPhoneNumberChanged(completion: @escaping (Bool) -> Void )
+    func onPhoneNumberChanged(completion: @escaping (_ isPhoneNumberValid: Bool) -> Void )
+    func confirm(completion: @escaping (_ isPhoneNumberValid: Bool, _ message: String) -> Void)
 }
 
 protocol PhoneViewModelTypes {
     var inputs: PhoneViewModelInput { get }
     var output: PhoneViewModelOutput { get }
-    var isPhoneNumberValid: Bool { get }
 }
 
 // MARK: - PhoneViewModel
@@ -37,7 +37,7 @@ class PhoneViewModel: PhoneViewModelTypes {
         }
     }
     
-    public var isPhoneNumberValid: Bool = false
+    private var isPhoneNumberValid: Bool = false
    
     private func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
         
@@ -64,6 +64,17 @@ extension PhoneViewModel: PhoneViewModelOutput {
         self.didPhoneNumberChanged = completion
     }
     
+    func confirm(completion: @escaping (_ isPhoneNumberValid: Bool, _ message: String) -> Void) {
+        if !self.isPhoneNumberValid {
+            completion(false, "The Phone Number is Not Valid")
+        }else {
+            /*
+            PhoneNetorkkRequest
+             
+             */
+            completion(true, "")
+        }
+    }
    
 }
 

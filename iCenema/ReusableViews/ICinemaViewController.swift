@@ -6,29 +6,15 @@
 //
 
 import UIKit
-import SwiftUI
 
 
 class ICinemaViewController: ViewController {
-    // MARK: - Properties
-    //
-    var backgroundView: UIView = UIView()
-
-    
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavegationControllar()
-        
-        self.backgroundView = ICienmaBackgroundView()
-        self.view.addSubview(self.backgroundView)
-        
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        backgroundView.frame = self.view.bounds
+        view.backgroundColor = ColorManager.backgroundColor
     }
     
     // end editing whene user begin touching
@@ -52,14 +38,15 @@ class ICinemaViewController: ViewController {
     public func addNavigationTitleView(title: String) {
         let label = UILabel()
         label.text = title
-        label.textColor = ColorManager.textColor
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.textColor = ColorManager.iCinemaYellow
         navigationItem.titleView = label
     }
     
     public func addNavigationTitleView(view: UIView) {
         navigationItem.titleView = view
     }
-    private func getViewByTag(_ tag: Int) -> UIView?{
+    func getViewByTag(_ tag: Int) -> UIView?{
         return self.view.viewWithTag(tag)
     }
     

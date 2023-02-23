@@ -14,7 +14,7 @@ class WelcomeViewController: ICinemaViewController {
     //
     private let imageView: UIImageView = {
         let imageView = UIImageView(image: ImageManager.welcomeImage)
-        imageView.sizeConstraints(width: 250, height: 180)
+        imageView.sizeConstraints(width: 250, height: 250)
         return imageView
     }()
     
@@ -31,9 +31,8 @@ class WelcomeViewController: ICinemaViewController {
         
     private let guestButton: ICinemaButton = {
         let button = ICinemaButton(title: LanguageManager.guest)
-        button.setTitleColor(ColorManager.iCinema, for: .normal)
         button.backgroundColor = .white
-        button.layer.shadowColor = ColorManager.iCinema?.cgColor
+        button.layer.shadowColor = ColorManager.iCinemaYellow.cgColor
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         
@@ -84,7 +83,6 @@ class WelcomeViewController: ICinemaViewController {
         sender.addAnimate {
             self.coordinator?.push()
         }
-        
     }
     
     @objc private func guestButtonTapped(_ sender: ICinemaButton) {
