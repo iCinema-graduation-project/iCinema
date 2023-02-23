@@ -40,7 +40,7 @@ class TabBar: UIView {
     }
 }
 
-class CustomTabBarController: UIViewController {
+class CustomTabBarController: ViewController {
     // MARK: - Properties
     //
     // Property to hold an array of view controllers

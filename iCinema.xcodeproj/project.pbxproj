@@ -46,6 +46,9 @@
 		73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0BC062989C4D800742BA2 /* PhoneViewController.swift */; };
 		73F0BC172989D24600742BA2 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 73F0BC162989D24600742BA2 /* CountryPickerView */; };
 		73F39A69298DF77400C68EFB /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F39A68298DF77400C68EFB /* CustomTabBarController.swift */; };
+		73F7935129A78E55007252BE /* AppTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935029A78E55007252BE /* AppTapBarController.swift */; };
+		73F7935729A7C612007252BE /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935629A7C612007252BE /* AppTabBarView.swift */; };
+		73F7935929A7DB5A007252BE /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935829A7DB5A007252BE /* CustomShape.swift */; };
 		73FE17F72991EB960009D238 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FE17F62991EB960009D238 /* Coordinator.swift */; };
 		73FED1E029886B0600395727 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1DF29886B0600395727 /* Constants.swift */; };
 		73FED1E2298874CD00395727 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1E1298874CD00395727 /* FontManager.swift */; };
@@ -118,6 +121,9 @@
 		73F04FBC2999333F00F543EE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		73F0BC062989C4D800742BA2 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		73F39A68298DF77400C68EFB /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		73F7935029A78E55007252BE /* AppTapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTapBarController.swift; sourceTree = "<group>"; };
+		73F7935629A7C612007252BE /* AppTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarView.swift; sourceTree = "<group>"; };
+		73F7935829A7DB5A007252BE /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 		73FE17F62991EB960009D238 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		73FED1DF29886B0600395727 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		73FED1E1298874CD00395727 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -222,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				7311C3112991B99200C0610F /* Auth Flow */,
+				73F7935029A78E55007252BE /* AppTapBarController.swift */,
+				73F7935629A7C612007252BE /* AppTabBarView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -336,6 +344,7 @@
 				73861C2529843A170020A63B /* ICinemaTextField.swift */,
 				73FED1E52988854A00395727 /* RadioButton.swift */,
 				73F39A68298DF77400C68EFB /* CustomTabBarController.swift */,
+				73F7935829A7DB5A007252BE /* CustomShape.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -641,17 +650,20 @@
 				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
 				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
 				73EF78B1298F2AF400A5DF2D /* CollectionViewSectionType.swift in Sources */,
+				73F7935929A7DB5A007252BE /* CustomShape.swift in Sources */,
 				73F39A69298DF77400C68EFB /* CustomTabBarController.swift in Sources */,
 				73EF78BD298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift in Sources */,
 				73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */,
 				73FED1E2298874CD00395727 /* FontManager.swift in Sources */,
 				73EC91BC29834569002F3568 /* ICinemaViewController.swift in Sources */,
 				73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */,
+				73F7935729A7C612007252BE /* AppTabBarView.swift in Sources */,
 				73FED1E42988750100395727 /* SizeManager.swift in Sources */,
 				73EF78B8298F3E5100A5DF2D /* UICollectionViewCell+identifer.swift in Sources */,
 				73FED1E62988854A00395727 /* RadioButton.swift in Sources */,
 				73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
+				73F7935129A78E55007252BE /* AppTapBarController.swift in Sources */,
 				73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */,
 				73EC918C29834531002F3568 /* AppDelegate.swift in Sources */,
 				73FED1E029886B0600395727 /* Constants.swift in Sources */,
@@ -780,7 +792,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -835,7 +847,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -861,7 +873,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -891,7 +903,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

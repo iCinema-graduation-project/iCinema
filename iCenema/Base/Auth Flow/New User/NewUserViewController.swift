@@ -140,7 +140,9 @@ class NewUserViewController: ICinemaViewController {
     
     // MARK: - Actins
     @objc func createAccountButtonTapped(_ sender: ICinemaButton) {
-        sender.addAnimate { }
+        sender.addAnimate {
+            self.coordinator?.push()
+        }
     }
     
 }

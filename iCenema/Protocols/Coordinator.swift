@@ -12,7 +12,11 @@ import Foundation
 class ViewController: UIViewController{
     // the coordinator is responsible for managing navigation between view controllers.
     var coordinator: Coordinator?
-    
+    var coordinatorType: CoordinatorType = .navigation
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+    }
     // used to notify the coordinator when the view controller is popped from the navigation stack.
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
@@ -20,8 +24,18 @@ class ViewController: UIViewController{
             self.coordinator?.pop()
         }
     }
+        
+    override func viewWillDisappear(_ animated: Bool) {
+        if coordinatorType == .segue {
+            self.coordinator?.pop()
+        }
+    }
 }
 
+enum CoordinatorType {
+    case navigation
+    case segue
+}
 
 // defines the expected behavior of coordinators,
 // including managing a navigation controller and managing a stack of view controllers.
@@ -48,7 +62,11 @@ extension Coordinator {
         increaseCurrentIndex()
         let currentCoordinator = self.coordinators[currentIndex].init()
         currentCoordinator.coordinator = self
-        navigationController.pushViewController(currentCoordinator, animated: true)
+        if currentCoordinator.coordinatorType == .navigation {
+            navigationController.pushViewController(currentCoordinator, animated: true)
+        } else {
+            navigationController.viewControllers.last?.present(currentCoordinator, animated: true)
+        }
     }
     
     func pop() {

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SwiftUI
 
 
 class WelcomeViewController: ICinemaViewController {
@@ -89,4 +89,23 @@ class WelcomeViewController: ICinemaViewController {
         sender.addAnimate()
     }
     
+}
+
+struct WelcomeView: UIViewControllerRepresentable {
+    
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        return WelcomeViewController()
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+    }
+}
+
+struct WelcomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        WelcomeView()
+            .ignoresSafeArea()
+    }
 }
