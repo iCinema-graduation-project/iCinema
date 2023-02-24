@@ -14,20 +14,25 @@ class AppTapBarController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let vc1 = ViewController()
-        vc1.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), tag: 0)
+        vc1.tabBarItem = UITabBarItem(title: nil, image: ImageManager.tabBar.menu, tag: 0)
+        vc1.tabBarItem.selectedImage = ImageManager.tabBar.menuSelected
         
 
         let vc2 = ViewController()
-        vc2.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "bell"), tag: 1)
-
+        vc2.tabBarItem = UITabBarItem(title: nil, image: ImageManager.tabBar.reels, tag: 1)
+        vc2.tabBarItem.selectedImage = ImageManager.tabBar.reelsSelected
+        
         let vc3 = ViewController()
-        vc3.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), tag: 2)
+        vc3.tabBarItem = UITabBarItem(title: nil, image: ImageManager.tabBar.home, tag: 2)
+        vc3.tabBarItem.selectedImage = ImageManager.tabBar.homeSelected
         
         let vc4 = ViewController()
-        vc4.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "bell"), tag: 3)
+        vc4.tabBarItem = UITabBarItem(title: nil, image: ImageManager.tabBar.ticket, tag: 3)
+        vc4.tabBarItem.selectedImage = ImageManager.tabBar.ticketSelected
 
         let vc5 = ViewController()
-        vc5.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "bell"), tag: 4)
+        vc5.tabBarItem = UITabBarItem(title: nil, image: ImageManager.tabBar.notigication, tag: 4)
+        vc5.tabBarItem.selectedImage = ImageManager.tabBar.notigicationSelected
 
         
         guard let tabBArView = UIHostingController(rootView: AppTabBarView(tabs: [vc1, vc2, vc3, vc4, vc5], selectedTabIndex: 2)).view else { return }

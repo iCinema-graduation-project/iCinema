@@ -44,8 +44,8 @@ struct AppTabBarView: View {
                             }
 
                         } label: {
-                            
-                            Image(uiImage: viewController.tabBarItem.image!)
+                            let image = selectedTabIndex == tag ? viewController.tabBarItem.selectedImage! : viewController.tabBarItem.image!
+                            Image(uiImage: image)
                                 .resizable()
                                 .renderingMode(.template)
                                 .aspectRatio(contentMode: .fit)
