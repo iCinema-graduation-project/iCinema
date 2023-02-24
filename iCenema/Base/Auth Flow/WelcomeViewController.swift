@@ -33,6 +33,7 @@ class WelcomeViewController: ICinemaViewController {
         let button = ICinemaButton(title: LanguageManager.guest)
         button.backgroundColor = .white
         button.layer.shadowColor = ColorManager.iCinemaYellow.cgColor
+        button.setTitleColor(ColorManager.iCinemaGray, for: .normal)
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         
