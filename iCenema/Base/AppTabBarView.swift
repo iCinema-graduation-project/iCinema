@@ -44,7 +44,8 @@ struct AppTabBarView: View {
                             }
 
                         } label: {
-                            let image = selectedTabIndex == tag ? viewController.tabBarItem.selectedImage! : viewController.tabBarItem.image!
+                            let image = (selectedTabIndex == tag ? viewController.tabBarItem.selectedImage! : viewController.tabBarItem.image!)
+                            
                             Image(uiImage: image)
                                 .resizable()
                                 .renderingMode(.template)
@@ -52,7 +53,7 @@ struct AppTabBarView: View {
                                 .frame(width: 25, height: 25, alignment: .center)
                                 .padding(selectedTabIndex == tag ? 15 : 0)
                                 .foregroundColor(selectedTabIndex == tag ? Color(uiColor: ColorManager.iCinemaGray) : Color(uiColor: ColorManager.textColor))
-                                .background(Color(uiColor: ColorManager.iCinemaYellow).opacity(selectedTabIndex == tag ? 1 : 0 ).clipShape(Circle()))
+                                .background(Color(uiColor: ColorManager.yellow).opacity(selectedTabIndex == tag ? 1 : 0 ).clipShape(Circle()))
                                 .matchedGeometryEffect(id: tag, in: animation)
                                 .offset(x: selectedTabIndex == tag ? ((reader.frame(in: .global).minX - reader.frame(in: .global).midX) - (currentLanguage == "ar" ?  5 : 0)) : 0 ,
                                         y: selectedTabIndex == tag ? -45 : 0)

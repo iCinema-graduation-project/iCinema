@@ -7,7 +7,7 @@
 
 import UIKit
 
-var isAuthed = true
+var isAuthed = false
 
 class AppCoordinator {
     var rootViewController: UIViewController
@@ -15,10 +15,10 @@ class AppCoordinator {
     init() {
         
         if isAuthed {
+            rootViewController = AppTapBarController()
+        } else {
             let appFlowCoordinator = AuthFlowCoordinator()
             rootViewController = appFlowCoordinator.navigationController
-        } else {
-            rootViewController = .init()
         }
         
 
