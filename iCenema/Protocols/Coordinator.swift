@@ -42,22 +42,10 @@ enum CoordinatorType {
 @objc protocol Coordinator {
     var navigationController: UINavigationController { get set }
     var coordinators: [ViewController.Type] { get set }
-}
-
-fileprivate struct currentIndexHolder {
-    static var currentIndex = -1
+    var currentIndex: Int { get set }
 }
 
 extension Coordinator {
-    var currentIndex: Int {
-        get {
-            return currentIndexHolder.currentIndex
-        }
-        set {
-            currentIndexHolder.currentIndex = newValue
-        }
-    }
-
     func push() {
         increaseCurrentIndex()
         let currentCoordinator = self.coordinators[currentIndex].init()

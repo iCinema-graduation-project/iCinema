@@ -39,6 +39,7 @@ class WelcomeViewController: ICinemaViewController {
         
         return button
     }()
+    
 
     // MARK: - Life Cycle
     //
@@ -71,7 +72,7 @@ class WelcomeViewController: ICinemaViewController {
         
         view.addSubview(stackview)
         stackview.centerXInSuperview()
-        stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0))
+        stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: SizeManager.viewPadding, right: 0))
         
         registerButton.addTarget(self, action: #selector(self.registerButtonTapped(_:)), for: .touchUpInside)
         guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)

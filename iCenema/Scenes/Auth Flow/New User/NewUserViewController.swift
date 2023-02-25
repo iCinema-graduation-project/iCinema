@@ -99,7 +99,7 @@ class NewUserViewController: ICinemaViewController {
         addTextFieldsStackView()
         addGenderStackView()
         addCreateAccountButton()
-        
+
         femaleButton.isSelected = true
     }
     

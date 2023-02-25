@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2538D3EC40C7C4D8A26A1CBC /* Pods_iCinema_iCinemaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */; };
+		730E1C0E29A955F700F2AB85 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C0D29A955F700F2AB85 /* HomeCoordinator.swift */; };
+		730E1C1029A9580800F2AB85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C0F29A9580800F2AB85 /* HomeViewController.swift */; };
+		730E1C1429A95D9F00F2AB85 /* ReelsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C1329A95D9F00F2AB85 /* ReelsCoordinator.swift */; };
+		730E1C1629A95DBA00F2AB85 /* ReelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C1529A95DBA00F2AB85 /* ReelsViewController.swift */; };
+		730E1C1929A95FA600F2AB85 /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C1829A95FA600F2AB85 /* MenuCoordinator.swift */; };
+		730E1C1B29A95FD100F2AB85 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C1A29A95FD100F2AB85 /* MenuViewController.swift */; };
+		730E1C1D29A960E000F2AB85 /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C1C29A960E000F2AB85 /* TicketViewController.swift */; };
+		730E1C1F29A960F300F2AB85 /* TicketCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C1E29A960F300F2AB85 /* TicketCoordinator.swift */; };
+		730E1C2129A966CF00F2AB85 /* NotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C2029A966CF00F2AB85 /* NotificationCoordinator.swift */; };
+		730E1C2329A966DC00F2AB85 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C2229A966DC00F2AB85 /* NotificationViewController.swift */; };
 		730FA8E7298ED92C00F3B955 /* UIView+addAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FA8E6298ED92C00F3B955 /* UIView+addAnimate.swift */; };
 		7311C3132991B9D500C0610F /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */; };
 		7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311C3162991BA3000C0610F /* AppCoordinator.swift */; };
@@ -78,6 +88,16 @@
 /* Begin PBXFileReference section */
 		130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCinema_iCinemaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFBF74A68AFC6696F4A77EC /* Pods-iCinema-iCinemaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinema-iCinemaUITests.release.xcconfig"; path = "Target Support Files/Pods-iCinema-iCinemaUITests/Pods-iCinema-iCinemaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		730E1C0D29A955F700F2AB85 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		730E1C0F29A9580800F2AB85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		730E1C1329A95D9F00F2AB85 /* ReelsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsCoordinator.swift; sourceTree = "<group>"; };
+		730E1C1529A95DBA00F2AB85 /* ReelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsViewController.swift; sourceTree = "<group>"; };
+		730E1C1829A95FA600F2AB85 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
+		730E1C1A29A95FD100F2AB85 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		730E1C1C29A960E000F2AB85 /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
+		730E1C1E29A960F300F2AB85 /* TicketCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCoordinator.swift; sourceTree = "<group>"; };
+		730E1C2029A966CF00F2AB85 /* NotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCoordinator.swift; sourceTree = "<group>"; };
+		730E1C2229A966DC00F2AB85 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		730FA8E6298ED92C00F3B955 /* UIView+addAnimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addAnimate.swift"; sourceTree = "<group>"; };
 		7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
 		7311C3162991BA3000C0610F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -167,6 +187,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		730E1C0729A950F600F2AB85 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				73F7935029A78E55007252BE /* AppTapBarController.swift */,
+				73F7935629A7C612007252BE /* AppTabBarView.swift */,
+				730E1C0C29A9551700F2AB85 /* Notification */,
+				730E1C0B29A9551000F2AB85 /* Ticket */,
+				730E1C0829A954F000F2AB85 /* Home */,
+				730E1C0A29A9550A00F2AB85 /* Reels */,
+				730E1C0929A954F700F2AB85 /* Menu */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		730E1C0829A954F000F2AB85 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				730E1C0D29A955F700F2AB85 /* HomeCoordinator.swift */,
+				730E1C0F29A9580800F2AB85 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		730E1C0929A954F700F2AB85 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				730E1C1829A95FA600F2AB85 /* MenuCoordinator.swift */,
+				730E1C1A29A95FD100F2AB85 /* MenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		730E1C0A29A9550A00F2AB85 /* Reels */ = {
+			isa = PBXGroup;
+			children = (
+				730E1C1329A95D9F00F2AB85 /* ReelsCoordinator.swift */,
+				730E1C1529A95DBA00F2AB85 /* ReelsViewController.swift */,
+			);
+			path = Reels;
+			sourceTree = "<group>";
+		};
+		730E1C0B29A9551000F2AB85 /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				730E1C1C29A960E000F2AB85 /* TicketViewController.swift */,
+				730E1C1E29A960F300F2AB85 /* TicketCoordinator.swift */,
+			);
+			path = Ticket;
+			sourceTree = "<group>";
+		};
+		730E1C0C29A9551700F2AB85 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				730E1C2029A966CF00F2AB85 /* NotificationCoordinator.swift */,
+				730E1C2229A966DC00F2AB85 /* NotificationViewController.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		7311C3112991B99200C0610F /* Auth Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,14 +303,13 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
-		73A30CAD29835D2500D672E6 /* Base */ = {
+		73A30CAD29835D2500D672E6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				7311C3112991B99200C0610F /* Auth Flow */,
-				73F7935029A78E55007252BE /* AppTapBarController.swift */,
-				73F7935629A7C612007252BE /* AppTabBarView.swift */,
+				730E1C0729A950F600F2AB85 /* Core */,
 			);
-			path = Base;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		73EC917F29834531002F3568 = {
@@ -265,7 +343,7 @@
 				73EC91BE2983460D002F3568 /* Managers */,
 				73EF78AF298F294600A5DF2D /* Protocols */,
 				73EC91E029834ED7002F3568 /* ReusableViews */,
-				73A30CAD29835D2500D672E6 /* Base */,
+				73A30CAD29835D2500D672E6 /* Scenes */,
 				73EC919929834533002F3568 /* Info.plist */,
 				73EC919629834533002F3568 /* LaunchScreen.storyboard */,
 			);
@@ -648,16 +726,24 @@
 			files = (
 				73F04FBD2999333F00F543EE /* Model.swift in Sources */,
 				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
+				730E1C2329A966DC00F2AB85 /* NotificationViewController.swift in Sources */,
 				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
 				73EF78B1298F2AF400A5DF2D /* CollectionViewSectionType.swift in Sources */,
+				730E1C1629A95DBA00F2AB85 /* ReelsViewController.swift in Sources */,
 				73F7935929A7DB5A007252BE /* CustomShape.swift in Sources */,
 				73F39A69298DF77400C68EFB /* CustomTabBarController.swift in Sources */,
 				73EF78BD298F3EC900A5DF2D /* UICollectionView+dequeReusable.swift in Sources */,
+				730E1C1F29A960F300F2AB85 /* TicketCoordinator.swift in Sources */,
+				730E1C1429A95D9F00F2AB85 /* ReelsCoordinator.swift in Sources */,
+				730E1C2129A966CF00F2AB85 /* NotificationCoordinator.swift in Sources */,
 				73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */,
+				730E1C0E29A955F700F2AB85 /* HomeCoordinator.swift in Sources */,
 				73FED1E2298874CD00395727 /* FontManager.swift in Sources */,
 				73EC91BC29834569002F3568 /* ICinemaViewController.swift in Sources */,
 				73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */,
 				73F7935729A7C612007252BE /* AppTabBarView.swift in Sources */,
+				730E1C1B29A95FD100F2AB85 /* MenuViewController.swift in Sources */,
+				730E1C1929A95FA600F2AB85 /* MenuCoordinator.swift in Sources */,
 				73FED1E42988750100395727 /* SizeManager.swift in Sources */,
 				73EF78B8298F3E5100A5DF2D /* UICollectionViewCell+identifer.swift in Sources */,
 				73FED1E62988854A00395727 /* RadioButton.swift in Sources */,
@@ -667,6 +753,7 @@
 				73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */,
 				73EC918C29834531002F3568 /* AppDelegate.swift in Sources */,
 				73FED1E029886B0600395727 /* Constants.swift in Sources */,
+				730E1C1D29A960E000F2AB85 /* TicketViewController.swift in Sources */,
 				73FE17F72991EB960009D238 /* Coordinator.swift in Sources */,
 				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,
 				73EC91D629834D41002F3568 /* UIView+SizeConstraints.swift in Sources */,
@@ -680,6 +767,7 @@
 				73A30CB32983639000D672E6 /* ICinemaButton.swift in Sources */,
 				73EF78BC298F3EC900A5DF2D /* UICollectionView+register.swift in Sources */,
 				73975B0D299080D000AD955C /* UICollectionView+SectionType.swift in Sources */,
+				730E1C1029A9580800F2AB85 /* HomeViewController.swift in Sources */,
 				736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */,
 				73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */,
 				73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */,
