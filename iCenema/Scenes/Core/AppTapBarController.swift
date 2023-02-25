@@ -17,19 +17,19 @@ class AppTapBarController: ICinemaViewController {
         super.viewDidLoad()
         
         let menuVC = MenuCoordinator().navigationController
-        buildCoordinator(vc: menuVC, image: ImageManager.tabBar.menu, selectedImage: ImageManager.tabBar.menuSelected, tag: 0)
+        buildCoordinator(vc: menuVC, image: .tabBar.menu, selectedImage: .tabBar.menuSelected, tag: 0)
         
         let reelsVC = ReelsCoordinator().navigationController
-        buildCoordinator(vc: reelsVC, image: ImageManager.tabBar.reels, selectedImage: ImageManager.tabBar.reelsSelected, tag: 1)
+        buildCoordinator(vc: reelsVC, image: .tabBar.reels, selectedImage: .tabBar.reelsSelected, tag: 1)
 
         let homeVC = HomeCoordinator().navigationController
-        buildCoordinator(vc: homeVC, image: ImageManager.tabBar.home, selectedImage: ImageManager.tabBar.homeSelected, tag: 2)
+        buildCoordinator(vc: homeVC, image: .tabBar.home, selectedImage: .tabBar.homeSelected, tag: 2)
 
         let ticketVC = TicketCoordinator().navigationController
-        buildCoordinator(vc: ticketVC, image: ImageManager.tabBar.ticket, selectedImage: ImageManager.tabBar.ticketSelected, tag: 3)
+        buildCoordinator(vc: ticketVC, image: .tabBar.ticket, selectedImage: .tabBar.ticketSelected, tag: 3)
 
         let notificationVC = NotificationCoordinator().navigationController
-        buildCoordinator(vc: notificationVC, image: ImageManager.tabBar.notification, selectedImage: ImageManager.tabBar.notificationSelected, tag: 4)
+        buildCoordinator(vc: notificationVC, image: .tabBar.notification, selectedImage: .tabBar.notificationSelected, tag: 4)
 
         let viewControllers = [menuVC, reelsVC, homeVC, ticketVC, notificationVC]
         guard let tabBarView = UIHostingController(rootView: AppTabBarView(tabs: viewControllers, selectedTabIndex: 2)).view else { return }
@@ -40,7 +40,7 @@ class AppTapBarController: ICinemaViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        tabBarView?.fillXSuperViewConstraints()
+        tabBarView?.fillXSuperViewConstraints(paddingLeft: 8, paddingRight: 8)
         tabBarView?.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, bottomAnchor: view.bottomAnchor)
     }
     
@@ -53,7 +53,9 @@ class AppTapBarController: ICinemaViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        coordinatorType = .segue
+        modalPresentationStyle = .fullScreen
     }
     
     // MARK: - Helper Functions

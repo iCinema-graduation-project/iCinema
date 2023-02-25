@@ -7,12 +7,14 @@
 
 import UIKit
 
-struct ColorManager {
-    static let yellow = UIColor(named: "yellow")!
-    static let backgroundColor: UIColor = UIColor(named: "backgroundColor")!
-    static let iCinemaYellow = UIColor(named: "iCinemaYellow")!
-    static let iCinemaGray = UIColor(named: "iCinemaGray")!
-    static let textColor: UIColor = UIColor(named: "textColor")!
-    static let textColorReverce: UIColor = UIColor(named: "textColorReverce")!
+
+extension UIColor {
+    static let iCinemaBackgroundColor: UIColor = UIColor(named: "iCinemaBackgroundColor")!
+    static let iCinemaYellowColor = UIColor(named: "iCinemaYellowColor")!
+    static let iCinemaTextColor: UIColor = UIColor(named: "iCinemaTextColor")!
+    static let iCinemaTextColorReverce: UIColor = UIColor(named: "iCinemaTextColorReverce")!
+    
+    static let iCinemaOnlyYellow = UIColor(named: "iCinemaOnlyYellow")!
+    static let iCinemaOnlyGray = UIColor(named: "iCinemaOnlyGray")!
 
 }

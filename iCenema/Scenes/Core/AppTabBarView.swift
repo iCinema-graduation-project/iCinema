@@ -16,7 +16,6 @@ struct AppTabBarView: View {
     @Namespace var animation
     
     let currentLanguage = Locale.current.languageCode ?? "en"
-//    @Environment(\.s) var safeAreaInsets
 
     init(tabs: [UIViewController], selectedTabIndex: Int) {
         self.tabs = tabs
@@ -54,8 +53,8 @@ struct AppTabBarView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 25, height: 25, alignment: .center)
                                 .padding(selectedTabIndex == tag ? 15 : 0)
-                                .foregroundColor(selectedTabIndex == tag ? Color(uiColor: ColorManager.iCinemaGray) : Color(uiColor: ColorManager.textColor))
-                                .background(Color(uiColor: ColorManager.yellow).opacity(selectedTabIndex == tag ? 1 : 0 ).clipShape(Circle()))
+                                .foregroundColor(selectedTabIndex == tag ? Color(uiColor: .iCinemaOnlyGray) : Color(uiColor: .iCinemaTextColor))
+                                .background(Color(uiColor: .iCinemaOnlyYellow).opacity(selectedTabIndex == tag ? 1 : 0 ).clipShape(Circle()))
                                 .matchedGeometryEffect(id: tag, in: animation)
                                 .offset(x: selectedTabIndex == tag ? ((reader.frame(in: .global).minX - reader.frame(in: .global).midX) - (currentLanguage == "ar" ?  5 : 0)) : 0 ,
                                         y: selectedTabIndex == tag ? -45 : 0)
@@ -72,11 +71,11 @@ struct AppTabBarView: View {
                     }
                 }
             }
-            .padding(.horizontal, 40)
+            .padding(.horizontal, 28)
             .padding(.vertical)
             .padding(.bottom, 24)
 //            .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
-            .background(Color(uiColor: ColorManager.backgroundColor).clipShape(CustomShape(xAxis: xAxis, curve: 30)))
+            .background(Color(uiColor: .iCinemaBackgroundColor).clipShape(CustomShape(xAxis: xAxis, curve: 30)))
         }
         .ignoresSafeArea(.all, edges: .bottom)
     }

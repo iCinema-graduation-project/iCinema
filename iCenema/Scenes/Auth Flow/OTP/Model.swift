@@ -12,9 +12,9 @@ struct OTPString {
     let count: Int
     var isEmpty: Bool = true
     
-    var code: String = "" {
+    lazy var code: String = String(repeating: "0", count: count) {
         didSet {
-            self.isEmpty = count != code.count
+            self.isEmpty = code == String(repeating: "0", count: count)
         }
     }
     
