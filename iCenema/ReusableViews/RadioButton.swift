@@ -23,7 +23,7 @@ class RadioButton: UIButton {
         self.onSelected = onSelected
         setImage(unSelectedImage, for: .normal)
         setImage(selectedImage, for: .selected)
-        imageView?.tintColor = ColorManager.iCinemaYellow
+        imageView?.tintColor = .iCinemaYellowColor
         addTarget(self, action: #selector(self.radioButtonTapped(_:)), for: .touchUpInside)
     }
     

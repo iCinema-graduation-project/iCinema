@@ -13,27 +13,27 @@ class WelcomeViewController: ICinemaViewController {
     // MARK: - Views
     //
     private let imageView: UIImageView = {
-        let imageView = UIImageView(image: ImageManager.welcomeImage)
+        let imageView = UIImageView(image: .welcomeImage)
         imageView.sizeConstraints(width: 250, height: 250)
         return imageView
     }()
     
     private let descreptionLabel: UILabel = {
         let label = UILabel()
-        label.text = LanguageManager.welecomeDescriptionLabel
+        label.text = .welecomeDescriptionLabel
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = ColorManager.textColor
+        label.textColor = .iCinemaTextColor
         return label
     }()
     
-    private let registerButton: ICinemaButton = ICinemaButton(title: LanguageManager.register)
+    private let registerButton: ICinemaButton = ICinemaButton(title: .register)
         
     private let guestButton: ICinemaButton = {
-        let button = ICinemaButton(title: LanguageManager.guest)
+        let button = ICinemaButton(title: .guest)
         button.backgroundColor = .white
-        button.layer.shadowColor = ColorManager.iCinemaYellow.cgColor
-        button.setTitleColor(ColorManager.iCinemaGray, for: .normal)
+        button.layer.shadowColor = UIColor.iCinemaYellowColor.cgColor
+        button.setTitleColor(.iCinemaOnlyGray, for: .normal)
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         
@@ -60,7 +60,7 @@ class WelcomeViewController: ICinemaViewController {
     
     private func addDescriptionLabel() {
         view.addSubview(descreptionLabel)
-        descreptionLabel.widthConstraints(SizeManager.textWidth)        
+        descreptionLabel.widthConstraints(.viewWidth)        
         descreptionLabel.centerInSuperview()
     }
     
@@ -72,7 +72,7 @@ class WelcomeViewController: ICinemaViewController {
         
         view.addSubview(stackview)
         stackview.centerXInSuperview()
-        stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: SizeManager.viewPadding, right: 0))
+        stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .viewPadding, right: 0))
         
         registerButton.addTarget(self, action: #selector(self.registerButtonTapped(_:)), for: .touchUpInside)
         guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)

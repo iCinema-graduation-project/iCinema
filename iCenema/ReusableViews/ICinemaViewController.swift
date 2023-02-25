@@ -14,7 +14,7 @@ class ICinemaViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavegationControllar()
-        view.backgroundColor = ColorManager.backgroundColor
+        view.backgroundColor = .iCinemaBackgroundColor
     }
     
     // end editing whene user begin touching
@@ -25,7 +25,7 @@ class ICinemaViewController: ViewController {
     // MARK: - Helper Functions
     //
     private func configureNavegationControllar() {
-        navigationController?.navigationBar.tintColor = ColorManager.textColor
+        navigationController?.navigationBar.tintColor = .iCinemaTextColor
         navigationItem.backButtonTitle = ""
         
         // change navigarionBar back button Image
@@ -35,17 +35,9 @@ class ICinemaViewController: ViewController {
     
     
     // MARK: - Public Functions
-    public func addNavigationTitleView(title: String) {
-        let label = UILabel()
-        label.text = title
-        label.font = .systemFont(ofSize: 20, weight: .bold)
-        label.textColor = ColorManager.iCinemaYellow
-        navigationItem.titleView = label
-    }
+   
     
-    public func addNavigationTitleView(view: UIView) {
-        navigationItem.titleView = view
-    }
+    
     func getViewByTag(_ tag: Int) -> UIView?{
         return self.view.viewWithTag(tag)
     }

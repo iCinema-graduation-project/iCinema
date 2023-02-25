@@ -13,11 +13,11 @@ class OTPViewController: ICinemaViewController {
     //
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = LanguageManager.otpDescriptionLabel
-        label.textColor = ColorManager.textColor
+        label.text = .otpDescriptionLabel
+        label.textColor = .iCinemaTextColor
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.widthConstraints(SizeManager.textWidth)
+        label.widthConstraints(.viewWidth)
         return label
     }()
     
@@ -31,7 +31,7 @@ class OTPViewController: ICinemaViewController {
     
     lazy var verificationCodeTextFields: [ICinemaTextField] = []
     
-    private let confirmButton = ICinemaButton(title: LanguageManager.confirm)
+    private let confirmButton = ICinemaButton(title: .confirm)
     
     
     // MARK: - Properties
@@ -41,7 +41,7 @@ class OTPViewController: ICinemaViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavigationTitleView(title: LanguageManager.verification)
+        navigationItem.addTitleView(title: .verification)
         self.addAndConfigureSubviews()
     }
     
@@ -58,14 +58,14 @@ class OTPViewController: ICinemaViewController {
         view.addSubview(descriptionLabel)
         descriptionLabel.centerXInSuperview()
         descriptionLabel.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor,
-                                         padding: UIEdgeInsets(top: SizeManager.viewPadding, left: 0, bottom: 0, right: 0))
+                                         padding: UIEdgeInsets(top: .viewPadding, left: 0, bottom: 0, right: 0))
     }
     
     private func addverificationCodeStackView() {
         view.addSubview(verificationCodeStackView)
-        verificationCodeStackView.widthConstraints(SizeManager.textWidth)
+        verificationCodeStackView.widthConstraints(.viewWidth)
         verificationCodeStackView.centerXInSuperview()
-        verificationCodeStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor, padding: UIEdgeInsets(top: SizeManager.viewPadding, left: 0, bottom: 0, right: 0))
+        verificationCodeStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor, padding: UIEdgeInsets(top: .viewPadding, left: 0, bottom: 0, right: 0))
     }
     
     private func addVerificationCodeTextFields() {
@@ -85,7 +85,7 @@ class OTPViewController: ICinemaViewController {
     private func addConfirmButton() {
         view.addSubview(confirmButton)
         confirmButton.centerXInSuperview()
-        confirmButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: SizeManager.viewPadding, right: 0))
+        confirmButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .viewPadding, right: 0))
         confirmButton.addTarget(self, action: #selector(self.confirmButtonTapped(_:)), for: .touchUpInside)
     }
     

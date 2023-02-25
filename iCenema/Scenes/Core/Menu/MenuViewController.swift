@@ -11,7 +11,6 @@ class MenuViewController: ICinemaViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNavigationTitleView(title: "Good dd")
 
         // Do any additional setup after loading the view.
     }
