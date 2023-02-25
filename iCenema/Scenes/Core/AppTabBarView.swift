@@ -14,7 +14,9 @@ struct AppTabBarView: View {
     
     @State var xAxis: CGFloat = 0
     @Namespace var animation
+    
     let currentLanguage = Locale.current.languageCode ?? "en"
+//    @Environment(\.s) var safeAreaInsets
 
     init(tabs: [UIViewController], selectedTabIndex: Int) {
         self.tabs = tabs
@@ -72,7 +74,8 @@ struct AppTabBarView: View {
             }
             .padding(.horizontal, 40)
             .padding(.vertical)
-            .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
+            .padding(.bottom, 24)
+//            .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
             .background(Color(uiColor: ColorManager.backgroundColor).clipShape(CustomShape(xAxis: xAxis, curve: 30)))
         }
         .ignoresSafeArea(.all, edges: .bottom)
