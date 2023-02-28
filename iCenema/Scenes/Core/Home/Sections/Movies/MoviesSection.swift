@@ -1,18 +1,16 @@
-// 
-//  HeaderCollectionViewSection.swift
+//
+//  MoviesSection.swift
 //  iCinema
 //
-//  Created by Ahmed Yamany on 27/02/2023.
+//  Created by Ahmed Yamany on 28/02/2023.
 //
 
 import UIKit
 
-final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLayout {
+final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLayout {
     typealias ResposeType = String
     
     // MARK: - Properties
-    var posterPaginationView: PosterPaginationView?
-    
     var items: [ResposeType] = [] {
         didSet {
             itemsCount = items.count
@@ -34,36 +32,33 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func groupLayoutInSection() -> NSCollectionLayoutGroup {
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.homePosterSectionHeight))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [self.itemLayoutInGroup()])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(.movieCellWidth), heightDimension: .absolute(.movieCellHeight))
+        let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [self.itemLayoutInGroup()])
+       
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .moviesPadding, bottom: 0, trailing: .moviesPadding)
+
         return group
     }
     
     func sectionLayout() -> NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: self.groupLayoutInSection())
-        section.orthogonalScrollingBehavior = .groupPagingCentered
+        section.orthogonalScrollingBehavior = .continuous
         
         // MARK: - add supplementary view
-        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
-        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize, elementKind: PosterPaginationView.identifier, alignment: .bottom)
+        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.moviesSupplementaryHeight))
+        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize, elementKind: MovieSectionHeader.identifier, alignment: .top)
         section.boundarySupplementaryItems = [supplementaryItem]
-        
-        // MARK: - Update page control
-        section.visibleItemsInvalidationHandler = { [weak self] (items, offset, env) -> Void in
-            let page = round(offset.x / Constants.screenBounds.width)
-            self?.posterPaginationView?.selectPage(at: Int(page))
-        }
         
         return section
     }
     
     // MARK: - Data
     func registerCell(_ collectionView: UICollectionView) {
-        collectionView.register(PosterCollectionViewCell.self)
+        collectionView.register(MovieCell.self)
     }
     
     func registerSupplementaryView(_ collectionView: UICollectionView) {
-        collectionView.register(PosterPaginationView.self, supplementaryViewOfKind: PosterPaginationView.identifier)
+        collectionView.register(MovieSectionHeader.self, supplementaryViewOfKind: MovieSectionHeader.identifier)
     }
         
     func getItems(_ collectionView: UICollectionView) {
@@ -77,15 +72,14 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell =  collectionView.dequeueReusableCell(PosterCollectionViewCell.self, for: indexPath)
+        let cell =  collectionView.dequeueReusableCell(MovieCell.self, for: indexPath)
+        cell.backgroundColor = .red
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let posterPaginationView = collectionView.dequeueReusableSupplementaryView(PosterPaginationView.self, ofKind: PosterPaginationView.identifier, for: indexPath)
-        posterPaginationView.setNumberOfPages(self.itemsCount)
-        self.posterPaginationView = posterPaginationView
-        return posterPaginationView
+        let movieSectionHeader = collectionView.dequeueReusableSupplementaryView(MovieSectionHeader.self, ofKind: MovieSectionHeader.identifier, for: indexPath)
+        return movieSectionHeader
     }
     
 }

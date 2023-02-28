@@ -21,10 +21,19 @@ final class PosterCollectionViewCell: UICollectionViewCell {
         self.addViewButton()
         self.addPoterImage()
         self.addPosterDescriptionLabel()
+        
+        viewButton.addTarget(self, action: #selector(self.viewButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    // MARK: - Actions
+    @objc func viewButtonTapped(_ sender: ICinemaButton){
+        sender.addAnimate {
+            print("tapped")
+        }
     }
     
     //  MARK: - update ui
@@ -76,4 +85,4 @@ final class PosterCollectionViewCell: UICollectionViewCell {
 }
 
 // MARK: - IdentifiableView
-extension PosterCollectionViewCell:  IdentifiableView { }
+extension PosterCollectionViewCell: IdentifiableView { }

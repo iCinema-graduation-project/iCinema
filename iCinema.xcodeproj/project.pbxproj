@@ -26,6 +26,9 @@
 		7325B8732988B7FA0009B8EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7325B8722988B7FA0009B8EC /* README.md */; };
 		733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733116B72990A9AE00EFD002 /* OTPViewModel.swift */; };
 		736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736674E4298EE37C009CA617 /* PhoneViewModel.swift */; };
+		73687B7329AEA228007DB431 /* MoviesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73687B7229AEA228007DB431 /* MoviesSection.swift */; };
+		73687B7529AEA23F007DB431 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73687B7429AEA23F007DB431 /* MovieCell.swift */; };
+		73687B7729AEA318007DB431 /* MovieSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73687B7629AEA318007DB431 /* MovieSectionHeader.swift */; };
 		736EAA8F2993060F00318F2E /* PhoneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */; };
 		73861C242984351E0020A63B /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* NewUserViewController.swift */; };
 		73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* ICinemaTextField.swift */; };
@@ -111,6 +114,9 @@
 		7325B8722988B7FA0009B8EC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		733116B72990A9AE00EFD002 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		736674E4298EE37C009CA617 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
+		73687B7229AEA228007DB431 /* MoviesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSection.swift; sourceTree = "<group>"; };
+		73687B7429AEA23F007DB431 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		73687B7629AEA318007DB431 /* MovieSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSectionHeader.swift; sourceTree = "<group>"; };
 		736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModelTests.swift; sourceTree = "<group>"; };
 		73861C232984351E0020A63B /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		73861C2529843A170020A63B /* ICinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaTextField.swift; sourceTree = "<group>"; };
@@ -313,6 +319,16 @@
 			path = "Phone Number";
 			sourceTree = "<group>";
 		};
+		73687B7129AEA1FB007DB431 /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				73687B7229AEA228007DB431 /* MoviesSection.swift */,
+				73687B7429AEA23F007DB431 /* MovieCell.swift */,
+				73687B7629AEA318007DB431 /* MovieSectionHeader.swift */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
 		736EAA8D299305D000318F2E /* Auth Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				73F0C36C29AD202000F95B01 /* Poster */,
+				73687B7129AEA1FB007DB431 /* Movies */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -774,11 +791,13 @@
 				738EEF3029AE66E100CDEE88 /* PosterPaginationView.swift in Sources */,
 				73F04FBD2999333F00F543EE /* Model.swift in Sources */,
 				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
+				73687B7529AEA23F007DB431 /* MovieCell.swift in Sources */,
 				730E1C2329A966DC00F2AB85 /* NotificationViewController.swift in Sources */,
 				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
 				73EF78B1298F2AF400A5DF2D /* CollectionViewCompositionalLayout.swift in Sources */,
 				730E1C1629A95DBA00F2AB85 /* ReelsViewController.swift in Sources */,
 				73F7935929A7DB5A007252BE /* CustomShape.swift in Sources */,
+				73687B7729AEA318007DB431 /* MovieSectionHeader.swift in Sources */,
 				730E1C1F29A960F300F2AB85 /* TicketCoordinator.swift in Sources */,
 				730E1C1429A95D9F00F2AB85 /* ReelsCoordinator.swift in Sources */,
 				730E1C2129A966CF00F2AB85 /* NotificationCoordinator.swift in Sources */,
@@ -819,6 +838,7 @@
 				736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */,
 				738EEF2E29AE330A00CDEE88 /* Cinema.swift in Sources */,
 				73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */,
+				73687B7329AEA228007DB431 /* MoviesSection.swift in Sources */,
 				73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */,
 				73F0C37429AD7AE900F95B01 /* PosterCell.swift in Sources */,
 				73861C242984351E0020A63B /* NewUserViewController.swift in Sources */,

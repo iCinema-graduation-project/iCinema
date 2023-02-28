@@ -13,7 +13,8 @@ final class HomeViewController: ICinemaViewController {
     
     // MARK: - Properties
     var sections: [any CollectionViewCompositionalLayout] = [
-        PosterCollectionViewSection()
+        PosterCollectionViewSection(),
+        MoviesCollectionViewSection()
     ]
     
     // MARK: - Views
