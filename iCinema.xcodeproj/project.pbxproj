@@ -31,6 +31,7 @@
 		73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* ICinemaTextField.swift */; };
 		738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2B29AE325000CDEE88 /* Poster.swift */; };
 		738EEF2E29AE330A00CDEE88 /* Cinema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2D29AE330A00CDEE88 /* Cinema.swift */; };
+		738EEF3029AE66E100CDEE88 /* PosterPaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2F29AE66E100CDEE88 /* PosterPaginationView.swift */; };
 		73975B0D299080D000AD955C /* +compositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73975B0C299080D000AD955C /* +compositionalLayout.swift */; };
 		73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73A30CA929835B1F00D672E6 /* Localizable.strings */; };
 		73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAB29835B4000D672E6 /* LanguageManager.swift */; };
@@ -115,6 +116,7 @@
 		73861C2529843A170020A63B /* ICinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaTextField.swift; sourceTree = "<group>"; };
 		738EEF2B29AE325000CDEE88 /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
 		738EEF2D29AE330A00CDEE88 /* Cinema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinema.swift; sourceTree = "<group>"; };
+		738EEF2F29AE66E100CDEE88 /* PosterPaginationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterPaginationView.swift; sourceTree = "<group>"; };
 		73975B0C299080D000AD955C /* +compositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+compositionalLayout.swift"; sourceTree = "<group>"; };
 		73A30CA429835B0200D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		73A30CA829835B1F00D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 			children = (
 				73F0C36F29AD206000F95B01 /* PosterSection.swift */,
 				73F0C37329AD7AE900F95B01 /* PosterCell.swift */,
+				738EEF2F29AE66E100CDEE88 /* PosterPaginationView.swift */,
 			);
 			path = Poster;
 			sourceTree = "<group>";
@@ -768,6 +771,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				738EEF3029AE66E100CDEE88 /* PosterPaginationView.swift in Sources */,
 				73F04FBD2999333F00F543EE /* Model.swift in Sources */,
 				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
 				730E1C2329A966DC00F2AB85 /* NotificationViewController.swift in Sources */,

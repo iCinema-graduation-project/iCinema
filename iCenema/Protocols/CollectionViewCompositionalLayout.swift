@@ -15,13 +15,16 @@ import UIKit
 ///
 protocol CollectionViewCompositionalLayout: AnyObject, UICollectionViewDelegate, UICollectionViewDataSource {
     associatedtype ResposeType
-    var items: [ResposeType] { get }
+    var items: [ResposeType] { get set }
+    var itemsCount: Int { get set }
     func itemLayoutInGroup() -> NSCollectionLayoutItem
     func groupLayoutInSection() -> NSCollectionLayoutGroup
     func sectionLayout() -> NSCollectionLayoutSection
     func registerCell(_ collectionView: UICollectionView)
+    func registerSupplementaryView(_ collectionView: UICollectionView)
     func getItems(_ collectionView: UICollectionView)
 }
+
 
 
 /// Defines the behavior of collectionView sections
@@ -35,16 +38,20 @@ extension CollectionViewCompositionalLayoutDataSource {
         sections.forEach { $0.registerCell(collectionView) }
     }
     
+    func registerSupplementaryViews(_ collectionView: UICollectionView) {
+        sections.forEach { $0.registerSupplementaryView(collectionView) }
+    }
+    
     func getSection(at indexPath: IndexPath) -> any CollectionViewCompositionalLayout {
         return self.sections[indexPath.section]
     }
     
-      func collectionViewCompositionalLayout() -> UICollectionViewLayout {
-          let layout = UICollectionViewCompositionalLayout { [self]  sectionIndex, layoutEnvironment in
-              return self.getSection(at: IndexPath(row: 0, section: sectionIndex)).sectionLayout()
-          }
-          return layout
+    func collectionViewCompositionalLayoutForSections() -> UICollectionViewLayout {
+      let layout = UICollectionViewCompositionalLayout { [self]  sectionIndex, layoutEnvironment in
+          return self.getSection(at: IndexPath(row: 0, section: sectionIndex)).sectionLayout()
       }
+      return layout
+    }
 }
 
 // Define the behavior of The Collection View as a cell in table View
