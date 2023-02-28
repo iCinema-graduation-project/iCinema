@@ -17,7 +17,7 @@ class PosterPaginationView: UICollectionReusableView, IdentifiableView {
     }()
 
     override init(frame: CGRect) {
-        super.init(frame: .zero)
+        super.init(frame: frame)
         addSubview(pageController)
         pageController.centerInSuperview()
     }

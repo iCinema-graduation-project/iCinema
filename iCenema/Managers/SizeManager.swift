@@ -14,15 +14,21 @@ extension CGFloat {
     static let viewPadding: CGFloat = 48
     static let viewCornerRadius: CGFloat = 15
     
-    // MARK: - Button
+    // MARK: - ICinema Button
     static let buttonWidth: CGFloat = 200
     static let buttonHeight: CGFloat = 40
     static let buttonCornerRadius: CGFloat = 10
     
-    // MARK: - Home Size
+    // MARK: - Home Posters Section
     static let homePosterHeight: CGFloat = 276
     static let homePoseterWidth: CGFloat = 240
     static let homePosterSectionHeight: CGFloat = CGFloat.homePosterHeight + CGFloat.buttonHeight + 15
+
+    // MARK: - Movies Section
+    static let moviesSupplementaryHeight: CGFloat = 50
+    static let movieCellWidth: CGFloat = 168
+    static let movieCellHeight: CGFloat = 224
+    static let moviesPadding: CGFloat = 10
     
 }
 
