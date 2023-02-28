@@ -22,5 +22,23 @@ extension UICollectionView {
         }
         return cell
     }
+}
+
+
+
+extension UICollectionView {
     
+    func register<T: UICollectionReusableView>(_ class: T.Type,
+                                               supplementaryViewOfKind kind: String) where T : IdentifiableView {
+        register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: T.identifier)
+    }
+    
+    func dequeueReusableSupplementaryView<T: UICollectionReusableView>(_ class: T.Type,
+                                                                       ofKind kind: String,
+                                                                       for indexPath: IndexPath) -> T  where T: IdentifiableView {
+        guard let view = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: T.identifier, for: indexPath) as? T else { fatalError(
+            "Couldn't find UICollectionReusableView for \(T.identifier), make sure the view is registered with collection view")
+        }
+        return view
+    }
 }

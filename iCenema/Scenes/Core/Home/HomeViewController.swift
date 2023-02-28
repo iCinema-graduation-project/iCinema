@@ -8,16 +8,18 @@
 import UIKit
 import SwiftUI
 
+
 final class HomeViewController: ICinemaViewController {
-    // MARK: - Views
-    //
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
-    
     
     // MARK: - Properties
     var sections: [any CollectionViewCompositionalLayout] = [
         PosterCollectionViewSection()
     ]
+    
+    // MARK: - Views
+    //
+    lazy var collectionView = UICollectionView(sections: sections)
+
     
     // MARK: - Life Cycle
     //
@@ -52,13 +54,12 @@ final class HomeViewController: ICinemaViewController {
     
     private func addCollectionView() {
         view.addSubview(collectionView)
-        collectionView.collectionViewLayout = collectionViewCompositionalLayout()
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
 
-        registerCells(collectionView)
-        sections.forEach { $0.getItems(self.collectionView) }
+        self.sections.forEach { $0.getItems(self.collectionView) }
+        
     }
     
 }
@@ -75,9 +76,10 @@ extension HomeViewController: UICollectionViewDataSource {
         return self.sections.count
     }
     
+    // FIXME: - items count
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let compositionalSection = getSection(at: IndexPath(item: 0, section: section))
-        return compositionalSection.items.count
+        return compositionalSection.itemsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -85,11 +87,17 @@ extension HomeViewController: UICollectionViewDataSource {
         return section.collectionView(collectionView, cellForItemAt: indexPath)
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let section = self.getSection(at: indexPath)
+        return section.collectionView?(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath) ?? UICollectionReusableView()
+    }
+    
+    
+    
 }
 
 // MARK: - CollectionViewDelegate
 //
 extension HomeViewController: UICollectionViewDelegate {
     
-
 }

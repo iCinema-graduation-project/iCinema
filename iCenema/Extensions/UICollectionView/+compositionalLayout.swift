@@ -48,3 +48,36 @@ extension UICollectionView {
     }
 
 }
+
+
+extension UICollectionView: CollectionViewCompositionalLayoutDataSource {
+    
+    // A struct to hold the current compositional layout for the collection view
+    struct SectionsHolder {
+        static var sections: [any CollectionViewCompositionalLayout] = []
+    }
+    
+    /// A computed property to get or set the current sections of compositional layout
+    var sections: [any CollectionViewCompositionalLayout] {
+        get {
+            return SectionsHolder.sections
+        }
+        set {
+            SectionsHolder.sections = newValue
+        }
+    }
+    
+    /// A convenience initializer to create a new collection view with a compositional layout
+    convenience init(sections: [any CollectionViewCompositionalLayout]) {
+        self.init(frame: .zero, collectionViewLayout: .init())
+        self.sections = sections
+            
+        self.registerCells(self)
+        self.registerSupplementaryViews(self)
+        collectionViewLayout = collectionViewCompositionalLayoutForSections()
+    }
+
+   
+
+}
+

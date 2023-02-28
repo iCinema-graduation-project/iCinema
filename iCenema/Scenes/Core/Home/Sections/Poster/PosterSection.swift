@@ -11,8 +11,17 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
     typealias ResposeType = String
     
     // MARK: - Properties
-    var items: [ResposeType] = []
+    var posterPaginationView: PosterPaginationView?
     
+    var items: [ResposeType] = [] {
+        didSet {
+            itemsCount = items.count
+        }
+    }
+    
+    var itemsCount: Int = 0
+    
+    // MARK: - initalizer
     override init() {
         super.init()
     }
@@ -33,6 +42,18 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
     func sectionLayout() -> NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: self.groupLayoutInSection())
         section.orthogonalScrollingBehavior = .groupPagingCentered
+        
+        // MARK: - add supplementary view
+        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
+        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize, elementKind: PosterPaginationView.identifier, alignment: .bottom)
+        section.boundarySupplementaryItems = [supplementaryItem]
+        
+        // MARK: - Update page control
+        section.visibleItemsInvalidationHandler = { [weak self] (items, offset, env) -> Void in
+            let page = round(offset.x / Constants.screenBounds.width)
+            self?.posterPaginationView?.selectPage(at: Int(page))
+        }
+        
         return section
     }
     
@@ -41,8 +62,12 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
         collectionView.register(PosterCollectionViewCell.self)
     }
     
+    func registerSupplementaryView(_ collectionView: UICollectionView) {
+        collectionView.register(PosterPaginationView.self, supplementaryViewOfKind: PosterPaginationView.identifier)
+    }
+        
     func getItems(_ collectionView: UICollectionView) {
-        self.items = ["", "", ""]
+        self.items = ["", "", "", ""]
         collectionView.reloadData()
     }
     
@@ -56,5 +81,12 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let posterPaginationView = collectionView.dequeueReusableSupplementaryView(PosterPaginationView.self, ofKind: PosterPaginationView.identifier, for: indexPath)
+        posterPaginationView.setNumberOfPages(self.itemsCount)
+        self.posterPaginationView = posterPaginationView
+        return posterPaginationView
+    }
     
+        
 }

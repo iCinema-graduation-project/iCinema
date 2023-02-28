@@ -22,7 +22,7 @@ extension CGFloat {
     // MARK: - Home Size
     static let homePosterHeight: CGFloat = 276
     static let homePoseterWidth: CGFloat = 240
-    static let homePosterSectionHeight: CGFloat = CGFloat.homePosterHeight + CGFloat.buttonHeight + 10
+    static let homePosterSectionHeight: CGFloat = CGFloat.homePosterHeight + CGFloat.buttonHeight + 15
     
 }
 
