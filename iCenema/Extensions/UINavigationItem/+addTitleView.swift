@@ -7,7 +7,10 @@
 
 import UIKit
 
+/// Extend the UINavigationItem class with helper methods to add a title view
 extension UINavigationItem {
+    
+    /// Add a new UILabel instance as the title view with the specified title
     public func addTitleView(title: String) {
         let label = UILabel()
         label.text = title
@@ -16,6 +19,7 @@ extension UINavigationItem {
         titleView = label
     }
     
+    /// Add a specified UIView instance as the title view
     public func addTitleView(view: UIView) {
         titleView = view
     }

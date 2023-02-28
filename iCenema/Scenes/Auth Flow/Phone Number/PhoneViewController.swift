@@ -137,9 +137,9 @@ class PhoneViewController:  ICinemaViewController {
     
 }
 
-
-// MARK: - UITextFieldDelegate
 extension PhoneViewController : UITextFieldDelegate {
+    // MARK: - UITextFieldDelegate
+    //
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
         let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
@@ -147,9 +147,9 @@ extension PhoneViewController : UITextFieldDelegate {
     }
 }
 
-// MARK: - Bind ViewModel Output
-//
 extension PhoneViewController {
+    // MARK: - Bind ViewModel Output
+    //
     private func bindViewModelOutput() {
         viewModel.output.onPhoneNumberChanged { isPhoneNumberValid in
             if isPhoneNumberValid {
@@ -162,9 +162,9 @@ extension PhoneViewController {
     }
 }
 
-// MARK: - Bind ViewModel Input
-//
 extension PhoneViewController {
+    // MARK: - Bind ViewModel Input
+    //
     private func bindViewModelInput() {
         phoneNumberTextField.addTarget(self, action: #selector(self.phoneNumberTextFieldEditingChanged(_:)), for: .editingChanged)
     }

@@ -11,10 +11,10 @@ class ICinemaButton: UIButton {
     init(title: String) {
         super.init(frame: .zero)
         
-        sizeConstraints(width: 200, height: 40)
+        sizeConstraints(width: .buttonWidth, height: .buttonHeight)
         backgroundColor = .iCinemaYellowColor
         setTitleColor(.iCinemaTextColorReverce, for: .normal)
-        layer.cornerRadius = 10
+        layer.cornerRadius = .buttonCornerRadius
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 1, height: 1)
         setTitle(title, for: .normal)

@@ -40,14 +40,14 @@ class AppTapBarController: ICinemaViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        tabBarView?.fillXSuperViewConstraints(paddingLeft: 8, paddingRight: 8)
+        tabBarView?.fillXSuperViewConstraints() // (paddingLeft: 8, paddingRight: 8)
         tabBarView?.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, bottomAnchor: view.bottomAnchor)
     }
     
     // MARK: - Intializers
     //
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         coordinatorType = .segue
         modalPresentationStyle = .fullScreen
     }
@@ -65,24 +65,4 @@ class AppTapBarController: ICinemaViewController {
         vc.tabBarItem.selectedImage = selectedImage
     }
     
-}
-
-
-struct AppTapBarControllerView: UIViewControllerRepresentable {
-    
-    typealias UIViewControllerType = UIViewController
-
-    func makeUIViewController(context: Context) -> UIViewController {
-        return AppTapBarController()
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-    }
-}
-
-struct AppTapBarControllerView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppTapBarControllerView()
-            .ignoresSafeArea()
-    }
 }
