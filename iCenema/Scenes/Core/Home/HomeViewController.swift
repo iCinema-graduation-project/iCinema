@@ -7,13 +7,15 @@
 
 import UIKit
 import SwiftUI
-
+import ViewAnimator
 
 final class HomeViewController: ICinemaViewController {
     
     // MARK: - Properties
     var sections: [any CollectionViewCompositionalLayout] = [
         PosterCollectionViewSection(),
+        MoviesCollectionViewSection(),
+        CinemaCollectionViewSection(),
         MoviesCollectionViewSection(),
     ]
     
@@ -27,6 +29,7 @@ final class HomeViewController: ICinemaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
+
     }
     
     override func viewDidLayoutSubviews() {

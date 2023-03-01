@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ViewAnimator
 
 final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLayout {
     // MARK: - Typealias
@@ -85,7 +86,12 @@ final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return  collectionView.dequeueReusableCell(cellType.self, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(cellType.self, for: indexPath)
+        
+        let fromAnimation = AnimationType.from(direction: .right, offset: 50.0)
+        cell.animate(animations: [fromAnimation])
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

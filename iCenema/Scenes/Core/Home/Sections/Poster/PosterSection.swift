@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ViewAnimator
 
 final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLayout {
     typealias ResposeType = String
@@ -80,6 +81,11 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  collectionView.dequeueReusableCell(cellType.self, for: indexPath)
+                
+        let zoomAnimation = AnimationType.zoom(scale: 0.2)
+        cell.animate(animations: [zoomAnimation])
+        
+
         return cell
     }
     

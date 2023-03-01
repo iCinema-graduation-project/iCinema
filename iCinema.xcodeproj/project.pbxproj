@@ -36,6 +36,8 @@
 		738EEF2E29AE330A00CDEE88 /* Cinema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2D29AE330A00CDEE88 /* Cinema.swift */; };
 		738EEF3029AE66E100CDEE88 /* PosterPaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2F29AE66E100CDEE88 /* PosterPaginationView.swift */; };
 		73975B0D299080D000AD955C /* +compositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73975B0C299080D000AD955C /* +compositionalLayout.swift */; };
+		739864C529AFFCD3008420F6 /* CinemasSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739864C429AFFCD3008420F6 /* CinemasSection.swift */; };
+		739864C729AFFCDE008420F6 /* CinemaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739864C629AFFCDE008420F6 /* CinemaCell.swift */; };
 		73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73A30CA929835B1F00D672E6 /* Localizable.strings */; };
 		73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAB29835B4000D672E6 /* LanguageManager.swift */; };
 		73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */; };
@@ -124,6 +126,8 @@
 		738EEF2D29AE330A00CDEE88 /* Cinema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinema.swift; sourceTree = "<group>"; };
 		738EEF2F29AE66E100CDEE88 /* PosterPaginationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterPaginationView.swift; sourceTree = "<group>"; };
 		73975B0C299080D000AD955C /* +compositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+compositionalLayout.swift"; sourceTree = "<group>"; };
+		739864C429AFFCD3008420F6 /* CinemasSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemasSection.swift; sourceTree = "<group>"; };
+		739864C629AFFCDE008420F6 /* CinemaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaCell.swift; sourceTree = "<group>"; };
 		73A30CA429835B0200D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		73A30CA829835B1F00D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73A30CAA29835B2500D672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -337,6 +341,15 @@
 			path = "Auth Flow";
 			sourceTree = "<group>";
 		};
+		739864C329AFFC8F008420F6 /* Cinemas */ = {
+			isa = PBXGroup;
+			children = (
+				739864C429AFFCD3008420F6 /* CinemasSection.swift */,
+				739864C629AFFCDE008420F6 /* CinemaCell.swift */,
+			);
+			path = Cinemas;
+			sourceTree = "<group>";
+		};
 		73A30C9E29835A6800D672E6 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,6 +507,7 @@
 			children = (
 				73F0C36C29AD202000F95B01 /* Poster */,
 				73687B7129AEA1FB007DB431 /* Movies */,
+				739864C329AFFC8F008420F6 /* Cinemas */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -808,10 +822,12 @@
 				73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */,
 				73F0C37229AD2B2D00F95B01 /* IdentifiableView.swift in Sources */,
 				73F7935729A7C612007252BE /* AppTabBarView.swift in Sources */,
+				739864C729AFFCDE008420F6 /* CinemaCell.swift in Sources */,
 				730E1C1B29A95FD100F2AB85 /* MenuViewController.swift in Sources */,
 				730E1C1929A95FA600F2AB85 /* MenuCoordinator.swift in Sources */,
 				73FED1E42988750100395727 /* SizeManager.swift in Sources */,
 				73019E7329AAA66C001A03D5 /* +addTitleView.swift in Sources */,
+				739864C529AFFCD3008420F6 /* CinemasSection.swift in Sources */,
 				73FED1E62988854A00395727 /* RadioButton.swift in Sources */,
 				73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,

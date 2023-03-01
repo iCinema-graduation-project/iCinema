@@ -11,6 +11,7 @@ target 'iCinema' do
 	pod 'MaterialComponents/TextControls+FilledTextFields'
 	pod 'MaterialComponents/TextControls+OutlinedTextAreas'
 	pod 'MaterialComponents/TextControls+OutlinedTextFields'
+	pod "ViewAnimator"
 
   target 'iCinemaTests' do
     inherit! :search_paths

@@ -30,7 +30,13 @@ extension CGFloat {
     static let moviesSupplementaryHeight: CGFloat = 50
     static let movieCellWidth: CGFloat = 168
     static let movieCellHeight: CGFloat = 224
-    static let moviesPadding: CGFloat = 10
+    static let moviesPadding: CGFloat = 8
+    
+    // MARK: - Cinemas Section
+    static let cinemaCellWidth: CGFloat = 168
+    static let cinemaCellHeight: CGFloat = 184
+    
+    
     
 }
 

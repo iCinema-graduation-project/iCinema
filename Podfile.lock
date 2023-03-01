@@ -56,22 +56,26 @@ PODS:
     - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
     - "MaterialComponents/TextControls+BaseTextFields"
   - MDFInternationalization (3.0.0)
+  - ViewAnimator (3.1.0)
 
 DEPENDENCIES:
   - "MaterialComponents/TextControls+FilledTextAreas"
   - "MaterialComponents/TextControls+FilledTextFields"
   - "MaterialComponents/TextControls+OutlinedTextAreas"
   - "MaterialComponents/TextControls+OutlinedTextFields"
+  - ViewAnimator
 
 SPEC REPOS:
   trunk:
     - MaterialComponents
     - MDFInternationalization
+    - ViewAnimator
 
 SPEC CHECKSUMS:
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
+  ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
 
-PODFILE CHECKSUM: 94ea195cc4607e0c414662164b402c844c52bf4e
+PODFILE CHECKSUM: 6437a0b57719ee88a8dde36a01c4e8d9b75d6677
 
 COCOAPODS: 1.11.3
