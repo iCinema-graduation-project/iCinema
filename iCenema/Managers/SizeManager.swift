@@ -13,6 +13,7 @@ extension CGFloat {
     static let viewWidth: CGFloat = 320
     static let viewPadding: CGFloat = 48
     static let viewCornerRadius: CGFloat = 15
+    static let viewBorderWidth: CGFloat = 0.8
     
     // MARK: - ICinema Button
     static let buttonWidth: CGFloat = 200
@@ -20,6 +21,7 @@ extension CGFloat {
     static let buttonCornerRadius: CGFloat = 10
     
     // MARK: - Home Posters Section
+    static let homePosterSupplementaryHeight: CGFloat = 30
     static let homePosterHeight: CGFloat = 276
     static let homePoseterWidth: CGFloat = 240
     static let homePosterSectionHeight: CGFloat = CGFloat.homePosterHeight + CGFloat.buttonHeight + 15

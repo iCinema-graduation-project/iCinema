@@ -14,7 +14,7 @@ final class HomeViewController: ICinemaViewController {
     // MARK: - Properties
     var sections: [any CollectionViewCompositionalLayout] = [
         PosterCollectionViewSection(),
-        MoviesCollectionViewSection()
+        MoviesCollectionViewSection(),
     ]
     
     // MARK: - Views
@@ -100,5 +100,8 @@ extension HomeViewController: UICollectionViewDataSource {
 // MARK: - CollectionViewDelegate
 //
 extension HomeViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = getSection(at: indexPath)
+        section.collectionView?(collectionView, didSelectItemAt: indexPath)
+    }
 }

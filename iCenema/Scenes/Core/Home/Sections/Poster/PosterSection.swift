@@ -9,6 +9,8 @@ import UIKit
 
 final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLayout {
     typealias ResposeType = String
+    typealias cellType = PosterCollectionViewCell
+    typealias supplementaryViewType = PosterPaginationView
     
     // MARK: - Properties
     var posterPaginationView: PosterPaginationView?
@@ -44,8 +46,8 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
         section.orthogonalScrollingBehavior = .groupPagingCentered
         
         // MARK: - add supplementary view
-        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
-        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize, elementKind: PosterPaginationView.identifier, alignment: .bottom)
+        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.homePosterSupplementaryHeight))
+        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize, elementKind: supplementaryViewType.identifier, alignment: .bottom)
         section.boundarySupplementaryItems = [supplementaryItem]
         
         // MARK: - Update page control
@@ -59,11 +61,11 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
     
     // MARK: - Data
     func registerCell(_ collectionView: UICollectionView) {
-        collectionView.register(PosterCollectionViewCell.self)
+        collectionView.register(cellType.self)
     }
     
     func registerSupplementaryView(_ collectionView: UICollectionView) {
-        collectionView.register(PosterPaginationView.self, supplementaryViewOfKind: PosterPaginationView.identifier)
+        collectionView.register(supplementaryViewType.self, supplementaryViewOfKind: supplementaryViewType.identifier)
     }
         
     func getItems(_ collectionView: UICollectionView) {
@@ -77,12 +79,12 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell =  collectionView.dequeueReusableCell(PosterCollectionViewCell.self, for: indexPath)
+        let cell =  collectionView.dequeueReusableCell(cellType.self, for: indexPath)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let posterPaginationView = collectionView.dequeueReusableSupplementaryView(PosterPaginationView.self, ofKind: PosterPaginationView.identifier, for: indexPath)
+        let posterPaginationView = collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self, ofKind: supplementaryViewType.identifier, for: indexPath)
         posterPaginationView.setNumberOfPages(self.itemsCount)
         self.posterPaginationView = posterPaginationView
         return posterPaginationView
