@@ -73,9 +73,9 @@ struct AppTabBarView: View {
             }
             .padding(.horizontal, 40)
             .padding(.vertical)
-//            .padding(.bottom, 24)
+            .padding(.bottom, 12)
 //            .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
-            .background(Color(uiColor: UIColor.darkGray).clipShape(CustomShape(xAxis: xAxis, curve: 30)))
+            .background(Color(uiColor: UIColor.iCinemaSecondBackgroudColor).clipShape(CustomShape(xAxis: xAxis, curve: 30)))
         }
         .ignoresSafeArea(.all, edges: .bottom)
     }

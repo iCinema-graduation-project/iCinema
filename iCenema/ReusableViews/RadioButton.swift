@@ -36,12 +36,12 @@ class RadioButton: UIButton {
         onSelected(isSelected)
     }
     
-    public func setSelectedImage(_ image: UIImage) {
+    public func setSelectedImage(_ image: UIImage?) {
         setImage(image, for: .selected)
     }
     
-    public func setUnSelectedImage( _ imaeg: UIImage) {
-        setImage(imaeg, for: .normal)
+    public func setUnSelectedImage( _ image: UIImage?) {
+        setImage(image, for: .normal)
     }
     
 }

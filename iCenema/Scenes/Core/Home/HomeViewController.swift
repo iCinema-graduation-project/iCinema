@@ -7,14 +7,16 @@
 
 import UIKit
 import SwiftUI
-
+import ViewAnimator
 
 final class HomeViewController: ICinemaViewController {
     
     // MARK: - Properties
     var sections: [any CollectionViewCompositionalLayout] = [
         PosterCollectionViewSection(),
-        MoviesCollectionViewSection()
+        MoviesCollectionViewSection(),
+        CinemaCollectionViewSection(),
+        MoviesCollectionViewSection(),
     ]
     
     // MARK: - Views
@@ -27,6 +29,7 @@ final class HomeViewController: ICinemaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -100,5 +103,8 @@ extension HomeViewController: UICollectionViewDataSource {
 // MARK: - CollectionViewDelegate
 //
 extension HomeViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = getSection(at: indexPath)
+        section.collectionView?(collectionView, didSelectItemAt: indexPath)
+    }
 }

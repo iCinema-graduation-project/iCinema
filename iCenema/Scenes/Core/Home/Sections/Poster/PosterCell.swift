@@ -10,11 +10,12 @@ import UIKit
 final class PosterCollectionViewCell: UICollectionViewCell {
     // MARK: - Views
     private let posterView: UIView =  UIView()
-    private let viewButton: ICinemaButton = ICinemaButton(title: "View")
     private let posterImage: UIImageView = UIImageView()
     private let posterDescriptionLabel: UILabel = UILabel()
     
-    // MARK: - initializers
+    private let viewButton: ICinemaButton = ICinemaButton(title: "View")
+    
+    // MARK: - initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addPosterView()
@@ -49,7 +50,7 @@ final class PosterCollectionViewCell: UICollectionViewCell {
         posterView.backgroundColor = .clear
         posterView.layer.cornerRadius = .viewCornerRadius
         posterView.layer.borderColor = UIColor.iCinemaYellowColor.cgColor
-        posterView.layer.borderWidth = 1
+        posterView.layer.borderWidth = .viewBorderWidth
     }
     
     private func addViewButton() {
@@ -64,6 +65,8 @@ final class PosterCollectionViewCell: UICollectionViewCell {
         posterImage.fillXSuperViewConstraints()
         posterImage.makeConstraints(topAnchor: posterView.topAnchor)
         posterImage.heightConstraints(.homePoseterWidth)
+        // FIXME: - poster image
+        // will come from network
         posterImage.image = UIImage(named: "posterImage")
         posterImage.contentMode = .scaleAspectFill
     }
@@ -73,7 +76,8 @@ final class PosterCollectionViewCell: UICollectionViewCell {
         posterDescriptionLabel.fillXSuperViewConstraints()
         posterDescriptionLabel.makeConstraints(topAnchor: posterImage.bottomAnchor, bottomAnchor: posterView.bottomAnchor)
         
-        
+        // FIXME: -  poster description label
+        // will come from network
         posterDescriptionLabel.text = "Don't miss the chance, the premiere of Avatar is in 3 days"
         posterDescriptionLabel.textColor = .iCinemaTextColor
         posterDescriptionLabel.textAlignment = .center

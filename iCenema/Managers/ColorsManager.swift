@@ -10,6 +10,8 @@ import UIKit
 
 extension UIColor {
     static let iCinemaBackgroundColor: UIColor = UIColor(named: "iCinemaBackgroundColor")!
+    static let iCinemaSecondBackgroudColor: UIColor = UIColor(named: "iCinemaSecondBackgroudColor")!
+    
     static let iCinemaYellowColor = UIColor(named: "iCinemaYellowColor")!
     static let iCinemaTextColor: UIColor = UIColor(named: "iCinemaTextColor")!
     static let iCinemaTextColorReverce: UIColor = UIColor(named: "iCinemaTextColorReverce")!

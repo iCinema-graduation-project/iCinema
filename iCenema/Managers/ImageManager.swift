@@ -13,6 +13,10 @@ extension UIImage {
     static let profile = UIImage(named: "profile")
     static var magnifyingglass: UIImage { UIImage(systemName: "magnifyingglass")!}
     static let tabBar = TabBarImageManager()
+    static let bookmark = UIImage(systemName: "bookmark")
+    static let bookmarkFill = UIImage(systemName: "bookmark.fill")
+    static let follow = UIImage(systemName: "person.badge.plus")
+    static let unFollow = UIImage(systemName: "person.fill.badge.minus")
 
 }
 
