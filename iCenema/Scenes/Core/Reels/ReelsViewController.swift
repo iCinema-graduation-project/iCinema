@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ReelsViewController: ICinemaViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+ 
     }
     
 
