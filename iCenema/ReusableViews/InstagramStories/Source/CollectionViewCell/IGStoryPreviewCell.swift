@@ -121,9 +121,6 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
     public var story: IGStory? {
         didSet {
             storyHeaderView.story = story
-            if let picture = story?.user.picture {
-                storyHeaderView.snaperImageView.setImage(url: picture)
-            }
         }
     }
     
@@ -155,7 +152,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         contentView.addSubview(scrollview)
         contentView.addSubview(storyHeaderView)
         scrollview.addGestureRecognizer(longPress_gesture)
-        scrollview.addGestureRecognizer(tap_gesture)
+//        scrollview.addGestureRecognizer(tap_gesture)
     }
     private func installLayoutConstraints() {
         //Setting constraints for scrollview

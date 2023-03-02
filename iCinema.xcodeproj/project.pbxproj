@@ -381,8 +381,8 @@
 		731FBEAF29B0B7CC00798DF5 /* InstagramStories */ = {
 			isa = PBXGroup;
 			children = (
-				731FBF7829B0C2CB00798DF5 /* Modules */,
 				731FBF7629B0C25C00798DF5 /* IGAppUtility.swift */,
+				731FBF7829B0C2CB00798DF5 /* Modules */,
 				731FBF7029B0BF9B00798DF5 /* stories.json */,
 				731FBF1729B0BF7E00798DF5 /* Source */,
 			);
