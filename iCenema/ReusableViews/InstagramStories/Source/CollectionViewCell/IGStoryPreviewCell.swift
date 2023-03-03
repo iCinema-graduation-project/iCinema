@@ -124,12 +124,36 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         }
     }
     
+    
+    // MARK: - Views
+    private lazy var reactStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [fullScreenButton, loveButton, commentsButton, shareButton])
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.heightAnchor.constraint(equalToConstant: 152).isActive = true
+        stackView.widthAnchor.constraint(equalToConstant: 28).isActive = true
+//        stackView.spacing = 5
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private let fullScreenButton = UIButton()
+    private let loveButton = UIButton()
+    private let commentsButton = UIButton()
+    private let shareButton = UIButton()
+    
+    
     //MARK: - Overriden functions
     override init(frame: CGRect) {
         super.init(frame: frame)
         scrollview.frame = bounds
         loadUIElements()
         installLayoutConstraints()
+        self.addReactStackView()
+        self.configureFullScreenButton()
+        self.configureLoveButton()
+        self.configureCommentButton()
+        self.configureShareButton()
     }
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -143,6 +167,35 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    
+    // MARK: - update UI
+    private func addReactStackView() {
+        
+        contentView.addSubview(reactStackView)
+        reactStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+        reactStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50).isActive = true
+    }
+    
+    private func configureFullScreenButton() {
+        fullScreenButton.setImage(UIImage(systemName: "arrow.up.backward.and.arrow.down.forward"), for: .normal)
+        fullScreenButton.tintColor = .white
+    }
+    
+    private func configureLoveButton() {
+        loveButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        loveButton.tintColor = .iCinemaYellowColor
+    }
+    
+    private func configureCommentButton() {
+        commentsButton.setImage(UIImage(systemName: "text.bubble"), for: .normal)
+        commentsButton.tintColor = .white
+    }
+    
+    private func configureShareButton() {
+        shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        shareButton.tintColor = .white
+    }
+
     
     //MARK: - Private functions
     private func loadUIElements() {

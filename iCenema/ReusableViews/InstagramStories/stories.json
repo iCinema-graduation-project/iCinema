@@ -100,7 +100,7 @@
             "snaps": [
                 {
                     "id": "c3",
-                    "mime_type": "image",
+                    "mime_type": "video",
                     "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
                     "last_updated": "16m"
                 }
