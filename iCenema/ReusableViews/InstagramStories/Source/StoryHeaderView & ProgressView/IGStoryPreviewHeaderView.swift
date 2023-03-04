@@ -57,6 +57,7 @@ final class IGStoryPreviewHeaderView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
+        label.font = UIFont.preferredFont(forTextStyle: .caption2)
         return label
     }()
     
@@ -82,6 +83,10 @@ final class IGStoryPreviewHeaderView: UIView {
         return v
     }
     
+    // MARK: - Views
+    public var followButton: UIButton = UIButton()
+    
+    
     //MARK: - Overriden functions
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,10 +94,46 @@ final class IGStoryPreviewHeaderView: UIView {
         applyShadowOffset()
         loadUIElements()
         installLayoutConstraints()
+        
+        addFollowButton()
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    // MARK: - update ui
+    private func addFollowButton() {
+        addSubview(followButton)
+        NSLayoutConstraint.activate([
+            followButton.leadingAnchor.constraint(equalTo: snaperNameLabel.trailingAnchor, constant: 20),
+            followButton.igCenterYAnchor.constraint(equalTo: igCenterYAnchor)
+        ])
+        
+
+        followButton.sizeConstraints(width: 56, height: 20)
+        followButton.backgroundColor = .clear
+        followButton.setTitle("Follow", for: .normal)
+        followButton.setTitleColor(.iCinemaYellowColor, for: .normal)
+        
+        // Configure the button
+        let configuration = UIButton.Configuration.plain()
+        followButton.configuration = configuration
+        
+        // Update the Button's font
+        followButton.configuration?.titleTextAttributesTransformer =
+        UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = .systemFont(ofSize: 8, weight: .semibold)
+            return outgoing
+        }
+        
+        followButton.layer.borderColor = UIColor.iCinemaYellowColor.cgColor
+        followButton.layer.borderWidth = 0.5
+        followButton.layer.cornerRadius = 5
+        
+        
+    }
+    
     
     //MARK: - Private functions
     private func loadUIElements(){
