@@ -23,8 +23,6 @@
 		730FA8E7298ED92C00F3B955 /* UIView+addAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FA8E6298ED92C00F3B955 /* UIView+addAnimate.swift */; };
 		7311C3132991B9D500C0610F /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */; };
 		7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311C3162991BA3000C0610F /* AppCoordinator.swift */; };
-		731FBDDB29B0AE3F00798DF5 /* StoryUI in Frameworks */ = {isa = PBXBuildFile; productRef = 731FBDDA29B0AE3F00798DF5 /* StoryUI */; };
-		731FBDDD29B0AED700798DF5 /* ReelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBDDC29B0AED700798DF5 /* ReelsView.swift */; };
 		731FBF4E29B0BF7E00798DF5 /* IGMockLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF1929B0BF7E00798DF5 /* IGMockLoader.swift */; };
 		731FBF4F29B0BF7E00798DF5 /* IGStoryPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF1B29B0BF7E00798DF5 /* IGStoryPreviewCell.swift */; };
 		731FBF5029B0BF7E00798DF5 /* IGStoryPreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF1D29B0BF7E00798DF5 /* IGStoryPreviewModel.swift */; };
@@ -67,6 +65,9 @@
 		7325B8732988B7FA0009B8EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7325B8722988B7FA0009B8EC /* README.md */; };
 		733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733116B72990A9AE00EFD002 /* OTPViewModel.swift */; };
 		733DAA2129B37B5D00741211 /* InterstsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2029B37B5D00741211 /* InterstsView.swift */; };
+		733DAA2529B3A0CA00741211 /* CinemaProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */; };
+		733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2629B3B5A200741211 /* TabBarViewModel.swift */; };
+		733DAA2929B3BA3D00741211 /* DumySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2829B3BA3D00741211 /* DumySection.swift */; };
 		736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736674E4298EE37C009CA617 /* PhoneViewModel.swift */; };
 		73687B7329AEA228007DB431 /* MoviesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73687B7229AEA228007DB431 /* MoviesSection.swift */; };
 		73687B7529AEA23F007DB431 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73687B7429AEA23F007DB431 /* MovieCell.swift */; };
@@ -155,7 +156,6 @@
 		730FA8E6298ED92C00F3B955 /* UIView+addAnimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addAnimate.swift"; sourceTree = "<group>"; };
 		7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
 		7311C3162991BA3000C0610F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		731FBDDC29B0AED700798DF5 /* ReelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsView.swift; sourceTree = "<group>"; };
 		731FBF1929B0BF7E00798DF5 /* IGMockLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGMockLoader.swift; sourceTree = "<group>"; };
 		731FBF1B29B0BF7E00798DF5 /* IGStoryPreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGStoryPreviewCell.swift; sourceTree = "<group>"; };
 		731FBF1D29B0BF7E00798DF5 /* IGStoryPreviewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGStoryPreviewModel.swift; sourceTree = "<group>"; };
@@ -198,6 +198,9 @@
 		7325B8722988B7FA0009B8EC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		733116B72990A9AE00EFD002 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		733DAA2029B37B5D00741211 /* InterstsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstsView.swift; sourceTree = "<group>"; };
+		733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileViewController.swift; sourceTree = "<group>"; };
+		733DAA2629B3B5A200741211 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		733DAA2829B3BA3D00741211 /* DumySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumySection.swift; sourceTree = "<group>"; };
 		736674E4298EE37C009CA617 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		73687B7229AEA228007DB431 /* MoviesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSection.swift; sourceTree = "<group>"; };
 		73687B7429AEA23F007DB431 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
@@ -266,7 +269,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				731FBDDB29B0AE3F00798DF5 /* StoryUI in Frameworks */,
 				73F0BC172989D24600742BA2 /* CountryPickerView in Frameworks */,
 				DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */,
 			);
@@ -307,18 +309,19 @@
 			path = UIImageView;
 			sourceTree = "<group>";
 		};
-		730E1C0729A950F600F2AB85 /* Core */ = {
+		730E1C0729A950F600F2AB85 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
 				73F7935029A78E55007252BE /* AppTapBarController.swift */,
 				73F7935629A7C612007252BE /* AppTabBarView.swift */,
+				733DAA2629B3B5A200741211 /* TabBarViewModel.swift */,
 				730E1C0C29A9551700F2AB85 /* Notification */,
 				730E1C0B29A9551000F2AB85 /* Ticket */,
 				730E1C0829A954F000F2AB85 /* Home */,
 				730E1C0A29A9550A00F2AB85 /* Reels */,
 				730E1C0929A954F700F2AB85 /* Menu */,
 			);
-			path = Core;
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		730E1C0829A954F000F2AB85 /* Home */ = {
@@ -345,7 +348,6 @@
 			children = (
 				730E1C1329A95D9F00F2AB85 /* ReelsCoordinator.swift */,
 				730E1C1529A95DBA00F2AB85 /* ReelsViewController.swift */,
-				731FBDDC29B0AED700798DF5 /* ReelsView.swift */,
 			);
 			path = Reels;
 			sourceTree = "<group>";
@@ -368,7 +370,7 @@
 			path = Notification;
 			sourceTree = "<group>";
 		};
-		7311C3112991B99200C0610F /* Auth Flow */ = {
+		7311C3112991B99200C0610F /* AuthFlow */ = {
 			isa = PBXGroup;
 			children = (
 				7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */,
@@ -378,7 +380,7 @@
 				733116B92990B43000EFD002 /* New User */,
 				73751F3829B2A96C004E8C31 /* Intersts */,
 			);
-			path = "Auth Flow";
+			path = AuthFlow;
 			sourceTree = "<group>";
 		};
 		731FBEAF29B0B7CC00798DF5 /* InstagramStories */ = {
@@ -590,6 +592,22 @@
 			path = "New User";
 			sourceTree = "<group>";
 		};
+		733DAA2229B3A06300741211 /* Scence */ = {
+			isa = PBXGroup;
+			children = (
+				733DAA2329B3A07300741211 /* Cinema Profile */,
+			);
+			path = Scence;
+			sourceTree = "<group>";
+		};
+		733DAA2329B3A07300741211 /* Cinema Profile */ = {
+			isa = PBXGroup;
+			children = (
+				733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */,
+			);
+			path = "Cinema Profile";
+			sourceTree = "<group>";
+		};
 		736674E3298EE27B009CA617 /* Phone Number */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,13 +661,14 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
-		73A30CAD29835D2500D672E6 /* Scenes */ = {
+		73A30CAD29835D2500D672E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7311C3112991B99200C0610F /* Auth Flow */,
-				730E1C0729A950F600F2AB85 /* Core */,
+				7311C3112991B99200C0610F /* AuthFlow */,
+				730E1C0729A950F600F2AB85 /* TabBar */,
+				733DAA2229B3A06300741211 /* Scence */,
 			);
-			path = Scenes;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		73EC917F29834531002F3568 = {
@@ -684,7 +703,7 @@
 				73EF78AF298F294600A5DF2D /* Protocols */,
 				73EC91E029834ED7002F3568 /* ReusableViews */,
 				73F0C37529AD7E8000F95B01 /* Models */,
-				73A30CAD29835D2500D672E6 /* Scenes */,
+				73A30CAD29835D2500D672E6 /* Views */,
 				73EC919929834533002F3568 /* Info.plist */,
 				73EC919629834533002F3568 /* LaunchScreen.storyboard */,
 			);
@@ -790,6 +809,7 @@
 		73F0C36B29AD1FA800F95B01 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				733DAA2829B3BA3D00741211 /* DumySection.swift */,
 				73F0C36C29AD202000F95B01 /* Poster */,
 				73687B7129AEA1FB007DB431 /* Movies */,
 				739864C329AFFC8F008420F6 /* Cinemas */,
@@ -860,7 +880,6 @@
 			name = iCinema;
 			packageProductDependencies = (
 				73F0BC162989D24600742BA2 /* CountryPickerView */,
-				731FBDDA29B0AE3F00798DF5 /* StoryUI */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -940,7 +959,6 @@
 			mainGroup = 73EC917F29834531002F3568;
 			packageReferences = (
 				73F0BC152989D24600742BA2 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
-				731FBDD929B0AE3F00798DF5 /* XCRemoteSwiftPackageReference "StoryUI" */,
 			);
 			productRefGroup = 73EC918929834531002F3568 /* Products */;
 			projectDirPath = "";
@@ -1106,6 +1124,7 @@
 				730E1C1F29A960F300F2AB85 /* TicketCoordinator.swift in Sources */,
 				730E1C1429A95D9F00F2AB85 /* ReelsCoordinator.swift in Sources */,
 				731FBF5E29B0BF7E00798DF5 /* IGRoundedView.swift in Sources */,
+				733DAA2929B3BA3D00741211 /* DumySection.swift in Sources */,
 				731FBF6B29B0BF7E00798DF5 /* CubeAttributesAnimator.swift in Sources */,
 				730E1C2129A966CF00F2AB85 /* NotificationCoordinator.swift in Sources */,
 				73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */,
@@ -1119,6 +1138,7 @@
 				73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */,
 				73F0C37229AD2B2D00F95B01 /* IdentifiableView.swift in Sources */,
 				73F7935729A7C612007252BE /* AppTabBarView.swift in Sources */,
+				733DAA2529B3A0CA00741211 /* CinemaProfileViewController.swift in Sources */,
 				731FBF5D29B0BF7E00798DF5 /* IGResult.swift in Sources */,
 				739864C729AFFCDE008420F6 /* CinemaCell.swift in Sources */,
 				731FBF8229B0C2CB00798DF5 /* IGHomeView.swift in Sources */,
@@ -1153,6 +1173,7 @@
 				733DAA2129B37B5D00741211 /* InterstsView.swift in Sources */,
 				731FBF5029B0BF7E00798DF5 /* IGStoryPreviewModel.swift in Sources */,
 				738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */,
+				733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */,
 				731FBF6D29B0BF7E00798DF5 /* UIView+Anchor.swift in Sources */,
 				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,
 				731FBF5329B0BF7E00798DF5 /* IGAdditions.swift in Sources */,
@@ -1171,7 +1192,6 @@
 				73EF78BC298F3EC900A5DF2D /* +dequeueHelper.swift in Sources */,
 				73975B0D299080D000AD955C /* +compositionalLayout.swift in Sources */,
 				730E1C1029A9580800F2AB85 /* HomeViewController.swift in Sources */,
-				731FBDDD29B0AED700798DF5 /* ReelsView.swift in Sources */,
 				736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */,
 				731FBF5929B0BF7E00798DF5 /* IGStories.swift in Sources */,
 				738EEF2E29AE330A00CDEE88 /* Cinema.swift in Sources */,
@@ -1543,14 +1563,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		731FBDD929B0AE3F00798DF5 /* XCRemoteSwiftPackageReference "StoryUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tiskender2/StoryUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		73F0BC152989D24600742BA2 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
@@ -1562,11 +1574,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		731FBDDA29B0AE3F00798DF5 /* StoryUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 731FBDD929B0AE3F00798DF5 /* XCRemoteSwiftPackageReference "StoryUI" */;
-			productName = StoryUI;
-		};
 		73F0BC162989D24600742BA2 /* CountryPickerView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 73F0BC152989D24600742BA2 /* XCRemoteSwiftPackageReference "CountryPickerView" */;

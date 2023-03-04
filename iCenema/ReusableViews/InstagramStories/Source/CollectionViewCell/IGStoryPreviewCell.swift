@@ -174,7 +174,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         
         contentView.addSubview(reactStackView)
         reactStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
-        reactStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50).isActive = true
+        reactStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -80).isActive = true
     }
     
     private func configureFullScreenButton() {

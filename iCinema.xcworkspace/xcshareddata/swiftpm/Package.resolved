@@ -8,15 +8,6 @@
         "branch" : "master",
         "revision" : "711740bcca36626c99a4901c8fc9fbc880a2debb"
       }
-    },
-    {
-      "identity" : "storyui",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/tiskender2/StoryUI.git",
-      "state" : {
-        "revision" : "0e423861443fcf90435b0fc17b612e354e58c07d",
-        "version" : "1.1.1"
-      }
     }
   ],
   "version" : 2

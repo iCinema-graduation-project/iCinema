@@ -17,11 +17,13 @@ final class HomeViewController: ICinemaViewController {
         MoviesCollectionViewSection(),
         CinemaCollectionViewSection(),
         MoviesCollectionViewSection(),
+        
+        DummyCollectionViewSection()
     ]
     
     // MARK: - Views
     //
-    lazy var collectionView = UICollectionView(sections: sections)
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
 
     
     // MARK: - Life Cycle
@@ -29,7 +31,7 @@ final class HomeViewController: ICinemaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
-
+        collectionView.addcollectionViewCompositionalLayout(target: self)
     }
     
     override func viewDidLayoutSubviews() {
@@ -61,9 +63,9 @@ final class HomeViewController: ICinemaViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
-
-        self.sections.forEach { $0.getItems(self.collectionView) }
         
+        // FIXME: - home sections get items
+        self.sections.forEach { $0.getItems(self.collectionView) }
     }
     
 }
@@ -96,9 +98,8 @@ extension HomeViewController: UICollectionViewDataSource {
         return section.collectionView?(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath) ?? UICollectionReusableView()
     }
     
-    
-    
 }
+
 
 // MARK: - CollectionViewDelegate
 //
