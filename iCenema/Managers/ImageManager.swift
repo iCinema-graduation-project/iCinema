@@ -17,7 +17,6 @@ extension UIImage {
     static let bookmarkFill = UIImage(systemName: "bookmark.fill")
     static let follow = UIImage(systemName: "person.badge.plus")
     static let unFollow = UIImage(systemName: "person.fill.badge.minus")
-
 }
 
 struct TabBarImageManager {

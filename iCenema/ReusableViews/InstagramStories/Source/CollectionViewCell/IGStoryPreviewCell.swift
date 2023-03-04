@@ -132,7 +132,6 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         stackView.distribution = .fillEqually
         stackView.heightAnchor.constraint(equalToConstant: 152).isActive = true
         stackView.widthAnchor.constraint(equalToConstant: 28).isActive = true
-//        stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -147,6 +146,8 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         scrollview.frame = bounds
+        contentView.backgroundColor = .clear
+        scrollview.backgroundColor = .clear
         loadUIElements()
         installLayoutConstraints()
         self.addReactStackView()

@@ -20,8 +20,6 @@ class AppCoordinator {
             let appFlowCoordinator = AuthFlowCoordinator()
             rootViewController = appFlowCoordinator.navigationController
         }
-        
-
     }
     
 }

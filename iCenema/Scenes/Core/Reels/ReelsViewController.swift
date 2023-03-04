@@ -24,13 +24,15 @@ class ReelsViewController: ICinemaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    override func viewDidAppear(_ animated: Bool) {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         DispatchQueue.main.async {
             if let stories = self.stories, let stories_copy = try? stories.copy().otherStories {
                 let storyPreviewScene = IGStoryPreviewController.init(stories: stories_copy, handPickedStoryIndex:  0, handPickedSnapIndex: 0)
@@ -41,8 +43,6 @@ class ReelsViewController: ICinemaViewController {
             }
         }
     }
-    
-
 
 
 }

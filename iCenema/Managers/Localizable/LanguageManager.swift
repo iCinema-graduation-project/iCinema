@@ -27,9 +27,6 @@ extension String {
     static let newUser = getLocalized(with: "newUser")
     static let verification = getLocalized(with: "verification")
     
-    
-    
-   
 }
 
 func getLocalized(with title: String) -> String {
