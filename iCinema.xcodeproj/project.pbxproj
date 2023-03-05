@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -86,6 +86,7 @@
 		73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */; };
 		73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB029835EE200D672E6 /* ImageManager.swift */; };
 		73A30CB32983639000D672E6 /* ICinemaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB22983639000D672E6 /* ICinemaButton.swift */; };
+		73AAAF4529B4FA1500ECCA57 /* CinemaProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AAAF4429B4FA1500ECCA57 /* CinemaProfileView.swift */; };
 		73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */; };
 		73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFEFA12989EFA600969452 /* OTPViewController.swift */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
@@ -221,6 +222,7 @@
 		73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		73A30CB029835EE200D672E6 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		73A30CB22983639000D672E6 /* ICinemaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaButton.swift; sourceTree = "<group>"; };
+		73AAAF4429B4FA1500ECCA57 /* CinemaProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileView.swift; sourceTree = "<group>"; };
 		73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
 		73BFEFA12989EFA600969452 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -604,6 +606,7 @@
 			isa = PBXGroup;
 			children = (
 				733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */,
+				73AAAF4429B4FA1500ECCA57 /* CinemaProfileView.swift */,
 			);
 			path = "Cinema Profile";
 			sourceTree = "<group>";
@@ -948,7 +951,7 @@
 				};
 			};
 			buildConfigurationList = 73EC918329834531002F3568 /* Build configuration list for PBXProject "iCinema" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1171,6 +1174,7 @@
 				73FE17F72991EB960009D238 /* Coordinator.swift in Sources */,
 				73019E7629AAB5A0001A03D5 /* +makeCircleImage.swift in Sources */,
 				733DAA2129B37B5D00741211 /* InterstsView.swift in Sources */,
+				73AAAF4529B4FA1500ECCA57 /* CinemaProfileView.swift in Sources */,
 				731FBF5029B0BF7E00798DF5 /* IGStoryPreviewModel.swift in Sources */,
 				738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */,
 				733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */,

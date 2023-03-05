@@ -15,8 +15,8 @@ class AppCoordinator {
     init() {
         
         if isAuthed {
-            rootViewController = AppTapBarController()
-//            rootViewController = UINavigationController(rootViewController: CinemaProfileViewController())
+//            rootViewController = AppTapBarController()
+            rootViewController = UINavigationController(rootViewController: CinemaProfileViewController())
         } else {
             let appFlowCoordinator = AuthFlowCoordinator()
             rootViewController = appFlowCoordinator.navigationController

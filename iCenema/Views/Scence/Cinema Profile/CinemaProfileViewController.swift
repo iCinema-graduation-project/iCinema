@@ -9,14 +9,28 @@ import UIKit
 
 class CinemaProfileViewController: ICinemaViewController {
     // MARK: - Properties
+    //
     let cinema: Cinema = Cinema()
+    var sections: [any CollectionViewCompositionalLayout] = [
+    ]
     
-//    let collectionView = UICollectionView(
+    // MARK: - Views
+    //
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     
     
+    // MARK: - Life Cycle
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        collectionView.addcollectionViewCompositionalLayout(target: self)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.frame = view.bounds
     }
     
 }
+
+extension CinemaProfileViewController: CollectionViewCompositionalLayoutDataSource { }

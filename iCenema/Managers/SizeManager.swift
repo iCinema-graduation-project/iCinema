@@ -20,6 +20,8 @@ extension CGFloat {
     static let buttonHeight: CGFloat = 40
     static let buttonCornerRadius: CGFloat = 10
     
+    //
+    
     // MARK: - Home Posters Section
     static let homePosterSupplementaryHeight: CGFloat = 30
     static let homePosterHeight: CGFloat = 276
@@ -35,6 +37,10 @@ extension CGFloat {
     // MARK: - Cinemas Section
     static let cinemaCellWidth: CGFloat = 168
     static let cinemaCellHeight: CGFloat = 184
+    
+    
+    
+    // MARK: - Cinema Profile
     
     
     
