@@ -38,8 +38,14 @@ extension CGFloat {
     
     
     // MARK: - Cinema Profile
-    static let cinemaImageHeight: CGFloat = 88
-    
+    static let cinemaProfile = CinemaProfile()
+    struct CinemaProfile{
+        let cinemaImageHeight: CGFloat = 88
+        let cinemaInformationViewWidth: CGFloat = 90
+        let cinemaInformationViewDividerHeight: CGFloat = 40
+    }
     
 }
+
+
 

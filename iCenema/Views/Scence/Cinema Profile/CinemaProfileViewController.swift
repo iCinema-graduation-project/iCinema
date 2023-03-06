@@ -25,9 +25,9 @@ class CinemaProfileViewController: ICinemaViewController {
         guard let CinemaProfileView = UIHostingController(rootView: CinemaProfileView()).view else { return }
         
         view.addSubview(CinemaProfileView)
-        CinemaProfileView.fillXSuperViewConstraints()
-        CinemaProfileView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, bottomAnchor: view.bottomAnchor)
-        
+//        CinemaProfileView.fillXSuperViewConstraints()
+//        CinemaProfileView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, bottomAnchor: view.bottomAnchor)
+        CinemaProfileView.fillSuperviewConstraints()
     }
     
     override func viewDidLayoutSubviews() {

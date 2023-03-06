@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import CountryPickerView
+import CountryPickerView
 
 
 class PhoneViewController:  ICinemaViewController {
@@ -41,13 +41,13 @@ class PhoneViewController:  ICinemaViewController {
         return textfield
     }()
     
-//    private let countryPickerView: CountryPickerView = {
-//        let countryView = CountryPickerView()
-//        countryView.textColor = .iCinemaTextColor
-//        countryView.showCountryNameInView = true
-//        countryView.setCountryByCode("EG")
-//        return countryView
-//    }()
+    private let countryPickerView: CountryPickerView = {
+        let countryView = CountryPickerView()
+        countryView.textColor = .iCinemaTextColor
+        countryView.showCountryNameInView = true
+        countryView.setCountryByCode("EG")
+        return countryView
+    }()
     
     let phoneNumberTextField: ICinemaTextField = {
         let textfield = ICinemaTextField(placeholder: .phoneNumber)
@@ -74,7 +74,6 @@ class PhoneViewController:  ICinemaViewController {
         self.bindViewModelInput()
 
         phoneNumberTextField.delegate = self
-        
     }
     
     
@@ -106,10 +105,10 @@ class PhoneViewController:  ICinemaViewController {
     }
     
     private func addCountryPickerView() {
-//        view.addSubview(countryPickerView)
-//        countryPickerView.makeConstraints(leadingAnchor: countryView.leadingAnchor , centerYAnchor: countryView.centerYAnchor,
-//                                          padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
-//        countryPickerView.hostViewController = self
+        view.addSubview(countryPickerView)
+        countryPickerView.makeConstraints(leadingAnchor: countryView.leadingAnchor , centerYAnchor: countryView.centerYAnchor,
+                                          padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
+        countryPickerView.hostViewController = self
     }
 
     private func addGetCodeButton(){

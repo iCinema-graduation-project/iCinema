@@ -110,6 +110,11 @@
 		73F0C37429AD7AE900F95B01 /* PosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0C37329AD7AE900F95B01 /* PosterCell.swift */; };
 		73F0C37729AD813D00F95B01 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0C37629AD813D00F95B01 /* Movie.swift */; };
 		73F7137D29B61565001E469D /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 73F7137C29B61565001E469D /* SwiftUITrackableScrollView */; };
+		73F7138029B62086001E469D /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 73F7137F29B62086001E469D /* CountryPickerView */; };
+		73F7138329B632E6001E469D /* CinemaProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138229B632E6001E469D /* CinemaProfileHeaderView.swift */; };
+		73F7138529B636CD001E469D /* CinemaProfileInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138429B636CD001E469D /* CinemaProfileInformationView.swift */; };
+		73F7138729B65240001E469D /* CinemaProfileSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138629B65240001E469D /* CinemaProfileSliderView.swift */; };
+		73F7138A29B65A71001E469D /* swiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138929B65A71001E469D /* swiftUIView.swift */; };
 		73F7935129A78E55007252BE /* AppTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935029A78E55007252BE /* AppTapBarController.swift */; };
 		73F7935729A7C612007252BE /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935629A7C612007252BE /* AppTabBarView.swift */; };
 		73F7935929A7DB5A007252BE /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935829A7DB5A007252BE /* CustomShape.swift */; };
@@ -249,6 +254,10 @@
 		73F0C37129AD2B2D00F95B01 /* IdentifiableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableView.swift; sourceTree = "<group>"; };
 		73F0C37329AD7AE900F95B01 /* PosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCell.swift; sourceTree = "<group>"; };
 		73F0C37629AD813D00F95B01 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		73F7138229B632E6001E469D /* CinemaProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileHeaderView.swift; sourceTree = "<group>"; };
+		73F7138429B636CD001E469D /* CinemaProfileInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileInformationView.swift; sourceTree = "<group>"; };
+		73F7138629B65240001E469D /* CinemaProfileSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileSliderView.swift; sourceTree = "<group>"; };
+		73F7138929B65A71001E469D /* swiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftUIView.swift; sourceTree = "<group>"; };
 		73F7935029A78E55007252BE /* AppTapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTapBarController.swift; sourceTree = "<group>"; };
 		73F7935629A7C612007252BE /* AppTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarView.swift; sourceTree = "<group>"; };
 		73F7935829A7DB5A007252BE /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
@@ -273,6 +282,7 @@
 			files = (
 				73F7137D29B61565001E469D /* SwiftUITrackableScrollView in Frameworks */,
 				DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */,
+				73F7138029B62086001E469D /* CountryPickerView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +615,7 @@
 		733DAA2329B3A07300741211 /* Cinema Profile */ = {
 			isa = PBXGroup;
 			children = (
+				73F7138129B632C8001E469D /* Views */,
 				733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */,
 				73AAAF4429B4FA1500ECCA57 /* CinemaProfileView.swift */,
 			);
@@ -757,6 +768,7 @@
 		73EC91C329834D41002F3568 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				73F7138829B65A5C001E469D /* SwiftUI View */,
 				73019E7429AAB589001A03D5 /* UIImageView */,
 				73019E7129AAA5D1001A03D5 /* UINavigationItem */,
 				73EF78B9298F3EC900A5DF2D /* UICollectionView */,
@@ -840,6 +852,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		73F7138129B632C8001E469D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				73F7138229B632E6001E469D /* CinemaProfileHeaderView.swift */,
+				73F7138429B636CD001E469D /* CinemaProfileInformationView.swift */,
+				73F7138629B65240001E469D /* CinemaProfileSliderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		73F7138829B65A5C001E469D /* SwiftUI View */ = {
+			isa = PBXGroup;
+			children = (
+				73F7138929B65A71001E469D /* swiftUIView.swift */,
+			);
+			path = "SwiftUI View";
+			sourceTree = "<group>";
+		};
 		C444E3212BA485B0616DCCCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +913,7 @@
 			name = iCinema;
 			packageProductDependencies = (
 				73F7137C29B61565001E469D /* SwiftUITrackableScrollView */,
+				73F7137F29B62086001E469D /* CountryPickerView */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -962,6 +993,7 @@
 			mainGroup = 73EC917F29834531002F3568;
 			packageReferences = (
 				73F7137B29B61565001E469D /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
+				73F7137E29B62086001E469D /* XCRemoteSwiftPackageReference "CountryPickerView" */,
 			);
 			productRefGroup = 73EC918929834531002F3568 /* Products */;
 			projectDirPath = "";
@@ -1121,6 +1153,7 @@
 				731FBF7729B0C25C00798DF5 /* IGAppUtility.swift in Sources */,
 				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
 				73EF78B1298F2AF400A5DF2D /* CollectionViewCompositionalLayout.swift in Sources */,
+				73F7138529B636CD001E469D /* CinemaProfileInformationView.swift in Sources */,
 				730E1C1629A95DBA00F2AB85 /* ReelsViewController.swift in Sources */,
 				73F7935929A7DB5A007252BE /* CustomShape.swift in Sources */,
 				73687B7729AEA318007DB431 /* MovieSectionHeader.swift in Sources */,
@@ -1134,6 +1167,7 @@
 				731FBF6529B0BF7E00798DF5 /* IGCommon.swift in Sources */,
 				731FBF6229B0BF7E00798DF5 /* IGCache.swift in Sources */,
 				730E1C0E29A955F700F2AB85 /* HomeCoordinator.swift in Sources */,
+				73F7138A29B65A71001E469D /* swiftUIView.swift in Sources */,
 				73FED1E2298874CD00395727 /* FontManager.swift in Sources */,
 				73EC91BC29834569002F3568 /* ICinemaViewController.swift in Sources */,
 				731FBF6329B0BF7E00798DF5 /* IGVideoCacheManager.swift in Sources */,
@@ -1163,6 +1197,7 @@
 				731FBF5C29B0BF7E00798DF5 /* UIImageView+Extension.swift in Sources */,
 				73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
+				73F7138329B632E6001E469D /* CinemaProfileHeaderView.swift in Sources */,
 				731FBF5229B0BF7E00798DF5 /* UIView+Extension.swift in Sources */,
 				731FBF4E29B0BF7E00798DF5 /* IGMockLoader.swift in Sources */,
 				73F7935129A78E55007252BE /* AppTapBarController.swift in Sources */,
@@ -1209,6 +1244,7 @@
 				73861C242984351E0020A63B /* NewUserViewController.swift in Sources */,
 				731FBF5129B0BF7E00798DF5 /* IGStoryPreviewController.swift in Sources */,
 				731FBF5529B0BF7E00798DF5 /* ImageView+Additions.swift in Sources */,
+				73F7138729B65240001E469D /* CinemaProfileSliderView.swift in Sources */,
 				731FBF5F29B0BF7E00798DF5 /* IGImageRequestable.swift in Sources */,
 				73F0C37029AD206000F95B01 /* PosterSection.swift in Sources */,
 				73F0C37729AD813D00F95B01 /* Movie.swift in Sources */,
@@ -1575,6 +1611,14 @@
 				kind = branch;
 			};
 		};
+		73F7137E29B62086001E469D /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1582,6 +1626,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 73F7137B29B61565001E469D /* XCRemoteSwiftPackageReference "trackable-scroll-view" */;
 			productName = SwiftUITrackableScrollView;
+		};
+		73F7137F29B62086001E469D /* CountryPickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73F7137E29B62086001E469D /* XCRemoteSwiftPackageReference "CountryPickerView" */;
+			productName = CountryPickerView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

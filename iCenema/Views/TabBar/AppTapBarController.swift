@@ -45,8 +45,7 @@ class AppTapBarController: ICinemaViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        tabBarView?.fillXSuperViewConstraints() // (paddingLeft: 8, paddingRight: 8)
-        tabBarView?.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, bottomAnchor: view.bottomAnchor)
+        tabBarView?.fillSuperviewConstraints()
     }
     
     // MARK: - Intializers
