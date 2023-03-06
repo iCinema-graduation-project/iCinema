@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import SwiftUITrackableScrollView
 
 struct CinemaProfileView: View {
     let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5, ChairsCount: 430)
     
+    @State private var scrollViewContentOffset = CGFloat(0)
+    
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+        TrackableScrollView(.vertical, showIndicators: false, contentOffset: $scrollViewContentOffset) {
             VStack {
                 CinemaProfileHeader(cinema: cinema)
                     .padding(.bottom)
@@ -32,6 +35,10 @@ struct CinemaProfileView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(uiColor: .iCinemaBackgroundColor))
+        .onChange(of: scrollViewContentOffset, perform: { value in
+               
+            
+        })
     }
 }
 
@@ -96,7 +103,6 @@ struct CinemaProfileHeader: View {
                 }
                 .padding(.horizontal)
             }
-            
             
         }
         

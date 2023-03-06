@@ -110,6 +110,7 @@
 		73F0C37229AD2B2D00F95B01 /* IdentifiableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0C37129AD2B2D00F95B01 /* IdentifiableView.swift */; };
 		73F0C37429AD7AE900F95B01 /* PosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0C37329AD7AE900F95B01 /* PosterCell.swift */; };
 		73F0C37729AD813D00F95B01 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0C37629AD813D00F95B01 /* Movie.swift */; };
+		73F7137D29B61565001E469D /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 73F7137C29B61565001E469D /* SwiftUITrackableScrollView */; };
 		73F7935129A78E55007252BE /* AppTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935029A78E55007252BE /* AppTapBarController.swift */; };
 		73F7935729A7C612007252BE /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935629A7C612007252BE /* AppTabBarView.swift */; };
 		73F7935929A7DB5A007252BE /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935829A7DB5A007252BE /* CustomShape.swift */; };
@@ -271,6 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73F7137D29B61565001E469D /* SwiftUITrackableScrollView in Frameworks */,
 				73F0BC172989D24600742BA2 /* CountryPickerView in Frameworks */,
 				DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */,
 			);
@@ -883,6 +885,7 @@
 			name = iCinema;
 			packageProductDependencies = (
 				73F0BC162989D24600742BA2 /* CountryPickerView */,
+				73F7137C29B61565001E469D /* SwiftUITrackableScrollView */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -962,6 +965,7 @@
 			mainGroup = 73EC917F29834531002F3568;
 			packageReferences = (
 				73F0BC152989D24600742BA2 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
+				73F7137B29B61565001E469D /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
 			);
 			productRefGroup = 73EC918929834531002F3568 /* Products */;
 			projectDirPath = "";
@@ -1575,6 +1579,14 @@
 				kind = branch;
 			};
 		};
+		73F7137B29B61565001E469D /* XCRemoteSwiftPackageReference "trackable-scroll-view" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxnatchanon/trackable-scroll-view";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1582,6 +1594,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 73F0BC152989D24600742BA2 /* XCRemoteSwiftPackageReference "CountryPickerView" */;
 			productName = CountryPickerView;
+		};
+		73F7137C29B61565001E469D /* SwiftUITrackableScrollView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73F7137B29B61565001E469D /* XCRemoteSwiftPackageReference "trackable-scroll-view" */;
+			productName = SwiftUITrackableScrollView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
