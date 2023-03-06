@@ -85,7 +85,7 @@ class NewUserViewController: ICinemaViewController {
     }()
     
     /// Create Account Button
-    private let createAccountButton = ICinemaButton(title: .createAccount)
+    private lazy var createAccountButton = ICinemaButton(title: .createAccount, action: self.createAccountButtonTapped)
     
     // MARK: - Properties
     var gender: Gender = .female
@@ -133,16 +133,13 @@ class NewUserViewController: ICinemaViewController {
         view.addSubview(createAccountButton)
         createAccountButton.centerXInSuperview()
         createAccountButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .viewPadding, right: 0))
-        createAccountButton.addTarget(self, action: #selector(self.createAccountButtonTapped(_:)), for: .touchUpInside)
         
     }
     
     
     // MARK: - Actins
-    @objc func createAccountButtonTapped(_ sender: ICinemaButton) {
-        sender.addAnimate {
-            self.coordinator?.push()
-        }
+    func createAccountButtonTapped() {
+        self.coordinator?.push()
     }
     
 }

@@ -8,5 +8,9 @@
 import Foundation
 
 struct Cinema: Codable {
+    let name: String
+    let followersCount: Int
+    let rate: Float
+    let ChairsCount: Int
     
 }

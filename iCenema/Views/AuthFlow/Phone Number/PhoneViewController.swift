@@ -56,7 +56,7 @@ class PhoneViewController:  ICinemaViewController {
     }()
     
     /// button
-    private let getCodeButton = ICinemaButton(title: .getCode)
+    private lazy var getCodeButton = ICinemaButton(title: .getCode, action: self.getCodeButtonTapped)
     
     // MARK: - Properites
     //
@@ -117,22 +117,20 @@ class PhoneViewController:  ICinemaViewController {
         getCodeButton.centerXInSuperview()
         getCodeButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
                                       padding: UIEdgeInsets(top: 0, left: 0, bottom: .viewPadding, right: 0))
-        getCodeButton.addTarget(self, action: #selector(self.getCodeButtonTapped(_:)), for: .touchUpInside)
     }
     
     // MARK: - Actions
     //
-    @objc private func getCodeButtonTapped(_ sender: ICinemaButton){
-        sender.addAnimate {
-            self.viewModel.output.confirm { isPhoneNumberValid, message in
-                if isPhoneNumberValid {
-                    self.coordinator?.push()
-                } else {
-                    self.phoneNumberTextField.becomeFirstResponder()
-                    self.phoneNumberTextField.setState(.fail, with: message, for: .editing)
-                }
+    private func getCodeButtonTapped(){
+        self.viewModel.output.confirm { isPhoneNumberValid, message in
+            if isPhoneNumberValid {
+                self.coordinator?.push()
+            } else {
+                self.phoneNumberTextField.becomeFirstResponder()
+                self.phoneNumberTextField.setState(.fail, with: message, for: .editing)
             }
         }
+    
     }
     
 }

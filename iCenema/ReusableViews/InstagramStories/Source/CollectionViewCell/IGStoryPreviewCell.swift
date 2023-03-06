@@ -193,7 +193,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
     }
     
     private func configureShareButton() {
-        shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        shareButton.setImage(.shareIcon, for: .normal)
         shareButton.tintColor = .white
     }
 

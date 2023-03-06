@@ -13,7 +13,7 @@ final class PosterCollectionViewCell: UICollectionViewCell {
     private let posterImage: UIImageView = UIImageView()
     private let posterDescriptionLabel: UILabel = UILabel()
     
-    private let viewButton: ICinemaButton = ICinemaButton(title: "View")
+    private lazy var viewButton: ICinemaButton = ICinemaButton(title: "View", action: self.viewButtonTapped)
     
     // MARK: - initialization
     override init(frame: CGRect) {
@@ -23,7 +23,7 @@ final class PosterCollectionViewCell: UICollectionViewCell {
         self.addPoterImage()
         self.addPosterDescriptionLabel()
         
-        viewButton.addTarget(self, action: #selector(self.viewButtonTapped), for: .touchUpInside)
+//        viewButton.addTarget(self, action: #selector(self.viewButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -31,10 +31,8 @@ final class PosterCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Actions
-    @objc func viewButtonTapped(_ sender: ICinemaButton){
-        sender.addAnimate {
-            print("tapped")
-        }
+    func viewButtonTapped(){
+        
     }
     
     //  MARK: - update ui

@@ -31,7 +31,7 @@ class OTPViewController: ICinemaViewController {
     
     lazy var verificationCodeTextFields: [ICinemaTextField] = []
     
-    private let confirmButton = ICinemaButton(title: .confirm)
+    private lazy var confirmButton = ICinemaButton(title: .confirm, action: self.confirmButtonTapped)
     
     
     // MARK: - Properties
@@ -86,29 +86,27 @@ class OTPViewController: ICinemaViewController {
         view.addSubview(confirmButton)
         confirmButton.centerXInSuperview()
         confirmButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .viewPadding, right: 0))
-        confirmButton.addTarget(self, action: #selector(self.confirmButtonTapped(_:)), for: .touchUpInside)
     }
     
     // MARK: - Actions
     //
-    @objc private func confirmButtonTapped(_ sender: ICinemaButton) {
-        sender.addAnimate {
-            self.viewModel.output.confirm { isOTPEmpty, IsOTPValid in
-                if isOTPEmpty {
-                    self.selectEmptyTextField()
+    private func confirmButtonTapped() {
+        self.viewModel.output.confirm { isOTPEmpty, IsOTPValid in
+            if isOTPEmpty {
+                self.selectEmptyTextField()
+            } else {
+                if IsOTPValid {
+                    self.coordinator?.push()
                 } else {
-                    if IsOTPValid {
-                        self.coordinator?.push()
-                    } else {
-                        for textfield in self.verificationCodeTextFields{
-                            textfield.text = ""
-                            textfield.setState(.fail, for: .normal)
-                            // do not forget to show alert with error message
-                        }
+                    for textfield in self.verificationCodeTextFields{
+                        textfield.text = ""
+                        textfield.setState(.fail, for: .normal)
+                        // do not forget to show alert with error message
                     }
                 }
             }
         }
+    
     }
     
     @objc private func textFieldsDidChanged(_ textField: ICinemaTextField) {

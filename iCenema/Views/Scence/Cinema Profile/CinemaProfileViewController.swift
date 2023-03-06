@@ -6,31 +6,33 @@
 //
 
 import UIKit
+import SwiftUI
 
 class CinemaProfileViewController: ICinemaViewController {
     // MARK: - Properties
     //
-    let cinema: Cinema = Cinema()
-    var sections: [any CollectionViewCompositionalLayout] = [
-    ]
+   
     
     // MARK: - Views
     //
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     
     
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.addcollectionViewCompositionalLayout(target: self)
+        
+        guard let CinemaProfileView = UIHostingController(rootView: CinemaProfileView()).view else { return }
+        
+        view.addSubview(CinemaProfileView)
+        CinemaProfileView.fillXSuperViewConstraints()
+        CinemaProfileView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, bottomAnchor: view.bottomAnchor)
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionView.frame = view.bounds
     }
     
 }
 
-extension CinemaProfileViewController: CollectionViewCompositionalLayoutDataSource { }

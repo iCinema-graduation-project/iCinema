@@ -27,16 +27,18 @@ class WelcomeViewController: ICinemaViewController {
         return label
     }()
     
-    private let registerButton: ICinemaButton = ICinemaButton(title: .register)
+    private lazy var registerButton: ICinemaButton = ICinemaButton(title: .register, action: self.registerButtonTapped)
         
-    private let guestButton: ICinemaButton = {
-        let button = ICinemaButton(title: .guest)
+    private let guestButton: UIButton = {
+        let button = UIButton()
+        button.heightConstraints(.iCinemaButtonHeight)
         button.backgroundColor = .white
         button.layer.shadowColor = UIColor.iCinemaYellowColor.cgColor
         button.setTitleColor(.iCinemaOnlyGray, for: .normal)
+        button.setTitle(.guest, for: .normal)
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
-        
+        button.layer.cornerRadius = .iCinemaButtonCornerRadius
         return button
     }()
     
@@ -74,17 +76,15 @@ class WelcomeViewController: ICinemaViewController {
         stackview.centerXInSuperview()
         stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .viewPadding, right: 0))
         
-        registerButton.addTarget(self, action: #selector(self.registerButtonTapped(_:)), for: .touchUpInside)
         guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)
         
     }
     
     // MARK: - Actions
     //
-    @objc private func registerButtonTapped(_ sender: ICinemaButton) {
-        sender.addAnimate {
-            self.coordinator?.push()
-        }
+    private func registerButtonTapped() {
+        self.coordinator?.push()
+    
     }
     
     @objc private func guestButtonTapped(_ sender: ICinemaButton) {
