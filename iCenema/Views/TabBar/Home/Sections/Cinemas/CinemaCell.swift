@@ -6,16 +6,25 @@
 //
 
 import UIKit
+import SwiftUI
+
 
 class CinemaCell: UICollectionViewCell, IdentifiableView {
     // MARK: - Views
     //
     private let imageView = UIImageView()
-    private let detailsButton = UIButton()
+    private let cinemaNameLabel = UILabel()
     private let detailsSuperView = UIView()
     private let followButton = RadioButton()
     
-    // MARK: - initialization
+    // MARK: - Properties
+    //
+    var target: ViewController?
+    var profileView: UIView?
+    var profileViewAnchoredConstraints: AnchoredConstraints?
+    
+    
+    // MARK: - intializers
     //
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,16 +35,13 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         self.addFollowButton()
         
         imageView.image = UIImage(named: "cinema")
-        detailsButton.setTitle("Details", for: .normal)
+//        cinemaNameLabel.setTitle("Details", for: .normal)
 
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
-    // MARK: - Actions
-    
     
     //  MARK: - Update UI
     //
@@ -57,6 +63,7 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         // Apply Some Styling
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = .viewCornerRadius
+        self.addTappGestureToImageView()
     }
     
     private func addDetailsSuperView() {
@@ -69,23 +76,14 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
     // add a details button to the details super view
     private func addDetailsButton() {
         // Add the details button to the details super view
-        detailsSuperView.addSubview(detailsButton)
+        detailsSuperView.addSubview(cinemaNameLabel)
+        cinemaNameLabel.text = "Galaxy"
+        cinemaNameLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        cinemaNameLabel.textColor = .iCinemaTextColor
         
-        // Configure the button
-        let configuration = UIButton.Configuration.plain()
-        detailsButton.configuration = configuration
-        // Update the Button's font
-        detailsButton.configuration?.titleTextAttributesTransformer  =
-        UIConfigurationTextAttributesTransformer { incoming in
-            var outgoing = incoming
-            outgoing.font = UIFont.preferredFont(forTextStyle: .subheadline)
-            return outgoing
-        }
-        detailsButton.tintColor = .iCinemaTextColor
-        
-        // Update The Button's Constrints
-        detailsButton.makeConstraints(leadingAnchor: detailsSuperView.leadingAnchor)
-        detailsButton.centerYInSuperview()
+        // Update The Constrints
+        cinemaNameLabel.makeConstraints(leadingAnchor: detailsSuperView.leadingAnchor)
+        cinemaNameLabel.centerYInSuperview()
     }
     
     private func addFollowButton() {
@@ -94,13 +92,80 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         detailsSuperView.addSubview(followButton)
         followButton.makeConstraints(trailingAnchor: detailsSuperView.trailingAnchor)
         followButton.centerYInSuperview()
+    }
+    
+    
+    // MARK: - Helper Methods
+    //
+    private func addTappGestureToImageView() {
+        let tapGesure = UITapGestureRecognizer(target: self, action: #selector(self.didImageViewTapGestureTapped))
+        self.imageView.addGestureRecognizer(tapGesure)
+        self.imageView.isUserInteractionEnabled = true
+    }
+    
+    
+    @objc private func didImageViewTapGestureTapped(_ sender: UITapGestureRecognizer? = nil) {
+        guard let target = self.target else { return }
         
-//        let configuration = UIButton.Configuration.plain()
-//        detailsButton.configuration = configuration
-//        detailsButton.configuration?.buttonSize = .large
+        // create cinema profile view
+        let cinemaProfileView = CinemaProfileView { self.dismissFullScreenAnimation() }
+        guard let cinemaProfileView = UIHostingController(rootView: cinemaProfileView).view else { return }
         
+        // add to target view
+        target.view.addSubview(cinemaProfileView)
+        self.profileView = cinemaProfileView
         
+        guard let profileView = self.profileView else { return }
+
+        // get ready to be animated
+        profileView.frame = target.view.bounds
+        
+        UIView.animate(withDuration: 0, delay: 0) {
+            profileView.makeConstraints(bottomAnchor: target.view.bottomAnchor, leadingAnchor: target.view.leadingAnchor)
+            profileView.frame = .zero
+
+        }completion: { _ in
+            self.beginFullScreenAnimation()
+        }
+
     }
 
+    private func beginFullScreenAnimation() {
+        guard let target = self.target else {return}
+        
+        UIView.animate(withDuration: 0.7,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.7,
+                       options: .curveEaseOut) {
+            
+            target.navigationController?.navigationBar.isHidden = true
+            self.profileView?.fillXSuperViewConstraints()
+            self.profileViewAnchoredConstraints = self.profileView?.makeConstraints(topAnchor: target.view.topAnchor, bottomAnchor: target.view.bottomAnchor)
+            
+            target.view.layoutIfNeeded()
+            self.profileView?.layoutIfNeeded()
+            
+        }
+    }
+    
+    private func dismissFullScreenAnimation() {
+        UIView.animate(withDuration: 0.7,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.7,
+                       options: .curveEaseOut) {
+            
+            self.profileViewAnchoredConstraints?.top?.constant = 200
+    
+            self.target?.view.layoutIfNeeded()
+            self.target?.navigationController?.navigationBar.isHidden = false
+            
+        } completion: { _ in
+            self.profileView?.removeFromSuperview()
+        }
+
+    }
+    
 
 }

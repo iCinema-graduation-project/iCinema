@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLayout {
     // MARK: - Typealias
@@ -24,10 +25,12 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
     
     var itemsCount: Int = 0
     
+    var target: ViewController
+    
     // MARK: - initalizer
     //
-    override init() {
-        super.init()
+    init(target: ViewController) {
+        self.target = target
     }
     
     // MARK: - Section Layout
@@ -41,9 +44,9 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
     func groupLayoutInSection() -> NSCollectionLayoutGroup {
         let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(.cinemaCellWidth), heightDimension: .absolute(.cinemaCellHeight))
         let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [self.itemLayoutInGroup()])
-       
+        
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .moviesPadding, bottom: 0, trailing: .moviesPadding)
-
+        
         return group
     }
     
@@ -52,12 +55,9 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
         section.orthogonalScrollingBehavior = .continuous
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .moviesPadding, bottom: 0, trailing: 0)
         
-        
         // MARK: - add supplementary view
-        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
-                                                       , heightDimension: .absolute(.moviesSupplementaryHeight))
-        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,
-                                                                            elementKind: supplementaryViewType.identifier, alignment: .top)
+        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.moviesSupplementaryHeight))
+        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,elementKind: supplementaryViewType.identifier, alignment: .top)
         section.boundarySupplementaryItems = [supplementaryItem]
         
         return section
@@ -72,7 +72,7 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
     func registerSupplementaryView(_ collectionView: UICollectionView) {
         collectionView.register(supplementaryViewType.self, supplementaryViewOfKind: supplementaryViewType.identifier)
     }
-        
+    
     func getItems(_ collectionView: UICollectionView) {
         self.items = ["", "", "", ""]
         collectionView.reloadData()
@@ -85,7 +85,9 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return  collectionView.dequeueReusableCell(cellType.self, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(cellType.self, for: indexPath)
+        cell.target = self.target
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -94,8 +96,7 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
         return supView
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
-    }
-    
 }
+    
+    
+

@@ -12,13 +12,13 @@ import ViewAnimator
 final class HomeViewController: ICinemaViewController {
     
     // MARK: - Properties
-    var sections: [any CollectionViewCompositionalLayout] = [
-        PosterCollectionViewSection(),
-        MoviesCollectionViewSection(),
-        CinemaCollectionViewSection(),
-        MoviesCollectionViewSection(),
+    lazy var sections: [any CollectionViewCompositionalLayout] = [
+        PosterCollectionViewSection(target: self),
+        MoviesCollectionViewSection(target: self),
+        CinemaCollectionViewSection(target: self),
+        MoviesCollectionViewSection(target: self),
         
-        DummyCollectionViewSection()
+        DummyCollectionViewSection(target: self)
     ]
     
     // MARK: - Views

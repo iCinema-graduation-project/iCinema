@@ -9,25 +9,23 @@ import UIKit
 import SwiftUI
 
 class CinemaProfileViewController: ICinemaViewController {
-    // MARK: - Properties
-    //
-   
-    
-    // MARK: - Views
-    //
-    
-    
+ 
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let CinemaProfileView = UIHostingController(rootView: CinemaProfileView()).view else { return }
+        let cinemaProfileView = CinemaProfileView {
+            
+        }
         
-        view.addSubview(CinemaProfileView)
-//        CinemaProfileView.fillXSuperViewConstraints()
-//        CinemaProfileView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, bottomAnchor: view.bottomAnchor)
-        CinemaProfileView.fillSuperviewConstraints()
+        guard let cinemaProfileView = UIHostingController(rootView: cinemaProfileView).view else { return }
+        
+        view.addSubview(cinemaProfileView)
+
+        cinemaProfileView.fillSuperviewConstraints()
+//        cinemaProfileView.fillXSuperViewConstraints()
+//        cinemaProfileView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, bottomAnchor: view.bottomAnchor)
     }
     
     override func viewDidLayoutSubviews() {

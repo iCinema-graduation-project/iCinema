@@ -18,10 +18,12 @@ final class DummyCollectionViewSection: NSObject, CollectionViewCompositionalLay
     var items: [ResposeType] = []
     var itemsCount: Int = 0
     
+    var target: ViewController
+    
     // MARK: - initalizer
     //
-    override init() {
-        super.init()
+    init(target: ViewController) {
+        self.target = target
     }
     
     // MARK: - Section Layout

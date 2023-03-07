@@ -10,22 +10,22 @@ import SwiftUI
 struct CinemaProfileSliderView: View {
     let cinema: Cinema
     
-    @State var index = 0
-    
     var body: some View {
-        PagingView(index: $index, maxIndex: 4) {
-            ForEach(0..<5) { i in
-                Image("hale")
-                    .resizable()
-                    .frame(width: 310, height: 135)
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(0..<5) { i in
+                    Image("hale")
+                        .resizable()
+                        .frame(width: 310, height: 135)
+                }
             }
         }
-        .frame(width: 310, height: 135)
-        .overlay {
-            Rectangle()
-                .stroke(Color(uiColor: .iCinemaYellowColor), lineWidth: 1)
-                .frame(width: 320, height: 144)
-        }
+            .frame(width: 310, height: 135)
+            .overlay {
+                Rectangle()
+                    .stroke(Color(uiColor: .iCinemaYellowColor), lineWidth: 1)
+                    .frame(width: 320, height: 144)
+            }
     }
 }
 

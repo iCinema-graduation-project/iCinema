@@ -8,14 +8,20 @@
 import UIKit
 
 public extension UIView{
-    func widthConstraints(_ constant: CGFloat) {
+    @discardableResult
+    func widthConstraints(_ constant: CGFloat) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
-        widthAnchor.constraint(equalToConstant: constant).isActive = true
+        let const = widthAnchor.constraint(equalToConstant: constant)
+        const.isActive = true
+        return const
     }
     
-    func heightConstraints(_ constant: CGFloat) {
+    @discardableResult
+    func heightConstraints(_ constant: CGFloat) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
-        heightAnchor.constraint(equalToConstant: constant).isActive = true
+        let const = heightAnchor.constraint(equalToConstant: constant)
+        const.isActive = true
+        return const
     }
     
     func equalSizeConstraints(_ constant: CGFloat) {

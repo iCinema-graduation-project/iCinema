@@ -10,7 +10,7 @@ import SwiftUITrackableScrollView
 
 struct CinemaProfileView: View {
     let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5, ChairsCount: 430)
-    
+    let closeButtonAction: () -> Void
     @State private var scrollViewContentOffset = CGFloat(0)
     @State private var showCinemaImageInToolbarItem = false
     
@@ -42,6 +42,15 @@ struct CinemaProfileView: View {
             })
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        self.closeButtonAction()
+                    } label: {
+                        Image(systemName: "x.circle")
+                            .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+                    }
+
+                }
                 ToolbarItem(placement: .principal) {
                     HStack{
                         Image("cinema")
@@ -64,7 +73,7 @@ struct CinemaProfileView: View {
 
 struct CinemaProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        CinemaProfileView()
+        CinemaProfileView(closeButtonAction: {})
     }
 }
 

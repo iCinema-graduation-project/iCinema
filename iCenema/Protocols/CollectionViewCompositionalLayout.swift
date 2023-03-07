@@ -17,6 +17,8 @@ protocol CollectionViewCompositionalLayout: AnyObject, UICollectionViewDelegate,
     associatedtype ResposeType
     var items: [ResposeType] { get set }
     var itemsCount: Int { get set }
+    var target: ViewController { get set }
+    init(target: ViewController)
     func itemLayoutInGroup() -> NSCollectionLayoutItem
     func groupLayoutInSection() -> NSCollectionLayoutGroup
     func sectionLayout() -> NSCollectionLayoutSection
@@ -24,7 +26,6 @@ protocol CollectionViewCompositionalLayout: AnyObject, UICollectionViewDelegate,
     func registerSupplementaryView(_ collectionView: UICollectionView)
     func getItems(_ collectionView: UICollectionView)
 }
-
 
 
 /// Defines the behavior of collectionView sections
