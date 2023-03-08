@@ -31,8 +31,9 @@ struct CinemaProfileHeaderView: View {
             
             // Follow Button
             ICinemaButtonView(title: "Follow") {
-                print(Int(floor(cinema.rate)))
+//                print(Int(floor(cinema.rate)))
             }
+            
         }
     }
 }

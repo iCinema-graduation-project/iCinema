@@ -14,17 +14,21 @@ struct CinemaProfileView: View {
     @State private var scrollViewContentOffset = CGFloat(0)
     @State private var showCinemaImageInToolbarItem = false
     
+    
+    
     var body: some View {
         NavigationView {
             TrackableScrollView(.vertical, showIndicators: false, contentOffset: $scrollViewContentOffset) {
                 VStack {
                     CinemaProfileHeaderView(cinema: cinema)
-                    
+                        .padding(.bottom)
+
                     CinemaProfileInformationView(cinema: cinema)
                         .padding(.bottom)
                     
                     CinemaProfileSliderView(cinema: cinema)
                     
+                    CinemaProfilePickerView(cinema: cinema)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -76,5 +80,6 @@ struct CinemaProfileView_Previews: PreviewProvider {
         CinemaProfileView(closeButtonAction: {})
     }
 }
+
 
 

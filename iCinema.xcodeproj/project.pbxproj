@@ -63,6 +63,8 @@
 		731FBF8229B0C2CB00798DF5 /* IGHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF7D29B0C2CB00798DF5 /* IGHomeView.swift */; };
 		731FBF8329B0C2CB00798DF5 /* IGStoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF7E29B0C2CB00798DF5 /* IGStoryListCell.swift */; };
 		7325B8732988B7FA0009B8EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7325B8722988B7FA0009B8EC /* README.md */; };
+		732959BB29B761A900E2DF9B /* CinemaProfilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732959BA29B761A900E2DF9B /* CinemaProfilePickerView.swift */; };
+		732959BE29B76B2400E2DF9B /* MoviesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732959BD29B76B2400E2DF9B /* MoviesListView.swift */; };
 		733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733116B72990A9AE00EFD002 /* OTPViewModel.swift */; };
 		733DAA2129B37B5D00741211 /* InterstsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2029B37B5D00741211 /* InterstsView.swift */; };
 		733DAA2529B3A0CA00741211 /* CinemaProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */; };
@@ -202,6 +204,8 @@
 		731FBF7D29B0C2CB00798DF5 /* IGHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGHomeView.swift; sourceTree = "<group>"; };
 		731FBF7E29B0C2CB00798DF5 /* IGStoryListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGStoryListCell.swift; sourceTree = "<group>"; };
 		7325B8722988B7FA0009B8EC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		732959BA29B761A900E2DF9B /* CinemaProfilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfilePickerView.swift; sourceTree = "<group>"; };
+		732959BD29B76B2400E2DF9B /* MoviesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListView.swift; sourceTree = "<group>"; };
 		733116B72990A9AE00EFD002 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		733DAA2029B37B5D00741211 /* InterstsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstsView.swift; sourceTree = "<group>"; };
 		733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileViewController.swift; sourceTree = "<group>"; };
@@ -585,6 +589,15 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		732959BC29B76AB100E2DF9B /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				732959BA29B761A900E2DF9B /* CinemaProfilePickerView.swift */,
+				732959BD29B76B2400E2DF9B /* MoviesListView.swift */,
+			);
+			path = PickerView;
+			sourceTree = "<group>";
+		};
 		733116B62990A99600EFD002 /* OTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -855,6 +868,7 @@
 		73F7138129B632C8001E469D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				732959BC29B76AB100E2DF9B /* PickerView */,
 				73F7138229B632E6001E469D /* CinemaProfileHeaderView.swift */,
 				73F7138429B636CD001E469D /* CinemaProfileInformationView.swift */,
 				73F7138629B65240001E469D /* CinemaProfileSliderView.swift */,
@@ -1196,6 +1210,7 @@
 				731FBF4F29B0BF7E00798DF5 /* IGStoryPreviewCell.swift in Sources */,
 				731FBF5C29B0BF7E00798DF5 /* UIImageView+Extension.swift in Sources */,
 				73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */,
+				732959BE29B76B2400E2DF9B /* MoviesListView.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
 				73F7138329B632E6001E469D /* CinemaProfileHeaderView.swift in Sources */,
 				731FBF5229B0BF7E00798DF5 /* UIView+Extension.swift in Sources */,
@@ -1216,6 +1231,7 @@
 				731FBF6D29B0BF7E00798DF5 /* UIView+Anchor.swift in Sources */,
 				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,
 				731FBF5329B0BF7E00798DF5 /* IGAdditions.swift in Sources */,
+				732959BB29B761A900E2DF9B /* CinemaProfilePickerView.swift in Sources */,
 				73EC91D629834D41002F3568 /* UIView+SizeConstraints.swift in Sources */,
 				730FA8E7298ED92C00F3B955 /* UIView+addAnimate.swift in Sources */,
 				73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */,

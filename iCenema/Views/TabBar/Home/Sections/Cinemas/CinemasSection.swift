@@ -22,10 +22,9 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
             itemsCount = items.count
         }
     }
-    
     var itemsCount: Int = 0
-    
     var target: ViewController
+    
     
     // MARK: - initalizer
     //

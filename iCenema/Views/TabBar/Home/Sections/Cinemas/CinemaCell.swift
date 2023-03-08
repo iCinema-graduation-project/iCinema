@@ -121,7 +121,7 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         profileView.frame = target.view.bounds
         
         UIView.animate(withDuration: 0, delay: 0) {
-            profileView.makeConstraints(bottomAnchor: target.view.bottomAnchor, leadingAnchor: target.view.leadingAnchor)
+            profileView.makeConstraints(bottomAnchor: target.view.bottomAnchor, leadingAnchor: target.view.leadingAnchor, trailingAnchor: target.view.trailingAnchor)
             profileView.frame = .zero
 
         }completion: { _ in
@@ -140,26 +140,29 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
                        options: .curveEaseOut) {
             
             target.navigationController?.navigationBar.isHidden = true
+//            iCinemaTabBar.isHidden = true
             self.profileView?.fillXSuperViewConstraints()
             self.profileViewAnchoredConstraints = self.profileView?.makeConstraints(topAnchor: target.view.topAnchor, bottomAnchor: target.view.bottomAnchor)
             
             target.view.layoutIfNeeded()
             self.profileView?.layoutIfNeeded()
-            
         }
     }
     
     private func dismissFullScreenAnimation() {
-        UIView.animate(withDuration: 0.7,
+        UIView.animate(withDuration: 0.5,
                        delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 0.7,
-                       options: .curveEaseOut) {
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0.5,
+                       options: .curveLinear) {
             
             self.profileViewAnchoredConstraints?.top?.constant = 200
     
             self.target?.view.layoutIfNeeded()
+            self.profileView?.layoutIfNeeded()
             self.target?.navigationController?.navigationBar.isHidden = false
+//            iCinemaTabBar.isHidden = false
+
             
         } completion: { _ in
             self.profileView?.removeFromSuperview()
