@@ -15,7 +15,7 @@ class ICinemaButton: UIView {
         guard let iCinemaButtonView = UIHostingController(rootView: ICinemaButtonView(title: title, action: action)).view else { return }
         addSubview(iCinemaButtonView)
         iCinemaButtonView.fillSuperviewConstraints()
-        sizeConstraints(width: .iCinemaButtonWidth + 5, height: .iCinemaButtonHeight + 5)        
+        sizeConstraints(width: CGFloat.iCinemaButton.width + 5, height: CGFloat.iCinemaButton.height + 5)
     }
     
     required init?(coder: NSCoder) {
@@ -32,8 +32,8 @@ struct ICinemaButtonView: View {
     @State var animate = false
     
     init(title: String,
-         width: CGFloat = .iCinemaButtonWidth,
-         height: CGFloat = .iCinemaButtonHeight,
+         width: CGFloat = .iCinemaButton.width,
+         height: CGFloat = .iCinemaButton.height,
          action: @escaping () -> Void = {}) {
         self.title = title
         self.width = width
@@ -46,7 +46,7 @@ struct ICinemaButtonView: View {
             .frame(width: self.width, height: self.height)
             .background(Color(uiColor: .iCinemaYellowColor))
             .foregroundColor(Color(uiColor: .iCinemaTextColorReverce))
-            .cornerRadius(self.width / CGFloat.iCinemaButtonCornerRadius)
+            .cornerRadius(self.width / CGFloat.iCinemaButton.cornerRadius)
             .shadow(radius: 0.5, x: 1, y: 1)
             .scaleEffect(animate ? 1 : 1.05)
             .shadow(color: Color(uiColor: .iCinemaYellowColor), radius: 4)

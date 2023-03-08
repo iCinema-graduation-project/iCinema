@@ -39,7 +39,7 @@ final class PosterCollectionViewCell: UICollectionViewCell {
     private func addPosterView(){
         contentView.addSubview(posterView)
         /// update poster view's constraints
-        posterView.sizeConstraints(width: .homePoseterWidth, height: .homePosterHeight)
+        posterView.sizeConstraints(width: .home.posters.width, height: .home.posters.height)
         posterView.centerXInSuperview()
         posterView.makeConstraints(topAnchor: contentView.topAnchor)
         
@@ -62,7 +62,7 @@ final class PosterCollectionViewCell: UICollectionViewCell {
         posterImage.layer.masksToBounds = true
         posterImage.fillXSuperViewConstraints()
         posterImage.makeConstraints(topAnchor: posterView.topAnchor)
-        posterImage.heightConstraints(.homePoseterWidth)
+        posterImage.heightConstraints(.home.posters.width)
         // FIXME: - poster image
         // will come from network
         posterImage.image = UIImage(named: "posterImage")

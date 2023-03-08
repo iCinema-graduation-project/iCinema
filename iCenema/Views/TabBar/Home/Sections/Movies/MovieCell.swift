@@ -55,8 +55,8 @@ class MovieCell: UICollectionViewCell, IdentifiableView {
         contentView.addSubview(imageSuperView)
 
         // Set Constraints For The New View
-        imageSuperView.fillXSuperViewConstraints(paddingLeft: .moviesPadding, paddingRight: .moviesPadding)
-        imageSuperView.makeConstraints(topAnchor: contentView.topAnchor, padding: UIEdgeInsets(top: .moviesPadding, left: 0, bottom: 0, right: 0))
+        imageSuperView.fillXSuperViewConstraints(paddingLeft: .home.movies.padding, paddingRight: .home.movies.padding)
+        imageSuperView.makeConstraints(topAnchor: contentView.topAnchor, padding: UIEdgeInsets(top: .home.movies.padding, left: 0, bottom: 0, right: 0))
         imageSuperView.heightConstraints(contentView.frame.height / 1.24)
         
         // Apply Some Styling To The New View
@@ -74,7 +74,7 @@ class MovieCell: UICollectionViewCell, IdentifiableView {
 
     private func addDetailsSuperView() {
         contentView.addSubview(detailsSuperView)
-        detailsSuperView.fillXSuperViewConstraints(paddingLeft: .moviesPadding, paddingRight: .moviesPadding)
+        detailsSuperView.fillXSuperViewConstraints(paddingLeft: .home.movies.padding, paddingRight: .home.movies.padding)
         detailsSuperView.makeConstraints(topAnchor: imageSuperView.bottomAnchor, bottomAnchor: contentView.bottomAnchor)
         detailsSuperView.clipsToBounds = true
     }

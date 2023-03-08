@@ -42,27 +42,22 @@ final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func groupLayoutInSection() -> NSCollectionLayoutGroup {
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(.movieCellWidth), heightDimension: .absolute(.movieCellHeight))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(.home.movies.cellWidth), heightDimension: .absolute(.home.movies.cellHeight))
         let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [self.itemLayoutInGroup()])
-       
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .moviesPadding, bottom: 0, trailing: .moviesPadding)
-
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .home.movies.padding, bottom: 0, trailing: .home.movies.padding)
         return group
     }
     
     func sectionLayout() -> NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: self.groupLayoutInSection())
         section.orthogonalScrollingBehavior = .continuous
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .moviesPadding, bottom: 0, trailing: 0)
-        
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .home.movies.padding, bottom: 0, trailing: 0)
         
         // MARK: - add supplementary view
-        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
-                                                       , heightDimension: .absolute(.moviesSupplementaryHeight))
-        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,
-                                                                            elementKind: supplementaryViewType.identifier, alignment: .top)
+        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.home.movies.supplementaryHeight))
+        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,elementKind: supplementaryViewType.identifier, alignment: .top)
         section.boundarySupplementaryItems = [supplementaryItem]
-        
+
         return section
     }
     

@@ -13,7 +13,6 @@ struct CinemaProfilePickerView: View {
     @State var pickerSelectedSectin: CinemaSections = .movies
     init(cinema: Cinema) {
         self.cinema = cinema
-        
         UISegmentedControl.appearance().selectedSegmentTintColor = .iCinemaYellowColor
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.iCinemaTextColorReverce], for: .selected)
     }

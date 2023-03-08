@@ -31,14 +31,14 @@ class WelcomeViewController: ICinemaViewController {
         
     private let guestButton: UIButton = {
         let button = UIButton()
-        button.heightConstraints(.iCinemaButtonHeight)
+        button.heightConstraints(.iCinemaButton.height)
         button.backgroundColor = .white
         button.layer.shadowColor = UIColor.iCinemaYellowColor.cgColor
         button.setTitleColor(.iCinemaOnlyGray, for: .normal)
         button.setTitle(.guest, for: .normal)
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
-        button.layer.cornerRadius = .iCinemaButtonCornerRadius
+        button.layer.cornerRadius = .iCinemaButton.cornerRadius
         return button
     }()
     

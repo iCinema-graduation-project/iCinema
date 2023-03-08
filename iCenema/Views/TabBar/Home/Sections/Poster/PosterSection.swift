@@ -23,7 +23,6 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     var itemsCount: Int = 0
-    
     var target: ViewController
     
     // MARK: - initalizer
@@ -40,7 +39,7 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func groupLayoutInSection() -> NSCollectionLayoutGroup {
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.homePosterSectionHeight))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.home.posters.sectionHeight))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [self.itemLayoutInGroup()])
         return group
     }
@@ -50,7 +49,7 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
         section.orthogonalScrollingBehavior = .groupPagingCentered
         
         // MARK: - add supplementary view
-        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.homePosterSupplementaryHeight))
+        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.home.posters.supplementaryHeight))
         let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize, elementKind: supplementaryViewType.identifier, alignment: .bottom)
         section.boundarySupplementaryItems = [supplementaryItem]
         
@@ -88,7 +87,6 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
         let zoomAnimation = AnimationType.zoom(scale: 0.2)
         cell.animate(animations: [zoomAnimation])
         
-
         return cell
     }
     
