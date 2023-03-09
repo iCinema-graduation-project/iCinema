@@ -11,6 +11,7 @@ struct CinemaProfileHeaderView: View {
     let cinema: Cinema
         
     let imageHeight: CGFloat = .cinemaProfile.cinemaImageHeight
+    
     var body: some View {
         VStack {
             // Ciname Profile Image

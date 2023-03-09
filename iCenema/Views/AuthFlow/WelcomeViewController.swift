@@ -12,11 +12,7 @@ import SwiftUI
 class WelcomeViewController: ICinemaViewController {
     // MARK: - Views
     //
-    private let imageView: UIImageView = {
-        let imageView = UIImageView(image: .welcomeImage)
-        imageView.sizeConstraints(width: 250, height: 250)
-        return imageView
-    }()
+    private let imageView: UIImageView = UIImageView(image: .welcomeImage)
     
     private let descreptionLabel: UILabel = {
         let label = UILabel()
@@ -56,13 +52,14 @@ class WelcomeViewController: ICinemaViewController {
     //
     private func addImageView() {
         view.addSubview(imageView)
+        imageView.sizeConstraints(width: 250, height: 250)
         imageView.centerXInSuperview()
         imageView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor)
     }
     
     private func addDescriptionLabel() {
         view.addSubview(descreptionLabel)
-        descreptionLabel.widthConstraints(.viewWidth)        
+        descreptionLabel.widthConstraints(.view.width)        
         descreptionLabel.centerInSuperview()
     }
     
@@ -74,7 +71,7 @@ class WelcomeViewController: ICinemaViewController {
         
         view.addSubview(stackview)
         stackview.centerXInSuperview()
-        stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .viewPadding, right: 0))
+        stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding, right: 0))
         
         guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)
         
@@ -84,7 +81,6 @@ class WelcomeViewController: ICinemaViewController {
     //
     private func registerButtonTapped() {
         self.coordinator?.push()
-    
     }
     
     @objc private func guestButtonTapped(_ sender: ICinemaButton) {

@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+extension String {
+    static let fonts = Font.self
+    
+    struct Font {
+        static let appFont = "Roboto"
+    }
+}

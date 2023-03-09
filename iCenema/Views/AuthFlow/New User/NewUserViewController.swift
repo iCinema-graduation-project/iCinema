@@ -24,7 +24,7 @@ class NewUserViewController: ICinemaViewController {
         label.tintColor = .iCinemaTextColor
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.widthConstraints(.viewWidth)
+        label.widthConstraints(.view.width)
         return label
     }()
     /// Input Text Fields
@@ -109,19 +109,19 @@ class NewUserViewController: ICinemaViewController {
         view.addSubview(descriptionLabel)
         descriptionLabel.centerXInSuperview()
         descriptionLabel.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor,
-                                         padding: UIEdgeInsets(top: .viewPadding, left: 0, bottom: 0, right: 0))
+                                         padding: UIEdgeInsets(top: .view.padding, left: 0, bottom: 0, right: 0))
     }
     
     private func addTextFieldsStackView() {
         view.addSubview(TextFieldsStackView)
         TextFieldsStackView.centerXInSuperview()
         TextFieldsStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor,
-                                            padding: UIEdgeInsets(top: .viewPadding, left: 0, bottom: 0, right: 0))
+                                            padding: UIEdgeInsets(top: .view.padding, left: 0, bottom: 0, right: 0))
     
         TextFieldsStackView.addArrangedSubview(fullNameTextField)
         TextFieldsStackView.addArrangedSubview(ageTextField)
         TextFieldsStackView.addArrangedSubview(genderView)
-        TextFieldsStackView.arrangedSubviews.forEach {$0.widthConstraints(.viewWidth)}
+        TextFieldsStackView.arrangedSubviews.forEach {$0.widthConstraints(.view.width)}
     }
     
     private func addGenderStackView() {
@@ -132,7 +132,7 @@ class NewUserViewController: ICinemaViewController {
     private func addCreateAccountButton(){
         view.addSubview(createAccountButton)
         createAccountButton.centerXInSuperview()
-        createAccountButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .viewPadding, right: 0))
+        createAccountButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding, right: 0))
         
     }
     

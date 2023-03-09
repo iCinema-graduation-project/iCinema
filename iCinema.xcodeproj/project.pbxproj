@@ -83,6 +83,12 @@
 		73975B0D299080D000AD955C /* +compositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73975B0C299080D000AD955C /* +compositionalLayout.swift */; };
 		739864C529AFFCD3008420F6 /* CinemasSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739864C429AFFCD3008420F6 /* CinemasSection.swift */; };
 		739864C729AFFCDE008420F6 /* CinemaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739864C629AFFCDE008420F6 /* CinemaCell.swift */; };
+		739ADAA829B8AA1900FFA78E /* MovieProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAA729B8AA1900FFA78E /* MovieProfileView.swift */; };
+		739ADAAA29B8AB5B00FFA78E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 739ADAA629B8A94800FFA78E /* Roboto-Regular.ttf */; };
+		739ADAAB29B8AB6000FFA78E /* ClimateCrisis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 739ADAA929B8AA6F00FFA78E /* ClimateCrisis.ttf */; };
+		739ADAAE29B8FB0B00FFA78E /* CinemaPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAAD29B8FB0B00FFA78E /* CinemaPost.swift */; };
+		739ADAB029BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAAF29BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift */; };
+		739ADAB229BA351800FFA78E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAB129BA351800FFA78E /* ViewController.swift */; };
 		73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73A30CA929835B1F00D672E6 /* Localizable.strings */; };
 		73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAB29835B4000D672E6 /* LanguageManager.swift */; };
 		73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */; };
@@ -116,7 +122,7 @@
 		73F7138329B632E6001E469D /* CinemaProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138229B632E6001E469D /* CinemaProfileHeaderView.swift */; };
 		73F7138529B636CD001E469D /* CinemaProfileInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138429B636CD001E469D /* CinemaProfileInformationView.swift */; };
 		73F7138729B65240001E469D /* CinemaProfileSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138629B65240001E469D /* CinemaProfileSliderView.swift */; };
-		73F7138A29B65A71001E469D /* swiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138929B65A71001E469D /* swiftUIView.swift */; };
+		73F7138A29B65A71001E469D /* +isHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138929B65A71001E469D /* +isHidden.swift */; };
 		73F7935129A78E55007252BE /* AppTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935029A78E55007252BE /* AppTapBarController.swift */; };
 		73F7935729A7C612007252BE /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935629A7C612007252BE /* AppTabBarView.swift */; };
 		73F7935929A7DB5A007252BE /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935829A7DB5A007252BE /* CustomShape.swift */; };
@@ -224,6 +230,12 @@
 		73975B0C299080D000AD955C /* +compositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+compositionalLayout.swift"; sourceTree = "<group>"; };
 		739864C429AFFCD3008420F6 /* CinemasSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemasSection.swift; sourceTree = "<group>"; };
 		739864C629AFFCDE008420F6 /* CinemaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaCell.swift; sourceTree = "<group>"; };
+		739ADAA629B8A94800FFA78E /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		739ADAA729B8AA1900FFA78E /* MovieProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProfileView.swift; sourceTree = "<group>"; };
+		739ADAA929B8AA6F00FFA78E /* ClimateCrisis.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ClimateCrisis.ttf; sourceTree = "<group>"; };
+		739ADAAD29B8FB0B00FFA78E /* CinemaPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaPost.swift; sourceTree = "<group>"; };
+		739ADAAF29BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+addScaleAnimationOnTapGesture.swift"; sourceTree = "<group>"; };
+		739ADAB129BA351800FFA78E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		73A30CA429835B0200D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		73A30CA829835B1F00D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73A30CAA29835B2500D672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -261,7 +273,7 @@
 		73F7138229B632E6001E469D /* CinemaProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileHeaderView.swift; sourceTree = "<group>"; };
 		73F7138429B636CD001E469D /* CinemaProfileInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileInformationView.swift; sourceTree = "<group>"; };
 		73F7138629B65240001E469D /* CinemaProfileSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileSliderView.swift; sourceTree = "<group>"; };
-		73F7138929B65A71001E469D /* swiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftUIView.swift; sourceTree = "<group>"; };
+		73F7138929B65A71001E469D /* +isHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+isHidden.swift"; sourceTree = "<group>"; };
 		73F7935029A78E55007252BE /* AppTapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTapBarController.swift; sourceTree = "<group>"; };
 		73F7935629A7C612007252BE /* AppTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarView.swift; sourceTree = "<group>"; };
 		73F7935829A7DB5A007252BE /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
@@ -598,6 +610,14 @@
 			path = PickerView;
 			sourceTree = "<group>";
 		};
+		732959BF29B822C500E2DF9B /* Movie Profile */ = {
+			isa = PBXGroup;
+			children = (
+				739ADAA729B8AA1900FFA78E /* MovieProfileView.swift */,
+			);
+			path = "Movie Profile";
+			sourceTree = "<group>";
+		};
 		733116B62990A99600EFD002 /* OTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,7 +640,9 @@
 		733DAA2229B3A06300741211 /* Scence */ = {
 			isa = PBXGroup;
 			children = (
+				739ADAAC29B8FAF900FFA78E /* Cinema Post */,
 				733DAA2329B3A07300741211 /* Cinema Profile */,
+				732959BF29B822C500E2DF9B /* Movie Profile */,
 			);
 			path = Scence;
 			sourceTree = "<group>";
@@ -677,6 +699,23 @@
 				739864C629AFFCDE008420F6 /* CinemaCell.swift */,
 			);
 			path = Cinemas;
+			sourceTree = "<group>";
+		};
+		739ADAA529B8A93200FFA78E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				739ADAA629B8A94800FFA78E /* Roboto-Regular.ttf */,
+				739ADAA929B8AA6F00FFA78E /* ClimateCrisis.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		739ADAAC29B8FAF900FFA78E /* Cinema Post */ = {
+			isa = PBXGroup;
+			children = (
+				739ADAAD29B8FB0B00FFA78E /* CinemaPost.swift */,
+			);
+			path = "Cinema Post";
 			sourceTree = "<group>";
 		};
 		73A30C9E29835A6800D672E6 /* Localizable */ = {
@@ -757,6 +796,7 @@
 		73EC91BD298345D3002F3568 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				739ADAA529B8A93200FFA78E /* Fonts */,
 				73EC918B29834531002F3568 /* AppDelegate.swift */,
 				73EC918D29834531002F3568 /* SceneDelegate.swift */,
 				73EC919429834533002F3568 /* Assets.xcassets */,
@@ -805,6 +845,7 @@
 		73EC91E029834ED7002F3568 /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
+				739ADAB129BA351800FFA78E /* ViewController.swift */,
 				731FBEAF29B0B7CC00798DF5 /* InstagramStories */,
 				73EC91BB29834569002F3568 /* ICinemaViewController.swift */,
 				73A30CB22983639000D672E6 /* ICinemaButton.swift */,
@@ -879,7 +920,8 @@
 		73F7138829B65A5C001E469D /* SwiftUI View */ = {
 			isa = PBXGroup;
 			children = (
-				73F7138929B65A71001E469D /* swiftUIView.swift */,
+				73F7138929B65A71001E469D /* +isHidden.swift */,
+				739ADAAF29BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift */,
 			);
 			path = "SwiftUI View";
 			sourceTree = "<group>";
@@ -1025,8 +1067,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				739ADAAA29B8AB5B00FFA78E /* Roboto-Regular.ttf in Resources */,
 				73EC919829834533002F3568 /* LaunchScreen.storyboard in Resources */,
 				73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */,
+				739ADAAB29B8AB6000FFA78E /* ClimateCrisis.ttf in Resources */,
 				7325B8732988B7FA0009B8EC /* README.md in Resources */,
 				73EC919529834533002F3568 /* Assets.xcassets in Resources */,
 				731FBF7229B0BF9B00798DF5 /* stories.json in Resources */,
@@ -1169,11 +1213,13 @@
 				73EF78B1298F2AF400A5DF2D /* CollectionViewCompositionalLayout.swift in Sources */,
 				73F7138529B636CD001E469D /* CinemaProfileInformationView.swift in Sources */,
 				730E1C1629A95DBA00F2AB85 /* ReelsViewController.swift in Sources */,
+				739ADAB029BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift in Sources */,
 				73F7935929A7DB5A007252BE /* CustomShape.swift in Sources */,
 				73687B7729AEA318007DB431 /* MovieSectionHeader.swift in Sources */,
 				730E1C1F29A960F300F2AB85 /* TicketCoordinator.swift in Sources */,
 				730E1C1429A95D9F00F2AB85 /* ReelsCoordinator.swift in Sources */,
 				731FBF5E29B0BF7E00798DF5 /* IGRoundedView.swift in Sources */,
+				739ADAB229BA351800FFA78E /* ViewController.swift in Sources */,
 				733DAA2929B3BA3D00741211 /* DumySection.swift in Sources */,
 				731FBF6B29B0BF7E00798DF5 /* CubeAttributesAnimator.swift in Sources */,
 				730E1C2129A966CF00F2AB85 /* NotificationCoordinator.swift in Sources */,
@@ -1181,7 +1227,7 @@
 				731FBF6529B0BF7E00798DF5 /* IGCommon.swift in Sources */,
 				731FBF6229B0BF7E00798DF5 /* IGCache.swift in Sources */,
 				730E1C0E29A955F700F2AB85 /* HomeCoordinator.swift in Sources */,
-				73F7138A29B65A71001E469D /* swiftUIView.swift in Sources */,
+				73F7138A29B65A71001E469D /* +isHidden.swift in Sources */,
 				73FED1E2298874CD00395727 /* FontManager.swift in Sources */,
 				73EC91BC29834569002F3568 /* ICinemaViewController.swift in Sources */,
 				731FBF6329B0BF7E00798DF5 /* IGVideoCacheManager.swift in Sources */,
@@ -1246,8 +1292,10 @@
 				73A30CB32983639000D672E6 /* ICinemaButton.swift in Sources */,
 				73EF78BC298F3EC900A5DF2D /* +dequeueHelper.swift in Sources */,
 				73975B0D299080D000AD955C /* +compositionalLayout.swift in Sources */,
+				739ADAA829B8AA1900FFA78E /* MovieProfileView.swift in Sources */,
 				730E1C1029A9580800F2AB85 /* HomeViewController.swift in Sources */,
 				736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */,
+				739ADAAE29B8FB0B00FFA78E /* CinemaPost.swift in Sources */,
 				731FBF5929B0BF7E00798DF5 /* IGStories.swift in Sources */,
 				738EEF2E29AE330A00CDEE88 /* Cinema.swift in Sources */,
 				731FBF5A29B0BF7E00798DF5 /* IGSnap.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  .swift
+//  SizeManager.swift
 //  iCinema
 //
 //  Created by Ahmed Yamany on 30/01/2023.
@@ -10,18 +10,20 @@ import Foundation
 
 extension CGFloat {
     // MARK: - View
-    static let viewWidth: CGFloat = 320
-    static let viewPadding: CGFloat = 48
-    static let viewCornerRadius: CGFloat = 15
-    static let viewBorderWidth: CGFloat = 0.8
+    static let view = View.self
+    struct View {
+        static let width: CGFloat = 320
+        static let padding: CGFloat = 48
+        static let cornerRadius: CGFloat = 15
+        static let borderWidth: CGFloat = 0.8
+    }
     
     // MARK: - ICinema Button
     static let iCinemaButton = ICinemaButton.self
-    
     struct ICinemaButton {
         static let width: CGFloat = 200
         static let height: CGFloat = 40
-        static let cornerRadius: CGFloat = 25
+        static let cornerRadius: CGFloat = CGFloat.iCinemaButton.width / 25
         
     }
     
@@ -59,6 +61,12 @@ extension CGFloat {
         static let cinemaInformationViewDividerHeight: CGFloat = 40
     }
     
+    
+    // MARK: - Movie Profile
+    static let movieProfile = MovieProfile.self
+    struct MovieProfile {
+        
+    }
 }
 
 

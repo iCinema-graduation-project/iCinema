@@ -14,7 +14,10 @@ struct CinemaProfileView: View {
     @State private var scrollViewContentOffset = CGFloat(0)
     @State private var showCinemaImageInToolbarItem = false
     
+    @State var scaleImageX: CGFloat = 1
+    @State var scaleImageY: CGFloat = 1
     var body: some View {
+        
         NavigationView {
             TrackableScrollView(.vertical, showIndicators: false, contentOffset: $scrollViewContentOffset) {
                 VStack {
@@ -31,6 +34,7 @@ struct CinemaProfileView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(uiColor: .iCinemaBackgroundColor))
             .onChange(of: scrollViewContentOffset, perform: { value in
+                
                 if scrollViewContentOffset > CGFloat.cinemaProfile.cinemaImageHeight {
                     withAnimation {
                         showCinemaImageInToolbarItem = true
@@ -38,9 +42,11 @@ struct CinemaProfileView: View {
                 }else {
                     withAnimation {
                         showCinemaImageInToolbarItem = false
+                      
                     }
                 }
             })
+            
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -68,6 +74,7 @@ struct CinemaProfileView: View {
                     }
                 }
             }
+            
         }
     }
 }

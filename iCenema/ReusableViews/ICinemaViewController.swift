@@ -9,6 +9,7 @@ import UIKit
 
 
 class ICinemaViewController: ViewController {
+    
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {

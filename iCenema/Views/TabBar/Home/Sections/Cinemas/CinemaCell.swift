@@ -46,7 +46,7 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
     //  MARK: - Update UI
     //
     private func updateContentView() {
-        contentView.layer.cornerRadius = .viewCornerRadius
+        contentView.layer.cornerRadius = .view.cornerRadius
         contentView.backgroundColor = .iCinemaSecondBackgroudColor
     }
     
@@ -62,7 +62,7 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
                 
         // Apply Some Styling
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = .viewCornerRadius
+        imageView.layer.cornerRadius = .view.cornerRadius
         self.addTappGestureToImageView()
     }
     
@@ -105,70 +105,16 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
     
     
     @objc private func didImageViewTapGestureTapped(_ sender: UITapGestureRecognizer? = nil) {
-        guard let target = self.target else { return }
-        
-        // create cinema profile view
-        let cinemaProfileView = CinemaProfileView { self.dismissFullScreenAnimation() }
-        guard let cinemaProfileView = UIHostingController(rootView: cinemaProfileView).view else { return }
-        
-        // add to target view
-        target.view.addSubview(cinemaProfileView)
-        self.profileView = cinemaProfileView
-        
-        guard let profileView = self.profileView else { return }
-
-        // get ready to be animated
-        profileView.frame = target.view.bounds
-        
-        UIView.animate(withDuration: 0, delay: 0) {
-            profileView.makeConstraints(bottomAnchor: target.view.bottomAnchor, leadingAnchor: target.view.leadingAnchor, trailingAnchor: target.view.trailingAnchor)
-            profileView.frame = .zero
-
-        }completion: { _ in
-            self.beginFullScreenAnimation()
+        let cinemaProfileVC = CinemaProfileViewController()
+        cinemaProfileVC.setup(cinema: nil) {
+            self.target?.dismiss(completion: {
+                print("good")
+            })
         }
+        self.target?.presentViewController(cinemaProfileVC)
 
     }
 
-    private func beginFullScreenAnimation() {
-        guard let target = self.target else {return}
-        
-        UIView.animate(withDuration: 0.7,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 0.7,
-                       options: .curveEaseOut) {
-            
-            target.navigationController?.navigationBar.isHidden = true
-//            iCinemaTabBar.isHidden = true
-            self.profileView?.fillXSuperViewConstraints()
-            self.profileViewAnchoredConstraints = self.profileView?.makeConstraints(topAnchor: target.view.topAnchor, bottomAnchor: target.view.bottomAnchor)
-            
-            target.view.layoutIfNeeded()
-            self.profileView?.layoutIfNeeded()
-        }
-    }
-    
-    private func dismissFullScreenAnimation() {
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.5,
-                       initialSpringVelocity: 0.5,
-                       options: .curveLinear) {
-            
-            self.profileViewAnchoredConstraints?.top?.constant = 200
-    
-            self.target?.view.layoutIfNeeded()
-            self.profileView?.layoutIfNeeded()
-            self.target?.navigationController?.navigationBar.isHidden = false
-//            iCinemaTabBar.isHidden = false
-
-            
-        } completion: { _ in
-            self.profileView?.removeFromSuperview()
-        }
-
-    }
     
 
 }

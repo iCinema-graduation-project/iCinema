@@ -28,7 +28,11 @@ struct CinemaProfileMovieSection_Previews: PreviewProvider {
 
 
 struct MovieListCellView: View {
+    let movie = Movie()
+    var showButtons = true
+    
     var body: some View {
+    
         HStack {
             Image("posterImage")
                 .resizable()
@@ -43,10 +47,11 @@ struct MovieListCellView: View {
                     Text("Avatar")
                         .font(.headline)
                     Spacer()
-                    Image(systemName: "bookmark")
-                        .resizable()
-                        .frame(width: 10, height: 15)
-
+                    if self.showButtons {
+                        Image(systemName: "bookmark")
+                            .resizable()
+                            .frame(width: 10, height: 15)
+                    }
                 }
                 
                 HStack(spacing: 5) {
@@ -63,6 +68,7 @@ struct MovieListCellView: View {
                 
                 // Genre
                 HStack {
+                    
                     Image(systemName: "ellipsis.rectangle")
                         .resizable()
                         .frame(width: 10, height: 10)
@@ -78,21 +84,23 @@ struct MovieListCellView: View {
                     .font(.system(size: 10))
                     .multilineTextAlignment(.leading)
                     .frame(height: 40)
-                
-                HStack {
-                    // MARK: - Book Now
-                    Button("More Details") {
+                if self.showButtons {
+                    HStack {
+                        // MARK: - Book Now
+                        Button("More Details") {
+                            
+                        }
+                        .font(.caption2)
+                        
+                        Spacer()
+                        
+                        ICinemaButtonView(title: "Book Now", width: 80, height: 24)
                         
                     }
-                    .font(.caption2)
-                    
-                    Spacer()
-                    
-                    ICinemaButtonView(title: "Book Now", width: 80, height: 24)
-
                 }
                 
                 Spacer()
+                Divider()
                 
             }
             .padding(.leading)

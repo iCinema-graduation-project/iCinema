@@ -26,9 +26,11 @@ struct AppTabBarView: View {
         // TabBar View Controllers
             TabView(selection: $selectedTabIndex) {
                 ForEach(tabs, id: \.self) { viewController in
+                    
                     MakeViewControllerView(viewController: viewController)
                         .ignoresSafeArea()
                         .tag(viewController.tabBarItem.tag)
+                    
                 }
             }
             

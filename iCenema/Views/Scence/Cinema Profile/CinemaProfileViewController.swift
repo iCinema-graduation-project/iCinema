@@ -10,27 +10,25 @@ import SwiftUI
 
 class CinemaProfileViewController: ICinemaViewController {
  
+    var cinema: Cinema?
+    var dismissButtonAction: (() -> Void)?
+    
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cinemaProfileView = CinemaProfileView {
-            
-        }
-        
+        let cinemaProfileView = CinemaProfileView { self.dismissButtonAction?() }
         guard let cinemaProfileView = UIHostingController(rootView: cinemaProfileView).view else { return }
         
-        view.addSubview(cinemaProfileView)
-
+        self.view.addSubview(cinemaProfileView)
         cinemaProfileView.fillSuperviewConstraints()
-//        cinemaProfileView.fillXSuperViewConstraints()
-//        cinemaProfileView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, bottomAnchor: view.bottomAnchor)
+        
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    public func setup(cinema: Cinema?, dismissButtonAction: (() -> Void)?) {
+        self.cinema = cinema
+        self.dismissButtonAction = dismissButtonAction
     }
-    
 }
 

@@ -18,7 +18,7 @@ class PhoneViewController:  ICinemaViewController {
         label.tintColor = .iCinemaTextColor
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.widthConstraints(.viewWidth)
+        label.widthConstraints(.view.width)
         return label
     }()
     
@@ -90,18 +90,18 @@ class PhoneViewController:  ICinemaViewController {
         view.addSubview(descriptionLabel)
         descriptionLabel.centerXInSuperview()
         descriptionLabel.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor,
-                                         padding: UIEdgeInsets(top: .viewPadding, left: 0, bottom: 0, right: 0))
+                                         padding: UIEdgeInsets(top: .view.padding, left: 0, bottom: 0, right: 0))
     }
     
     private func addTextFieldsStackView() {
         view.addSubview(TextFieldsStackView)
         TextFieldsStackView.centerXInSuperview()
         TextFieldsStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor,
-                                            padding: UIEdgeInsets(top: .viewPadding, left: 0, bottom: 0, right: 0))
+                                            padding: UIEdgeInsets(top: .view.padding, left: 0, bottom: 0, right: 0))
     
         TextFieldsStackView.addArrangedSubview(countryView)
         TextFieldsStackView.addArrangedSubview(phoneNumberTextField)
-        TextFieldsStackView.arrangedSubviews.forEach {$0.widthConstraints(.viewWidth)}
+        TextFieldsStackView.arrangedSubviews.forEach {$0.widthConstraints(.view.width)}
     }
     
     private func addCountryPickerView() {
@@ -115,7 +115,7 @@ class PhoneViewController:  ICinemaViewController {
         view.addSubview(getCodeButton)
         getCodeButton.centerXInSuperview()
         getCodeButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
-                                      padding: UIEdgeInsets(top: 0, left: 0, bottom: .viewPadding, right: 0))
+                                      padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding, right: 0))
     }
     
     // MARK: - Actions

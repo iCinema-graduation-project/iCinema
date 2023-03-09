@@ -51,15 +51,12 @@ class AppTapBarController: ICinemaViewController {
     // MARK: - Intializers
     //
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        super.init(nibName: nil, bundle: nil)
         coordinatorType = .segue
-        modalPresentationStyle = .fullScreen
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        coordinatorType = .segue
-        modalPresentationStyle = .fullScreen
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Helper Functions

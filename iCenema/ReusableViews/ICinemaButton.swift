@@ -11,7 +11,6 @@ import SwiftUI
 class ICinemaButton: UIView {
     init(title: String,  action: @escaping () -> Void) {
         super.init(frame: .zero)
-        
         guard let iCinemaButtonView = UIHostingController(rootView: ICinemaButtonView(title: title, action: action)).view else { return }
         addSubview(iCinemaButtonView)
         iCinemaButtonView.fillSuperviewConstraints()
@@ -46,20 +45,14 @@ struct ICinemaButtonView: View {
             .frame(width: self.width, height: self.height)
             .background(Color(uiColor: .iCinemaYellowColor))
             .foregroundColor(Color(uiColor: .iCinemaTextColorReverce))
-            .cornerRadius(self.width / CGFloat.iCinemaButton.cornerRadius)
+            .cornerRadius(CGFloat.iCinemaButton.cornerRadius)
             .shadow(radius: 0.5, x: 1, y: 1)
-            .scaleEffect(animate ? 1 : 1.05)
+            .addScaleAnimationOnTapGesture(animate: $animate, action: self.action)
             .shadow(color: Color(uiColor: .iCinemaYellowColor), radius: 4)
             .font(width > 100 ? .subheadline : .caption)
-            .onTapGesture {
-                withAnimation(.easeInOut(duration: 0.1)) {
-                    animate = true
-                }
-                animate = false
-                self.action()
-        }
-        
     }
-
     
 }
+
+    
+

@@ -23,7 +23,6 @@ final class PosterCollectionViewCell: UICollectionViewCell {
         self.addPoterImage()
         self.addPosterDescriptionLabel()
         
-//        viewButton.addTarget(self, action: #selector(self.viewButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -46,9 +45,9 @@ final class PosterCollectionViewCell: UICollectionViewCell {
         /// update poster view's UI
         posterView.layer.masksToBounds = true
         posterView.backgroundColor = .clear
-        posterView.layer.cornerRadius = .viewCornerRadius
+        posterView.layer.cornerRadius = .view.cornerRadius
         posterView.layer.borderColor = UIColor.iCinemaYellowColor.cgColor
-        posterView.layer.borderWidth = .viewBorderWidth
+        posterView.layer.borderWidth = .view.borderWidth
     }
     
     private func addViewButton() {

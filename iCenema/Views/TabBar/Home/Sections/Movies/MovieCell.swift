@@ -45,7 +45,7 @@ class MovieCell: UICollectionViewCell, IdentifiableView {
     //  MARK: - Update UI
     //
     private func updateContentView() {
-        contentView.layer.cornerRadius = .viewCornerRadius
+        contentView.layer.cornerRadius = .view.cornerRadius
         contentView.backgroundColor = .iCinemaSecondBackgroudColor
     }
     
@@ -61,13 +61,13 @@ class MovieCell: UICollectionViewCell, IdentifiableView {
         
         // Apply Some Styling To The New View
         imageSuperView.layer.masksToBounds = true
-        imageSuperView.layer.cornerRadius = .viewCornerRadius
+        imageSuperView.layer.cornerRadius = .view.cornerRadius
         imageSuperView.backgroundColor = .iCinemaYellowColor
         
         // Add imageView To its Super View
         imageSuperView.addSubview(imageView)
         imageView.fillSuperviewConstraints(padding: UIEdgeInsets(top: 0.2, left: 0.2, bottom: 1.6, right: 0.2))
-        imageView.layer.cornerRadius = .viewCornerRadius
+        imageView.layer.cornerRadius = .view.cornerRadius
         imageView.layer.masksToBounds = true
         
     }
