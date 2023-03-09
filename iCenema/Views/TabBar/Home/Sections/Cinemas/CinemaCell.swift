@@ -112,7 +112,6 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
             })
         }
         self.target?.presentViewController(cinemaProfileVC)
-
     }
 
     

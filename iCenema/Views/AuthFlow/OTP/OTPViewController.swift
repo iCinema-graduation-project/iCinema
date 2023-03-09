@@ -79,6 +79,9 @@ class OTPViewController: ICinemaViewController {
             textField.keyboardType = .numberPad
             textField.textContentType = .oneTimeCode
             textField.addTarget(self, action: #selector(self.textFieldsDidChanged(_:)), for: .editingChanged)
+            if index != 0 {
+                textField.isEnabled = false
+            }
         }
     }
     
@@ -88,20 +91,23 @@ class OTPViewController: ICinemaViewController {
         confirmButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding, right: 0))
     }
     
+//    @available warning
+    
     // MARK: - Actions
     //
     private func confirmButtonTapped() {
-        self.viewModel.output.confirm { isOTPEmpty, IsOTPValid in
+        self.viewModel.output.confirm { isOTPEmpty, isOTPValid in
             if isOTPEmpty {
                 self.selectEmptyTextField()
             } else {
-                if IsOTPValid {
+                if isOTPValid {
                     self.coordinator?.push()
                 } else {
                     for textfield in self.verificationCodeTextFields{
                         textfield.text = ""
                         textfield.setState(.fail, for: .normal)
                         // do not forget to show alert with error message
+                        #warning("do not forget to show alert with error message")
                     }
                 }
             }

@@ -27,7 +27,7 @@ class PhoneViewController:  ICinemaViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fill
-        stackView.spacing = 36
+        stackView.spacing = .view.spacing
         return stackView
     }()
     
@@ -58,10 +58,10 @@ class PhoneViewController:  ICinemaViewController {
     /// button
     private lazy var getCodeButton = ICinemaButton(title: .getCode, action: self.getCodeButtonTapped)
     
+    
     // MARK: - Properites
     //
     lazy var viewModel: PhoneViewModelTypes = PhoneViewModel()
-
         
     // MARK: - Life Cycle
     //
@@ -75,7 +75,6 @@ class PhoneViewController:  ICinemaViewController {
 
         phoneNumberTextField.delegate = self
     }
-    
     
     // MARK: - Helper Functions
     //
@@ -129,14 +128,13 @@ class PhoneViewController:  ICinemaViewController {
                 self.phoneNumberTextField.setState(.fail, with: message, for: .editing)
             }
         }
-    
     }
-    
 }
 
 extension PhoneViewController : UITextFieldDelegate {
     // MARK: - UITextFieldDelegate
     //
+    // limit the carachters count that text field can hold
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
         let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
@@ -153,7 +151,6 @@ extension PhoneViewController {
                 self.phoneNumberTextField.setState(.success, for: .editing)
                 self.phoneNumberTextField.setState(.success, for: .normal)
                 self.endEditing()
-
             }
         }
     }

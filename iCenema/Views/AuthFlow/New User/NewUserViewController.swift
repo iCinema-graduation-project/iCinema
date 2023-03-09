@@ -15,9 +15,11 @@ enum Gender: String{
 }
 
 class NewUserViewController: ICinemaViewController {
+    // MARK: - Properties
+    var gender: Gender = .female
+   
     // MARK: - Views
     //
-    /// Description Label
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = .newUserDescriptionLabel
@@ -27,12 +29,13 @@ class NewUserViewController: ICinemaViewController {
         label.widthConstraints(.view.width)
         return label
     }()
+    
     /// Input Text Fields
     private let TextFieldsStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fill
-        stackView.spacing = 36
+        stackView.spacing = .view.spacing
         return stackView
     }()
     
@@ -59,6 +62,9 @@ class NewUserViewController: ICinemaViewController {
             if isSelected {
                 self.maleButton.isSelected = false
                 self.gender = .female
+                self.maleButton.isUserInteractionEnabled = true
+                self.femaleButton.isUserInteractionEnabled = false
+                
             }
         })
         button.setTitle(.female, for: .normal)
@@ -70,6 +76,8 @@ class NewUserViewController: ICinemaViewController {
             if isSelected {
                 self.femaleButton.isSelected = false
                 self.gender = .male
+                self.maleButton.isUserInteractionEnabled = false
+                self.femaleButton.isUserInteractionEnabled = true
             }
         }
         button.setTitle(.male, for: .normal)
@@ -87,8 +95,6 @@ class NewUserViewController: ICinemaViewController {
     /// Create Account Button
     private lazy var createAccountButton = ICinemaButton(title: .createAccount, action: self.createAccountButtonTapped)
     
-    // MARK: - Properties
-    var gender: Gender = .female
     
     // MARK: - Life Cycle
     //
@@ -133,7 +139,6 @@ class NewUserViewController: ICinemaViewController {
         view.addSubview(createAccountButton)
         createAccountButton.centerXInSuperview()
         createAccountButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding, right: 0))
-        
     }
     
     

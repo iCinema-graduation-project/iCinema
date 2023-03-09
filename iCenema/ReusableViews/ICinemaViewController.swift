@@ -48,11 +48,12 @@ class ICinemaViewController: ViewController {
     }
     
     public func selectNextTextFieldByTagOrEndEditing(_ textField: UITextField){
-       let nextTFTag = textField.tag + 1
+        let nextTFTag = textField.tag + 1
         guard let nextTextField = self.getViewByTag(nextTFTag) as? UITextField else{
             self.endEditing()
            return
        }
+        nextTextField.isEnabled = true
        nextTextField.becomeFirstResponder()
     }
 

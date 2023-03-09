@@ -111,7 +111,7 @@
 		73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC91CA29834D41002F3568 /* UIView+FillSuperviewConstraints.swift */; };
 		73EF78B1298F2AF400A5DF2D /* CollectionViewCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EF78B0298F2AF400A5DF2D /* CollectionViewCompositionalLayout.swift */; };
 		73EF78BC298F3EC900A5DF2D /* +dequeueHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EF78BA298F3EC900A5DF2D /* +dequeueHelper.swift */; };
-		73F04FBD2999333F00F543EE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F04FBC2999333F00F543EE /* Model.swift */; };
+		73F04FBD2999333F00F543EE /* OTPString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F04FBC2999333F00F543EE /* OTPString.swift */; };
 		73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0BC062989C4D800742BA2 /* PhoneViewController.swift */; };
 		73F0C37029AD206000F95B01 /* PosterSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0C36F29AD206000F95B01 /* PosterSection.swift */; };
 		73F0C37229AD2B2D00F95B01 /* IdentifiableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0C37129AD2B2D00F95B01 /* IdentifiableView.swift */; };
@@ -264,7 +264,7 @@
 		73EC91CA29834D41002F3568 /* UIView+FillSuperviewConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FillSuperviewConstraints.swift"; sourceTree = "<group>"; };
 		73EF78B0298F2AF400A5DF2D /* CollectionViewCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCompositionalLayout.swift; sourceTree = "<group>"; };
 		73EF78BA298F3EC900A5DF2D /* +dequeueHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+dequeueHelper.swift"; sourceTree = "<group>"; };
-		73F04FBC2999333F00F543EE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		73F04FBC2999333F00F543EE /* OTPString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPString.swift; sourceTree = "<group>"; };
 		73F0BC062989C4D800742BA2 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		73F0C36F29AD206000F95B01 /* PosterSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterSection.swift; sourceTree = "<group>"; };
 		73F0C37129AD2B2D00F95B01 /* IdentifiableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableView.swift; sourceTree = "<group>"; };
@@ -623,7 +623,7 @@
 			children = (
 				73BFEFA12989EFA600969452 /* OTPViewController.swift */,
 				733116B72990A9AE00EFD002 /* OTPViewModel.swift */,
-				73F04FBC2999333F00F543EE /* Model.swift */,
+				73F04FBC2999333F00F543EE /* OTPString.swift */,
 			);
 			path = OTP;
 			sourceTree = "<group>";
@@ -1203,7 +1203,7 @@
 			files = (
 				731FBF5429B0BF7E00798DF5 /* Color+Additions.swift in Sources */,
 				738EEF3029AE66E100CDEE88 /* PosterPaginationView.swift in Sources */,
-				73F04FBD2999333F00F543EE /* Model.swift in Sources */,
+				73F04FBD2999333F00F543EE /* OTPString.swift in Sources */,
 				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
 				73687B7529AEA23F007DB431 /* MovieCell.swift in Sources */,
 				730E1C2329A966DC00F2AB85 /* NotificationViewController.swift in Sources */,

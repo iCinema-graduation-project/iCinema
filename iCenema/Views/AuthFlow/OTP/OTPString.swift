@@ -12,12 +12,11 @@ struct OTPString {
     let count: Int
     var isEmpty: Bool = true
     
-    lazy var code: String = String(repeating: "0", count: count) {
+    lazy var code: String = "" {
         didSet {
-            self.isEmpty = code == String(repeating: "0", count: count)
+            self.isEmpty = code.count != count
         }
     }
-    
     
     mutating func add(charachter: String, at index: Int) {
         let charachter = Character(charachter)

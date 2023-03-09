@@ -16,6 +16,7 @@ extension CGFloat {
         static let padding: CGFloat = 48
         static let cornerRadius: CGFloat = 15
         static let borderWidth: CGFloat = 0.8
+        static let spacing: CGFloat = 36
     }
     
     // MARK: - ICinema Button
