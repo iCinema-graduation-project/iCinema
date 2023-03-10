@@ -70,6 +70,7 @@
 		733DAA2529B3A0CA00741211 /* CinemaProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */; };
 		733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2629B3B5A200741211 /* TabBarViewModel.swift */; };
 		733DAA2929B3BA3D00741211 /* DumySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2829B3BA3D00741211 /* DumySection.swift */; };
+		734C8A4729BAACC7008B28B5 /* OTPViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */; };
 		736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736674E4298EE37C009CA617 /* PhoneViewModel.swift */; };
 		73687B7329AEA228007DB431 /* MoviesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73687B7229AEA228007DB431 /* MoviesSection.swift */; };
 		73687B7529AEA23F007DB431 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73687B7429AEA23F007DB431 /* MovieCell.swift */; };
@@ -217,6 +218,7 @@
 		733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileViewController.swift; sourceTree = "<group>"; };
 		733DAA2629B3B5A200741211 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		733DAA2829B3BA3D00741211 /* DumySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumySection.swift; sourceTree = "<group>"; };
+		734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModelTests.swift; sourceTree = "<group>"; };
 		736674E4298EE37C009CA617 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		73687B7229AEA228007DB431 /* MoviesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSection.swift; sourceTree = "<group>"; };
 		73687B7429AEA23F007DB431 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
@@ -680,6 +682,7 @@
 			isa = PBXGroup;
 			children = (
 				736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */,
+				734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */,
 			);
 			path = "Auth Flow";
 			sourceTree = "<group>";
@@ -1319,6 +1322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				734C8A4729BAACC7008B28B5 /* OTPViewModelTests.swift in Sources */,
 				736EAA8F2993060F00318F2E /* PhoneViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

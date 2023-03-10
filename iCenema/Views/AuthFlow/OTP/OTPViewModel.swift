@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - view model protocols
 protocol OTPViewModelType {
     var input: OTPViewModelInput { get }
     var output: OTPViewModelOutput { get }
@@ -21,14 +22,16 @@ protocol OTPViewModelOutput {
     func confirm(completion: @escaping (_ isOTPEmpty: Bool, _ isOTPValid: Bool) -> Void )
 }
 
+// MARK: - View Model
 class OTPViewModel: OTPViewModelType {
     var input: OTPViewModelInput { self }
     var output: OTPViewModelOutput { self }
     
-    private var otp = OTPString(count: 5)
+    private(set) var otp = OTPString(count: 5)
 
 }
 
+// MARK: - View Model input
 extension OTPViewModel: OTPViewModelInput {
     func textField(didChanged text: String, at index: Int) {
         let textIsNotEmpty = !text.isEmpty
@@ -42,6 +45,7 @@ extension OTPViewModel: OTPViewModelInput {
     }
 }
 
+// MARK: - View Model output
 extension OTPViewModel: OTPViewModelOutput {
     func confirm(completion: @escaping (_ isOTPEmpty: Bool, _ isOTPValid: Bool) -> Void ) {
         

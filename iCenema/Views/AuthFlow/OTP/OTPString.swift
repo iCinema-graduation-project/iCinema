@@ -12,16 +12,18 @@ struct OTPString {
     let count: Int
     var isEmpty: Bool = true
     
-    lazy var code: String = "" {
+    var code: String = "" {
         didSet {
             self.isEmpty = code.count != count
         }
     }
     
     mutating func add(charachter: String, at index: Int) {
-        let charachter = Character(charachter)
-        let stringIndex = code.index(code.startIndex, offsetBy: index)
-        code.insert(charachter, at: stringIndex)
+        if index < count {
+            let charachter = Character(charachter)
+            let stringIndex = code.index(code.startIndex, offsetBy: index)
+            code.insert(charachter, at: stringIndex)
+        }
     }
     
     mutating func removeCharachter(at index: Int){
