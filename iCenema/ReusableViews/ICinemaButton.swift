@@ -14,7 +14,7 @@ class ICinemaButton: UIView {
         guard let iCinemaButtonView = UIHostingController(rootView: ICinemaButtonView(title: title, action: action)).view else { return }
         addSubview(iCinemaButtonView)
         iCinemaButtonView.fillSuperviewConstraints()
-        sizeConstraints(width: CGFloat.iCinemaButton.width + 5, height: CGFloat.iCinemaButton.height + 5)
+        sizeConstraints(width: CGFloat.iCinemaButton.width + 2, height: CGFloat.iCinemaButton.height + 2)
     }
     
     required init?(coder: NSCoder) {
@@ -49,7 +49,8 @@ struct ICinemaButtonView: View {
             .shadow(radius: 0.5, x: 1, y: 1)
             .addScaleAnimationOnTapGesture(animate: $animate, action: self.action)
             .shadow(color: Color(uiColor: .iCinemaYellowColor), radius: 4)
-            .font(width > 100 ? .subheadline : .caption)
+//            .font(width > 100 ? .subheadline : .caption)
+            .font(Font(width > 100 ? UIFont.button : UIFont.smallButton))
     }
     
 }

@@ -16,19 +16,15 @@ struct CinemaProfileHeaderView: View {
         VStack {
             // Ciname Profile Image
             Image("cinema")
-                .frame(width: imageHeight, height: imageHeight)
-                .mask(Circle())
-                .overlay {
-                    Circle()
-                        .stroke(Color(uiColor: .iCinemaYellowColor), lineWidth: 3)
-                        .frame(width: imageHeight + 12, height: imageHeight + 12)
-                }
-                .frame(width: imageHeight + 16, height: imageHeight + 16)
-            
+                .makeCircled(size: CGSize(width: imageHeight, height: imageHeight),
+                             strockColor: Color(uiColor: .iCinemaYellowColor),
+                             strockSpacing: 12,
+                             lineWidth: 3)
+
             // Cinema Name
             Text(cinema.name + " Cinema")
                 .foregroundColor(Color(uiColor: .iCinemaTextColor))
-                .font(.headline)
+                .font(Font(UIFont.title2))
             
             // Follow Button
             ICinemaButtonView(title: "Follow") {

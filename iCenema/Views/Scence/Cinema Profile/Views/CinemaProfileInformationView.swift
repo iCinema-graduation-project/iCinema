@@ -50,14 +50,14 @@ struct CinemaInformationView: View {
             VStack(alignment: .center, spacing: 8) {
                 /// caption Text
                 Text(caption2.uppercased())
-                    .font(.system(.caption2))
+                    .font(Font(UIFont.footnote))
                     .foregroundColor(.gray)
                 /// title Text
                 Text(title.capitalized)
-                    .font(.title2)
+                    .font(Font(UIFont.title2))
                 /// caption Text
                 Text(caption.capitalized)
-                    .font(.caption)
+                    .font(Font(UIFont.caption1))
                     .foregroundColor(.gray)
             }
             .frame(width: .cinemaProfile.cinemaInformationViewWidth)
@@ -73,12 +73,12 @@ struct RateCinameInformationView: View {
     var body: some View {
         VStack(alignment: .center,  spacing: 8) {
             Text("10K RATINGS")
-                .font(.system(.caption2))
+                .font(Font(UIFont.footnote))
                 .foregroundColor(.gray)
             
             Text(String(format: "%.1f", cinema.rate))
-                .font(.title2)
-            
+                .font(Font(UIFont.title2))
+
             HStack(alignment: .center, spacing: 5.0) {
                 ForEach(0..<5) { i in
                     Image(systemName: "star.fill")

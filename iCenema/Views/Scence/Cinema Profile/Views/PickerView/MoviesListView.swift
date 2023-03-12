@@ -45,7 +45,7 @@ struct MovieListCellView: View {
                 HStack {
                     // MARK: - Name
                     Text("Avatar")
-                        .font(.headline)
+                        .font(Font(UIFont.title3))
                     Spacer()
                     if self.showButtons {
                         Image(systemName: "bookmark")
@@ -62,7 +62,8 @@ struct MovieListCellView: View {
                     
                     // MARK: - Rate
                     Text("6.1/10")
-                        .font(.caption2)
+//                        .font(.caption2)
+                        .font(Font(UIFont.caption1))
                         .foregroundColor(.gray)
                 }
                 
@@ -76,12 +77,15 @@ struct MovieListCellView: View {
                     
                     // MARK: - Genre
                     Text("Action, Horror")
-                        .font(.caption2)
+//                        .font(.caption2)
+                        .font(Font(UIFont.caption1))
                         .foregroundColor(.gray)
                 }
                 
                 Text("To explore Pandora, genetically matched human scientists use Na'vi-human hybrids called \"avatars.\"")
-                    .font(.system(size: 10))
+//                    .font(.system(size: 10))
+                    .font(Font(UIFont.caption1))
+
                     .multilineTextAlignment(.leading)
                     .frame(height: 40)
                 if self.showButtons {
@@ -90,7 +94,7 @@ struct MovieListCellView: View {
                         Button("More Details") {
                             
                         }
-                        .font(.caption2)
+                        .font(Font(UIFont.body))
                         
                         Spacer()
                         

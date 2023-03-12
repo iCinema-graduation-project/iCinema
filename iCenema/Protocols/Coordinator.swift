@@ -35,6 +35,7 @@ extension Coordinator {
             }
             guard let lastVC = navigationController.viewControllers.last as? ViewController else {return}
             lastVC.presentViewController(currentCoordinator)
+
         }
     }
     
@@ -52,6 +53,8 @@ extension Coordinator {
 
 
 }
+
+
 
 
 

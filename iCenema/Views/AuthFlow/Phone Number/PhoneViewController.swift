@@ -19,6 +19,7 @@ class PhoneViewController:  ICinemaViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.widthConstraints(.view.width)
+        label.font = .title3
         return label
     }()
     
@@ -38,12 +39,14 @@ class PhoneViewController:  ICinemaViewController {
         textfield.isEnabled = false
         textfield.setState(.normal, for: .disabled)
         textfield.setTextColor(.clear, for: .disabled)
+        textfield.font = .textfeild
         return textfield
     }()
     
     private let countryPickerView: CountryPickerView = {
         let countryView = CountryPickerView()
         countryView.textColor = .iCinemaTextColor
+        countryView.font = .title3
         countryView.showCountryNameInView = true
         countryView.setCountryByCode("EG")
         return countryView
@@ -52,6 +55,7 @@ class PhoneViewController:  ICinemaViewController {
     let phoneNumberTextField: ICinemaTextField = {
         let textfield = ICinemaTextField(placeholder: .phoneNumber)
         textfield.keyboardType = .phonePad
+        textfield.font = .textfeild
         return textfield
     }()
     

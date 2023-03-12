@@ -43,6 +43,7 @@ final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLa
     
     func groupLayoutInSection() -> NSCollectionLayoutGroup {
         let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(.home.movies.cellWidth), heightDimension: .absolute(.home.movies.cellHeight))
+//        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(180), heightDimension: .absolute(300))
         let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [self.itemLayoutInGroup()])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .home.movies.padding, bottom: 0, trailing: .home.movies.padding)
         return group
@@ -96,7 +97,11 @@ final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        let mv = MovieProfileViewController()
+        mv.setup(movie: nil) {
+            self.target.dismiss()
+        }
+        self.target.presentViewController(mv)
     }
     
 }

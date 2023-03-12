@@ -14,7 +14,7 @@ extension UINavigationItem {
     public func addTitleView(title: String) {
         let label = UILabel()
         label.text = title
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = .title2
         label.textColor = .iCinemaYellowColor
         titleView = label
     }

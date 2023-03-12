@@ -18,6 +18,7 @@ class OTPViewController: ICinemaViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.widthConstraints(.view.width)
+        label.font = .textfeild
         return label
     }()
     
@@ -79,6 +80,7 @@ class OTPViewController: ICinemaViewController {
             textField.keyboardType = .numberPad
             textField.textContentType = .oneTimeCode
             textField.addTarget(self, action: #selector(self.textFieldsDidChanged(_:)), for: .editingChanged)
+            textField.font = .callout
             if index != 0 {
                 textField.isEnabled = false
             }

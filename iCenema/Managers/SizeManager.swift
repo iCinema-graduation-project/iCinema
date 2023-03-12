@@ -44,7 +44,9 @@ extension CGFloat {
         struct Movies {
             static let supplementaryHeight: CGFloat = 50
             static let cellWidth: CGFloat = 168
-            static let cellHeight: CGFloat = 224
+            static let cellHeight: CGFloat = 272 //224
+            static let imageHeight: CGFloat = 170
+
             static let padding: CGFloat = 8
         }
         struct Cinemas {

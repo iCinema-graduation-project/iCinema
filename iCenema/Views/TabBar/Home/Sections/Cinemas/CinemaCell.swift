@@ -31,7 +31,7 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         self.updateContentView()
         self.addImageView()
         self.addDetailsSuperView()
-        self.addDetailsButton()
+        self.addCinemaNameLabel()
         self.addFollowButton()
         
         imageView.image = UIImage(named: "cinema")
@@ -74,11 +74,11 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
     }
     
     // add a details button to the details super view
-    private func addDetailsButton() {
+    private func addCinemaNameLabel() {
         // Add the details button to the details super view
         detailsSuperView.addSubview(cinemaNameLabel)
         cinemaNameLabel.text = "Galaxy"
-        cinemaNameLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        cinemaNameLabel.font = .callout
         cinemaNameLabel.textColor = .iCinemaTextColor
         
         // Update The Constrints

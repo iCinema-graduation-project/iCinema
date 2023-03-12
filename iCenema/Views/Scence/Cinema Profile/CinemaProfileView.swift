@@ -46,7 +46,6 @@ struct CinemaProfileView: View {
                     }
                 }
             })
-            
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -61,16 +60,12 @@ struct CinemaProfileView: View {
                 ToolbarItem(placement: .principal) {
                     HStack{
                         Image("cinema")
-                            .resizable()
-                            .frame(width: 26, height: 26)
-                            .mask(Circle())
-                            .overlay {
-                                Circle()
-                                    .stroke(Color(uiColor: .iCinemaYellowColor), lineWidth: 0.7)
-                                    .frame(width: 28, height: 28)
-                            }
+                            .makeCircled(size: CGSize(width: 26, height: 26),
+                                         strockColor: Color(uiColor: .iCinemaYellowColor),
+                                         lineWidth: 0.7
+                            )
                             .isHidden(!showCinemaImageInToolbarItem)
-                            .frame(width: 30, height: showCinemaImageInToolbarItem ? 30 : 0)
+
                     }
                 }
             }

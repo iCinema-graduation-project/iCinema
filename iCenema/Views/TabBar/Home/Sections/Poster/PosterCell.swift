@@ -70,7 +70,7 @@ final class PosterCollectionViewCell: UICollectionViewCell {
     
     private func addPosterDescriptionLabel() {
         posterView.addSubview(posterDescriptionLabel)
-        posterDescriptionLabel.fillXSuperViewConstraints()
+        posterDescriptionLabel.fillXSuperViewConstraints(paddingLeft: 2, paddingRight: 2)
         posterDescriptionLabel.makeConstraints(topAnchor: posterImage.bottomAnchor, bottomAnchor: posterView.bottomAnchor)
         
         // FIXME: -  poster description label
@@ -78,8 +78,9 @@ final class PosterCollectionViewCell: UICollectionViewCell {
         posterDescriptionLabel.text = "Don't miss the chance, the premiere of Avatar is in 3 days"
         posterDescriptionLabel.textColor = .iCinemaTextColor
         posterDescriptionLabel.textAlignment = .center
-        posterDescriptionLabel.font = .systemFont(ofSize: 12)
+        posterDescriptionLabel.font = .caption1
         posterDescriptionLabel.numberOfLines = 0
+        
     }
     
     

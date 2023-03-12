@@ -20,6 +20,7 @@ class WelcomeViewController: ICinemaViewController {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.textColor = .iCinemaTextColor
+        label.font = .callout
         return label
     }()
     
@@ -35,6 +36,7 @@ class WelcomeViewController: ICinemaViewController {
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = .iCinemaButton.cornerRadius
+        button.titleLabel?.font = .button
         return button
     }()
     

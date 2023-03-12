@@ -27,6 +27,7 @@ class NewUserViewController: ICinemaViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.widthConstraints(.view.width)
+        label.font = .callout
         return label
     }()
     
@@ -44,6 +45,7 @@ class NewUserViewController: ICinemaViewController {
     private let ageTextField: ICinemaTextField = {
         let ageField = ICinemaTextField(placeholder: .age)
         ageField.keyboardType = .numberPad
+        ageField.font = .textfeild
         return ageField
     }()
     
@@ -54,6 +56,7 @@ class NewUserViewController: ICinemaViewController {
         textfield.isEnabled = false
         textfield.setState(.normal, for: .disabled)
         textfield.setTextColor(.clear, for: .disabled)
+        textfield.font = .textfeild
         return textfield
     }()
     
@@ -68,6 +71,7 @@ class NewUserViewController: ICinemaViewController {
             }
         })
         button.setTitle(.female, for: .normal)
+        button.titleLabel?.font = .callout
         return button
     }()
     
@@ -81,6 +85,7 @@ class NewUserViewController: ICinemaViewController {
             }
         }
         button.setTitle(.male, for: .normal)
+        button.titleLabel?.font = .callout
         return button
     }()
     
@@ -128,6 +133,7 @@ class NewUserViewController: ICinemaViewController {
         TextFieldsStackView.addArrangedSubview(ageTextField)
         TextFieldsStackView.addArrangedSubview(genderView)
         TextFieldsStackView.arrangedSubviews.forEach {$0.widthConstraints(.view.width)}
+        fullNameTextField.font = .textfeild
     }
     
     private func addGenderStackView() {

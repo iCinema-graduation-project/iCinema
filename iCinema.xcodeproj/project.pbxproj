@@ -10,6 +10,16 @@
 		2538D3EC40C7C4D8A26A1CBC /* Pods_iCinema_iCinemaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */; };
 		73019E7329AAA66C001A03D5 /* +addTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73019E7229AAA66C001A03D5 /* +addTitleView.swift */; };
 		73019E7629AAB5A0001A03D5 /* +makeCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73019E7529AAB5A0001A03D5 /* +makeCircleImage.swift */; };
+		7307FDFE29BCCD1D00B13E24 /* MovieProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7307FDFD29BCCD1D00B13E24 /* MovieProfileViewController.swift */; };
+		730CA21629BBC00500C82C0A /* Sono-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA20F29BBC00500C82C0A /* Sono-SemiBold.ttf */; };
+		730CA21729BBC00500C82C0A /* Sono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21029BBC00500C82C0A /* Sono-Medium.ttf */; };
+		730CA21829BBC00500C82C0A /* Sono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21129BBC00500C82C0A /* Sono-Bold.ttf */; };
+		730CA21929BBC00500C82C0A /* Sono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21229BBC00500C82C0A /* Sono-Regular.ttf */; };
+		730CA21A29BBC00500C82C0A /* Sono-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21329BBC00500C82C0A /* Sono-ExtraLight.ttf */; };
+		730CA21B29BBC00500C82C0A /* Sono-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21429BBC00500C82C0A /* Sono-ExtraBold.ttf */; };
+		730CA21C29BBC00500C82C0A /* Sono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21529BBC00500C82C0A /* Sono-Light.ttf */; };
+		730CA21E29BBE93000C82C0A /* MovieCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730CA21D29BBE93000C82C0A /* MovieCellView.swift */; };
+		730CA22029BBFFF400C82C0A /* Image+makeCircled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730CA21F29BBFFF400C82C0A /* Image+makeCircled.swift */; };
 		730E1C0E29A955F700F2AB85 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C0D29A955F700F2AB85 /* HomeCoordinator.swift */; };
 		730E1C1029A9580800F2AB85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C0F29A9580800F2AB85 /* HomeViewController.swift */; };
 		730E1C1429A95D9F00F2AB85 /* ReelsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C1329A95D9F00F2AB85 /* ReelsCoordinator.swift */; };
@@ -85,8 +95,6 @@
 		739864C529AFFCD3008420F6 /* CinemasSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739864C429AFFCD3008420F6 /* CinemasSection.swift */; };
 		739864C729AFFCDE008420F6 /* CinemaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739864C629AFFCDE008420F6 /* CinemaCell.swift */; };
 		739ADAA829B8AA1900FFA78E /* MovieProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAA729B8AA1900FFA78E /* MovieProfileView.swift */; };
-		739ADAAA29B8AB5B00FFA78E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 739ADAA629B8A94800FFA78E /* Roboto-Regular.ttf */; };
-		739ADAAB29B8AB6000FFA78E /* ClimateCrisis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 739ADAA929B8AA6F00FFA78E /* ClimateCrisis.ttf */; };
 		739ADAAE29B8FB0B00FFA78E /* CinemaPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAAD29B8FB0B00FFA78E /* CinemaPost.swift */; };
 		739ADAB029BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAAF29BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift */; };
 		739ADAB229BA351800FFA78E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAB129BA351800FFA78E /* ViewController.swift */; };
@@ -158,6 +166,16 @@
 		2CFBF74A68AFC6696F4A77EC /* Pods-iCinema-iCinemaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinema-iCinemaUITests.release.xcconfig"; path = "Target Support Files/Pods-iCinema-iCinemaUITests/Pods-iCinema-iCinemaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73019E7229AAA66C001A03D5 /* +addTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+addTitleView.swift"; sourceTree = "<group>"; };
 		73019E7529AAB5A0001A03D5 /* +makeCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+makeCircleImage.swift"; sourceTree = "<group>"; };
+		7307FDFD29BCCD1D00B13E24 /* MovieProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProfileViewController.swift; sourceTree = "<group>"; };
+		730CA20F29BBC00500C82C0A /* Sono-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-SemiBold.ttf"; sourceTree = "<group>"; };
+		730CA21029BBC00500C82C0A /* Sono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-Medium.ttf"; sourceTree = "<group>"; };
+		730CA21129BBC00500C82C0A /* Sono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-Bold.ttf"; sourceTree = "<group>"; };
+		730CA21229BBC00500C82C0A /* Sono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-Regular.ttf"; sourceTree = "<group>"; };
+		730CA21329BBC00500C82C0A /* Sono-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-ExtraLight.ttf"; sourceTree = "<group>"; };
+		730CA21429BBC00500C82C0A /* Sono-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-ExtraBold.ttf"; sourceTree = "<group>"; };
+		730CA21529BBC00500C82C0A /* Sono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-Light.ttf"; sourceTree = "<group>"; };
+		730CA21D29BBE93000C82C0A /* MovieCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellView.swift; sourceTree = "<group>"; };
+		730CA21F29BBFFF400C82C0A /* Image+makeCircled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+makeCircled.swift"; sourceTree = "<group>"; };
 		730E1C0D29A955F700F2AB85 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		730E1C0F29A9580800F2AB85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		730E1C1329A95D9F00F2AB85 /* ReelsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsCoordinator.swift; sourceTree = "<group>"; };
@@ -232,9 +250,7 @@
 		73975B0C299080D000AD955C /* +compositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+compositionalLayout.swift"; sourceTree = "<group>"; };
 		739864C429AFFCD3008420F6 /* CinemasSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemasSection.swift; sourceTree = "<group>"; };
 		739864C629AFFCDE008420F6 /* CinemaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaCell.swift; sourceTree = "<group>"; };
-		739ADAA629B8A94800FFA78E /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		739ADAA729B8AA1900FFA78E /* MovieProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProfileView.swift; sourceTree = "<group>"; };
-		739ADAA929B8AA6F00FFA78E /* ClimateCrisis.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ClimateCrisis.ttf; sourceTree = "<group>"; };
 		739ADAAD29B8FB0B00FFA78E /* CinemaPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaPost.swift; sourceTree = "<group>"; };
 		739ADAAF29BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+addScaleAnimationOnTapGesture.swift"; sourceTree = "<group>"; };
 		739ADAB129BA351800FFA78E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -337,6 +353,20 @@
 				73019E7529AAB5A0001A03D5 /* +makeCircleImage.swift */,
 			);
 			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		730CA20E29BBC00500C82C0A /* Sono */ = {
+			isa = PBXGroup;
+			children = (
+				730CA20F29BBC00500C82C0A /* Sono-SemiBold.ttf */,
+				730CA21029BBC00500C82C0A /* Sono-Medium.ttf */,
+				730CA21129BBC00500C82C0A /* Sono-Bold.ttf */,
+				730CA21229BBC00500C82C0A /* Sono-Regular.ttf */,
+				730CA21329BBC00500C82C0A /* Sono-ExtraLight.ttf */,
+				730CA21429BBC00500C82C0A /* Sono-ExtraBold.ttf */,
+				730CA21529BBC00500C82C0A /* Sono-Light.ttf */,
+			);
+			path = Sono;
 			sourceTree = "<group>";
 		};
 		730E1C0729A950F600F2AB85 /* TabBar */ = {
@@ -616,6 +646,7 @@
 			isa = PBXGroup;
 			children = (
 				739ADAA729B8AA1900FFA78E /* MovieProfileView.swift */,
+				7307FDFD29BCCD1D00B13E24 /* MovieProfileViewController.swift */,
 			);
 			path = "Movie Profile";
 			sourceTree = "<group>";
@@ -673,7 +704,7 @@
 			children = (
 				73687B7229AEA228007DB431 /* MoviesSection.swift */,
 				73687B7429AEA23F007DB431 /* MovieCell.swift */,
-				73687B7629AEA318007DB431 /* MovieSectionHeader.swift */,
+				730CA21D29BBE93000C82C0A /* MovieCellView.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -707,8 +738,7 @@
 		739ADAA529B8A93200FFA78E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				739ADAA629B8A94800FFA78E /* Roboto-Regular.ttf */,
-				739ADAA929B8AA6F00FFA78E /* ClimateCrisis.ttf */,
+				730CA20E29BBC00500C82C0A /* Sono */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -881,6 +911,7 @@
 		73F0C36B29AD1FA800F95B01 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				73687B7629AEA318007DB431 /* MovieSectionHeader.swift */,
 				733DAA2829B3BA3D00741211 /* DumySection.swift */,
 				73F0C36C29AD202000F95B01 /* Poster */,
 				73687B7129AEA1FB007DB431 /* Movies */,
@@ -925,6 +956,7 @@
 			children = (
 				73F7138929B65A71001E469D /* +isHidden.swift */,
 				739ADAAF29BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift */,
+				730CA21F29BBFFF400C82C0A /* Image+makeCircled.swift */,
 			);
 			path = "SwiftUI View";
 			sourceTree = "<group>";
@@ -1070,13 +1102,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				739ADAAA29B8AB5B00FFA78E /* Roboto-Regular.ttf in Resources */,
+				730CA21629BBC00500C82C0A /* Sono-SemiBold.ttf in Resources */,
+				730CA21929BBC00500C82C0A /* Sono-Regular.ttf in Resources */,
 				73EC919829834533002F3568 /* LaunchScreen.storyboard in Resources */,
 				73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */,
-				739ADAAB29B8AB6000FFA78E /* ClimateCrisis.ttf in Resources */,
 				7325B8732988B7FA0009B8EC /* README.md in Resources */,
+				730CA21829BBC00500C82C0A /* Sono-Bold.ttf in Resources */,
+				730CA21C29BBC00500C82C0A /* Sono-Light.ttf in Resources */,
+				730CA21729BBC00500C82C0A /* Sono-Medium.ttf in Resources */,
 				73EC919529834533002F3568 /* Assets.xcassets in Resources */,
 				731FBF7229B0BF9B00798DF5 /* stories.json in Resources */,
+				730CA21A29BBC00500C82C0A /* Sono-ExtraLight.ttf in Resources */,
+				730CA21B29BBC00500C82C0A /* Sono-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1217,6 +1254,7 @@
 				73F7138529B636CD001E469D /* CinemaProfileInformationView.swift in Sources */,
 				730E1C1629A95DBA00F2AB85 /* ReelsViewController.swift in Sources */,
 				739ADAB029BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift in Sources */,
+				730CA22029BBFFF400C82C0A /* Image+makeCircled.swift in Sources */,
 				73F7935929A7DB5A007252BE /* CustomShape.swift in Sources */,
 				73687B7729AEA318007DB431 /* MovieSectionHeader.swift in Sources */,
 				730E1C1F29A960F300F2AB85 /* TicketCoordinator.swift in Sources */,
@@ -1229,6 +1267,7 @@
 				73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */,
 				731FBF6529B0BF7E00798DF5 /* IGCommon.swift in Sources */,
 				731FBF6229B0BF7E00798DF5 /* IGCache.swift in Sources */,
+				730CA21E29BBE93000C82C0A /* MovieCellView.swift in Sources */,
 				730E1C0E29A955F700F2AB85 /* HomeCoordinator.swift in Sources */,
 				73F7138A29B65A71001E469D /* +isHidden.swift in Sources */,
 				73FED1E2298874CD00395727 /* FontManager.swift in Sources */,
@@ -1270,6 +1309,7 @@
 				73EC918C29834531002F3568 /* AppDelegate.swift in Sources */,
 				73FED1E029886B0600395727 /* Constants.swift in Sources */,
 				730E1C1D29A960E000F2AB85 /* TicketViewController.swift in Sources */,
+				7307FDFE29BCCD1D00B13E24 /* MovieProfileViewController.swift in Sources */,
 				73FE17F72991EB960009D238 /* Coordinator.swift in Sources */,
 				73019E7629AAB5A0001A03D5 /* +makeCircleImage.swift in Sources */,
 				733DAA2129B37B5D00741211 /* InterstsView.swift in Sources */,
@@ -1497,7 +1537,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4U8DMJ33ZN;
+				DEVELOPMENT_TEAM = T6K4YY626W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iCenema/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = iCinema;
@@ -1527,7 +1567,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4U8DMJ33ZN;
+				DEVELOPMENT_TEAM = T6K4YY626W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iCenema/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = iCinema;

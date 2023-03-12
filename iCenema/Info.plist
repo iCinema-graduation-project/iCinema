@@ -9,7 +9,13 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>ClimateCrisis.ttf</string>
+		<string>Sono-SemiBold.ttf</string>
+		<string>Sono-Medium.ttf</string>
+		<string>Sono-Bold.ttf</string>
+		<string>Sono-Regular.ttf</string>
+		<string>Sono-ExtraLight.ttf</string>
+		<string>Sono-ExtraBold.ttf</string>
+		<string>Sono-Light.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

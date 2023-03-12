@@ -10,18 +10,19 @@ import SwiftUITrackableScrollView
 import AVKit
 
 struct MovieProfileView: View {
-    let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5, ChairsCount: 430)
+
     let closeButtonAction: () -> Void
     @State private var scrollViewContentOffset = CGFloat(0)
     @State private var showCinemaImageInToolbarItem = false
     
+    let playerModel = PlayerViewModel(url: URL(string: "https://bit.ly/swswift")!)
+    
     var body: some View {
         NavigationView {
             TrackableScrollView(.vertical, showIndicators: false, contentOffset: $scrollViewContentOffset) {
-//
+
                 VStack(alignment: .center){
                     MovieListCellView(showButtons: false)
-
                     
                     HStack {
                         Text("English")
@@ -45,18 +46,20 @@ struct MovieProfileView: View {
                             .background(Color(uiColor: .iCinemaSecondBackgroudColor))
                             .cornerRadius(10)
                     }
-                    .padding(.horizontal)
-                    
-                    ICinemaButtonView(title: "Book Now")
-                        .padding()
-                    
-                    VideoPlayer(player: AVPlayer(url:  URL(string: "https://bit.ly/swswift")!))
+
+                    //
+                    ICinemaButtonView(title: "Book Now", action: {
+                        closeButtonAction()
+                    })
+                    .padding()
+            
+                    PlayerView(viewModel: playerModel)
                         .frame(height: 200)
                         .cornerRadius(20)
-                        .padding()
+                                        
                 }
+                .padding(.horizontal)
             }
-//            .ignoresSafeArea()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(uiColor: .iCinemaBackgroundColor))
             .onChange(of: scrollViewContentOffset, perform: { value in
@@ -84,20 +87,20 @@ struct MovieProfileView: View {
                 ToolbarItem(placement: .principal) {
                     HStack{
                         Image("posterImage")
-                            .resizable()
-                            .frame(width: 26, height: 26)
-                            .mask(Circle())
-                            .overlay {
-                                Circle()
-                                    .stroke(Color(uiColor: .iCinemaYellowColor), lineWidth: 0.7)
-                                    .frame(width: 28, height: 28)
-                            }
+                            .makeCircled(size: CGSize(width: 26, height: 26),
+                                         strockColor: Color(uiColor: .iCinemaYellowColor),
+                                         lineWidth: 0.7
+                            )
                             .isHidden(!showCinemaImageInToolbarItem)
-                            .frame(width: 30, height: showCinemaImageInToolbarItem ? 30 : 0)
+
                     }
                 }
             }
-            
+            .onDisappear(){
+                self.playerModel.player?.pause()
+                self.playerModel.player = nil
+            }
+
         }
     }
 }
@@ -108,3 +111,28 @@ struct MovieProfileView_Previews: PreviewProvider {
         MovieProfileView(closeButtonAction: {})
     }
 }
+
+
+class PlayerViewModel: ObservableObject {
+    @Published var player: AVPlayer? // can be changable depending on modified URL, etc.
+    init(url: URL) {
+        self.player = AVPlayer(url: url)
+    }
+}
+
+struct PlayerView: UIViewControllerRepresentable {
+    
+    // just thing wrapper, as intended
+    var viewModel: PlayerViewModel
+
+    
+    func makeUIViewController(context: Context) -> UIViewController {
+        let controller = AVPlayerViewController()
+        controller.player = viewModel.player
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
+
+}
+

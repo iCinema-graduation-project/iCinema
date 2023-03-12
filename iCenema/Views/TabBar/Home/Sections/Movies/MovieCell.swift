@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SwiftUI
 class MovieCell: UICollectionViewCell, IdentifiableView {
     // MARK: - Views
     //
@@ -20,16 +20,15 @@ class MovieCell: UICollectionViewCell, IdentifiableView {
     //
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.updateContentView()
-        self.addImageView()
-        self.addDetailsSuperView()
-        self.addDetailsButton()
-        self.addBookMarkButton()
+//        self.updateContentView()
         
-        // update on network request
-        imageView.image = UIImage(named: "poserImage2")
-        detailsButton.setTitle("Details", for: .normal)
-        detailsButton.addTarget(self, action: #selector(self.detailsButtonTapped(_:)), for: .touchUpInside)
+        contentView.layer.cornerRadius = .view.cornerRadius
+        contentView.clipsToBounds = true
+
+        guard let movieCellView = UIHostingController(rootView: MovieCellView()).view else { return }
+        contentView.addSubview(movieCellView)
+//        movieCellView.centerInSuperview()
+        movieCellView.fillSuperviewConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -47,6 +46,18 @@ class MovieCell: UICollectionViewCell, IdentifiableView {
     private func updateContentView() {
         contentView.layer.cornerRadius = .view.cornerRadius
         contentView.backgroundColor = .iCinemaSecondBackgroudColor
+        
+        self.addImageView()
+        self.addDetailsSuperView()
+        self.addDetailsButton()
+        self.addBookMarkButton()
+        
+        // update on network request
+        imageView.image = UIImage(named: "poserImage2")
+        detailsButton.setTitle("Details", for: .normal)
+        detailsButton.titleLabel?.font = .caption1
+        detailsButton.addTarget(self, action: #selector(self.detailsButtonTapped(_:)), for: .touchUpInside)
+        
     }
     
     // Adds an image view to the content view

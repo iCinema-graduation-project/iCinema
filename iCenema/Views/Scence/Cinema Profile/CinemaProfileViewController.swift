@@ -26,9 +26,12 @@ class CinemaProfileViewController: ICinemaViewController {
         
     }
     
+    
+    
     public func setup(cinema: Cinema?, dismissButtonAction: (() -> Void)?) {
         self.cinema = cinema
         self.dismissButtonAction = dismissButtonAction
     }
+    
 }
 

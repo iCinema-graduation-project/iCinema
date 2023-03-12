@@ -22,8 +22,10 @@ class ViewController: UIViewController{
         super.didMove(toParent: parent)
         if parent == nil {
             self.coordinator?.pop()
+
         }
     }
+    
     
     // This Method presents the given view controller on top of the current view controller.
     @objc public func presentViewController(_ viewControllerToPresent: UIViewController, completion: @escaping () -> Void = {} ){
@@ -59,6 +61,8 @@ class ViewController: UIViewController{
                        options: .curveEaseOut) {
             
             self.navigationController?.navigationBar.isHidden = true
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+            
             presentedView.fillXSuperViewConstraints()
             self.presentedViewAnchoredConstraints = presentedView.makeConstraints(topAnchor: self.view.topAnchor, bottomAnchor: self.view.bottomAnchor)
             
@@ -77,16 +81,19 @@ class ViewController: UIViewController{
                        initialSpringVelocity: 0.7,
                        options: .curveLinear) {
             
-            self.presentedViewAnchoredConstraints?.top?.constant = self.view.height + 50
+            self.presentedViewAnchoredConstraints?.top?.constant = self.view.height
             
             self.view.layoutIfNeeded()
             self.presentedView?.layoutIfNeeded()
             self.navigationController?.navigationBar.isHidden = false
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
             self.coordinator?.pop()
 
         } completion: { _ in
             self.presentedView?.removeFromSuperview()
             completion()
+            self.presentedView = nil
+            
         }
     }
     

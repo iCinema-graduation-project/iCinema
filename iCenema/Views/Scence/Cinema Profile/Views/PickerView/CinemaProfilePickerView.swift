@@ -14,12 +14,17 @@ struct CinemaProfilePickerView: View {
     init(cinema: Cinema) {
         self.cinema = cinema
         UISegmentedControl.appearance().selectedSegmentTintColor = .iCinemaYellowColor
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.iCinemaTextColorReverce], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.iCinemaTextColorReverce,
+                                                                .font: UIFont.callout
+        ], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.font: UIFont.body], for: .normal)
+    
     }
     var body: some View {
         Picker("Choose Secction", selection: $pickerSelectedSectin) {
             ForEach(CinemaSections.allCases, id: \.self) {
                 Text($0.rawValue)
+                    .font(Font(UIFont.title3))
             }
         }
         .pickerStyle(.segmented)

@@ -16,7 +16,7 @@ final class MovieSectionHeader: UICollectionReusableView, IdentifiableView {
         label.fillSuperviewConstraints(padding: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 5))
         label.textAlignment = .left
         label.text = "For You"
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .title3
     }
     
     required init?(coder: NSCoder) {
