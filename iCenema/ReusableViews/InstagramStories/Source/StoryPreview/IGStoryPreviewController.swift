@@ -44,6 +44,7 @@ final class IGStoryPreviewController: UIViewController, UIGestureRecognizerDeleg
         return gesture
     }()
     // FIXME: - show action gusture
+    // action Sheet to delet the story
     private let showActionSheetGesture: UISwipeGestureRecognizer = {
         let gesture = UISwipeGestureRecognizer()
         gesture.direction = .down
@@ -71,8 +72,6 @@ final class IGStoryPreviewController: UIViewController, UIGestureRecognizerDeleg
     private(set) var currentIndexPath: IndexPath?
     
     
-  
-    
     //MARK: - Life Cicle
     override func loadView() {
         super.loadView()
@@ -87,13 +86,15 @@ final class IGStoryPreviewController: UIViewController, UIGestureRecognizerDeleg
         if(isDeleteSnapEnabled) {
             showActionSheetGesture.delegate = self
             showActionSheetGesture.addTarget(self, action: #selector(showActionSheet))
-//            _view.snapsCollectionView.addGestureRecognizer(showActionSheetGesture)
+            storyView.snapsCollectionView.addGestureRecognizer(showActionSheetGesture)
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup_viewConstraint()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // AppUtility.lockOrientation(.portrait)
@@ -143,9 +144,9 @@ final class IGStoryPreviewController: UIViewController, UIGestureRecognizerDeleg
         self.present(actionSheetController, animated: true) { [weak self] in
             self?.currentCell?.pauseEntireSnap()
         }
-        // TODO: show action sheet
-
+        // TODO:- show action sheet
     }
+    
     private func deleteSnap() {
         guard let indexPath = currentIndexPath else {
             debugPrint("Current IndexPath is nil")

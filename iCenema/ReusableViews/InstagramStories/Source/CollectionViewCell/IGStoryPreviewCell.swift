@@ -23,43 +23,39 @@ fileprivate let snapViewTagIndicator: Int = 8
 
 final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
     
-    //MARK: - Delegate
-    public weak var delegate: StoryPreviewProtocol? {
-        didSet { storyHeaderView.delegate = self }
-    }
-    
-    //MARK:- Private iVars
+    // MARK: - Views
     private lazy var storyHeaderView: IGStoryPreviewHeaderView = {
         let v = IGStoryPreviewHeaderView()
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-    private lazy var longPress_gesture: UILongPressGestureRecognizer = {
+    private lazy var longPressGesture: UILongPressGestureRecognizer = {
         let lp = UILongPressGestureRecognizer.init(target: self, action: #selector(didLongPress(_:)))
         lp.minimumPressDuration = 0.2
         lp.delegate = self
         return lp
     }()
-    private lazy var tap_gesture: UITapGestureRecognizer = {
+    private lazy var tapGesture: UITapGestureRecognizer = {
         let tg = UITapGestureRecognizer(target: self, action: #selector(didTapSnap(_:)))
         tg.cancelsTouchesInView = false;
         tg.numberOfTapsRequired = 1
         tg.delegate = self
         return tg
     }()
-    private var previousSnapIndex: Int {
-        return snapIndex - 1
-    }
-    private var snapViewXPos: CGFloat {
-        return (snapIndex == 0) ? 0 : scrollview.subviews[previousSnapIndex].frame.maxX
-    }
-    private var videoSnapIndex: Int = 0
-    private var handpickedSnapIndex: Int = 0
-    var retryBtn: IGRetryLoaderButton!
+   
+    var retryButton: IGRetryLoaderButton!
     var longPressGestureState: UILongPressGestureRecognizer.State?
+    var tapGestureStateToggle = false
     
-    //MARK:- Public iVars
-    public var direction: SnapMovementDirectionState = .forward
+    private lazy var playPauseImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.tintColor = .iCinemaYellowColor
+        return imageView
+    }()
+    
     public let scrollview: UIScrollView = {
         let sv = UIScrollView()
         sv.showsVerticalScrollIndicator = false
@@ -68,6 +64,40 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
+    
+    private lazy var reactStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [fullScreenButton, loveButton, commentsButton, shareButton])
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.heightAnchor.constraint(equalToConstant: 152).isActive = true
+        stackView.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private let fullScreenButton = UIButton()
+    private let loveButton = UIButton()
+    private let commentsButton = UIButton()
+    private let shareButton = UIButton()
+    
+ 
+       
+    // MARK: - Properties
+    public weak var delegate: StoryPreviewProtocol? {
+        didSet { storyHeaderView.delegate = self }
+    }
+    
+    public var direction: SnapMovementDirectionState = .backward
+    
+    private var previousSnapIndex: Int {
+        return snapIndex - 1
+    }
+    private var snapViewXPos: CGFloat {
+        return (snapIndex == 0) ? 0 : scrollview.subviews[previousSnapIndex].frame.maxX
+    }
+    private var videoSnapIndex: Int = 0
+    private var handpickedSnapIndex: Int = 0
+    
     public var getSnapIndex: Int {
         return snapIndex
     }
@@ -125,23 +155,6 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
     }
     
     
-    // MARK: - Views
-    private lazy var reactStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [fullScreenButton, loveButton, commentsButton, shareButton])
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.heightAnchor.constraint(equalToConstant: 152).isActive = true
-        stackView.widthAnchor.constraint(equalToConstant: 28).isActive = true
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
-    private let fullScreenButton = UIButton()
-    private let loveButton = UIButton()
-    private let commentsButton = UIButton()
-    private let shareButton = UIButton()
-    
-    
     //MARK: - Overriden functions
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -155,6 +168,10 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         self.configureLoveButton()
         self.configureCommentButton()
         self.configureShareButton()
+        self.addplayPauseImage()
+        
+        
+       
     }
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -197,6 +214,11 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         shareButton.tintColor = .white
     }
 
+    private func addplayPauseImage() {
+        contentView.addSubview(playPauseImage)
+        playPauseImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        playPauseImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+    }
     
     //MARK: - Private functions
     private func loadUIElements() {
@@ -205,9 +227,10 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         scrollview.backgroundColor = .black
         contentView.addSubview(scrollview)
         contentView.addSubview(storyHeaderView)
-        scrollview.addGestureRecognizer(longPress_gesture)
-//        scrollview.addGestureRecognizer(tap_gesture)
+        scrollview.addGestureRecognizer(longPressGesture)
+        scrollview.addGestureRecognizer(tapGesture)
     }
+
     private func installLayoutConstraints() {
         //Setting constraints for scrollview
         NSLayoutConstraint.activate([
@@ -218,6 +241,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
             scrollview.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1.0),
             scrollview.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1.0)
         ])
+
         NSLayoutConstraint.activate([
             storyHeaderView.igLeftAnchor.constraint(equalTo: contentView.igLeftAnchor),
             contentView.igRightAnchor.constraint(equalTo: storyHeaderView.igRightAnchor),
@@ -242,17 +266,19 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         
         /// Setting constraints for snap view.
         NSLayoutConstraint.activate([
-            snapView.leadingAnchor.constraint(equalTo: (snapIndex == 0) ? scrollview.leadingAnchor : scrollview.subviews[previousSnapIndex].trailingAnchor),
+//            snapView.leadingAnchor.constraint(equalTo: (snapIndex == 0) ? scrollview.leadingAnchor : scrollview.subviews[previousSnapIndex].trailingAnchor),
             snapView.igTopAnchor.constraint(equalTo: scrollview.igTopAnchor),
-            snapView.widthAnchor.constraint(equalTo: scrollview.widthAnchor),
-            snapView.heightAnchor.constraint(equalTo: scrollview.heightAnchor),
-            scrollview.igBottomAnchor.constraint(equalTo: snapView.igBottomAnchor)
+            snapView.igBottomAnchor.constraint(equalTo: scrollview.igBottomAnchor),
+            snapView.igLeftAnchor.constraint(equalTo: scrollview.igLeftAnchor),
+            snapView.igRightAnchor.constraint(equalTo: scrollview.igRightAnchor),
         ])
-        if(snapIndex != 0) {
-            NSLayoutConstraint.activate([
-                snapView.leadingAnchor.constraint(equalTo: scrollview.leadingAnchor, constant: CGFloat(snapIndex)*scrollview.width)
-            ])
-        }
+        
+          //  if(snapIndex != 0) {
+          //      NSLayoutConstraint.activate([
+          //          snapView.leadingAnchor.constraint(equalTo: scrollview.leadingAnchor, constant: CGFloat(snapIndex)*scrollview.width)
+          //      ])
+          //  }
+        
         return snapView
     }
     private func getSnapview() -> UIImageView? {
@@ -277,19 +303,21 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         
         scrollview.addSubview(videoView)
         NSLayoutConstraint.activate([
-            videoView.leadingAnchor.constraint(equalTo: (snapIndex == 0) ? scrollview.leadingAnchor : scrollview.subviews[previousSnapIndex].trailingAnchor),
+//            videoView.leadingAnchor.constraint(equalTo: (snapIndex == 0) ? scrollview.leadingAnchor : scrollview.subviews[previousSnapIndex].trailingAnchor),
             videoView.igTopAnchor.constraint(equalTo: scrollview.igTopAnchor),
-            videoView.widthAnchor.constraint(equalTo: scrollview.widthAnchor),
-            videoView.heightAnchor.constraint(equalTo: scrollview.heightAnchor),
-            scrollview.igBottomAnchor.constraint(equalTo: videoView.igBottomAnchor)
+            videoView.igBottomAnchor.constraint(equalTo: scrollview.igBottomAnchor),
+            videoView.igLeftAnchor.constraint(equalTo: scrollview.igLeftAnchor),
+            videoView.igRightAnchor.constraint(equalTo: scrollview.igRightAnchor),
         ])
-        if(snapIndex != 0) {
-            NSLayoutConstraint.activate([
-                videoView.leadingAnchor.constraint(equalTo: scrollview.leadingAnchor, constant: CGFloat(snapIndex)*scrollview.width),
-            ])
-        }
+        
+          //  if(snapIndex != 0) {
+          //      NSLayoutConstraint.activate([
+          //          videoView.leadingAnchor.constraint(equalTo: scrollview.leadingAnchor, constant: CGFloat(snapIndex)*scrollview.width),
+          //      ])
+          //  }
         return videoView
     }
+    
     private func getVideoView(with index: Int) -> IGPlayerView? {
         if let videoView = scrollview.subviews.filter({$0.tag == index + snapViewTagIndicator}).first as? IGPlayerView {
             return videoView
@@ -315,14 +343,14 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
     }
     
     private func showRetryButton(with url: String, for snapView: UIImageView) {
-        self.retryBtn = IGRetryLoaderButton.init(withURL: url)
-        self.retryBtn.translatesAutoresizingMaskIntoConstraints = false
-        self.retryBtn.delegate = self
+        self.retryButton = IGRetryLoaderButton.init(withURL: url)
+        self.retryButton.translatesAutoresizingMaskIntoConstraints = false
+        self.retryButton.delegate = self
         self.isUserInteractionEnabled = true
-        snapView.addSubview(self.retryBtn)
+        snapView.addSubview(self.retryButton)
         NSLayoutConstraint.activate([
-            self.retryBtn.igCenterXAnchor.constraint(equalTo: snapView.igCenterXAnchor),
-            self.retryBtn.igCenterYAnchor.constraint(equalTo: snapView.igCenterYAnchor)
+            self.retryButton.igCenterXAnchor.constraint(equalTo: snapView.igCenterXAnchor),
+            self.retryButton.igCenterYAnchor.constraint(equalTo: snapView.igCenterYAnchor)
         ])
     }
     private func startPlayer(videoView: IGPlayerView, with url: String) {
@@ -357,8 +385,25 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         }
     }
     @objc private func didTapSnap(_ sender: UITapGestureRecognizer) {
-        let touchLocation = sender.location(ofTouch: 0, in: self.scrollview)
+        if self.tapGestureStateToggle {
+            self.resumeEntireSnap()
+            self.playPauseImage.image = UIImage(systemName: "play")
+            
+        } else {
+            self.pauseEntireSnap()
+            self.playPauseImage.image = UIImage(systemName: "pause")
+        }
+        self.tapGestureStateToggle.toggle()
         
+        self.addplayPauseImage()
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {[weak self] in
+            self?.playPauseImage.removeFromSuperview()
+        }
+        
+        /*
+        let touchLocation = sender.location(ofTouch: 0, in: self.scrollview)
+
         if let snapCount = story?.snapsCount {
             var n = snapIndex
             /*!
@@ -366,13 +411,13 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
              */
             if let snap = story?.snaps[n], snap.kind == .image, getSnapview()?.image == nil {
                 //Remove retry button if tap forward or backward if it exists
-                if let snapView = getSnapview(), let btn = retryBtn, snapView.subviews.contains(btn) {
+                if let snapView = getSnapview(), let btn = retryButton, snapView.subviews.contains(btn) {
                     snapView.removeRetryButton()
                 }
                 fillupLastPlayedSnap(n)
             }else {
                 //Remove retry button if tap forward or backward if it exists
-                if let videoView = getVideoView(with: n), let btn = retryBtn, videoView.subviews.contains(btn) {
+                if let videoView = getVideoView(with: n), let btn = retryButton, videoView.subviews.contains(btn) {
                     videoView.removeRetryButton()
                 }
                 if getVideoView(with: n)?.player?.timeControlStatus != .playing {
@@ -400,6 +445,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
                 }
             }
         }
+         */
     }
     @objc private func didEnterForeground() {
         if let snap = story?.snaps[snapIndex] {
@@ -673,9 +719,13 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         videoView?.stop()
         //getVideoView(with: videoSnapIndex)?.player = nil
     }
+    
+ 
+    
     public func resumePlayer(with sIndex: Int) {
         getVideoView(with: sIndex)?.play()
     }
+    
     public func didEndDisplayingCell() {
         
     }
@@ -724,7 +774,7 @@ extension IGStoryPreviewCell: StoryPreviewHeaderProtocol {
 //MARK: - Extension|RetryBtnDelegate
 extension IGStoryPreviewCell: RetryBtnDelegate {
     func retryButtonTapped() {
-        self.retryRequest(view: retryBtn.superview!, with: retryBtn.contentURL!)
+        self.retryRequest(view: retryButton.superview!, with: retryButton.contentURL!)
     }
 }
 
@@ -761,14 +811,14 @@ extension IGStoryPreviewCell: IGPlayerObserver {
     func didFailed(withError error: String, for url: URL?) {
         debugPrint("Failed with error: \(error)")
         if let videoView = getVideoView(with: snapIndex), let videoURL = url {
-            self.retryBtn = IGRetryLoaderButton(withURL: videoURL.absoluteString)
-            self.retryBtn.translatesAutoresizingMaskIntoConstraints = false
-            self.retryBtn.delegate = self
+            self.retryButton = IGRetryLoaderButton(withURL: videoURL.absoluteString)
+            self.retryButton.translatesAutoresizingMaskIntoConstraints = false
+            self.retryButton.delegate = self
             self.isUserInteractionEnabled = true
-            videoView.addSubview(self.retryBtn)
+            videoView.addSubview(self.retryButton)
             NSLayoutConstraint.activate([
-                self.retryBtn.igCenterXAnchor.constraint(equalTo: videoView.igCenterXAnchor),
-                self.retryBtn.igCenterYAnchor.constraint(equalTo: videoView.igCenterYAnchor)
+                self.retryButton.igCenterXAnchor.constraint(equalTo: videoView.igCenterXAnchor),
+                self.retryButton.igCenterYAnchor.constraint(equalTo: videoView.igCenterYAnchor)
             ])
         }
     }

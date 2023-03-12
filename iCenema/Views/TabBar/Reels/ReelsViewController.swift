@@ -36,10 +36,7 @@ class ReelsViewController: ICinemaViewController {
         DispatchQueue.main.async {
             if let stories = self.stories, let stories_copy = try? stories.copy().otherStories {
                 let storyPreviewScene = IGStoryPreviewController.init(stories: stories_copy, handPickedStoryIndex:  0, handPickedSnapIndex: 0)
-                storyPreviewScene.modalPresentationStyle = .fullScreen
-                storyPreviewScene.modalTransitionStyle = .flipHorizontal
                 self.navigationController?.pushViewController(storyPreviewScene, animated: true)
-          
             }
         }
     }
