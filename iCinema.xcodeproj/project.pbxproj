@@ -104,6 +104,12 @@
 		73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB029835EE200D672E6 /* ImageManager.swift */; };
 		73A30CB32983639000D672E6 /* ICinemaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB22983639000D672E6 /* ICinemaButton.swift */; };
 		73AAAF4529B4FA1500ECCA57 /* CinemaProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AAAF4429B4FA1500ECCA57 /* CinemaProfileView.swift */; };
+		73BB19E829BF6CF700C3A373 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB19E729BF6CF700C3A373 /* Alamofire */; };
+		73BB19EB29BF6D8900C3A373 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19EA29BF6D8900C3A373 /* APIRequest.swift */; };
+		73BB19ED29BF722700C3A373 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19EC29BF722700C3A373 /* FileManager.swift */; };
+		73BB19F129BF7D1C00C3A373 /* +customObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F029BF7D1C00C3A373 /* +customObject.swift */; };
+		73BB19F329BF7D9B00C3A373 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F229BF7D9B00C3A373 /* User.swift */; };
+		73BB19F529BF7E7A00C3A373 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */; };
 		73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */; };
 		73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFEFA12989EFA600969452 /* OTPViewController.swift */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
@@ -262,6 +268,11 @@
 		73A30CB029835EE200D672E6 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		73A30CB22983639000D672E6 /* ICinemaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaButton.swift; sourceTree = "<group>"; };
 		73AAAF4429B4FA1500ECCA57 /* CinemaProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileView.swift; sourceTree = "<group>"; };
+		73BB19EA29BF6D8900C3A373 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		73BB19EC29BF722700C3A373 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		73BB19F029BF7D1C00C3A373 /* +customObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+customObject.swift"; sourceTree = "<group>"; };
+		73BB19F229BF7D9B00C3A373 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
 		73BFEFA12989EFA600969452 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -315,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73F7137D29B61565001E469D /* SwiftUITrackableScrollView in Frameworks */,
+				73BB19E829BF6CF700C3A373 /* Alamofire in Frameworks */,
 				DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */,
 				73F7138029B62086001E469D /* CountryPickerView in Frameworks */,
 			);
@@ -770,6 +782,30 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		73BB19E929BF6D4800C3A373 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				73BB19EA29BF6D8900C3A373 /* APIRequest.swift */,
+			);
+			path = "Network Layer";
+			sourceTree = "<group>";
+		};
+		73BB19EE29BF738400C3A373 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				73BB19EC29BF722700C3A373 /* FileManager.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		73BB19EF29BF7D0B00C3A373 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				73BB19F029BF7D1C00C3A373 /* +customObject.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		73EC917F29834531002F3568 = {
 			isa = PBXGroup;
 			children = (
@@ -797,11 +833,13 @@
 			isa = PBXGroup;
 			children = (
 				73EC91BD298345D3002F3568 /* Resources */,
+				73BB19E929BF6D4800C3A373 /* Network Layer */,
 				73EC91C329834D41002F3568 /* Extensions */,
 				73EC91BE2983460D002F3568 /* Managers */,
 				73EF78AF298F294600A5DF2D /* Protocols */,
 				73EC91E029834ED7002F3568 /* ReusableViews */,
 				73F0C37529AD7E8000F95B01 /* Models */,
+				73BB19EE29BF738400C3A373 /* View Model */,
 				73A30CAD29835D2500D672E6 /* Views */,
 				73EC919929834533002F3568 /* Info.plist */,
 				73EC919629834533002F3568 /* LaunchScreen.storyboard */,
@@ -847,6 +885,7 @@
 				73FED1E1298874CD00395727 /* FontManager.swift */,
 				73FED1DF29886B0600395727 /* Constants.swift */,
 				73FED1E32988750100395727 /* SizeManager.swift */,
+				73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -854,6 +893,7 @@
 		73EC91C329834D41002F3568 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				73BB19EF29BF7D0B00C3A373 /* UserDefaults */,
 				73F7138829B65A5C001E469D /* SwiftUI View */,
 				73019E7429AAB589001A03D5 /* UIImageView */,
 				73019E7129AAA5D1001A03D5 /* UINavigationItem */,
@@ -936,6 +976,7 @@
 				73F0C37629AD813D00F95B01 /* Movie.swift */,
 				738EEF2B29AE325000CDEE88 /* Poster.swift */,
 				738EEF2D29AE330A00CDEE88 /* Cinema.swift */,
+				73BB19F229BF7D9B00C3A373 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1005,6 +1046,7 @@
 			packageProductDependencies = (
 				73F7137C29B61565001E469D /* SwiftUITrackableScrollView */,
 				73F7137F29B62086001E469D /* CountryPickerView */,
+				73BB19E729BF6CF700C3A373 /* Alamofire */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -1085,6 +1127,7 @@
 			packageReferences = (
 				73F7137B29B61565001E469D /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
 				73F7137E29B62086001E469D /* XCRemoteSwiftPackageReference "CountryPickerView" */,
+				73BB19E629BF6CF700C3A373 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 73EC918929834531002F3568 /* Products */;
 			projectDirPath = "";
@@ -1241,10 +1284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73BB19ED29BF722700C3A373 /* FileManager.swift in Sources */,
 				731FBF5429B0BF7E00798DF5 /* Color+Additions.swift in Sources */,
 				738EEF3029AE66E100CDEE88 /* PosterPaginationView.swift in Sources */,
 				73F04FBD2999333F00F543EE /* OTPString.swift in Sources */,
 				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
+				73BB19F529BF7E7A00C3A373 /* UserDefaults.swift in Sources */,
 				73687B7529AEA23F007DB431 /* MovieCell.swift in Sources */,
 				730E1C2329A966DC00F2AB85 /* NotificationViewController.swift in Sources */,
 				731FBF8129B0C2CB00798DF5 /* IGHomeViewModel.swift in Sources */,
@@ -1274,6 +1319,7 @@
 				73EC91BC29834569002F3568 /* ICinemaViewController.swift in Sources */,
 				731FBF6329B0BF7E00798DF5 /* IGVideoCacheManager.swift in Sources */,
 				731FBF6E29B0BF7E00798DF5 /* LayoutAttributesAnimator.swift in Sources */,
+				73BB19EB29BF6D8900C3A373 /* APIRequest.swift in Sources */,
 				73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */,
 				73F0C37229AD2B2D00F95B01 /* IdentifiableView.swift in Sources */,
 				73F7935729A7C612007252BE /* AppTabBarView.swift in Sources */,
@@ -1284,6 +1330,7 @@
 				730E1C1B29A95FD100F2AB85 /* MenuViewController.swift in Sources */,
 				731FBF5B29B0BF7E00798DF5 /* IGUser.swift in Sources */,
 				730E1C1929A95FA600F2AB85 /* MenuCoordinator.swift in Sources */,
+				73BB19F129BF7D1C00C3A373 /* +customObject.swift in Sources */,
 				73FED1E42988750100395727 /* SizeManager.swift in Sources */,
 				731FBF6729B0BF7E00798DF5 /* IGRetryButton.swift in Sources */,
 				73019E7329AAA66C001A03D5 /* +addTitleView.swift in Sources */,
@@ -1322,6 +1369,7 @@
 				731FBF5329B0BF7E00798DF5 /* IGAdditions.swift in Sources */,
 				732959BB29B761A900E2DF9B /* CinemaProfilePickerView.swift in Sources */,
 				73EC91D629834D41002F3568 /* UIView+SizeConstraints.swift in Sources */,
+				73BB19F329BF7D9B00C3A373 /* User.swift in Sources */,
 				730FA8E7298ED92C00F3B955 /* UIView+addAnimate.swift in Sources */,
 				73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */,
 				733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */,
@@ -1711,6 +1759,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		73BB19E629BF6CF700C3A373 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		73F7137B29B61565001E469D /* XCRemoteSwiftPackageReference "trackable-scroll-view" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/maxnatchanon/trackable-scroll-view";
@@ -1730,6 +1786,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		73BB19E729BF6CF700C3A373 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73BB19E629BF6CF700C3A373 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		73F7137C29B61565001E469D /* SwiftUITrackableScrollView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 73F7137B29B61565001E469D /* XCRemoteSwiftPackageReference "trackable-scroll-view" */;

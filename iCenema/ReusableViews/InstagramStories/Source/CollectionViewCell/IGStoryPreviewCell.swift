@@ -81,7 +81,6 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
     private let shareButton = UIButton()
     
  
-       
     // MARK: - Properties
     public weak var delegate: StoryPreviewProtocol? {
         didSet { storyHeaderView.delegate = self }
@@ -154,7 +153,6 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         }
     }
     
-    
     //MARK: - Overriden functions
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -169,26 +167,25 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         self.configureCommentButton()
         self.configureShareButton()
         self.addplayPauseImage()
-        
-        
-       
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         direction = .forward
         clearScrollViewGarbages()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         fatalError("init(coder:) has not been implemented")
     }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - update UI
     private func addReactStackView() {
-        
         contentView.addSubview(reactStackView)
         reactStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
         reactStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -80).isActive = true
@@ -249,6 +246,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
             storyHeaderView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
+    
     private func createSnapView() -> UIImageView {
         let snapView = UIImageView()
         snapView.translatesAutoresizingMaskIntoConstraints = false
@@ -287,6 +285,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         }
         return nil
     }
+    
     private func createVideoView() -> IGPlayerView {
         let videoView = IGPlayerView()
         videoView.translatesAutoresizingMaskIntoConstraints = false
@@ -374,6 +373,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
             }
         }
     }
+    
     @objc private func didLongPress(_ sender: UILongPressGestureRecognizer) {
         longPressGestureState = sender.state
         if sender.state == .began ||  sender.state == .ended {
@@ -447,6 +447,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         }
          */
     }
+    
     @objc private func didEnterForeground() {
         if let snap = story?.snaps[snapIndex] {
             if snap.kind == .video {
@@ -457,6 +458,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
             }
         }
     }
+    
     @objc private func didEnterBackground() {
         if let snap = story?.snaps[snapIndex] {
             if snap.kind == .video {
@@ -465,6 +467,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         }
         resetSnapProgressors(with: snapIndex)
     }
+    
     private func willMoveToPreviousOrNextSnap(n: Int) {
         if let count = story?.snapsCount {
             if n < count {
@@ -480,6 +483,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
             }
         }
     }
+    
     @objc private func didCompleteProgress() {
         let n = snapIndex + 1
         if let count = story?.snapsCount {
@@ -498,6 +502,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
             }
         }
     }
+    
     private func fillUpMissingImageViews(_ sIndex: Int) {
         if sIndex != 0 {
             for i in 0..<sIndex {
@@ -520,6 +525,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
             progressView.widthConstraint?.isActive = true
         }
     }
+    
     private func fillupLastPlayedSnaps(_ sIndex: Int) {
         //Coz, we are ignoring the first.snap
         if sIndex != 0 {
@@ -559,6 +565,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
             }
         }
     }
+    
     private func gearupTheProgressors(type: MimeType, playerView: IGPlayerView? = nil) {
         if let holderView = getProgressIndicatorView(with: snapIndex),
             let progressView = getProgressView(with: snapIndex){
@@ -599,6 +606,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
             }
         }
     }
+    
     func getProgressView(with index: Int) -> IGSnapProgressView? {
         let progressView = storyHeaderView.getProgressView
         if progressView.subviews.count > 0 {
@@ -611,13 +619,16 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         }
         return nil
     }
+    
     func getProgressIndicatorView(with index: Int) -> IGSnapProgressIndicatorView? {
         let progressView = storyHeaderView.getProgressView
         return progressView.subviews.filter({v in v.tag == index+progressIndicatorViewTag}).first as? IGSnapProgressIndicatorView ?? nil
     }
+    
     func adjustPreviousSnapProgressorsWidth(with index: Int) {
         fillupLastPlayedSnaps(index)
     }
+    
     func deleteSnap() {
         let progressView = storyHeaderView.getProgressView
         clearLastPlayedSnaps(snapIndex)
@@ -688,6 +699,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
+    
     public func startSnapProgress(with sIndex: Int) {
         if let indicatorView = getProgressIndicatorView(with: sIndex),
             let pv = getProgressView(with: sIndex) {
@@ -698,6 +710,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
             })
         }
     }
+    
     public func pauseSnapProgressors(with sIndex: Int) {
         story?.isCompletelyVisible = false
         getProgressView(with: sIndex)?.pause()

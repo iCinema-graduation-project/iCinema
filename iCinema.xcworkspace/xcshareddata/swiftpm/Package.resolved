@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "81a29729e7dbfe7b976723843d0280926587a532"
+      }
+    },
+    {
       "identity" : "countrypickerview",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kizitonwose/CountryPickerView.git",
