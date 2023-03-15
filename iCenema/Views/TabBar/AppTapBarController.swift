@@ -25,24 +25,23 @@ class AppTapBarController: ICinemaViewController {
         
         let reelsVC = ReelsCoordinator().navigationController
         buildCoordinator(vc: reelsVC, image: .tabBar.reels, selectedImage: .tabBar.reelsSelected, tag: 1)
-
+        
         let homeVC = HomeCoordinator().navigationController
         buildCoordinator(vc: homeVC, image: .tabBar.home, selectedImage: .tabBar.homeSelected, tag: 2)
-
+        
         let ticketVC = TicketCoordinator().navigationController
         buildCoordinator(vc: ticketVC, image: .tabBar.ticket, selectedImage: .tabBar.ticketSelected, tag: 3)
-
+        
         let notificationVC = NotificationCoordinator().navigationController
         buildCoordinator(vc: notificationVC, image: .tabBar.notification, selectedImage: .tabBar.notificationSelected, tag: 4)
-
+        
         let viewControllers = [menuVC, reelsVC, homeVC, ticketVC, notificationVC]
         guard let tabBarView = UIHostingController(rootView: AppTabBarView(tabs: viewControllers, selectedTabIndex: 2, tabBarViewModel: iCinemaTabBar)).view else { return }
         
         self.tabBarView = tabBarView
         view.addSubview(tabBarView)
- 
+        
     }
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         tabBarView?.fillSuperviewConstraints()

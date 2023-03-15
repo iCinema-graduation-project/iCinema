@@ -7,7 +7,7 @@
 
 import UIKit
 
-var isAuthed = true
+var isAuthed = false
 
 class AppCoordinator {
     var rootViewController: UIViewController

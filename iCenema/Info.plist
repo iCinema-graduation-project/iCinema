@@ -9,13 +9,12 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Sono-SemiBold.ttf</string>
-		<string>Sono-Medium.ttf</string>
-		<string>Sono-Bold.ttf</string>
-		<string>Sono-Regular.ttf</string>
-		<string>Sono-ExtraLight.ttf</string>
-		<string>Sono-ExtraBold.ttf</string>
-		<string>Sono-Light.ttf</string>
+		<string>Stolzl-Medium.ttf</string>
+		<string>Stolzl-Light.ttf</string>
+		<string>Stolzl-Regular.ttf</string>
+		<string>Stolzl-Thin.ttf</string>
+		<string>Stolzl-Book.ttf</string>
+		<string>Stolzl-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

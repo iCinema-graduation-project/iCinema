@@ -11,13 +11,6 @@
 		73019E7329AAA66C001A03D5 /* +addTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73019E7229AAA66C001A03D5 /* +addTitleView.swift */; };
 		73019E7629AAB5A0001A03D5 /* +makeCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73019E7529AAB5A0001A03D5 /* +makeCircleImage.swift */; };
 		7307FDFE29BCCD1D00B13E24 /* MovieProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7307FDFD29BCCD1D00B13E24 /* MovieProfileViewController.swift */; };
-		730CA21629BBC00500C82C0A /* Sono-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA20F29BBC00500C82C0A /* Sono-SemiBold.ttf */; };
-		730CA21729BBC00500C82C0A /* Sono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21029BBC00500C82C0A /* Sono-Medium.ttf */; };
-		730CA21829BBC00500C82C0A /* Sono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21129BBC00500C82C0A /* Sono-Bold.ttf */; };
-		730CA21929BBC00500C82C0A /* Sono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21229BBC00500C82C0A /* Sono-Regular.ttf */; };
-		730CA21A29BBC00500C82C0A /* Sono-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21329BBC00500C82C0A /* Sono-ExtraLight.ttf */; };
-		730CA21B29BBC00500C82C0A /* Sono-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21429BBC00500C82C0A /* Sono-ExtraBold.ttf */; };
-		730CA21C29BBC00500C82C0A /* Sono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730CA21529BBC00500C82C0A /* Sono-Light.ttf */; };
 		730CA21E29BBE93000C82C0A /* MovieCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730CA21D29BBE93000C82C0A /* MovieCellView.swift */; };
 		730CA22029BBFFF400C82C0A /* Image+makeCircled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730CA21F29BBFFF400C82C0A /* Image+makeCircled.swift */; };
 		730E1C0E29A955F700F2AB85 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C0D29A955F700F2AB85 /* HomeCoordinator.swift */; };
@@ -104,6 +97,12 @@
 		73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB029835EE200D672E6 /* ImageManager.swift */; };
 		73A30CB32983639000D672E6 /* ICinemaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CB22983639000D672E6 /* ICinemaButton.swift */; };
 		73AAAF4529B4FA1500ECCA57 /* CinemaProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AAAF4429B4FA1500ECCA57 /* CinemaProfileView.swift */; };
+		73B35C5229C1DEEC00F93CA7 /* Stolzl-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C4C29C1DEEC00F93CA7 /* Stolzl-Medium.ttf */; };
+		73B35C5329C1DEEC00F93CA7 /* Stolzl-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C4D29C1DEEC00F93CA7 /* Stolzl-Light.ttf */; };
+		73B35C5429C1DEEC00F93CA7 /* Stolzl-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C4E29C1DEEC00F93CA7 /* Stolzl-Regular.ttf */; };
+		73B35C5529C1DEEC00F93CA7 /* Stolzl-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C4F29C1DEEC00F93CA7 /* Stolzl-Thin.ttf */; };
+		73B35C5629C1DEEC00F93CA7 /* Stolzl-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C5029C1DEEC00F93CA7 /* Stolzl-Book.ttf */; };
+		73B35C5729C1DEEC00F93CA7 /* Stolzl-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C5129C1DEEC00F93CA7 /* Stolzl-Bold.ttf */; };
 		73BB19E829BF6CF700C3A373 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB19E729BF6CF700C3A373 /* Alamofire */; };
 		73BB19EB29BF6D8900C3A373 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19EA29BF6D8900C3A373 /* APIRequest.swift */; };
 		73BB19ED29BF722700C3A373 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19EC29BF722700C3A373 /* FileManager.swift */; };
@@ -173,13 +172,6 @@
 		73019E7229AAA66C001A03D5 /* +addTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+addTitleView.swift"; sourceTree = "<group>"; };
 		73019E7529AAB5A0001A03D5 /* +makeCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+makeCircleImage.swift"; sourceTree = "<group>"; };
 		7307FDFD29BCCD1D00B13E24 /* MovieProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProfileViewController.swift; sourceTree = "<group>"; };
-		730CA20F29BBC00500C82C0A /* Sono-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-SemiBold.ttf"; sourceTree = "<group>"; };
-		730CA21029BBC00500C82C0A /* Sono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-Medium.ttf"; sourceTree = "<group>"; };
-		730CA21129BBC00500C82C0A /* Sono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-Bold.ttf"; sourceTree = "<group>"; };
-		730CA21229BBC00500C82C0A /* Sono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-Regular.ttf"; sourceTree = "<group>"; };
-		730CA21329BBC00500C82C0A /* Sono-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-ExtraLight.ttf"; sourceTree = "<group>"; };
-		730CA21429BBC00500C82C0A /* Sono-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-ExtraBold.ttf"; sourceTree = "<group>"; };
-		730CA21529BBC00500C82C0A /* Sono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-Light.ttf"; sourceTree = "<group>"; };
 		730CA21D29BBE93000C82C0A /* MovieCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellView.swift; sourceTree = "<group>"; };
 		730CA21F29BBFFF400C82C0A /* Image+makeCircled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+makeCircled.swift"; sourceTree = "<group>"; };
 		730E1C0D29A955F700F2AB85 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -268,6 +260,12 @@
 		73A30CB029835EE200D672E6 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		73A30CB22983639000D672E6 /* ICinemaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaButton.swift; sourceTree = "<group>"; };
 		73AAAF4429B4FA1500ECCA57 /* CinemaProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileView.swift; sourceTree = "<group>"; };
+		73B35C4C29C1DEEC00F93CA7 /* Stolzl-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Medium.ttf"; sourceTree = "<group>"; };
+		73B35C4D29C1DEEC00F93CA7 /* Stolzl-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Light.ttf"; sourceTree = "<group>"; };
+		73B35C4E29C1DEEC00F93CA7 /* Stolzl-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Regular.ttf"; sourceTree = "<group>"; };
+		73B35C4F29C1DEEC00F93CA7 /* Stolzl-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Thin.ttf"; sourceTree = "<group>"; };
+		73B35C5029C1DEEC00F93CA7 /* Stolzl-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Book.ttf"; sourceTree = "<group>"; };
+		73B35C5129C1DEEC00F93CA7 /* Stolzl-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Bold.ttf"; sourceTree = "<group>"; };
 		73BB19EA29BF6D8900C3A373 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		73BB19EC29BF722700C3A373 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		73BB19F029BF7D1C00C3A373 /* +customObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+customObject.swift"; sourceTree = "<group>"; };
@@ -365,20 +363,6 @@
 				73019E7529AAB5A0001A03D5 /* +makeCircleImage.swift */,
 			);
 			path = UIImageView;
-			sourceTree = "<group>";
-		};
-		730CA20E29BBC00500C82C0A /* Sono */ = {
-			isa = PBXGroup;
-			children = (
-				730CA20F29BBC00500C82C0A /* Sono-SemiBold.ttf */,
-				730CA21029BBC00500C82C0A /* Sono-Medium.ttf */,
-				730CA21129BBC00500C82C0A /* Sono-Bold.ttf */,
-				730CA21229BBC00500C82C0A /* Sono-Regular.ttf */,
-				730CA21329BBC00500C82C0A /* Sono-ExtraLight.ttf */,
-				730CA21429BBC00500C82C0A /* Sono-ExtraBold.ttf */,
-				730CA21529BBC00500C82C0A /* Sono-Light.ttf */,
-			);
-			path = Sono;
 			sourceTree = "<group>";
 		};
 		730E1C0729A950F600F2AB85 /* TabBar */ = {
@@ -750,7 +734,7 @@
 		739ADAA529B8A93200FFA78E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				730CA20E29BBC00500C82C0A /* Sono */,
+				73B35C4B29C1DEEC00F93CA7 /* Stolzl */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -780,6 +764,19 @@
 				733DAA2229B3A06300741211 /* Scence */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		73B35C4B29C1DEEC00F93CA7 /* Stolzl */ = {
+			isa = PBXGroup;
+			children = (
+				73B35C4C29C1DEEC00F93CA7 /* Stolzl-Medium.ttf */,
+				73B35C4D29C1DEEC00F93CA7 /* Stolzl-Light.ttf */,
+				73B35C4E29C1DEEC00F93CA7 /* Stolzl-Regular.ttf */,
+				73B35C4F29C1DEEC00F93CA7 /* Stolzl-Thin.ttf */,
+				73B35C5029C1DEEC00F93CA7 /* Stolzl-Book.ttf */,
+				73B35C5129C1DEEC00F93CA7 /* Stolzl-Bold.ttf */,
+			);
+			path = Stolzl;
 			sourceTree = "<group>";
 		};
 		73BB19E929BF6D4800C3A373 /* Network Layer */ = {
@@ -1145,18 +1142,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				730CA21629BBC00500C82C0A /* Sono-SemiBold.ttf in Resources */,
-				730CA21929BBC00500C82C0A /* Sono-Regular.ttf in Resources */,
 				73EC919829834533002F3568 /* LaunchScreen.storyboard in Resources */,
+				73B35C5529C1DEEC00F93CA7 /* Stolzl-Thin.ttf in Resources */,
+				73B35C5629C1DEEC00F93CA7 /* Stolzl-Book.ttf in Resources */,
+				73B35C5729C1DEEC00F93CA7 /* Stolzl-Bold.ttf in Resources */,
+				73B35C5329C1DEEC00F93CA7 /* Stolzl-Light.ttf in Resources */,
 				73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */,
 				7325B8732988B7FA0009B8EC /* README.md in Resources */,
-				730CA21829BBC00500C82C0A /* Sono-Bold.ttf in Resources */,
-				730CA21C29BBC00500C82C0A /* Sono-Light.ttf in Resources */,
-				730CA21729BBC00500C82C0A /* Sono-Medium.ttf in Resources */,
 				73EC919529834533002F3568 /* Assets.xcassets in Resources */,
 				731FBF7229B0BF9B00798DF5 /* stories.json in Resources */,
-				730CA21A29BBC00500C82C0A /* Sono-ExtraLight.ttf in Resources */,
-				730CA21B29BBC00500C82C0A /* Sono-ExtraBold.ttf in Resources */,
+				73B35C5229C1DEEC00F93CA7 /* Stolzl-Medium.ttf in Resources */,
+				73B35C5429C1DEEC00F93CA7 /* Stolzl-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
