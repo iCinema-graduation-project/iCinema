@@ -48,6 +48,8 @@ class WelcomeViewController: ICinemaViewController {
         addImageView()
         addDescriptionLabel()
         addRegisterAndGuestButtons()
+        
+        
     }
     
     // MARK: - Helper methods

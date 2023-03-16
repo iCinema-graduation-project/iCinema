@@ -81,6 +81,8 @@
 		736EAA8F2993060F00318F2E /* PhoneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */; };
 		73861C242984351E0020A63B /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* NewUserViewController.swift */; };
 		73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* ICinemaTextField.swift */; };
+		738B062229C3919B00DC6DFC /* Coutries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B062129C3919B00DC6DFC /* Coutries.swift */; };
+		738B062429C39EC700DC6DFC /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B062329C39EC700DC6DFC /* RequestError.swift */; };
 		738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2B29AE325000CDEE88 /* Poster.swift */; };
 		738EEF2E29AE330A00CDEE88 /* Cinema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2D29AE330A00CDEE88 /* Cinema.swift */; };
 		738EEF3029AE66E100CDEE88 /* PosterPaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2F29AE66E100CDEE88 /* PosterPaginationView.swift */; };
@@ -242,6 +244,8 @@
 		736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModelTests.swift; sourceTree = "<group>"; };
 		73861C232984351E0020A63B /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		73861C2529843A170020A63B /* ICinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaTextField.swift; sourceTree = "<group>"; };
+		738B062129C3919B00DC6DFC /* Coutries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coutries.swift; sourceTree = "<group>"; };
+		738B062329C39EC700DC6DFC /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		738EEF2B29AE325000CDEE88 /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
 		738EEF2D29AE330A00CDEE88 /* Cinema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinema.swift; sourceTree = "<group>"; };
 		738EEF2F29AE66E100CDEE88 /* PosterPaginationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterPaginationView.swift; sourceTree = "<group>"; };
@@ -691,6 +695,7 @@
 			children = (
 				73F0BC062989C4D800742BA2 /* PhoneViewController.swift */,
 				736674E4298EE37C009CA617 /* PhoneViewModel.swift */,
+				738B062129C3919B00DC6DFC /* Coutries.swift */,
 			);
 			path = "Phone Number";
 			sourceTree = "<group>";
@@ -783,6 +788,7 @@
 			isa = PBXGroup;
 			children = (
 				73BB19EA29BF6D8900C3A373 /* APIRequest.swift */,
+				738B062329C39EC700DC6DFC /* RequestError.swift */,
 			);
 			path = "Network Layer";
 			sourceTree = "<group>";
@@ -1343,6 +1349,7 @@
 				73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */,
 				732959BE29B76B2400E2DF9B /* MoviesListView.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
+				738B062229C3919B00DC6DFC /* Coutries.swift in Sources */,
 				73F7138329B632E6001E469D /* CinemaProfileHeaderView.swift in Sources */,
 				731FBF5229B0BF7E00798DF5 /* UIView+Extension.swift in Sources */,
 				731FBF4E29B0BF7E00798DF5 /* IGMockLoader.swift in Sources */,
@@ -1359,6 +1366,7 @@
 				73AAAF4529B4FA1500ECCA57 /* CinemaProfileView.swift in Sources */,
 				731FBF5029B0BF7E00798DF5 /* IGStoryPreviewModel.swift in Sources */,
 				738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */,
+				738B062429C39EC700DC6DFC /* RequestError.swift in Sources */,
 				733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */,
 				731FBF6D29B0BF7E00798DF5 /* UIView+Anchor.swift in Sources */,
 				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,

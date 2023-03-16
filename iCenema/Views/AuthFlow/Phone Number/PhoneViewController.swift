@@ -7,7 +7,7 @@
 
 import UIKit
 import CountryPickerView
-
+import Combine
 
 class PhoneViewController:  ICinemaViewController {
     // MARK: - Views
@@ -65,8 +65,9 @@ class PhoneViewController:  ICinemaViewController {
     
     // MARK: - Properites
     //
-    lazy var viewModel: PhoneViewModelTypes = PhoneViewModel()
-        
+    let viewModel = PhoneViewModel()
+    private var cancellableSet: Set<AnyCancellable> = []
+
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
@@ -80,7 +81,7 @@ class PhoneViewController:  ICinemaViewController {
         phoneNumberTextField.delegate = self
     }
     
-    // MARK: - Helper Functions
+    // MARK: - Update UI Methods
     //
     private func addAndConfigurSubViews() {
         addDescriptionLabel()
@@ -124,14 +125,26 @@ class PhoneViewController:  ICinemaViewController {
     // MARK: - Actions
     //
     private func getCodeButtonTapped(){
-        self.viewModel.output.confirm { isPhoneNumberValid, message in
-            if isPhoneNumberValid {
-                self.coordinator?.push()
-            } else {
-                self.phoneNumberTextField.becomeFirstResponder()
-                self.phoneNumberTextField.setState(.fail, with: message, for: .editing)
-            }
+        guard self.viewModel.output.isPhoneNumberValid else {
+            let message = "Enter Valid Phone Number"
+            self.phoneNumberTextField.becomeFirstResponder()
+            self.phoneNumberTextField.setState(.fail, with: message, for: .editing)
+            return
         }
+       
+        self.viewModel.request(method: .get)
+            .sink { [ unowned self ] response in
+                if let error = response.error {
+                    let errorMessage = viewModel.getErrorMessage(from: error)
+                    self.phoneNumberTextField.setState(.fail, with: errorMessage, for: .editing)
+                    self.phoneNumberTextField.setState(.fail, with: errorMessage, for: .normal)
+                }else {
+                    self.coordinator?.push()
+                }
+            }
+            
+            .store(in: &cancellableSet)
+        
     }
 }
 
