@@ -20,16 +20,10 @@ protocol PhoneViewModelOutput {
     var isPhoneNumberValid: Bool { get }
 }
 
-protocol PhoneViewModelTypes: APIRequest {
-    var inputs: PhoneViewModelInput { get }
-    var output: PhoneViewModelOutput { get }
-}
 
 // MARK: - PhoneViewModel
 //
-class PhoneViewModel: PhoneViewModelTypes {
-    var inputs: PhoneViewModelInput { self }
-    var output: PhoneViewModelOutput { self }
+class PhoneViewModel: APIRequest {
     
     // MARK: - Network Request
     typealias Response = Countries
@@ -37,10 +31,9 @@ class PhoneViewModel: PhoneViewModelTypes {
     var parameters: Alamofire.Parameters? = nil
 
    
-    
-    // MARK: - Helper Methods
     private(set) var isPhoneNumberValid: Bool = false
 
+    // MARK: - Private Properties
     private var didPhoneNumberChanged: (_ isValid: Bool) -> Void = { _ in }
     private var phoneNumber: String = "" {
         didSet {
@@ -56,7 +49,6 @@ class PhoneViewModel: PhoneViewModelTypes {
         return phonePredict.evaluate(with: phoneNumber)
     }
 }
-
 
 
 // MARK: - input bindind
@@ -75,6 +67,7 @@ extension PhoneViewModel: PhoneViewModelOutput {
         self.didPhoneNumberChanged = completion
     }
 }
+
 
 
 

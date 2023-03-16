@@ -125,7 +125,7 @@ class PhoneViewController:  ICinemaViewController {
     // MARK: - Actions
     //
     private func getCodeButtonTapped(){
-        guard self.viewModel.output.isPhoneNumberValid else {
+        guard self.viewModel.isPhoneNumberValid else {
             let message = "Enter Valid Phone Number"
             self.phoneNumberTextField.becomeFirstResponder()
             self.phoneNumberTextField.setState(.fail, with: message, for: .editing)
@@ -163,13 +163,15 @@ extension PhoneViewController {
     // MARK: - Bind ViewModel Output
     //
     private func bindViewModelOutput() {
-        viewModel.output.onPhoneNumberChanged { isPhoneNumberValid in
+        viewModel.onPhoneNumberChanged { isPhoneNumberValid in
             if isPhoneNumberValid {
                 self.phoneNumberTextField.setState(.success, for: .editing)
                 self.phoneNumberTextField.setState(.success, for: .normal)
                 self.endEditing()
             }
         }
+        
+        
     }
 }
 
@@ -181,7 +183,7 @@ extension PhoneViewController {
     }
     
     @objc private func phoneNumberTextFieldEditingChanged(_ sender: ICinemaTextField) {
-        self.viewModel.inputs.didChange(phoneNumber: sender.text!)
+        self.viewModel.didChange(phoneNumber: sender.text!)
     }
 }
 
