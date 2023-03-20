@@ -48,15 +48,7 @@ extension APIRequest{
         
         return header
     }
-
-    public func getErrorMessage(from error: NetworkError) -> String {
-        
-        if error.backendError == nil {
-            return String(error.initialError.localizedDescription.split(separator: ":")[1])
-        }
-        
-        return error.backendError!.message
-    }
+    
 }
 
 extension APIRequest where Response: Codable {
@@ -73,6 +65,14 @@ extension APIRequest where Response: Codable {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
-
+    
+    func getErrorMessage(from error: NetworkError) -> String {
+        
+        if error.backendError == nil {
+            return String(error.initialError.localizedDescription.split(separator: ":")[1])
+        }
+        
+        return error.backendError!.message
+    }
     
 }

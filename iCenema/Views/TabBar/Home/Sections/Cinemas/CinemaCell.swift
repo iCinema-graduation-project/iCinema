@@ -94,7 +94,6 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         followButton.centerYInSuperview()
     }
     
-    
     // MARK: - Helper Methods
     //
     private func addTappGestureToImageView() {
@@ -103,14 +102,9 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         self.imageView.isUserInteractionEnabled = true
     }
     
-    
     @objc private func didImageViewTapGestureTapped(_ sender: UITapGestureRecognizer? = nil) {
         let cinemaProfileVC = CinemaProfileViewController()
-        cinemaProfileVC.setup(cinema: nil) {
-            self.target?.dismiss(completion: {
-                print("good")
-            })
-        }
+        cinemaProfileVC.setup(cinema: nil)
         self.target?.presentViewController(cinemaProfileVC)
     }
 

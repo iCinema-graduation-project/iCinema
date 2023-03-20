@@ -132,6 +132,11 @@ class PhoneViewController:  ICinemaViewController {
             return
         }
        
+        self.networkRequest()
+    }
+    
+    #warning("Do not forget to test back end errors")
+    private func networkRequest() {
         self.viewModel.request(method: .get)
             .sink { [ unowned self ] response in
                 if let error = response.error {
@@ -142,15 +147,14 @@ class PhoneViewController:  ICinemaViewController {
                     self.coordinator?.push()
                 }
             }
-            
             .store(in: &cancellableSet)
-        
     }
+    
 }
 
+// MARK: - UITextFieldDelegate
+//
 extension PhoneViewController : UITextFieldDelegate {
-    // MARK: - UITextFieldDelegate
-    //
     // limit the carachters count that text field can hold
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
@@ -159,9 +163,9 @@ extension PhoneViewController : UITextFieldDelegate {
     }
 }
 
+// MARK: - Bind ViewModel Output
+//
 extension PhoneViewController {
-    // MARK: - Bind ViewModel Output
-    //
     private func bindViewModelOutput() {
         viewModel.onPhoneNumberChanged { isPhoneNumberValid in
             if isPhoneNumberValid {
@@ -170,14 +174,12 @@ extension PhoneViewController {
                 self.endEditing()
             }
         }
-        
-        
     }
 }
 
+// MARK: - Bind ViewModel Input
+//
 extension PhoneViewController {
-    // MARK: - Bind ViewModel Input
-    //
     private func bindViewModelInput() {
         phoneNumberTextField.addTarget(self, action: #selector(self.phoneNumberTextFieldEditingChanged(_:)), for: .editingChanged)
     }

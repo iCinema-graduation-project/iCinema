@@ -25,7 +25,7 @@ struct CinemaProfileView: View {
                         .padding(.bottom)
 
                     CinemaProfileInformationView(cinema: cinema)
-                    
+
                     CinemaProfileSliderView(cinema: cinema)
                     
                     CinemaProfilePickerView(cinema: cinema)
@@ -55,7 +55,6 @@ struct CinemaProfileView: View {
                         Image(systemName: "x.circle")
                             .foregroundColor(Color(uiColor: .iCinemaYellowColor))
                     }
-
                 }
                 ToolbarItem(placement: .principal) {
                     HStack{
@@ -65,7 +64,6 @@ struct CinemaProfileView: View {
                                          lineWidth: 0.7
                             )
                             .isHidden(!showCinemaImageInToolbarItem)
-
                     }
                 }
             }

@@ -10,9 +10,10 @@ import UIKit
 
 class ViewController: UIViewController{
     // used to store properities when presenting view controller
+    public var presenterViewController: ViewController?
     private weak var presentedView:  UIView?
     public var presentedViewAnchoredConstraints: AnchoredConstraints?
-    
+
     // the coordinator is responsible for managing navigation between view controllers.
     var coordinator: Coordinator?
     var coordinatorType: CoordinatorType = .navigation
@@ -22,13 +23,13 @@ class ViewController: UIViewController{
         super.didMove(toParent: parent)
         if parent == nil {
             self.coordinator?.pop()
-
         }
     }
     
-    
     // This Method presents the given view controller on top of the current view controller.
-    @objc public func presentViewController(_ viewControllerToPresent: UIViewController, completion: @escaping () -> Void = {} ){
+    @objc public func presentViewController(_ viewControllerToPresent: ViewController, completion: @escaping () -> Void = {} ){
+        viewControllerToPresent.presenterViewController = self
+
         // Set the presentedView property to the view of the view controller being presented.
         self.presentedView = viewControllerToPresent.view
         
@@ -81,20 +82,18 @@ class ViewController: UIViewController{
                        initialSpringVelocity: 0.7,
                        options: .curveLinear) {
             
-            self.presentedViewAnchoredConstraints?.top?.constant = self.view.height
+            self.presenterViewController?.presentedViewAnchoredConstraints?.top?.constant = self.view.height
             
-            self.view.layoutIfNeeded()
-            self.presentedView?.layoutIfNeeded()
-            self.navigationController?.navigationBar.isHidden = false
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-            self.coordinator?.pop()
+            self.presenterViewController?.view.layoutIfNeeded()
+            self.presenterViewController?.presentedView?.layoutIfNeeded()
+            self.presenterViewController?.navigationController?.navigationBar.isHidden = false
+            self.presenterViewController?.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+            self.presenterViewController?.coordinator?.pop()
 
         } completion: { _ in
-            self.presentedView?.removeFromSuperview()
+            self.presenterViewController?.presentedView?.removeFromSuperview()
             completion()
-            self.presentedView = nil
-            
+            self.presenterViewController?.presentedView = nil
         }
     }
-    
 }

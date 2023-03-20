@@ -98,9 +98,7 @@ final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let mv = MovieProfileViewController()
-        mv.setup(movie: nil) {
-            self.target.dismiss()
-        }
+        mv.setup(movie: nil)
         self.target.presentViewController(mv)
     }
     

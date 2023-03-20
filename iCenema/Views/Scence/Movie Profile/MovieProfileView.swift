@@ -49,14 +49,13 @@ struct MovieProfileView: View {
 
                     //
                     ICinemaButtonView(title: "Book Now", action: {
-                        closeButtonAction()
+                        
                     })
                     .padding()
             
                     PlayerView(viewModel: playerModel)
                         .frame(height: 200)
                         .cornerRadius(20)
-                                        
                 }
                 .padding(.horizontal)
             }

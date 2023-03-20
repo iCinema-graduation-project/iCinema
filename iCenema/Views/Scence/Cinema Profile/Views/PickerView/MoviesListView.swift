@@ -30,6 +30,7 @@ struct CinemaProfileMovieSection_Previews: PreviewProvider {
 struct MovieListCellView: View {
     let movie = Movie()
     var showButtons = true
+    @State var bookmarked = false
     
     var body: some View {
     
@@ -40,7 +41,6 @@ struct MovieListCellView: View {
                 .cornerRadius(5)
                 .shadow(color: Color(uiColor: .iCinemaYellowColor), radius: 4)
 
-            
             VStack(alignment: .leading,  spacing: 5) {
                 HStack {
                     // MARK: - Name
@@ -48,9 +48,14 @@ struct MovieListCellView: View {
                         .font(Font(UIFont.title3))
                     Spacer()
                     if self.showButtons {
-                        Image(systemName: "bookmark")
-                            .resizable()
-                            .frame(width: 10, height: 15)
+                        Button {
+                            bookmarked.toggle()
+                        } label: {
+                            Image(systemName: bookmarked ? "bookmark.fill" : "bookmark")
+                                .resizable()
+                                .frame(width: 12, height: 18)
+                                .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+                        }
                     }
                 }
                 
@@ -83,23 +88,25 @@ struct MovieListCellView: View {
                 }
                 
                 Text("To explore Pandora, genetically matched human scientists use Na'vi-human hybrids called \"avatars.\"")
-//                    .font(.system(size: 10))
                     .font(Font(UIFont.caption1))
-
                     .multilineTextAlignment(.leading)
                     .frame(height: 40)
+                
                 if self.showButtons {
                     HStack {
                         // MARK: - Book Now
                         Button("More Details") {
-                            
+                            NotificationCenter.default.post(name: .cinemaProfileMovieMoreDetails,
+                                                            object: nil, userInfo: ["movie": movie])
                         }
                         .font(Font(UIFont.body))
                         
                         Spacer()
                         
-                        ICinemaButtonView(title: "Book Now", width: 80, height: 24)
-                        
+                        ICinemaButtonView(title: "Book Now", width: 80, height: 24) {
+                            print("hii")
+                          
+                        }
                     }
                 }
                 

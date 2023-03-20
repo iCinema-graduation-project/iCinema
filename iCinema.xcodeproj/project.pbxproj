@@ -73,6 +73,7 @@
 		733DAA2529B3A0CA00741211 /* CinemaProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */; };
 		733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2629B3B5A200741211 /* TabBarViewModel.swift */; };
 		733DAA2929B3BA3D00741211 /* DumySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2829B3BA3D00741211 /* DumySection.swift */; };
+		7348209529C518650014E607 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348209429C518650014E607 /* NotificationNames.swift */; };
 		734C8A4729BAACC7008B28B5 /* OTPViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */; };
 		736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736674E4298EE37C009CA617 /* PhoneViewModel.swift */; };
 		73687B7329AEA228007DB431 /* MoviesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73687B7229AEA228007DB431 /* MoviesSection.swift */; };
@@ -113,6 +114,7 @@
 		73BB19F529BF7E7A00C3A373 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */; };
 		73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */; };
 		73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFEFA12989EFA600969452 /* OTPViewController.swift */; };
+		73E3CBE129C5F4BE00C93ACB /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E3CBE029C5F4BE00C93ACB /* Axis.swift */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
 		73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918D29834531002F3568 /* SceneDelegate.swift */; };
 		73EC919529834533002F3568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919429834533002F3568 /* Assets.xcassets */; };
@@ -236,6 +238,7 @@
 		733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileViewController.swift; sourceTree = "<group>"; };
 		733DAA2629B3B5A200741211 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		733DAA2829B3BA3D00741211 /* DumySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumySection.swift; sourceTree = "<group>"; };
+		7348209429C518650014E607 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModelTests.swift; sourceTree = "<group>"; };
 		736674E4298EE37C009CA617 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		73687B7229AEA228007DB431 /* MoviesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSection.swift; sourceTree = "<group>"; };
@@ -277,6 +280,7 @@
 		73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
 		73BFEFA12989EFA600969452 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		73E3CBE029C5F4BE00C93ACB /* Axis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC918B29834531002F3568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73EC918D29834531002F3568 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -676,6 +680,7 @@
 				739ADAAC29B8FAF900FFA78E /* Cinema Post */,
 				733DAA2329B3A07300741211 /* Cinema Profile */,
 				732959BF29B822C500E2DF9B /* Movie Profile */,
+				73E3CBE029C5F4BE00C93ACB /* Axis.swift */,
 			);
 			path = Scence;
 			sourceTree = "<group>";
@@ -889,6 +894,7 @@
 				73FED1DF29886B0600395727 /* Constants.swift */,
 				73FED1E32988750100395727 /* SizeManager.swift */,
 				73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */,
+				7348209429C518650014E607 /* NotificationNames.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1347,6 +1353,7 @@
 				731FBF4F29B0BF7E00798DF5 /* IGStoryPreviewCell.swift in Sources */,
 				731FBF5C29B0BF7E00798DF5 /* UIImageView+Extension.swift in Sources */,
 				73A30CB129835EE200D672E6 /* ImageManager.swift in Sources */,
+				73E3CBE129C5F4BE00C93ACB /* Axis.swift in Sources */,
 				732959BE29B76B2400E2DF9B /* MoviesListView.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
 				738B062229C3919B00DC6DFC /* Coutries.swift in Sources */,
@@ -1399,6 +1406,7 @@
 				731FBF6429B0BF7E00798DF5 /* IGPlayerView.swift in Sources */,
 				73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */,
 				731FBF5829B0BF7E00798DF5 /* IGStory.swift in Sources */,
+				7348209529C518650014E607 /* NotificationNames.swift in Sources */,
 				73F0C37429AD7AE900F95B01 /* PosterCell.swift in Sources */,
 				73861C242984351E0020A63B /* NewUserViewController.swift in Sources */,
 				731FBF5129B0BF7E00798DF5 /* IGStoryPreviewController.swift in Sources */,

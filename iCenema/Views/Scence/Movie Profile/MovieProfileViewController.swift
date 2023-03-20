@@ -11,24 +11,21 @@ import SwiftUI
 class MovieProfileViewController: ICinemaViewController {
 
     var movie: Movie?
-    var dismissButtonAction: (() -> Void)?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mv =  MovieProfileView(closeButtonAction: { self.dismissButtonAction?() })
+        let mv =  MovieProfileView(closeButtonAction: {
+            self.dismiss()
+        })
         guard let movieProfileView = UIHostingController(rootView: mv).view else { return }
         
         view.addSubview(movieProfileView)
         movieProfileView.fillSuperviewConstraints()
-
     }
     
-    
-    public func setup(movie: Movie?, dismissButtonAction: (() -> Void)?) {
+    public func setup(movie: Movie?) {
         self.movie = movie
-        self.dismissButtonAction = dismissButtonAction
     }
     
 }
