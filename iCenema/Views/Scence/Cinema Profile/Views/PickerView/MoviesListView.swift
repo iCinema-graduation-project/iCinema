@@ -91,6 +91,7 @@ struct MovieListCellView: View {
                     .font(Font(UIFont.caption1))
                     .multilineTextAlignment(.leading)
                     .frame(height: 40)
+                    .layoutPriority(1)
                 
                 if self.showButtons {
                     HStack {

@@ -9,6 +9,8 @@ import UIKit
 import SwiftUI
 import Foundation
 
+
+
 class CinemaProfileViewController: ICinemaViewController {
  
     var cinema: Cinema?

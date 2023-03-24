@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "lottie-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-spm.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c3852816c622ad35a03ed39c187c1644ece2382b"
+      }
+    },
+    {
       "identity" : "trackable-scroll-view",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/maxnatchanon/trackable-scroll-view",

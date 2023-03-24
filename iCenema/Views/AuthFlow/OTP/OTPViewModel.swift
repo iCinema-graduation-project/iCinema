@@ -6,32 +6,27 @@
 //
 
 import UIKit
+import Alamofire
 
 // MARK: - view model protocols
-protocol OTPViewModelType {
-    var input: OTPViewModelInput { get }
-    var output: OTPViewModelOutput { get }
-    
-}
-
+//
 protocol OTPViewModelInput {
     func textField(didChanged text: String, at index: Int)
 }
 
-protocol OTPViewModelOutput {
-    func confirm(completion: @escaping (_ isOTPEmpty: Bool, _ isOTPValid: Bool) -> Void )
-}
-
 // MARK: - View Model
-class OTPViewModel: OTPViewModelType {
-    var input: OTPViewModelInput { self }
-    var output: OTPViewModelOutput { self }
+//
+class OTPViewModel: APIRequest {
+    typealias Response = Countries
+    var endpoint: String = "all_countries.php"
+    var parameters: Alamofire.Parameters? = nil
+    var requestMethod: HTTPMethod = .get
     
     private(set) var otp = OTPString(count: 5)
-
 }
 
 // MARK: - View Model input
+//
 extension OTPViewModel: OTPViewModelInput {
     func textField(didChanged text: String, at index: Int) {
         let textIsNotEmpty = !text.isEmpty
@@ -41,28 +36,7 @@ extension OTPViewModel: OTPViewModelInput {
             self.otp.removeCharachter(at: index)
         }
         print(self.otp.code)
-
     }
 }
 
-// MARK: - View Model output
-extension OTPViewModel: OTPViewModelOutput {
-    func confirm(completion: @escaping (_ isOTPEmpty: Bool, _ isOTPValid: Bool) -> Void ) {
-        
-        let isOTPEmpty = self.otp.isEmpty
-        
-        if isOTPEmpty  {
-            completion(isOTPEmpty, false)
-            
-        } else {
-            /*
-             otpNetworkRequest(otp: self.otp.code) { isOTPValid in
-                completion(isOTPEmpty, isOTPValid)
-             }
-             */
-            
-            completion(isOTPEmpty, true)
-        }
-    }
-}
 

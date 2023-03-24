@@ -23,7 +23,7 @@ class ICinemaViewController: ViewController {
         self.endEditing()
     }
     
-    // MARK: - Helper Functions
+    // MARK: - Helper Methods
     //
     private func configureNavegationControllar() {
         navigationController?.navigationBar.tintColor = .iCinemaTextColor
@@ -34,11 +34,8 @@ class ICinemaViewController: ViewController {
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "chevron.backward.square")
     }
     
-    
-    // MARK: - Public Functions
-   
-    
-    
+    // MARK: - Public Methods
+    //
     func getViewByTag(_ tag: Int) -> UIView?{
         return self.view.viewWithTag(tag)
     }

@@ -47,6 +47,7 @@ class WelcomeViewController: ICinemaViewController {
         addImageView()
         addDescriptionLabel()
         addRegisterAndGuestButtons()
+        
     }
     
     // MARK: - Update UI Methods
@@ -85,7 +86,8 @@ class WelcomeViewController: ICinemaViewController {
     }
     
     @objc private func guestButtonTapped(_ sender: ICinemaButton) {
-        sender.addAnimate {
+        sender.addAnimate { [self] in
+            
         }
         
         

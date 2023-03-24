@@ -8,9 +8,9 @@
 import Foundation
 import Alamofire
 
-struct NetworkError: Error {
-  let initialError: AFError
-  let backendError: BackendError?
+enum NetworkError: Error {
+  case initialError(AFError)
+  case backendError(BackendError)
 }
 
 struct BackendError: Codable, Error {

@@ -32,6 +32,12 @@ struct TagView: View {
             ForEach(groupedItems, id: \.self) { subitems in
                 HStack {
                     ForEach(subitems, id: \.self) { subitem in
+//                        Button(subitem) { }
+//                            .buttonStyle(.bordered)
+//                            .buttonBorderShape(.capsule)
+//                            .controlSize(.regular)
+//                            .foregroundColor(Color(uiColor: .iCinemaTextColor))
+//                            .accentColor(Color(uiColor: .iCinemaSecondBackgroudColor))
                         Text(subitem)
                             .font(.system(size: 18))
                             .padding(.horizontal)

@@ -29,6 +29,7 @@ class PhoneViewModel: APIRequest {
     typealias Response = Countries
     var endpoint: String = "all_countries.php"
     var parameters: Alamofire.Parameters? = nil
+    var requestMethod: HTTPMethod = .get
 
    
     private(set) var isPhoneNumberValid: Bool = false

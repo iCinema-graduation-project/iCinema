@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Combine
 
 class OTPViewController: ICinemaViewController {
     // MARK: - Views
@@ -34,9 +34,11 @@ class OTPViewController: ICinemaViewController {
     
     private lazy var confirmButton = ICinemaButton(title: .confirm, action: self.confirmButtonTapped)
     
+    let activityIndicator = ActivityIndicator()
     
     // MARK: - Properties
-    lazy var viewModel: OTPViewModelType = OTPViewModel()
+    lazy var viewModel = OTPViewModel()
+    private var cancellableSet: Set<AnyCancellable> = []
     
     // MARK: - Life Cycle
     //
@@ -46,7 +48,7 @@ class OTPViewController: ICinemaViewController {
         self.addAndConfigureSubviews()
     }
     
-    // MARK: - View Helper Functions
+    // MARK: - View Helper Methods
     //
     private func addAndConfigureSubviews(){
         addDescriptionLabel()
@@ -93,41 +95,43 @@ class OTPViewController: ICinemaViewController {
         confirmButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding, right: 0))
     }
     
-//    @available warning
     
     // MARK: - Actions
     //
     private func confirmButtonTapped() {
-        self.viewModel.output.confirm { isOTPEmpty, isOTPValid in
-            if isOTPEmpty {
-                self.selectEmptyTextField()
-            } else {
-                if isOTPValid {
-                    self.coordinator?.push()
+        if self.viewModel.otp.isEmpty {
+            self.selectEmptyTextField()
+            return
+        }
+        self.networkRequest()
+    }
+    
+    private func networkRequest() {
+        view.addSubview(activityIndicator)
+        activityIndicator.play()
+        self.viewModel.request()
+            .sink { [ unowned self ]  response in
+                self.activityIndicator.stop()
+                if let _ = response.error {
+                   
                 } else {
-                    for textfield in self.verificationCodeTextFields{
-                        textfield.text = ""
-                        textfield.setState(.fail, for: .normal)
-                        // do not forget to show alert with error message
-                        #warning("do not forget to show alert with error message")
-                    }
+                    self.coordinator?.push()
                 }
             }
-        }
-    
+            .store(in: &cancellableSet)
     }
     
     @objc private func textFieldsDidChanged(_ textField: ICinemaTextField) {
         let text = textField.text ?? ""
 
-        self.viewModel.input.textField(didChanged: text, at: textField.tag)
+        self.viewModel.textField(didChanged: text, at: textField.tag)
         
         if !text.isEmpty {
             self.selectNextTextFieldByTagOrEndEditing(textField)
         }
     }
     
-    // MARK: - Helper Functions
+    // MARK: - Helper Methods
     private func selectEmptyTextField() {
         for textField in self.verificationCodeTextFields {
             let text = textField.text ?? ""

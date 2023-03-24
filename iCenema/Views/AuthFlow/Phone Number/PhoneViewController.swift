@@ -62,6 +62,7 @@ class PhoneViewController:  ICinemaViewController {
     /// button
     private lazy var getCodeButton = ICinemaButton(title: .getCode, action: self.getCodeButtonTapped)
     
+    let activityIndicator = ActivityIndicator()
     
     // MARK: - Properites
     //
@@ -74,7 +75,7 @@ class PhoneViewController:  ICinemaViewController {
         super.viewDidLoad()
         navigationItem.addTitleView(title: .register)
         addAndConfigurSubViews()
-        
+  
         self.bindViewModelOutput()
         self.bindViewModelInput()
 
@@ -131,14 +132,15 @@ class PhoneViewController:  ICinemaViewController {
             self.phoneNumberTextField.setState(.fail, with: message, for: .editing)
             return
         }
-       
         self.networkRequest()
     }
     
-    #warning("Do not forget to test back end errors")
     private func networkRequest() {
-        self.viewModel.request(method: .get)
+        view.addSubview(activityIndicator)
+        activityIndicator.play()
+        self.viewModel.request()
             .sink { [ unowned self ] response in
+                self.activityIndicator.stop()
                 if let error = response.error {
                     let errorMessage = viewModel.getErrorMessage(from: error)
                     self.phoneNumberTextField.setState(.fail, with: errorMessage, for: .editing)
