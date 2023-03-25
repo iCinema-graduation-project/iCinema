@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import UIKit
 
-struct BookingStepperView: View {
+struct StepperView: View {
+    let countOfSteps: Int
     let currentStep: Int
 
-    let countOfSteps = 4
     var body: some View {
         HStack {
             ForEach(0..<countOfSteps, id: \.self) { index in
@@ -29,6 +30,7 @@ struct BookingStepperView: View {
             }
         }
         .frame(maxWidth: .infinity)
+        .background(Color(uiColor: .iCinemaBackgroundColor))
     }
     
     
@@ -43,11 +45,11 @@ struct BookingStepperView: View {
     }
 }
 
-struct BookingStepperView_Previews: PreviewProvider {
-    static var previews: some View {
-        BookingStepperView(currentStep: 2)
-            .preferredColorScheme(.dark)
-    }
-}
+//struct BookingStepperView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BookingStepperView(currentStep: 2)
+//            .preferredColorScheme(.dark)
+//    }
+//}
 
 

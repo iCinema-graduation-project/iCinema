@@ -11,7 +11,7 @@ import SwiftUI
 class ICinemaButton: UIView {
     init(title: String,  action: @escaping () -> Void) {
         super.init(frame: .zero)
-        guard let iCinemaButtonView = UIHostingController(rootView: ICinemaButtonView(title: title, action: action)).view else { return }
+        let iCinemaButtonView = ICinemaButtonView(title: title, action: action).hostigView()
         addSubview(iCinemaButtonView)
         iCinemaButtonView.fillSuperviewConstraints()
         sizeConstraints(width: CGFloat.iCinemaButton.width + 2, height: CGFloat.iCinemaButton.height + 2)

@@ -25,9 +25,8 @@ class MovieCell: UICollectionViewCell, IdentifiableView {
         contentView.layer.cornerRadius = .view.cornerRadius
         contentView.clipsToBounds = true
 
-        guard let movieCellView = UIHostingController(rootView: MovieCellView()).view else { return }
+        let movieCellView = MovieCellView().hostigView()
         contentView.addSubview(movieCellView)
-//        movieCellView.centerInSuperview()
         movieCellView.fillSuperviewConstraints()
     }
     

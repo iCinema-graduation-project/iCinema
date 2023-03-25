@@ -7,9 +7,8 @@
 
 import UIKit
 import SwiftUI
-import ViewAnimator
 
-final class HomeViewController: ICinemaViewController {
+final class HomeViewController: ICinemaViewController, CollectionViewCompositionalLayoutDataSource {
     
     // MARK: - Properties
     lazy var sections: [any CollectionViewCompositionalLayout] = [
@@ -69,10 +68,6 @@ final class HomeViewController: ICinemaViewController {
     }
     
 }
-
-// MARK: - CollectionViewCompositionalLayoutDataSource
-//
-extension HomeViewController: CollectionViewCompositionalLayoutDataSource { }
 
 // MARK: - CollectionViewDataSource
 //

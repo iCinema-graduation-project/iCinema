@@ -7,29 +7,39 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
-fileprivate final class Controller: ViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        guard let menuView = UIHostingController(rootView: MenuView()).view else { return }
-        view.addSubview(menuView)
-        menuView.fillSuperviewConstraints()
-    }
-}
 
 class MenuViewController: ICinemaViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        self.presentViewController(Controller())
-        navigationItem.addTitleView(title: "Menu")
-        guard let menuView = UIHostingController(rootView: MenuView()).view else { return }
+    
+    var cancelableSet: Set<AnyCancellable> = []
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let menu = MenuView()
+        
+        let menuView = menu.hostigView()
         view.addSubview(menuView)
-//        menuView.fillSuperviewConstraints()
         menuView.fillXSuperViewConstraints()
         menuView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, bottomAnchor: view.bottomAnchor)
-
+        
+        menu.viewModel.$viewController.sink { viewController in
+            guard let viewController = viewController else { return }
+            self.navigationController?.pushViewController(viewController.init(), animated: true)
+        }
+        .store(in: &cancelableSet)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.addTitleView(title: "Menu")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        cancelableSet.removeAll()
     }
 
 }

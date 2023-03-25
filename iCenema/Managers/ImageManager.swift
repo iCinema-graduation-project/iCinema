@@ -25,7 +25,7 @@ extension UIImage {
     
     struct TabBarImageManager {
         let home = UIImage(named: "home")
-        let homeSelected = UIImage(named: "homeS")
+        let homeSelected = UIImage(named: "homeS")!.withTintColor(.yellow, renderingMode: .alwaysOriginal)
         let menu = UIImage(named: "menu")
         let menuSelected = UIImage(named: "menuS")
         let notification = UIImage(named: "notification")

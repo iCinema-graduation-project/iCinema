@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SwiftUI
 
 class WelcomeViewController: ICinemaViewController {
     // MARK: - Views
@@ -47,7 +47,6 @@ class WelcomeViewController: ICinemaViewController {
         addImageView()
         addDescriptionLabel()
         addRegisterAndGuestButtons()
-        
     }
     
     // MARK: - Update UI Methods

@@ -7,7 +7,34 @@
 
 import SwiftUI
 
+class MenuViewModel: ObservableObject {
+    @Published var viewController: ViewController.Type? = nil
+    
+    public func updateViewController(viewController: ViewController.Type?) {
+        self.viewController = viewController
+    }
+}
+
 struct MenuView: View {
+    @ObservedObject var viewModel: MenuViewModel = MenuViewModel()
+    
+    let menuSections: [MenuSection] = [
+        MenuSection(title: "General", cells: [
+            MenuCell(imageSystemName: "person", text: "Following", viewController: CinemaProfileViewController.self),
+            MenuCell(imageSystemName: "clock", text: "Activity"),
+            MenuCell(imageSystemName: "bookmark", text: "Saved"),
+            MenuCell(imageSystemName: "wallet.pass", text: "ICinema Wallet"),
+            MenuCell(imageSystemName: "globe", text: "Language"),
+            MenuCell(imageSystemName: "sun.max", text: "Light Mode")
+        ]),
+        
+        MenuSection(title: "Service", cells: [
+            MenuCell(imageSystemName: "mail", text: "Contact us"),
+            MenuCell(imageSystemName: "person.3", text: "About us"),
+            MenuCell(imageSystemName: "star", text: "Rate us"),
+            MenuCell(imageSystemName: "iphone.and.arrow.forward", text: "Log out")
+        ])
+    ]
     
     var body: some View {
             List {
@@ -27,44 +54,26 @@ struct MenuView: View {
                         }
                     }
                 }
+           
                 
-                menuSection {
-                    
-                    Text("General")
-                        .foregroundColor(Color(uiColor: .iCinemaYellowColor))
-                        .font(Font(UIFont.callout))
-                    // Following
-                    menuCell(imageSystemName: "person", text: "Following")
-                    // Activity
-                    menuCell(imageSystemName: "clock", text: "Activity")
-                    // saved
-                    menuCell(imageSystemName: "bookmark", text: "Saved")
-                    // iCinema walled
-                    menuCell(imageSystemName: "wallet.pass", text: "ICinema Wallet")
-                    // Language
-                    menuCell(imageSystemName: "globe", text: "Language")
-                    // light mode
-                    menuCell(imageSystemName: "sun.max", text: "Light Mode")
-                }
-                
-                
-                menuSection {
-                    Text("Service")
-                        .foregroundColor(Color(uiColor: .iCinemaYellowColor))
-                        .font(Font(UIFont.callout))
-                    // contact us
-                    menuCell(imageSystemName: "mail", text: "Contact us")
-                    // about us
-                    menuCell(imageSystemName: "person.3", text: "About us")
-                    // Rate us
-                    menuCell(imageSystemName: "star", text: "Rate us")
-                    // logout
-                    menuCell(imageSystemName: "iphone.and.arrow.forward", text: "Log out")
+                ForEach(menuSections , id: \.id) { section in
+                    menuSection {
+                        Text(section.title)
+                            .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+                            .font(Font(UIFont.callout))
+                        
+                        ForEach(section.cells, id: \.id) { cell in
+                            Button {
+                                viewModel.updateViewController(viewController: cell.viewController)
+                            } label: {
+                                menuCell(imageSystemName: cell.imageSystemName, text: cell.text)
+                            }
+                        }
+                    }
                 }
                 
                 HStack {}
                     .listRowBackground(Color.clear)
-                
             }
             .modifier(FormHiddenBackground())
             .background(Color(uiColor: .iCinemaBackgroundColor))
@@ -101,9 +110,7 @@ struct FormHiddenBackground: ViewModifier {
             content.onAppear {
                 UITableView.appearance().backgroundColor = .clear
             }
-//            .onDisappear {
-//                UITableView.appearance().backgroundColor = .systemGroupedBackground
-//            }
+
         }
     }
 }

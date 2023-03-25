@@ -36,10 +36,9 @@ class AppTapBarController: ICinemaViewController {
         buildCoordinator(vc: notificationVC, image: .tabBar.notification, selectedImage: .tabBar.notificationSelected, tag: 4)
         
         let viewControllers = [menuVC, reelsVC, homeVC, ticketVC, notificationVC]
-        guard let tabBarView = UIHostingController(rootView: AppTabBarView(tabs: viewControllers, selectedTabIndex: 2, tabBarViewModel: iCinemaTabBar)).view else { return }
         
-        self.tabBarView = tabBarView
-        view.addSubview(tabBarView)
+        self.tabBarView = AppTabBarView(tabs: viewControllers, selectedTabIndex: 2, tabBarViewModel: iCinemaTabBar).hostigView()
+        view.addSubview(tabBarView!)
         
     }
     override func viewWillLayoutSubviews() {

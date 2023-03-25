@@ -15,10 +15,9 @@ class MovieProfileViewController: ICinemaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mv =  MovieProfileView(closeButtonAction: {
+        let movieProfileView =  MovieProfileView(closeButtonAction: {
             self.dismiss()
-        })
-        guard let movieProfileView = UIHostingController(rootView: mv).view else { return }
+        }).hostigView()
         
         view.addSubview(movieProfileView)
         movieProfileView.fillSuperviewConstraints()

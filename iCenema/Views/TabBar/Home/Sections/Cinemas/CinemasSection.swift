@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import ViewAnimator
 
 final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLayout {
     // MARK: - Typealias
@@ -86,6 +87,10 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(cellType.self, for: indexPath)
         cell.target = self.target
+        
+        let fromAnimation = AnimationType.from(direction: .right, offset: 50.0)
+        cell.animate(animations: [fromAnimation])
+        
         return cell
     }
     

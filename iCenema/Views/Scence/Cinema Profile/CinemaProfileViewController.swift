@@ -22,9 +22,7 @@ class CinemaProfileViewController: ICinemaViewController {
         
         let cinemaProfileView = CinemaProfileView {
             self.dismiss()
-        }
-            
-        guard let cinemaProfileView = UIHostingController(rootView: cinemaProfileView).view else { return }
+        }.hostigView()
         
         self.view.addSubview(cinemaProfileView)
         cinemaProfileView.fillSuperviewConstraints()
