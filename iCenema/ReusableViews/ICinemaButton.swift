@@ -14,7 +14,8 @@ class ICinemaButton: UIView {
         let iCinemaButtonView = ICinemaButtonView(title: title, action: action).hostigView()
         addSubview(iCinemaButtonView)
         iCinemaButtonView.fillSuperviewConstraints()
-        sizeConstraints(width: CGFloat.iCinemaButton.width + 2, height: CGFloat.iCinemaButton.height + 2)
+        sizeConstraints(width: CGFloat.iCinemaButton.size.width + 2,
+                        height: CGFloat.iCinemaButton.size.height + 2)
     }
     
     required init?(coder: NSCoder) {
@@ -31,8 +32,8 @@ struct ICinemaButtonView: View {
     @State var animate = false
     
     init(title: String,
-         width: CGFloat = .iCinemaButton.width,
-         height: CGFloat = .iCinemaButton.height,
+         width: CGFloat = .iCinemaButton.size.width,
+         height: CGFloat = .iCinemaButton.size.height,
          action: @escaping () -> Void = {}) {
         self.title = title
         self.width = width

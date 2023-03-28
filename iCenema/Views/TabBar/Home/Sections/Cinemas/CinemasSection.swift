@@ -37,27 +37,38 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
     //
     func itemLayoutInGroup() -> NSCollectionLayoutItem {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
         return item
     }
     
     func groupLayoutInSection() -> NSCollectionLayoutGroup {
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(.home.cinemas.cinemaCellWidth), heightDimension: .absolute(.home.cinemas.cinemaCellHeight))
-        let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [self.itemLayoutInGroup()])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(.home.cinemas.size.width),
+                                               heightDimension: .absolute(.home.cinemas.size.height))
         
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .home.movies.padding, bottom: 0, trailing: .home.movies.padding)
+        let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                                                subitems: [self.itemLayoutInGroup()])
+        
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .cell.padding.left, bottom: 0, trailing: .cell.padding.right)
         
         return group
     }
     
     func sectionLayout() -> NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: self.groupLayoutInSection())
+        
         section.orthogonalScrollingBehavior = .continuous
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .home.movies.padding, bottom: 0, trailing: 0)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .cell.padding.left, bottom: 0, trailing: 0)
         
         // MARK: - add supplementary view
-        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.home.movies.supplementaryHeight))
-        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,elementKind: supplementaryViewType.identifier, alignment: .top)
+        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                       heightDimension: .absolute(.supplementaryHeight))
+        
+        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,
+                                                                            elementKind: supplementaryViewType.identifier,
+                                                                            alignment: .top)
+        
         section.boundarySupplementaryItems = [supplementaryItem]
         
         return section
@@ -86,7 +97,6 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(cellType.self, for: indexPath)
-        cell.target = self.target
         
         let fromAnimation = AnimationType.from(direction: .right, offset: 50.0)
         cell.animate(animations: [fromAnimation])
@@ -95,9 +105,17 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let supView = collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self, ofKind: supplementaryViewType.identifier, for: indexPath)
-        supView.setTitle("Cinemas")
+        let supView = collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self,
+                                                                      ofKind: supplementaryViewType.identifier,
+                                                                      for: indexPath)
+        supView.setTitle(.cinemas)
         return supView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cinemaProfileVC = CinemaProfileViewController()
+        cinemaProfileVC.setup(cinema: nil)
+        self.target.presentViewController(cinemaProfileVC)
     }
     
 }

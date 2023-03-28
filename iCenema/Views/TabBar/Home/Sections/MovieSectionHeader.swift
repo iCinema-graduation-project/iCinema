@@ -13,9 +13,11 @@ final class MovieSectionHeader: UICollectionReusableView, IdentifiableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(label)
-        label.fillSuperviewConstraints(padding: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 5))
+        label.centerYInSuperview()
+        label.makeConstraints(leadingAnchor: leadingAnchor,
+                              padding: UIEdgeInsets(top: 0, left: .view.spacing,
+                                                    bottom: 0, right: 0))
         label.textAlignment = .left
-        label.text = "For You"
         label.font = .title3
     }
     

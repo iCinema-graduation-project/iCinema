@@ -8,5 +8,7 @@
 import Foundation
 
 struct Movie: Codable {
-    
+    let poster: String
+    let name: String
+    let bookmarket: Bool
 }

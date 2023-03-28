@@ -18,6 +18,7 @@ class AppCoordinator {
             rootViewController = AppTapBarController()
         } else {
             let appFlowCoordinator = AuthFlowCoordinator()
+//            let appFlowCoordinator = BookingCoordinator()
             rootViewController = appFlowCoordinator.navigationController
         }
     }

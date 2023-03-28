@@ -6,7 +6,23 @@
 //
 
 import UIKit
-import SwiftUI
+import UserNotifications
+
+extension UILabel {
+    func makeDescreptionLabel() {
+        textAlignment = .center
+        numberOfLines = 0
+        textColor = .iCinemaTextColor
+        font = .callout
+        centerXInSuperview()
+        fillXSuperViewConstraints(paddingLeft: .view.padding.left,
+                                  paddingRight: .view.padding.right)
+        
+        guard let superview = superview else { return }
+        makeConstraints(topAnchor: superview.safeAreaLayoutGuide.topAnchor,
+                                         padding: CGFloat.view.padding)
+    }
+}
 
 class WelcomeViewController: ICinemaViewController {
     // MARK: - Views
@@ -15,11 +31,7 @@ class WelcomeViewController: ICinemaViewController {
     
     private let descreptionLabel: UILabel = {
         let label = UILabel()
-        label.text = .welecomeDescriptionLabel
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.textColor = .iCinemaTextColor
-        label.font = .callout
+        label.text = .welcome.descriptionLabel
         return label
     }()
     
@@ -27,19 +39,19 @@ class WelcomeViewController: ICinemaViewController {
         
     private let guestButton: UIButton = {
         let button = UIButton()
-        button.heightConstraints(.iCinemaButton.height)
+        button.heightConstraints(.iCinemaButton.size.height)
         button.backgroundColor = .white
         button.layer.shadowColor = UIColor.iCinemaYellowColor.cgColor
         button.setTitleColor(.iCinemaOnlyGray, for: .normal)
-        button.setTitle(.guest, for: .normal)
+        button.setTitle(.welcome.guest, for: .normal)
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = .iCinemaButton.cornerRadius
         button.titleLabel?.font = .button
         return button
     }()
+        
     
-
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
@@ -60,8 +72,8 @@ class WelcomeViewController: ICinemaViewController {
     
     private func addDescriptionLabel() {
         view.addSubview(descreptionLabel)
-        descreptionLabel.widthConstraints(.view.width)        
-        descreptionLabel.centerInSuperview()
+        descreptionLabel.makeDescreptionLabel()
+        descreptionLabel.centerYInSuperview()
     }
     
     private func addRegisterAndGuestButtons() {
@@ -72,10 +84,10 @@ class WelcomeViewController: ICinemaViewController {
         
         view.addSubview(stackview)
         stackview.centerXInSuperview()
-        stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding, right: 0))
+        stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
+                                  padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding.bottom, right: 0))
         
         guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)
-        
     }
     
     // MARK: - Actions
@@ -85,11 +97,9 @@ class WelcomeViewController: ICinemaViewController {
     }
     
     @objc private func guestButtonTapped(_ sender: ICinemaButton) {
-        sender.addAnimate { [self] in
+        sender.addAnimate { 
             
         }
-        
-        
     }
     
 }

@@ -14,12 +14,7 @@ class PhoneViewController:  ICinemaViewController {
     //
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = .phoneDescriptionLabel
-        label.tintColor = .iCinemaTextColor
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.widthConstraints(.view.width)
-        label.font = .title3
+        label.text = .phone.descriptionLabel
         return label
     }()
     
@@ -34,7 +29,7 @@ class PhoneViewController:  ICinemaViewController {
     
     /// Select Country
     private let countryView: ICinemaTextField = {
-        let textfield = ICinemaTextField(placeholder: .country)
+        let textfield = ICinemaTextField(placeholder: .phone.country)
         textfield.text = "."
         textfield.isEnabled = false
         textfield.setState(.normal, for: .disabled)
@@ -53,14 +48,14 @@ class PhoneViewController:  ICinemaViewController {
     }()
     
     let phoneNumberTextField: ICinemaTextField = {
-        let textfield = ICinemaTextField(placeholder: .phoneNumber)
+        let textfield = ICinemaTextField(placeholder: .phone.phoneNumber)
         textfield.keyboardType = .phonePad
         textfield.font = .textfeild
         return textfield
     }()
     
     /// button
-    private lazy var getCodeButton = ICinemaButton(title: .getCode, action: self.getCodeButtonTapped)
+    private lazy var getCodeButton = ICinemaButton(title: .phone.getCode, action: self.getCodeButtonTapped)
     
     let activityIndicator = ActivityIndicator()
     
@@ -93,16 +88,15 @@ class PhoneViewController:  ICinemaViewController {
 
     private func addDescriptionLabel() {
         view.addSubview(descriptionLabel)
-        descriptionLabel.centerXInSuperview()
-        descriptionLabel.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor,
-                                         padding: UIEdgeInsets(top: .view.padding, left: 0, bottom: 0, right: 0))
+        descriptionLabel.makeDescreptionLabel()
+
     }
     
     private func addTextFieldsStackView() {
         view.addSubview(TextFieldsStackView)
         TextFieldsStackView.centerXInSuperview()
         TextFieldsStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor,
-                                            padding: UIEdgeInsets(top: .view.padding, left: 0, bottom: 0, right: 0))
+                                            padding: CGFloat.view.padding)
     
         TextFieldsStackView.addArrangedSubview(countryView)
         TextFieldsStackView.addArrangedSubview(phoneNumberTextField)
@@ -111,7 +105,8 @@ class PhoneViewController:  ICinemaViewController {
     
     private func addCountryPickerView() {
         view.addSubview(countryPickerView)
-        countryPickerView.makeConstraints(leadingAnchor: countryView.leadingAnchor , centerYAnchor: countryView.centerYAnchor,
+        countryPickerView.makeConstraints(leadingAnchor: countryView.leadingAnchor,
+                                          centerYAnchor: countryView.centerYAnchor,
                                           padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
         countryPickerView.hostViewController = self
     }
@@ -120,14 +115,14 @@ class PhoneViewController:  ICinemaViewController {
         view.addSubview(getCodeButton)
         getCodeButton.centerXInSuperview()
         getCodeButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
-                                      padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding, right: 0))
+                                      padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding.bottom, right: 0))
     }
     
     // MARK: - Actions
     //
     private func getCodeButtonTapped(){
         guard self.viewModel.isPhoneNumberValid else {
-            let message = "Enter Valid Phone Number"
+            let message = String.phone.errorMessage
             self.phoneNumberTextField.becomeFirstResponder()
             self.phoneNumberTextField.setState(.fail, with: message, for: .editing)
             return

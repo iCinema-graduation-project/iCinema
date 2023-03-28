@@ -28,7 +28,7 @@ struct CinemaProfileMovieSection_Previews: PreviewProvider {
 
 
 struct MovieListCellView: View {
-    let movie = Movie()
+//    let movie = Movie()
     var showButtons = true
     @State var bookmarked = false
     
@@ -98,7 +98,7 @@ struct MovieListCellView: View {
                         // MARK: - Book Now
                         Button("More Details") {
                             NotificationCenter.default.post(name: .cinemaProfileMovieMoreDetails,
-                                                            object: nil, userInfo: ["movie": movie])
+                                                            object: nil, userInfo: ["movie": "movie"])
                         }
                         .font(Font(UIFont.body))
                         

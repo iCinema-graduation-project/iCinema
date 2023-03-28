@@ -48,9 +48,12 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
         let section = NSCollectionLayoutSection(group: self.groupLayoutInSection())
         section.orthogonalScrollingBehavior = .groupPagingCentered
         
-        // MARK: - add supplementary view
-        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.home.posters.supplementaryHeight))
-        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize, elementKind: supplementaryViewType.identifier, alignment: .bottom)
+        // MARK: - add supplementary view at bottom
+        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                       heightDimension: .absolute(.home.posters.supplementaryHeight))
+        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,
+                                                                            elementKind: supplementaryViewType.identifier,
+                                                                            alignment: .bottom)
         section.boundarySupplementaryItems = [supplementaryItem]
         
         // MARK: - Update page control
@@ -91,7 +94,9 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let posterPaginationView = collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self, ofKind: supplementaryViewType.identifier, for: indexPath)
+        let posterPaginationView = collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self,
+                                                                                   ofKind: supplementaryViewType.identifier,
+                                                                                   for: indexPath)
         posterPaginationView.setNumberOfPages(self.itemsCount)
         self.posterPaginationView = posterPaginationView
         return posterPaginationView

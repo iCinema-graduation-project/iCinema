@@ -6,24 +6,38 @@
   
 */
 
-"welecomeDescriptionLabel" = "توفر لك iCinema تجربة فريدة لمعرفة كل ما يتعلق بالأفلام ، يمكنك مشاهدة كل ما تريده وحجزه والبحث عنه";
 "register" = "دخول";
-"guest" = "ضيف";
-"phoneDescriptionLabel" = "أدخل رمز بلدك ورقم هاتفك";
-"country" = "الدوله";
-"phoneNumber" = "رقم الهاتف";
-"getCode" = "احصل على الرمز";
-"newUserDescriptionLabel" = "ليس لديك حساب ، يرجى استكمال المعلومات الخاصة بك للحصول على حساب";
-"fullName" = "الاسم بالكامل";
-"age" = "العمر";
-"gender" = "ذكر او انثي";
-"female" = "أنثى";
-"male" = "ذكر";
-"createAccount" = "إنشاء حساب";
-"otpDescriptionLabel" = "لقد أرسلنا لك رمز الدخول عبر الرسائل القصيرة للتحقق من رقم الهاتف";
-"confirm" = "تأكيد";
-"newUser" = "مستخدم جديد";
-"verification" = "تَحَقّق";
+"view" = "عرض";
+"cinemas" = "السينمات";
+
+// MARK: - Welcome
+"welecome.descriptionLabel" = "توفر لك iCinema تجربة فريدة لمعرفة كل ما يتعلق بالأفلام ، يمكنك مشاهدة كل ما تريده وحجزه والبحث عنه";
+"welecome.guest" = "ضيف";
+
+// MARK: - Phone
+"phone.descriptionLabel" = "أدخل رمز بلدك ورقم هاتفك";
+"phone.country" = "الدوله";
+"phone.phoneNumber" = "رقم الهاتف";
+"phone.getCode" = "احصل على الرمز";
+"phone.errorMessage" = "أدخل رقم هاتف صالح";
+
+// MARK: - OTP
+"otp.descriptionLabel" = "لقد أرسلنا لك رمز الدخول عبر الرسائل القصيرة للتحقق من رقم الهاتف";
+"otp.confirm" = "تأكيد";
+"otp.verification" = "تَحَقّق";
+
+// MARK: - New User
+"newUser.descriptionLabel" = "ليس لديك حساب ، يرجى استكمال المعلومات الخاصة بك للحصول على حساب";
+"newUser.fullName" = "الاسم بالكامل";
+"newUser.age" = "العمر";
+"newUser.gender" = "ذكر او انثي";
+"newUser.female" = "أنثى";
+"newUser.male" = "ذكر";
+"newUser.createAccount" = "إنشاء حساب";
+"newUser.newUser" = "مستخدم جديد";
+
+// MARK: - Home
+"home.forYou" = "من اجلك";
 
 
 

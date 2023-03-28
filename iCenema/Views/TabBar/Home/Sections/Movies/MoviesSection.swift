@@ -37,26 +37,42 @@ final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLa
     //
     func itemLayoutInGroup() -> NSCollectionLayoutItem {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
         return item
     }
     
     func groupLayoutInSection() -> NSCollectionLayoutGroup {
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(.home.movies.cellWidth), heightDimension: .absolute(.home.movies.cellHeight))
-//        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(180), heightDimension: .absolute(300))
-        let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [self.itemLayoutInGroup()])
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .home.movies.padding, bottom: 0, trailing: .home.movies.padding)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(.home.movies.size.width),
+                                               heightDimension: .absolute(.home.movies.size.height))
+        
+        let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                                                subitems: [self.itemLayoutInGroup()])
+        
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .cell.padding.left,
+                                                      bottom: 0, trailing: .cell.padding.right)
         return group
     }
     
     func sectionLayout() -> NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: self.groupLayoutInSection())
+        
         section.orthogonalScrollingBehavior = .continuous
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .home.movies.padding, bottom: 0, trailing: 0)
+        section.contentInsets = NSDirectionalEdgeInsets(top: .cell.padding.top,
+                                                        leading: .cell.padding.right,
+                                                        bottom: .cell.padding.bottom,
+                                                        trailing: .cell.padding.right)
+        
         
         // MARK: - add supplementary view
-        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.home.movies.supplementaryHeight))
-        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,elementKind: supplementaryViewType.identifier, alignment: .top)
+        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                       heightDimension: .absolute(.supplementaryHeight))
+        
+        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,
+                                                                            elementKind: supplementaryViewType.identifier,
+                                                                            alignment: .top)
+        
         section.boundarySupplementaryItems = [supplementaryItem]
 
         return section
@@ -93,7 +109,10 @@ final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        return collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self, ofKind: supplementaryViewType.identifier, for: indexPath)
+        let supplementaryView = collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self, ofKind: supplementaryViewType.identifier, for: indexPath)
+        supplementaryView.setTitle(.home.forYou)
+        
+        return supplementaryView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -101,5 +120,7 @@ final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLa
         mv.setup(movie: nil)
         self.target.presentViewController(mv)
     }
+    
+    
     
 }

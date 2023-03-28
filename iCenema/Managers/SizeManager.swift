@@ -5,16 +5,20 @@
 //  Created by Ahmed Yamany on 30/01/2023.
 //
 
-import Foundation
+import UIKit
 
 
 extension CGFloat {
+    
+    static let supplementaryHeight: CGFloat = 44
+    
+    
     // MARK: - View
     static let view = View.self
     struct View {
         static let width: CGFloat = 320
-        static let padding: CGFloat = 48
-        static let cornerRadius: CGFloat = 15
+        static let padding = UIEdgeInsets(top: 48, left: 32, bottom: 48, right: 32)
+        static let cornerRadius: CGFloat = 16
         static let borderWidth: CGFloat = 0.8
         static let spacing: CGFloat = 36
     }
@@ -22,39 +26,39 @@ extension CGFloat {
     // MARK: - ICinema Button
     static let iCinemaButton = ICinemaButton.self
     struct ICinemaButton {
-        static let width: CGFloat = 200
-        static let height: CGFloat = 40
-        static let cornerRadius: CGFloat = CGFloat.iCinemaButton.width / 25
-        
+        static let size = CGSize(width: 200, height: 40)
+        static let cornerRadius: CGFloat = CGFloat.iCinemaButton.size.width / 25 // = 8
+    }
+    
+    // MARK: - Cell
+    static let cell = Cell.self
+    struct Cell {
+        static let padding = UIEdgeInsets(top: 10, left: 8, bottom: 8, right: 8)
     }
     
     // MARK: - Home
-    static let home = Home()
+    static let home = Home.self
     struct Home {
-        let posters = Posters.self
-        let movies = Movies.self
-        let cinemas = Cinemas.self
+        static let posters = Posters.self
+        static let movies = Movies.self
+        static let cinemas = Cinemas.self
         
         struct Posters {
             static let supplementaryHeight: CGFloat = 30
-            static let height: CGFloat = 276
-            static let width: CGFloat = 240
-            static let sectionHeight: CGFloat = CGFloat.home.posters.height + CGFloat.iCinemaButton.height + 15
+
+            static let size = CGSize(width: 240, height: 276)
+            static let sectionHeight: CGFloat = CGFloat.home.posters.size.height + CGFloat.iCinemaButton.size.height + 15
         }
         struct Movies {
-            static let supplementaryHeight: CGFloat = 50
-            static let cellWidth: CGFloat = 168
-            static let cellHeight: CGFloat = 272 //224
+            static let size = CGSize(width: 168, height: 272)
             static let imageHeight: CGFloat = 170
-
-            static let padding: CGFloat = 8
         }
         struct Cinemas {
-            static let cinemaCellWidth: CGFloat = 168
-            static let cinemaCellHeight: CGFloat = 184
+            static let size = CGSize(width: 168, height: 184)
         }
     }
     
+    static let bookmark = CGSize(width: 12, height: 18)
     
     // MARK: - Cinema Profile
     static let cinemaProfile = CinemaProfile.self
@@ -63,7 +67,6 @@ extension CGFloat {
         static let cinemaInformationViewWidth: CGFloat = 90
         static let cinemaInformationViewDividerHeight: CGFloat = 40
     }
-    
     
     // MARK: - Movie Profile
     static let movieProfile = MovieProfile.self

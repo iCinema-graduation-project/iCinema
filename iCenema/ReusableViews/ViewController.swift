@@ -38,7 +38,7 @@ class ViewController: UIViewController{
         self.view.addSubview(presentedView)
         presentedView.frame = self.view.bounds
 
-        // Animate the presentation of the presentedView.
+        // Animate the presentation of the presentedView at 0 seconds.
         UIView.animate(withDuration: 0, delay: 0) {
             presentedView.makeConstraints(
                                         bottomAnchor: self.view.bottomAnchor,

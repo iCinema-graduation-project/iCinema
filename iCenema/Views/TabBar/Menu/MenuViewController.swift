@@ -10,7 +10,6 @@ import SwiftUI
 import Combine
 
 
-
 class MenuViewController: ICinemaViewController {
     
     var cancelableSet: Set<AnyCancellable> = []
@@ -25,7 +24,6 @@ class MenuViewController: ICinemaViewController {
         view.addSubview(menuView)
         menuView.fillXSuperViewConstraints()
         menuView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, bottomAnchor: view.bottomAnchor)
-        
         menu.viewModel.$viewController.sink { viewController in
             guard let viewController = viewController else { return }
             self.navigationController?.pushViewController(viewController.init(), animated: true)

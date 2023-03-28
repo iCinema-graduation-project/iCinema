@@ -8,24 +8,52 @@
 import UIKit
 
 extension String {
-    static let welecomeDescriptionLabel = getLocalized(with: "welecomeDescriptionLabel")
     static let register = getLocalized(with: "register")
-    static let guest = getLocalized(with: "guest")
-    static let phoneDescriptionLabel = getLocalized(with: "phoneDescriptionLabel")
-    static let country = getLocalized(with: "country")
-    static let phoneNumber = getLocalized(with: "phoneNumber")
-    static let getCode = getLocalized(with: "getCode")
-    static let newUserDescriptionLabel = getLocalized(with: "newUserDescriptionLabel")
-    static let fullName = getLocalized(with: "fullName")
-    static let age = getLocalized(with: "age")
-    static let gender = getLocalized(with: "gender")
-    static let female = getLocalized(with: "female")
-    static let male = getLocalized(with: "male")
-    static let createAccount = getLocalized(with: "createAccount")
-    static let otpDescriptionLabel = getLocalized(with: "otpDescriptionLabel")
-    static let confirm = getLocalized(with: "confirm")
-    static let newUser = getLocalized(with: "newUser")
-    static let verification = getLocalized(with: "verification")
+    static let view = getLocalized(with: "view")
+    static let cinemas = getLocalized(with: "cinemas")
+    
+    // MARK: - Auth Flow
+    static let welcome = Welcome.self
+    static let phone = Phone.self
+    static let otp = OTP.self
+    static let newUser = NewUser.self
+    
+    struct Welcome {
+        static let descriptionLabel = getLocalized(with: "welecome.descriptionLabel")
+        static let guest = getLocalized(with: "welecome.guest")
+    }
+    
+    struct Phone {
+        static let descriptionLabel = getLocalized(with: "phone.descriptionLabel")
+        static let country = getLocalized(with: "phone.country")
+        static let phoneNumber = getLocalized(with: "phone.phoneNumber")
+        static let getCode = getLocalized(with: "phone.getCode")
+        static let errorMessage = getLocalized(with: "phone.errorMessage")
+    }
+    
+    struct OTP {
+        static let descriptionLabel = getLocalized(with: "otp.descriptionLabel")
+        static let confirm = getLocalized(with: "otp.confirm")
+        static let verification = getLocalized(with: "otp.verification")
+    }
+    
+    struct NewUser {
+        static let descriptionLabel = getLocalized(with: "newUser.descriptionLabel")
+        static let fullName = getLocalized(with: "newUser.fullName")
+        static let age = getLocalized(with: "newUser.age")
+        static let gender = getLocalized(with: "newUser.gender")
+        static let female = getLocalized(with: "newUser.female")
+        static let male = getLocalized(with: "newUser.male")
+        static let createAccount = getLocalized(with: "newUser.createAccount")
+        static let newUser = getLocalized(with: "newUser.newUser")
+    }
+    
+    // MARK: - Home
+    static let home = Home.self
+    
+    struct Home {
+        static let forYou = getLocalized(with: "home.forYou")
+    }
     
 }
 

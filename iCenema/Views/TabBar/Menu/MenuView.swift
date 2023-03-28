@@ -37,46 +37,49 @@ struct MenuView: View {
     ]
     
     var body: some View {
-            List {
-                menuSection {
-                    HStack(spacing: 15.0) {
-                        Image("profile")
-                            .makeCircled(size: CGSize(width: 40, height: 40),
-                                         strockColor: Color(uiColor: .iCinemaYellowColor),
-                                         strockSpacing: 4, lineWidth: 1.5)
-                        VStack(alignment: .leading) {
-                            Text("Ahmed Yamany")
-                                .foregroundColor(Color(uiColor: .iCinemaTextColor))
-                                .font(Font(UIFont.callout))
-                            Text("+20 1551608020")
-                                .foregroundColor(.gray)
-                                .font(Font(UIFont.body))
-                        }
-                    }
-                }
-           
                 
-                ForEach(menuSections , id: \.id) { section in
-                    menuSection {
-                        Text(section.title)
-                            .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+        List {
+            menuSection {
+                HStack(spacing: 15.0) {
+                    Image("profile")
+                        .makeCircled(size: CGSize(width: 40, height: 40),
+                                     strockColor: Color(uiColor: .iCinemaYellowColor),
+                                     strockSpacing: 4, lineWidth: 1.5)
+                    VStack(alignment: .leading) {
+                        Text("Ahmed Yamany")
                             .font(Font(UIFont.callout))
-                        
-                        ForEach(section.cells, id: \.id) { cell in
-                            Button {
-                                viewModel.updateViewController(viewController: cell.viewController)
-                            } label: {
-                                menuCell(imageSystemName: cell.imageSystemName, text: cell.text)
-                            }
+                        Text("+20 1551608020")
+                            .foregroundColor(.gray)
+                            .font(Font(UIFont.body))
+                    }
+                }
+                .foregroundColor(Color(uiColor: .iCinemaTextColor))
+            }
+            
+            
+            ForEach(menuSections , id: \.id) { section in
+                menuSection {
+                    Text(section.title)
+                        .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+                        .font(Font(UIFont.callout))
+                    
+                    ForEach(section.cells, id: \.id) { cell in
+                        Button {
+                            viewModel.updateViewController(viewController: cell.viewController)
+                        } label: {
+                            menuCell(imageSystemName: cell.imageSystemName, text: cell.text)
                         }
                     }
                 }
-                
-                HStack {}
-                    .listRowBackground(Color.clear)
             }
+
+            HStack {}
+                .listRowBackground(Color.clear)
+        }
+            
             .modifier(FormHiddenBackground())
             .background(Color(uiColor: .iCinemaBackgroundColor))
+
     }
     
     private func menuSection<Content: View>(@ViewBuilder content: @escaping () -> Content) -> some View {

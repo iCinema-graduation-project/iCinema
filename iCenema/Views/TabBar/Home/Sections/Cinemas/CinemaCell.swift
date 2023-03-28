@@ -17,13 +17,6 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
     private let detailsSuperView = UIView()
     private let followButton = RadioButton()
     
-    // MARK: - Properties
-    //
-    var target: ViewController?
-    var profileView: UIView?
-    var profileViewAnchoredConstraints: AnchoredConstraints?
-    
-    
     // MARK: - intializers
     //
     override init(frame: CGRect) {
@@ -35,8 +28,6 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         self.addFollowButton()
         
         imageView.image = UIImage(named: "cinema")
-//        cinemaNameLabel.setTitle("Details", for: .normal)
-
     }
     
     required init?(coder: NSCoder) {
@@ -57,18 +48,18 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
 
         // Set Constraints
         imageView.centerXInSuperview()
-        imageView.equalSizeConstraints(contentView.frame.width - (CGFloat.home.movies.padding * 2))
-        imageView.makeConstraints(topAnchor: contentView.topAnchor, padding: UIEdgeInsets(top: .home.movies.padding, left: 0, bottom: 0, right: 0))
-                
+        imageView.equalSizeConstraints(contentView.frame.width - (CGFloat.cell.padding.left * 2))
+        imageView.makeConstraints(topAnchor: contentView.topAnchor, padding: UIEdgeInsets(top: .cell.padding.top, left: 0, bottom: 0, right: 0))
+    
         // Apply Some Styling
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = .view.cornerRadius
-        self.addTappGestureToImageView()
+        
     }
     
     private func addDetailsSuperView() {
         contentView.addSubview(detailsSuperView)
-        detailsSuperView.fillXSuperViewConstraints(paddingLeft: .home.movies.padding, paddingRight: .home.movies.padding)
+        detailsSuperView.fillXSuperViewConstraints(paddingLeft: .cell.padding.left, paddingRight: .cell.padding.right)
         detailsSuperView.makeConstraints(topAnchor: imageView.bottomAnchor, bottomAnchor: contentView.bottomAnchor)
         detailsSuperView.clipsToBounds = true
     }
@@ -93,21 +84,6 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         followButton.makeConstraints(trailingAnchor: detailsSuperView.trailingAnchor)
         followButton.centerYInSuperview()
     }
-    
-    // MARK: - Helper Methods
-    //
-    private func addTappGestureToImageView() {
-        let tapGesure = UITapGestureRecognizer(target: self, action: #selector(self.didImageViewTapGestureTapped))
-        self.imageView.addGestureRecognizer(tapGesure)
-        self.imageView.isUserInteractionEnabled = true
-    }
-    
-    @objc private func didImageViewTapGestureTapped(_ sender: UITapGestureRecognizer? = nil) {
-        let cinemaProfileVC = CinemaProfileViewController()
-        cinemaProfileVC.setup(cinema: nil)
-        self.target?.presentViewController(cinemaProfileVC)
-    }
-
     
 
 }

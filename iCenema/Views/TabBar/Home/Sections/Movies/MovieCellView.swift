@@ -6,37 +6,39 @@
 //
 
 import SwiftUI
+import UIKit
+
+
+
 
 struct MovieCellView: View {
+    
+    var movie: Movie
     
     @State var bookmarked = false
     
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 5) {
-                Image("posterImage")
+
+                Image(movie.poster)
                     .resizable()
-                    .frame( height: .home.movies.imageHeight)
-                    .cornerRadius(CGFloat.view.cornerRadius)
-                    .shadow(color: Color(uiColor: .iCinemaYellowColor), radius: 1)
-                  
+                    .addBorder(withColor: Color(uiColor: .iCinemaYellowColor),
+                               height: .home.movies.imageHeight)
+                
                 HStack {
-                    Text("Black Adam")
+                    Text(movie.name)
                         .font(Font(UIFont.body))
                         .lineLimit(1)
                     Spacer()
                     Button {
                         bookmarked.toggle()
                     } label: {
-                        Image(systemName: bookmarked ? "bookmark.fill" : "bookmark")
-                            .resizable()
-                            .frame(width: 12, height: 18)
-                            .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+                        BookMark(bookmarked: bookmarked)
                     }
-
-                    
                 }
-                // Ciname Name
+                
+                // Ciname
                 HStack {
                     Image("cinema")
                         .makeCircled(size: CGSize(width: 10, height: 10),
@@ -44,22 +46,18 @@ struct MovieCellView: View {
                                      lineWidth: 0.5)
                     Text("Galaxy")
                         .font(Font(UIFont.caption1))
-                    
                 }
                 
                 // Cinema Location
-                
                 HStack {
-                    Image(systemName: "location")
+                    Image(systemName: UIImage.location)
                         .resizable()
                         .frame(width: 12, height: 12)
                         .foregroundColor(Color(uiColor: .iCinemaYellowColor))
                     
                     Text("Cairo / 2.3km")
                         .font(Font(UIFont.caption1))
-                    
                 }
-                // Genre
        
                 // MARK: - Genre
                 Text("Action, Horror, Tragety")
@@ -70,17 +68,34 @@ struct MovieCellView: View {
                 
                 Spacer()
             }
-            .padding(.horizontal, 20)
-            .padding(.top, 12)
+            .padding(.horizontal, .cell.padding.left + 10)
+            .padding(.top, .cell.padding.top)
+            .foregroundColor(Color(uiColor: .iCinemaTextColor))
+
         }
-        .frame(width: .home.movies.cellWidth, height: .home.movies.cellHeight)
+        .frame(width: .home.movies.size.width, height: .home.movies.size.height)
         .background(Color(uiColor: .iCinemaSecondBackgroudColor))
-    
+        .onAppear {
+            bookmarked = movie.bookmarket
+        }
     }
 }
 
 struct MovieCellView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieCellView()
+        var movie = Movie(poster: "posterImage", name: "Black Adam", bookmarket: true)
+        MovieCellView(movie: movie)
+    }
+}
+
+
+struct BookMark: View {
+    let bookmarked: Bool
+    var body: some View {
+        Image(systemName: bookmarked ? UIImage.bookmarkFill : UIImage.bookmark)
+            .resizable()
+            .frame(width: .bookmark.width, height: .bookmark.height)
+            .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+        
     }
 }

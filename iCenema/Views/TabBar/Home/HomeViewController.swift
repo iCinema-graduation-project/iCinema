@@ -47,11 +47,12 @@ final class HomeViewController: ICinemaViewController, CollectionViewComposition
     }
     
     private func addMagnifyingGlassToRightBarButtonItem(){
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: .magnifyingglass, style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
+                                                            style: .plain, target: self, action: nil)
     }
     
     private func addUserProfileImageToLeftBarButtonItem(){
-        let imageView = UIImageView(image: .profile).makeCircleImage(withWidth: 32)
+        let imageView = UIImageView(image: UIImage(named: "profile")).makeCircleImage(withWidth: 32)
         imageView.layer.borderColor = UIColor.iCinemaYellowColor.cgColor
         imageView.layer.borderWidth = 1.5
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: imageView)

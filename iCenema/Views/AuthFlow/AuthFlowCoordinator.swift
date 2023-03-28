@@ -14,6 +14,7 @@ final class AuthFlowCoordinator: Coordinator {
     var coordinators: [ViewController.Type] = [WelcomeViewController.self, PhoneViewController.self, OTPViewController.self, NewUserViewController.self, AppTapBarController.self]
     
     init() {
+//        currentIndex = 2
         push()
     }
 

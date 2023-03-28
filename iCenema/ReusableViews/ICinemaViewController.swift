@@ -56,14 +56,3 @@ class ICinemaViewController: ViewController {
 
 }
 
-extension ICinemaViewController {
-    func addStepperView() {
-        guard let coordinator = coordinator else { return }
-        let steperView = StepperView(countOfSteps: coordinator.coordinators.count,
-                                     currentStep: coordinator.currentIndex).hostigView()
-        
-        steperView.widthConstraints(Constants.screenBounds.width/2)
-        navigationItem.addTitleView(view: steperView)
-    }
-}
-

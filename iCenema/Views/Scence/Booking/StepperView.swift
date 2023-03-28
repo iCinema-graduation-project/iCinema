@@ -45,11 +45,16 @@ struct StepperView: View {
     }
 }
 
-//struct BookingStepperView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BookingStepperView(currentStep: 2)
-//            .preferredColorScheme(.dark)
-//    }
-//}
+
+extension ICinemaViewController {
+    func addStepperView() {
+        guard let coordinator = coordinator else { return }
+        let steperView = StepperView(countOfSteps: coordinator.coordinators.count,
+                                     currentStep: coordinator.currentIndex).hostigView()
+        
+        steperView.widthConstraints(Constants.screenBounds.width/2)
+        navigationItem.addTitleView(view: steperView)
+    }
+}
 
 
