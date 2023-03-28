@@ -8,5 +8,5 @@
 import SwiftUI
 
 class CinemaDateViewModel: ObservableObject {
-    @Published var buttonAction: (() -> Void)? = nil
+    @Published var buttonAction: (() -> Void) = {}
 }

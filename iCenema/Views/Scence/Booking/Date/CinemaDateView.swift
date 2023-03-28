@@ -64,7 +64,7 @@ struct CinemaDateView: View {
                 Spacer()
                 
                 ICinemaButtonView(title: "Next") {
-                    self.viewModel.buttonAction?()
+                    self.viewModel.buttonAction()
                 }
                 .padding(.bottom, CGFloat.view.spacing)
 

@@ -11,6 +11,11 @@ extension String {
     static let register = getLocalized(with: "register")
     static let view = getLocalized(with: "view")
     static let cinemas = getLocalized(with: "cinemas")
+    static let follow = getLocalized(with: "follow")
+    static let unfollow = getLocalized(with: "unfollow")
+    static let bookNow = getLocalized(with: "bookNow")
+    static let moreDetails = getLocalized(with: "moreDetails")
+
     
     // MARK: - Auth Flow
     static let welcome = Welcome.self
@@ -48,12 +53,49 @@ extension String {
         static let newUser = getLocalized(with: "newUser.newUser")
     }
     
+    static let cinemaProfile = CinemaProfile.self
+    struct CinemaProfile {
+        static let followers = getLocalized(with: "cinemaProfile.followers")
+        static let count = getLocalized(with: "cinemaProfile.count")
+        
+        static let size = getLocalized(with: "cinemaProfile.size")
+        static let chairs = getLocalized(with: "cinemaProfile.chairs")
+        
+        static let location = getLocalized(with: "cinemaProfile.location")
+        
+
+    }
+    
+    
     // MARK: - Home
     static let home = Home.self
     
     struct Home {
         static let forYou = getLocalized(with: "home.forYou")
     }
+    
+    // MARK: - Menu
+    static let menu = Menu.self
+    
+    struct Menu {
+        static let general = getLocalized(with: "menu.general")
+        static let following = getLocalized(with: "menu.following")
+        static let activity = getLocalized(with: "menu.activity")
+        static let saved = getLocalized(with: "menu.saved")
+        static let icinemaWallet = getLocalized(with: "menu.icinemaWallet")
+        static let language = getLocalized(with: "menu.language")
+        static let lightMode = getLocalized(with: "menu.lightMode")
+        static let darkMode = getLocalized(with: "menu.darkMode")
+        
+        static let service = getLocalized(with: "menu.service")
+        static let contactUs = getLocalized(with: "menu.contactUs")
+        static let aboutUs = getLocalized(with: "menu.aboutUs")
+        static let rateUs = getLocalized(with: "menu.rateUs")
+        static let logout = getLocalized(with: "menu.logout")
+        
+
+    }
+
     
 }
 

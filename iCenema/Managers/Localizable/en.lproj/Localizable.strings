@@ -8,6 +8,10 @@
 "register" = "Register";
 "view" = "view";
 "cinemas" = "Cinemas";
+"follow" = "Follow";
+"unfollow" = "Un Follow";
+"bookNow" = "Book Now";
+"moreDetails" = "More Details";
 
 // MARK: - Welcome
 "welecome.descriptionLabel" = "iCinema provides you with a unique experience to know everything related to movies, you can watch, book, and search for everything you want";
@@ -37,4 +41,29 @@
 
 // MARK: - Home
 "home.forYou" = "For You";
+
+// MARK: - Menu
+"menu.general" = "General";
+"menu.following" = "Following";
+"menu.activity" = "Activity";
+"menu.saved" = "Saved";
+"menu.icinemaWallet" = "ICinema Wallet";
+"menu.language" = "Language";
+"menu.lightMode" = "Light Mode";
+"menu.darkMode" = "Dark Mode";
+
+"menu.service" = "Service";
+"menu.contactUs" = "Contact us";
+"menu.aboutUs" = "About us";
+"menu.rateUs" = "Rate us";
+"menu.logout" = "Log Out";
+
+// MARK: - Cinema Profile
+"cinemaProfile.followers" = "Followers";
+"cinemaProfile.count" = "Count";
+
+"cinemaProfile.size" = "Size";
+"cinemaProfile.chairs" = "Chairs";
+"cinemaProfile.location" = "Location";
+
 

@@ -8,29 +8,33 @@
 import SwiftUI
 
 struct CinemaProfileHeaderView: View {
-    let cinema: Cinema
-        
-    let imageHeight: CGFloat = .cinemaProfile.cinemaImageHeight
+    @EnvironmentObject var viewModel: CinemaProfileViewModel
+
+    @State var followed = false
     
     var body: some View {
         VStack {
             // Ciname Profile Image
             Image("cinema")
-                .makeCircled(size: CGSize(width: imageHeight, height: imageHeight),
+                .makeCircled(size: CGSize(width: .cinemaProfile.imageSize.width, height: .cinemaProfile.imageSize.height),
                              strockColor: Color(uiColor: .iCinemaYellowColor),
                              strockSpacing: 12,
                              lineWidth: 3)
 
             // Cinema Name
-            Text(cinema.name + " Cinema")
+            Text(viewModel.cinema.name + " Cinema")
                 .foregroundColor(Color(uiColor: .iCinemaTextColor))
-                .font(Font(UIFont.title2))
+                .font(Font(UIFont.title3))
             
             // Follow Button
-            ICinemaButtonView(title: "Follow") {
-//                print(Int(floor(cinema.rate)))
+            ICinemaButtonView(title: followed ? .follow : .unfollow) {
+                followed.toggle()
+                viewModel.followButtonTapped()
             }
             
+        }
+        .onAppear {
+            followed = viewModel.cinema.followed
         }
     }
 }

@@ -29,8 +29,7 @@ class AppTapBarController: ICinemaViewController {
         let homeVC = HomeCoordinator().navigationController
         buildCoordinator(vc: homeVC, image: .tabBar.home, selectedImage: .tabBar.homeSelected, tag: 2)
         
-//        let ticketVC = TicketCoordinator().navigationController
-        let ticketVC = BookingCoordinator().navigationController
+        let ticketVC = TicketCoordinator().navigationController
 
         buildCoordinator(vc: ticketVC, image: .tabBar.ticket, selectedImage: .tabBar.ticketSelected, tag: 3)
         

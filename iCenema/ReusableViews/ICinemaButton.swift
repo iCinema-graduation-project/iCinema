@@ -26,24 +26,20 @@ class ICinemaButton: UIView {
 struct ICinemaButtonView: View {
     let title: String
     let action: () -> Void
-    let width: CGFloat
-    let height: CGFloat
+    let size: CGSize
     
     @State var animate = false
     
-    init(title: String,
-         width: CGFloat = .iCinemaButton.size.width,
-         height: CGFloat = .iCinemaButton.size.height,
+    init(title: String, size: CGSize = CGFloat.iCinemaButton.size,
          action: @escaping () -> Void = {}) {
         self.title = title
-        self.width = width
-        self.height = height
+        self.size = size
         self.action = action
     }
     
     var body: some View {
         Text(title)
-            .frame(width: self.width, height: self.height)
+            .frame(width: self.size.width, height: self.size.height)
             .background(Color(uiColor: .iCinemaYellowColor))
             .foregroundColor(Color(uiColor: .iCinemaTextColorReverce))
             .cornerRadius(CGFloat.iCinemaButton.cornerRadius)
@@ -51,7 +47,7 @@ struct ICinemaButtonView: View {
             .addScaleAnimationOnTapGesture(animate: $animate, action: self.action)
             .shadow(color: Color(uiColor: .iCinemaYellowColor), radius: 4)
 //            .font(width > 100 ? .subheadline : .caption)
-            .font(Font(width > 100 ? UIFont.button : UIFont.smallButton))
+            .font(Font(size.width > 100 ? UIFont.button : UIFont.smallButton))
     }
     
 }

@@ -9,12 +9,16 @@ import SwiftUI
 
 
 struct MoviesListView: View {
+    @EnvironmentObject var viewModel: CinemaProfileViewModel
+
     var body: some View {
         VStack(spacing: 15) {
-            MovieListCellView()
-            MovieListCellView()
-            MovieListCellView()
-            MovieListCellView()
+            ForEach(0..<5, id: \.self) { _ in
+                MovieListCellView()
+                    .environmentObject(viewModel)
+
+            }
+        
         }
     
     }
@@ -28,32 +32,37 @@ struct CinemaProfileMovieSection_Previews: PreviewProvider {
 
 
 struct MovieListCellView: View {
-//    let movie = Movie()
+    @EnvironmentObject var viewModel: CinemaProfileViewModel
+
+    
+    let movie = Movie(poster: "posterImage", name: "Avatar", bookmarket: false)
+    
     var showButtons = true
     @State var bookmarked = false
     
     var body: some View {
     
         HStack {
-            Image("posterImage")
+            Image(movie.poster)
                 .resizable()
-                .frame(width: 100)
-                .cornerRadius(5)
-                .shadow(color: Color(uiColor: .iCinemaYellowColor), radius: 4)
+                .cornerRadius(.view.cornerRadius)
+                .addBorder(withColor: Color(uiColor: .iCinemaYellowColor),
+                                                            height: .cinemaProfile.movieListSize.height)
+                            .frame(width: .cinemaProfile.movieListSize.width)
 
             VStack(alignment: .leading,  spacing: 5) {
                 HStack {
                     // MARK: - Name
-                    Text("Avatar")
+                    Text(movie.name)
                         .font(Font(UIFont.title3))
                     Spacer()
                     if self.showButtons {
                         Button {
                             bookmarked.toggle()
                         } label: {
-                            Image(systemName: bookmarked ? "bookmark.fill" : "bookmark")
+                            Image(systemName: bookmarked ? UIImage.bookmarkFill : UIImage.bookmark)
                                 .resizable()
-                                .frame(width: 12, height: 18)
+                                .frame(width: .bookmark.width, height: .bookmark.height)
                                 .foregroundColor(Color(uiColor: .iCinemaYellowColor))
                         }
                     }
@@ -96,17 +105,16 @@ struct MovieListCellView: View {
                 if self.showButtons {
                     HStack {
                         // MARK: - Book Now
-                        Button("More Details") {
-                            NotificationCenter.default.post(name: .cinemaProfileMovieMoreDetails,
-                                                            object: nil, userInfo: ["movie": "movie"])
+                        Button(String.moreDetails, role: .cancel) {
+                            viewModel.showMore(movie)
                         }
                         .font(Font(UIFont.body))
                         
                         Spacer()
                         
-                        ICinemaButtonView(title: "Book Now", width: 80, height: 24) {
-                            print("hii")
-                          
+                        ICinemaButtonView(title: .bookNow, size: CGFloat.iCinemaButton.smallButtonSize) {
+                            viewModel.bookNow(movie)
+
                         }
                     }
                 }
@@ -118,8 +126,12 @@ struct MovieListCellView: View {
             .padding(.leading)
             Spacer()
         }
-        .frame(height: 140)
+        .foregroundColor(Color(uiColor: .iCinemaTextColor))
+        .frame(height: .cinemaProfile.movieListSize.height)
         .padding(5)
         .padding(.horizontal)
+        .onAppear {
+            bookmarked = movie.bookmarket
+        }
     }
 }

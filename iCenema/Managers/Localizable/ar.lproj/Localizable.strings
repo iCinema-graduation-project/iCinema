@@ -9,6 +9,11 @@
 "register" = "دخول";
 "view" = "عرض";
 "cinemas" = "السينمات";
+"follow" = "متابعه";
+"unfollow" = "الغاء المتابعه";
+"bookNow" = "احجز الان";
+"moreDetails" = "اعرض المزيد";
+
 
 // MARK: - Welcome
 "welecome.descriptionLabel" = "توفر لك iCinema تجربة فريدة لمعرفة كل ما يتعلق بالأفلام ، يمكنك مشاهدة كل ما تريده وحجزه والبحث عنه";
@@ -38,6 +43,30 @@
 
 // MARK: - Home
 "home.forYou" = "من اجلك";
+
+// MARK: - Menu
+"menu.general" = "العام";
+"menu.following" = "المتابعة";
+"menu.activity" = "النشاط";
+"menu.saved" = "المحفوظات";
+"menu.icinemaWallet" = "محفظه ICinema";
+"menu.language" = "اللغة";
+"menu.lightMode" = "وضع النهار";
+"menu.darkMode" = "وضع الليل";
+
+"menu.service" = "خدمات";
+"menu.contactUs" = "تواصل معنا";
+"menu.aboutUs" = "من نحن";
+"menu.rateUs" = "قيمنا";
+"menu.logout" = "تسجيل خروج";
+
+// MARK: - Cinema Profile
+"cinemaProfile.followers" = "المتابعين";
+"cinemaProfile.count" = "عدد";
+
+"cinemaProfile.size" = "المساحه";
+"cinemaProfile.chairs" = "كرسي";
+"cinemaProfile.location" = "الموقع";
 
 
 

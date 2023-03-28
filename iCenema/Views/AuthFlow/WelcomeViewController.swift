@@ -13,7 +13,7 @@ extension UILabel {
         textAlignment = .center
         numberOfLines = 0
         textColor = .iCinemaTextColor
-        font = .callout
+        font = .footnote
         centerXInSuperview()
         fillXSuperViewConstraints(paddingLeft: .view.padding.left,
                                   paddingRight: .view.padding.right)

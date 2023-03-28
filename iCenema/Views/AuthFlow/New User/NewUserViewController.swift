@@ -69,7 +69,7 @@ class NewUserViewController: ICinemaViewController {
             }
         })
         button.setTitle(.newUser.female, for: .normal)
-        button.titleLabel?.font = .callout
+        button.titleLabel?.font = .footnote
         return button
     }()
     
@@ -83,7 +83,7 @@ class NewUserViewController: ICinemaViewController {
             }
         }
         button.setTitle(.newUser.male, for: .normal)
-        button.titleLabel?.font = .callout
+        button.titleLabel?.font = .footnote
         return button
     }()
     

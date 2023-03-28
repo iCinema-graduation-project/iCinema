@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Cinema: Codable {
+struct Cinema: Decodable {
     let name: String
     let followersCount: Int
     let rate: Float
     let ChairsCount: Int
-    
+    var followed: Bool
 }

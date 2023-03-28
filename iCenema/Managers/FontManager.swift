@@ -54,11 +54,11 @@ public extension UIFont {
     }
 
     static var callout: UIFont {
-        return UIFont(name: "Stolzl-Medium", size: 16)!
+        return UIFont(name: "Stolzl-Medium", size: 12)!
     }
 
     static var footnote: UIFont {
-        return UIFont(name: "Stolzl-Bold", size: 12)!
+        return UIFont(name: "Stolzl-Bold", size: 14)!
     }
 
     static var body: UIFont {

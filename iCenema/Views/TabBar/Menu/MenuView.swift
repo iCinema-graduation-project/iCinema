@@ -18,21 +18,24 @@ class MenuViewModel: ObservableObject {
 struct MenuView: View {
     @ObservedObject var viewModel: MenuViewModel = MenuViewModel()
     
+    @Environment(\.colorScheme) var colorScheme
+    
+    
     let menuSections: [MenuSection] = [
-        MenuSection(title: "General", cells: [
-            MenuCell(imageSystemName: "person", text: "Following", viewController: CinemaProfileViewController.self),
-            MenuCell(imageSystemName: "clock", text: "Activity"),
-            MenuCell(imageSystemName: "bookmark", text: "Saved"),
-            MenuCell(imageSystemName: "wallet.pass", text: "ICinema Wallet"),
-            MenuCell(imageSystemName: "globe", text: "Language"),
-            MenuCell(imageSystemName: "sun.max", text: "Light Mode")
+        MenuSection(title: .menu.general, cells: [
+            MenuCell(imageSystemName: "person", text: .menu.following, viewController: CinemaProfileViewController.self),
+            MenuCell(imageSystemName: "clock", text: .menu.activity),
+            MenuCell(imageSystemName: "bookmark", text: .menu.saved),
+            MenuCell(imageSystemName: "wallet.pass", text: .menu.icinemaWallet),
+            MenuCell(imageSystemName: "globe", text: .menu.language),
+            MenuCell(imageSystemName: "sun.max", text: .menu.lightMode)
         ]),
         
-        MenuSection(title: "Service", cells: [
-            MenuCell(imageSystemName: "mail", text: "Contact us"),
-            MenuCell(imageSystemName: "person.3", text: "About us"),
-            MenuCell(imageSystemName: "star", text: "Rate us"),
-            MenuCell(imageSystemName: "iphone.and.arrow.forward", text: "Log out")
+        MenuSection(title: .menu.service, cells: [
+            MenuCell(imageSystemName: "mail", text: .menu.contactUs),
+            MenuCell(imageSystemName: "person.3", text: .menu.aboutUs),
+            MenuCell(imageSystemName: "star", text: .menu.rateUs),
+            MenuCell(imageSystemName: "iphone.and.arrow.forward", text: .menu.logout)
         ])
     ]
     
@@ -47,7 +50,7 @@ struct MenuView: View {
                                      strockSpacing: 4, lineWidth: 1.5)
                     VStack(alignment: .leading) {
                         Text("Ahmed Yamany")
-                            .font(Font(UIFont.callout))
+                            .font(Font(UIFont.title3))
                         Text("+20 1551608020")
                             .foregroundColor(.gray)
                             .font(Font(UIFont.body))
@@ -61,7 +64,7 @@ struct MenuView: View {
                 menuSection {
                     Text(section.title)
                         .foregroundColor(Color(uiColor: .iCinemaYellowColor))
-                        .font(Font(UIFont.callout))
+                        .font(Font(UIFont.footnote))
                     
                     ForEach(section.cells, id: \.id) { cell in
                         Button {
@@ -93,7 +96,7 @@ struct MenuView: View {
             Image(systemName: imageSystemName)
                 .foregroundColor(Color(uiColor: .iCinemaYellowColor))
             Text(text)
-                .font(Font(UIFont.body))
+                .font(Font(UIFont.callout))
         }
     }
 }

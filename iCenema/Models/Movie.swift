@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Movie: Codable {
+struct Movie: Decodable {
     let poster: String
     let name: String
-    let bookmarket: Bool
+    var bookmarket: Bool
 }

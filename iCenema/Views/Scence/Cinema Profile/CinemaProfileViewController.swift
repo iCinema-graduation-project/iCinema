@@ -8,37 +8,56 @@
 import UIKit
 import SwiftUI
 import Foundation
-
+import Combine
 
 
 class CinemaProfileViewController: ICinemaViewController {
- 
-    var cinema: Cinema?
+    
+    var viewModel: CinemaProfileViewModel?
+    
+    var cancellableSet: Set<AnyCancellable> = []
     
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let viewModel = viewModel else { return }
         
-        let cinemaProfileView = CinemaProfileView {
-            self.dismiss()
-        }.hostigView()
+        let cinemaProfileView = CinemaProfileView()
+            .environmentObject(viewModel)
+            .hostigView()
+            
         
         self.view.addSubview(cinemaProfileView)
         cinemaProfileView.fillSuperviewConstraints()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(userLoggedIn(_:)), name: .cinemaProfileMovieMoreDetails, object: nil)
+        viewModel.$dismiss.sink { dismiss in
+            if dismiss {
+                self.dismiss()
+            }
+        }
+        .store(in: &cancellableSet)
+        
+        
+        viewModel.showMore = { movie in
+
+            let movieVC = MovieProfileViewController()
+            movieVC.setup(movie: movie)
+            self.presentViewController(movieVC)
+            
+        }
+        
+        
+        viewModel.bookNow = { movie in
+            print(movie.name)
+
+            self.dismiss()
+            iCinemaTabBar.hide()
+            self.presenterViewController?.coordinator?.push()
+            
+        }
+        
     }
     
-    @objc func userLoggedIn(_ notification: Notification) {
-        let movieVC = MovieProfileViewController()
-        movieVC.setup(movie: nil)
-        self.presentViewController(movieVC)
-    }
-    
-    
-    public func setup(cinema: Cinema?) {
-        self.cinema = cinema
-    }
     
 }

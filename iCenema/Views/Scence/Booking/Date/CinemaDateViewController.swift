@@ -14,10 +14,10 @@ class CinemaDateViewController: ICinemaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cinemaDate = CinemaDateView()
+        let cinemaDateView = CinemaDateView()
             .environmentObject(viewModel)
-        let cinemaDateView = cinemaDate.hostigView()
-        
+            .hostigView()
+ 
         view.addSubview(cinemaDateView)
         cinemaDateView.fillXSuperViewConstraints()
         cinemaDateView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor,

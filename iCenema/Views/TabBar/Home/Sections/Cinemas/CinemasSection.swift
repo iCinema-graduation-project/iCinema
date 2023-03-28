@@ -114,7 +114,11 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cinemaProfileVC = CinemaProfileViewController()
-        cinemaProfileVC.setup(cinema: nil)
+        
+        let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5,
+                                    ChairsCount: 430, followed: false)
+        
+        cinemaProfileVC.viewModel = .init(cinema: cinema)
         self.target.presentViewController(cinemaProfileVC)
     }
     

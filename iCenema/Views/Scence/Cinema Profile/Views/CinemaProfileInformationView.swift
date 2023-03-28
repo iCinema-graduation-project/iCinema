@@ -8,34 +8,35 @@
 import SwiftUI
 
 struct CinemaProfileInformationView: View {
-    let cinema: Cinema
+    @EnvironmentObject var viewModel: CinemaProfileViewModel
+
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             VStack {
                 Divider()
                 HStack(alignment: .center, spacing: 10) {
                     // Rate
-                    RateCinameInformationView(cinema: cinema)
+                    RateCinameInformationView(cinema: viewModel.cinema)
                     Divider().frame(height: .cinemaProfile.cinemaInformationViewDividerHeight)
+                    
                     // Follow Count
-                    CinemaInformationView(caption2: "followers",
-                                          title: "\(cinema.followersCount)",
-                                          caption: "Count")
+                    CinemaInformationView(caption2: .cinemaProfile.followers,
+                                          title: "\(viewModel.cinema.followersCount)",
+                                          caption: .cinemaProfile.count)
                     // Location
-                    CinemaInformationView(caption2: "location",
+                    CinemaInformationView(caption2: .cinemaProfile.location,
                                           title: "Cairo",
                                           caption: "Egypt")
                     // Size
-                    CinemaInformationView(caption2: "size",
-                                          title: "\(cinema.ChairsCount)",
-                                          caption: "Chairs", hasLeftDivider: false)
+                    CinemaInformationView(caption2: .cinemaProfile.size,
+                                          title: "\(viewModel.cinema.ChairsCount)",
+                                          caption: .cinemaProfile.chairs, hasLeftDivider: false)
                 }
-                .frame(height: 80)
+                .frame(height: .cinemaProfile.imageSize.height)
                 Divider()
             }
             .padding(.horizontal)
         }
-        .padding(.bottom)
 
     }
 }
@@ -50,11 +51,11 @@ struct CinemaInformationView: View {
             VStack(alignment: .center, spacing: 8) {
                 /// caption Text
                 Text(caption2.uppercased())
-                    .font(Font(UIFont.footnote))
+                    .font(Font(UIFont.callout))
                     .foregroundColor(.gray)
                 /// title Text
                 Text(title.capitalized)
-                    .font(Font(UIFont.title2))
+                    .font(Font(UIFont.title3))
                 /// caption Text
                 Text(caption.capitalized)
                     .font(Font(UIFont.caption1))
@@ -73,7 +74,7 @@ struct RateCinameInformationView: View {
     var body: some View {
         VStack(alignment: .center,  spacing: 8) {
             Text("10K RATINGS")
-                .font(Font(UIFont.footnote))
+                .font(Font(UIFont.callout))
                 .foregroundColor(.gray)
             
             Text(String(format: "%.1f", cinema.rate))

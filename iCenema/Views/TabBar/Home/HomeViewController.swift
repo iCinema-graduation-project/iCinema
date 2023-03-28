@@ -38,6 +38,11 @@ final class HomeViewController: ICinemaViewController, CollectionViewComposition
         collectionView.frame = view.bounds
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        iCinemaTabBar.show()
+    }
+    
     // MARK: - Update UI
     private func updateUI(){
         navigationItem.addTitleView(title: "ICinema")
@@ -52,7 +57,7 @@ final class HomeViewController: ICinemaViewController, CollectionViewComposition
     }
     
     private func addUserProfileImageToLeftBarButtonItem(){
-        let imageView = UIImageView(image: UIImage(named: "profile")).makeCircleImage(withWidth: 32)
+        let imageView = UIImageView(image: UIImage(named: "profile")).makeCircleImage(withWidth: .profile.imageSize.width)
         imageView.layer.borderColor = UIColor.iCinemaYellowColor.cgColor
         imageView.layer.borderWidth = 1.5
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: imageView)

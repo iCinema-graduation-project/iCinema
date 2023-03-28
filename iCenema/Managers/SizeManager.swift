@@ -27,13 +27,14 @@ extension CGFloat {
     static let iCinemaButton = ICinemaButton.self
     struct ICinemaButton {
         static let size = CGSize(width: 200, height: 40)
+        static let smallButtonSize = CGSize(width: 80, height: 24)
         static let cornerRadius: CGFloat = CGFloat.iCinemaButton.size.width / 25 // = 8
     }
     
     // MARK: - Cell
     static let cell = Cell.self
     struct Cell {
-        static let padding = UIEdgeInsets(top: 10, left: 8, bottom: 8, right: 8)
+        static let padding = UIEdgeInsets(top: 10, left: 8, bottom: 10, right: 8)
     }
     
     // MARK: - Home
@@ -61,11 +62,19 @@ extension CGFloat {
     static let bookmark = CGSize(width: 12, height: 18)
     
     // MARK: - Cinema Profile
+    static let profile = Profile.self
+    struct Profile {
+        static let imageSize = CGSize(width: 32, height: 32)
+        static let strockLineWidth = 0.7
+    }
     static let cinemaProfile = CinemaProfile.self
     struct CinemaProfile{
-        static let cinemaImageHeight: CGFloat = 88
+        static let imageSize = CGSize(width: 88, height: 88)
         static let cinemaInformationViewWidth: CGFloat = 90
         static let cinemaInformationViewDividerHeight: CGFloat = 40
+        static let sliderSize = CGSize(width: CGFloat.view.width, height: 144)
+        
+        static let movieListSize = CGSize(width: 110, height: 140)
     }
     
     // MARK: - Movie Profile

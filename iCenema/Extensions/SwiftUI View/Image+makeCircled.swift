@@ -22,7 +22,5 @@ extension Image {
                     .frame(width: size.width + strockSpacing, height: size.width + strockSpacing)
             }
             .frame(width: size.width + strockSpacing + 2, height: size.height + strockSpacing + 2)
-        
-        
     }
 }

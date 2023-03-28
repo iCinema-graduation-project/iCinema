@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+enum CinemaSections: String, CaseIterable {
+    case movies = "Movies"
+    case reels = "Reels"
+    case posts = "Posts"
+}
+
 struct CinemaProfilePickerView: View {
-    let cinema: Cinema
+    @EnvironmentObject var viewModel: CinemaProfileViewModel
     
     @State var pickerSelectedSectin: CinemaSections = .movies
-    init(cinema: Cinema) {
-        self.cinema = cinema
+    init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = .iCinemaYellowColor
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.iCinemaTextColorReverce,
                                                                 .font: UIFont.callout
@@ -21,31 +26,33 @@ struct CinemaProfilePickerView: View {
     
     }
     var body: some View {
-        Picker("Choose Secction", selection: $pickerSelectedSectin) {
-            ForEach(CinemaSections.allCases, id: \.self) {
-                Text($0.rawValue)
-                    .font(Font(UIFont.title3))
+        VStack {
+            Picker("Choose Secction", selection: $pickerSelectedSectin) {
+                ForEach(CinemaSections.allCases, id: \.self) {
+                    Text($0.rawValue)
+                        .font(Font(UIFont.title3))
+                }
             }
+            .pickerStyle(.segmented)
+            .padding(.horizontal)
+            
+            ChosenSectionView(section: pickerSelectedSectin)
+                .environmentObject(viewModel)
         }
-        .pickerStyle(.segmented)
-        .padding()
-        
-        ChosenSectionView(section: pickerSelectedSectin)
     }
 }
 
-enum CinemaSections: String, CaseIterable {
-    case movies = "Movies"
-    case reels = "Reels"
-    case posts = "Posts"
-}
+
 
 struct ChosenSectionView: View {
+    @EnvironmentObject var viewModel: CinemaProfileViewModel
+
     var section: CinemaSections
     var body: some View {
         switch section {
         case .movies:
             MoviesListView()
+                .environmentObject(viewModel)
         case .reels:
             SelectedSectionView(selectedSecten: "Reels")
         case.posts:
