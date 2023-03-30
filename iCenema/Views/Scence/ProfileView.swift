@@ -48,7 +48,7 @@ struct ProfileView<Content: View>: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        profileViewDelegate.dismiss = true
+                        profileViewDelegate.dismissAction()
                     } label: {
                         Image(systemName: "x.circle")
                             .foregroundColor(Color(uiColor: .iCinemaYellowColor))

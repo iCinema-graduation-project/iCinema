@@ -25,9 +25,9 @@
 "phone.errorMessage" = "Enter a Valid Phone Number";
 
 // MARK: - OTP
-"otp.descriptionLabel" = "لقد أرسلنا لك رمز الدخول عبر الرسائل القصيرة للتحقق من رقم الهاتف";
-"otp.confirm" = "تأكيد";
-"otp.verification" = "تَحَقّق";
+"otp.descriptionLabel" = "We have sent you access code via SMS for phone number verification";
+"otp.confirm" = "Confirm";
+"otp.verification" = "Verification";
 
 // MARK: - New User
 "newUser.descriptionLabel" = "You do not have an account, please complete your information to have one ";

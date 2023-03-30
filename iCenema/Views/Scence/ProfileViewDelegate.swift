@@ -9,5 +9,5 @@ import SwiftUI
 import UIKit
 
 class ProfileViewDelegate: ObservableObject {
-    @Published var dismiss: Bool = false
+    @Published var dismissAction: (() -> Void) = {  }
 }

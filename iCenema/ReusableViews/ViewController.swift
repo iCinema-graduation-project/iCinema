@@ -26,6 +26,7 @@ class ViewController: UIViewController{
         }
     }
     
+    
     // This Method presents the given view controller on top of the current view controller.
     @objc public func presentViewController(_ viewControllerToPresent: ViewController, completion: @escaping () -> Void = {} ){
         viewControllerToPresent.presenterViewController = self
@@ -63,7 +64,7 @@ class ViewController: UIViewController{
             
             self.navigationController?.navigationBar.isHidden = true
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-            
+//
             presentedView.fillXSuperViewConstraints()
             self.presentedViewAnchoredConstraints = presentedView.makeConstraints(topAnchor: self.view.topAnchor, bottomAnchor: self.view.bottomAnchor)
             

@@ -22,11 +22,6 @@ class NewUserViewController: ICinemaViewController {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = .newUser.descriptionLabel
-        label.tintColor = .iCinemaTextColor
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.widthConstraints(.view.width)
-        label.font = .callout
         return label
     }()
     
@@ -114,6 +109,7 @@ class NewUserViewController: ICinemaViewController {
     //
     private func addDescriptionLabel() {
         view.addSubview(descriptionLabel)
+        descriptionLabel.makeDescreptionLabel()
         descriptionLabel.centerXInSuperview()
         descriptionLabel.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor,
                                          padding: UIEdgeInsets(top: .view.padding.top, left: 0,

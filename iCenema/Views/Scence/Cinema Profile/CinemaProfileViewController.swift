@@ -23,6 +23,8 @@ class CinemaProfileViewController: ICinemaViewController {
         super.viewDidLoad()
         guard let viewModel = viewModel else { return }
         
+        coordinatorType = .segue
+        
         let cinemaProfileView = CinemaProfileView()
             .environmentObject(viewModel)
             .hostigView()
@@ -31,12 +33,9 @@ class CinemaProfileViewController: ICinemaViewController {
         self.view.addSubview(cinemaProfileView)
         cinemaProfileView.fillSuperviewConstraints()
         
-        viewModel.$dismiss.sink { dismiss in
-            if dismiss {
+        viewModel.dismissAction = {
                 self.dismiss()
-            }
         }
-        .store(in: &cancellableSet)
         
         
         viewModel.showMore = { movie in
@@ -46,6 +45,7 @@ class CinemaProfileViewController: ICinemaViewController {
             self.presentViewController(movieVC)
             
         }
+        
         
         
         viewModel.bookNow = { movie in
