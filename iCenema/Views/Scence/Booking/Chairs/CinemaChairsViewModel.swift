@@ -7,6 +7,6 @@
 
 import SwiftUI
 
-class CinemaChairsViewModel: ObservableObject {
-    @Published var buttonAction: (() -> Void)? = nil
+class CinemaChairsViewModel: ProfileViewDelegate {
+    var dismissAction: (() -> Void) = { }
 }

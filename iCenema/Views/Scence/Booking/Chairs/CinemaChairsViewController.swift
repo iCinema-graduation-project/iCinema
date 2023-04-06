@@ -15,6 +15,8 @@ class CinemaChairsViewController: ICinemaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addStepperView()
+
         let cinemaChairs = CinemaChairsView()
             .environmentObject(viewModel)
         
@@ -24,10 +26,9 @@ class CinemaChairsViewController: ICinemaViewController {
         cinemaChairsView.fillXSuperViewConstraints()
         cinemaChairsView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor,
                                           bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor)
-        addStepperView()
         
         
-        viewModel.buttonAction = {
+        viewModel.dismissAction = {
             self.coordinator?.push()
         }
         

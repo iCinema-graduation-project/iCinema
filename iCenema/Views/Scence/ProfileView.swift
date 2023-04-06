@@ -10,7 +10,7 @@ import SwiftUITrackableScrollView
 
 
 struct ProfileView<Content: View>: View {
-    @ObservedObject var profileViewDelegate: ProfileViewDelegate
+    var profileViewDelegate: any ProfileViewDelegate
     var image: Image
     var content: () -> Content
     

@@ -8,6 +8,6 @@
 import SwiftUI
 import UIKit
 
-class ProfileViewDelegate: ObservableObject {
-    @Published var dismissAction: (() -> Void) = {  }
+protocol ProfileViewDelegate: ObservableObject {
+    var dismissAction: (() -> Void) { get set }
 }

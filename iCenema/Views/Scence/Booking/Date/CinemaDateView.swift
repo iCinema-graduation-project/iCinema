@@ -23,10 +23,10 @@ struct CinemaDateView: View {
     
     var body: some View {
         ICinemaView {
-            VStack {
+            VStack(spacing: CGFloat.view.spacing) {
                 VStack(alignment: .leading){
-                    Text("pick a day: ")
-                        .foregroundColor(Color(uiColor: .iCinemaTextColor))
+                    Text(String.booking.pickADay)
+                    
                     DatePicker("", selection: $date, displayedComponents: .date)
                         .datePickerStyle(.graphical)
                         .accentColor(Color(uiColor: .iCinemaYellowColor))
@@ -34,18 +34,15 @@ struct CinemaDateView: View {
                         .background(
                             RoundedRectangle(cornerRadius: .view.cornerRadius)
                                 .fill(Color(uiColor: .iCinemaSecondBackgroudColor))
-//                                .opacity(0.1)
+                                .opacity(0.5)
                                 .shadow(radius: 1, x: 4, y: 4)
                         )
                         .labelsHidden()
-
-                  
+                    
                 }
-                .padding(.horizontal, .view.spacing)
 
                 VStack(alignment: .leading) {
-                    Text("pick a time: ")
-                        .foregroundColor(Color(uiColor: .iCinemaTextColor))
+                    Text(String.booking.pickATime)
                     
                     Picker("", selection: $selectedFlavor) {
                         Text("6:00").tag(Flavor.chocolate)
@@ -54,22 +51,27 @@ struct CinemaDateView: View {
                     }
                     .accentColor(Color(uiColor: .iCinemaTextColor))
                     .frame(maxWidth: .infinity)
+                    .frame(height: .iCinemaButton.size.height)
                     .background(Color(uiColor: .iCinemaSecondBackgroudColor))
-                    .cornerRadius(8)
+                    .cornerRadius(.iCinemaButton.cornerRadius)
 
                 }
-                .padding(.horizontal, .view.spacing)
-
 
                 Spacer()
                 
-                ICinemaButtonView(title: "Next") {
-                    self.viewModel.buttonAction()
+                ICinemaButtonView(title: String.next) {
+                    self.viewModel.dismissAction()
                 }
-                .padding(.bottom, CGFloat.view.spacing)
-
-             
+                .padding(.bottom, CGFloat.view.padding.bottom)
+                
             }
+            .padding(.leading, .view.padding.left)
+            .padding(.trailing, .view.padding.right)
+        
+            .foregroundColor(Color(uiColor: .iCinemaTextColor))
+            .font(Font(UIFont.title3))
+
+
         }
     }
 }

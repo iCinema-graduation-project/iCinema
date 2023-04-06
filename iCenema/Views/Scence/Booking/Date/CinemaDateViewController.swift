@@ -13,7 +13,8 @@ class CinemaDateViewController: ICinemaViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addStepperView()
+
         let cinemaDateView = CinemaDateView()
             .environmentObject(viewModel)
             .hostigView()
@@ -22,11 +23,9 @@ class CinemaDateViewController: ICinemaViewController {
         cinemaDateView.fillXSuperViewConstraints()
         cinemaDateView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor,
                                        bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor)
-        addStepperView()
         
         
-        
-        viewModel.buttonAction = {
+        viewModel.dismissAction = {
             self.coordinator?.push()
         }
         

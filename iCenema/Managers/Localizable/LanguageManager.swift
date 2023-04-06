@@ -15,6 +15,7 @@ extension String {
     static let unfollow = getLocalized(with: "unfollow")
     static let bookNow = getLocalized(with: "bookNow")
     static let moreDetails = getLocalized(with: "moreDetails")
+    static let next = getLocalized(with: "next")
 
     
     // MARK: - Auth Flow
@@ -94,6 +95,17 @@ extension String {
         static let logout = getLocalized(with: "menu.logout")
         
 
+    }
+    
+    
+    // MARK: - Booking
+    static let booking = Booking.self
+    struct Booking {
+        static let pickADay = getLocalized(with: "booking.pickADay")
+        static let pickATime = getLocalized(with: "booking.pickATime")
+        static let pickAHall = getLocalized(with: "booking.pickAHall")
+        
+        
     }
 
     

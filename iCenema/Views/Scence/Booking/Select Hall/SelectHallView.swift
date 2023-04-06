@@ -14,31 +14,39 @@ struct SelectHallView: View {
     var body: some View {
         ICinemaView {
             VStack {
-                Spacer()
+                
                 VStack(alignment: .leading) {
-                    Text("pick a hall: ")
-                        .padding(.horizontal, CGFloat.view.spacing)
-                        .font(Font(UIFont.callout))
+                    Text(String.booking.pickAHall)
+                        .padding(.horizontal, CGFloat.view.padding.left)
 
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack{
-                            HallView()
-                            HallView()
+                        HStack(spacing: 0){
+                            ForEach(0..<5, id: \.self) { _ in
+                                HallView()
+                                    .padding(.horizontal, CGFloat.cell.padding.left)
+                            }
+                   
                         }
+                        .padding(.horizontal, CGFloat.view.padding.left)
+
                     }
                     
                 }
-                .padding(.vertical, CGFloat.view.spacing)
 
-                
                 Spacer()
     
-                ICinemaButtonView(title: "Next") {
-                    self.viewModel.buttonAction?()
+                ICinemaButtonView(title: .next) {
+                    self.viewModel.dismissAction()
                 }
-                .padding(.bottom, CGFloat.view.spacing)
+                .padding(.bottom, CGFloat.view.padding.bottom)
                 
             }
+            .foregroundColor(Color(uiColor: .iCinemaTextColor))
+            .font(Font(UIFont.title3))
+            .padding(.top, CGFloat.view.padding.top)
+
+            
+
         }
     }
 }
@@ -50,40 +58,33 @@ struct SelectHallView_Previews: PreviewProvider {
 }
 
 
-
 struct HallView: View {
     var body: some View {
-        RoundedRectangle(cornerRadius: CGFloat.view.cornerRadius)
-            .stroke(Color(uiColor: .iCinemaYellowColor), lineWidth: 0.5)
-            .frame(width: 265, height: 238)
-            .offset(y: 1)
-            .overlay {
-                VStack {
-                    VStack(alignment: .leading) {
-                        Image("hale")
-                            .resizable()
-                            .frame(height: 145)
-                            .cornerRadius(.view.cornerRadius)
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text("Hall 1")
-                                .font(Font(UIFont.callout))
-                            
-                            Text("This hall is the biggest in our cinema and it can accommodate 400 people.")
-                                .font(Font(UIFont.caption1))
-                        }
-                        Spacer()
-                    }
-                    .padding(.cell.padding.left)
+
+        VStack {
+            VStack(alignment: .leading) {
+                Image("hale")
+                    .resizable()
+                    .frame(height: 145)
+                    .cornerRadius(.view.cornerRadius)
+
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Hall 1")
+                        .font(Font(UIFont.footnote))
                     
+                    Text("This hall is the biggest in our cinema and it can accommodate 400 people.")
+                        .font(Font(UIFont.body))
                 }
-                .frame(width: 265, height: 238)
-                .background(Color(uiColor: .iCinemaSecondBackgroudColor))
-                .cornerRadius(.view.cornerRadius)
-                
-                
+                Spacer()
             }
-            .padding(.leading, CGFloat.view.spacing)
-            .padding(.bottom, CGFloat.view.spacing)
-            .foregroundColor(Color(uiColor: .iCinemaTextColor))
+            .padding(.cell.padding.left)
+            
+        }
+        .frame(width: 265, height: 283)
+        .background(Color(uiColor: .iCinemaSecondBackgroudColor))
+        .cornerRadius(.view.cornerRadius)
+        .addBorder(withColor: Color(uiColor: .iCinemaYellowColor), height: 285)
+        .foregroundColor(Color(uiColor: .iCinemaTextColor))
+        
     }
 }

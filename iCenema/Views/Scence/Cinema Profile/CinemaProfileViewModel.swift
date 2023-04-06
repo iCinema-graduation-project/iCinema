@@ -8,8 +8,10 @@
 import SwiftUI
 
 class CinemaProfileViewModel: ProfileViewDelegate {
-    var cinema: Cinema
     
+    var cinema: Cinema
+
+    var dismissAction: (() -> Void) = { } 
     @Published var bookNow: ((_ movie: Movie) -> Void) = { _ in }
     @Published var showMore: ((_ movie: Movie) -> Void) = { _ in }
     

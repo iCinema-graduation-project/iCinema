@@ -10,15 +10,15 @@ import SwiftUI
 
 extension View {
     @ViewBuilder func addBorder(withColor color: Color,
-                                padding: EdgeInsets = EdgeInsets(top: 0, leading: 0.1, bottom: 1.2, trailing: 0.1),
-                                cornorRadius: CGFloat = 16, height: CGFloat) -> some View {
+                                padding: EdgeInsets = EdgeInsets(top: 0, leading: 0, bottom: 1.2, trailing: 0),
+                                cornorRadius: CGFloat = .view.cornerRadius, height: CGFloat) -> some View {
         ZStack(alignment: .top) {
             Rectangle()
                 .foregroundColor(color)
-                .cornerRadius(CGFloat.view.cornerRadius)
+                .cornerRadius(cornorRadius)
 
             self
-                .cornerRadius(CGFloat.view.cornerRadius)
+                .cornerRadius(cornorRadius)
                 .padding(.top, padding.top)
                 .padding(.bottom, padding.bottom)
                 .padding(.leading, padding.leading)

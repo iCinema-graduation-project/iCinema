@@ -121,7 +121,6 @@
 		73B35C5529C1DEEC00F93CA7 /* Stolzl-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C4F29C1DEEC00F93CA7 /* Stolzl-Thin.ttf */; };
 		73B35C5629C1DEEC00F93CA7 /* Stolzl-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C5029C1DEEC00F93CA7 /* Stolzl-Book.ttf */; };
 		73B35C5729C1DEEC00F93CA7 /* Stolzl-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C5129C1DEEC00F93CA7 /* Stolzl-Bold.ttf */; };
-		73B404EA29D08E5A0044F58D /* BookingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B404E929D08E5A0044F58D /* BookingCoordinator.swift */; };
 		73B404EE29D092240044F58D /* CinemaDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B404ED29D092240044F58D /* CinemaDateViewController.swift */; };
 		73B404F029D092840044F58D /* CinemaDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B404EF29D092840044F58D /* CinemaDateView.swift */; };
 		73B404F229D092B60044F58D /* ICinemaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B404F129D092B60044F58D /* ICinemaView.swift */; };
@@ -309,7 +308,6 @@
 		73B35C4F29C1DEEC00F93CA7 /* Stolzl-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Thin.ttf"; sourceTree = "<group>"; };
 		73B35C5029C1DEEC00F93CA7 /* Stolzl-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Book.ttf"; sourceTree = "<group>"; };
 		73B35C5129C1DEEC00F93CA7 /* Stolzl-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Bold.ttf"; sourceTree = "<group>"; };
-		73B404E929D08E5A0044F58D /* BookingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingCoordinator.swift; sourceTree = "<group>"; };
 		73B404ED29D092240044F58D /* CinemaDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateViewController.swift; sourceTree = "<group>"; };
 		73B404EF29D092840044F58D /* CinemaDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateView.swift; sourceTree = "<group>"; };
 		73B404F129D092B60044F58D /* ICinemaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaView.swift; sourceTree = "<group>"; };
@@ -747,7 +745,6 @@
 		7353D38D29C9F2EC00BB8272 /* Booking */ = {
 			isa = PBXGroup;
 			children = (
-				73B404E929D08E5A0044F58D /* BookingCoordinator.swift */,
 				7353D38E29C9F2FF00BB8272 /* StepperView.swift */,
 				73B404EC29D091F00044F58D /* Date */,
 				73AB522129D10C81008A3CFF /* Select Hall */,
@@ -1519,7 +1516,6 @@
 				739ADAA829B8AA1900FFA78E /* MovieProfileView.swift in Sources */,
 				730E1C1029A9580800F2AB85 /* HomeViewController.swift in Sources */,
 				736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */,
-				73B404EA29D08E5A0044F58D /* BookingCoordinator.swift in Sources */,
 				739ADAAE29B8FB0B00FFA78E /* CinemaPost.swift in Sources */,
 				736BECB629CE54E200944D16 /* MenuModels.swift in Sources */,
 				731FBF5929B0BF7E00798DF5 /* IGStories.swift in Sources */,

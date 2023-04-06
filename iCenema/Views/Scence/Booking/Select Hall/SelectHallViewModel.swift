@@ -7,6 +7,6 @@
 
 import SwiftUI
 
-class SelectHallViewModel: ObservableObject {
-    @Published var buttonAction: (() -> Void)? = nil
+class SelectHallViewModel: ProfileViewDelegate {
+    var dismissAction: (() -> Void) = { }
 }

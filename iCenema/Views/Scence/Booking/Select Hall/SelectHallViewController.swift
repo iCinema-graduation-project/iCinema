@@ -14,6 +14,8 @@ class SelectHallViewController: ICinemaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        addStepperView()
+        
         let selecthallView = SelectHallView()
             .environmentObject(viewModel)
             .hostigView()
@@ -22,9 +24,8 @@ class SelectHallViewController: ICinemaViewController {
         selecthallView.fillXSuperViewConstraints()
         selecthallView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor,
                                        bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor)
-        addStepperView()
         
-        viewModel.buttonAction = {
+        viewModel.dismissAction = {
             self.coordinator?.push()
         }
         

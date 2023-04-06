@@ -12,6 +12,7 @@
 "unfollow" = "Un Follow";
 "bookNow" = "Book Now";
 "moreDetails" = "More Details";
+"next" = "Next";
 
 // MARK: - Welcome
 "welecome.descriptionLabel" = "iCinema provides you with a unique experience to know everything related to movies, you can watch, book, and search for everything you want";
@@ -66,4 +67,7 @@
 "cinemaProfile.chairs" = "Chairs";
 "cinemaProfile.location" = "Location";
 
-
+// MARK: - Booking
+"booking.pickADay" = "pick a day: ";
+"booking.pickATime" = "pick a time: ";
+"booking.pickAHall" = "pick a hall: ";

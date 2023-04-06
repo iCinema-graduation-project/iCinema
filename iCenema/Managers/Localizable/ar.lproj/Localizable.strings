@@ -13,7 +13,7 @@
 "unfollow" = "الغاء المتابعه";
 "bookNow" = "احجز الان";
 "moreDetails" = "اعرض المزيد";
-
+"next" = "التالي";
 
 // MARK: - Welcome
 "welecome.descriptionLabel" = "توفر لك iCinema تجربة فريدة لمعرفة كل ما يتعلق بالأفلام ، يمكنك مشاهدة كل ما تريده وحجزه والبحث عنه";
@@ -68,5 +68,9 @@
 "cinemaProfile.chairs" = "كرسي";
 "cinemaProfile.location" = "الموقع";
 
+// MARK: - Booking
+"booking.pickADay" = "اختار يوما:";
+"booking.pickATime" = "اختار وقتا:";
+"booking.pickAHall" = "اختر قاعة:";
 
 

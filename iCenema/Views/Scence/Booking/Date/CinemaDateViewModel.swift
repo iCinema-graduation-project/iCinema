@@ -7,6 +7,7 @@
 
 import SwiftUI
 
-class CinemaDateViewModel: ObservableObject {
-    @Published var buttonAction: (() -> Void) = {}
+class CinemaDateViewModel: ProfileViewDelegate {
+    var dismissAction: (() -> Void) = { }
+    
 }

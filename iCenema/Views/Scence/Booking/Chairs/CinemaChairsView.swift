@@ -28,11 +28,10 @@ struct CinemaChairsView: View {
     
     var body: some View {
         ICinemaView {
-            VStack(spacing: 20.0){
+            VStack(spacing: 10.0){
                 Spacer()
                 
                 Image(uiImage: colorScheme == .dark ? .chairs.arch : UIImage())
-                    .shadow(radius: 5)
                 
                 ScrollView(.horizontal, showsIndicators: true) {
                     ScrollView(.vertical, showsIndicators: true) {
@@ -54,7 +53,8 @@ struct CinemaChairsView: View {
                         .padding()
                     }
                 }
-                        .frame(height: 300)
+                        .frame(height: 280)
+                
                 
                 VStack {
                     HStack {
@@ -81,17 +81,17 @@ struct CinemaChairsView: View {
                 .frame(maxWidth: .infinity)
                 .background(Color(uiColor: .iCinemaSecondBackgroudColor))
                 .cornerRadius(.view.cornerRadius)
-                .padding(.horizontal, .view.spacing)
+                .padding(.horizontal, .view.padding.left)
                 
-                ICinemaButtonView(title: "Next") {
-                    self.viewModel.buttonAction?()
+                Spacer()
+                
+                ICinemaButtonView(title: .next) {
+                    self.viewModel.dismissAction()
                 }
-                .padding(.bottom, CGFloat.view.spacing)
+                .padding(.bottom, CGFloat.view.padding.bottom)
             }
         }
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .background(Color(uiColor: .iCinemaBackgroundColor))
-//
+
     }
     
     private func getChair(for value: Int) -> UIImage {
