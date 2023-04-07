@@ -8,26 +8,21 @@
 import UIKit
 import Combine
 
-// MARK: - PhoneViewModel Protocols
-//
-protocol PhoneViewModelInput {
-    func didChange(phoneNumber: String)
-}
-
-protocol PhoneViewModelOutput: APIRequest {
-    var isPhoneNumberValid: Bool { get }
-}
 
 // MARK: - PhoneViewModel
 //
-class PhoneViewModel: PhoneViewModelOutput {
+class PhoneViewModel: APIRequest {
     
     @Published private(set) var isPhoneNumberValid: Bool = false
     
     typealias DecodableType = Countries
-    var request: Request = Request(endpoint: "all_countries.php", method: .get, parameters: nil)
+    var networkRequest: Request = Request(endpoint: "all_countries.php", method: .get, parameters: nil)
 
 
+    func didChange(phoneNumber: String) {
+        self.phoneNumber = phoneNumber
+    }
+    
     // MARK: - Private Properties
     private(set) var phoneNumber: String = "" {
         didSet {
@@ -43,18 +38,3 @@ class PhoneViewModel: PhoneViewModelOutput {
         return phonePredict.evaluate(with: phoneNumber)
     }
 }
-
-
-// MARK: - input binding
-//
-extension PhoneViewModel: PhoneViewModelInput {
-    func didChange(phoneNumber: String) {
-        self.phoneNumber = phoneNumber
-    }
-}
-
-
-
-
-
-

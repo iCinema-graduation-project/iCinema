@@ -8,7 +8,7 @@
 import UIKit
 import ViewAnimator
 
-final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLayout {
+final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLayoutableSection {
     // MARK: - Typealias
     //
     typealias ResposeType = String
@@ -25,13 +25,8 @@ final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLa
     
     var itemsCount: Int = 0
     
-    var target: ViewController
-    
-    // MARK: - initalizer
-    //
-    init(target: ViewController) {
-        self.target = target
-    }
+    var hostingViewController: UIViewController? = nil
+
     
     // MARK: - Section Layout
     //
@@ -88,7 +83,7 @@ final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLa
         collectionView.register(supplementaryViewType.self, supplementaryViewOfKind: supplementaryViewType.identifier)
     }
         
-    func getItems(_ collectionView: UICollectionView) {
+    func updateItems(_ collectionView: UICollectionView) {
         self.items = ["", "", "", ""]
         collectionView.reloadData()
     }
@@ -116,9 +111,10 @@ final class MoviesCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let hostingViewController = hostingViewController as? ViewController else { return }
         let mv = MovieProfileViewController()
         mv.setup(movie: nil)
-        self.target.presentViewController(mv)
+        hostingViewController.presentViewController(mv)
     }
     
     

@@ -8,10 +8,10 @@
 import UIKit
 
 extension UICollectionView {
-    func addcollectionViewCompositionalLayout(target: any CollectionViewCompositionalLayoutDataSource) {
-        target.registerCells(self)
-        target.registerSupplementaryViews(self)
-        collectionViewLayout = target.collectionViewCompositionalLayoutForSections()
+    func updatecollectionViewCompositionalLayout(with provider: any CollectionViewCompositionalLayoutProvider) {
+        provider.registerCells(for: self)
+        provider.registerSupplementaryViews(for: self)
+        collectionViewLayout = provider.collectionViewCompositionalLayout()
     }
 }
 
@@ -22,11 +22,11 @@ extension UICollectionView {
     
     // A struct to hold the current compositional layout for the collection view
     struct SectionTypeHolder {
-        static var compositionalLayout: (any CollectionViewCompositionalLayout)?
+        static var compositionalLayout: (any CollectionViewCompositionalLayoutableSection)?
     }
     
     /// A computed property to get or set the current compositional layout
-    var compositionalLayout: (any CollectionViewCompositionalLayout)? {
+    var compositionalLayout: (any CollectionViewCompositionalLayoutableSection)? {
         get {
             return SectionTypeHolder.compositionalLayout
         }
@@ -36,7 +36,7 @@ extension UICollectionView {
     }
     
     /// A convenience initializer to create a new collection view with a compositional layout
-    convenience init(compositionalLayout: any CollectionViewCompositionalLayout) {
+    convenience init(compositionalLayout: any CollectionViewCompositionalLayoutableSection) {
         self.init(frame: .zero, collectionViewLayout: .init())
         self.compositionalLayout = compositionalLayout
         self.compositionalLayout?.registerCell(self)

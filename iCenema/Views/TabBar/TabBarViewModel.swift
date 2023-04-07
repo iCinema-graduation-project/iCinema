@@ -8,6 +8,8 @@
 import SwiftUI
 
 class TabBarViewModel: ObservableObject {
+    static let shared = TabBarViewModel()
+    
     @Published var isHidden: Bool = false
     
     func hide() {

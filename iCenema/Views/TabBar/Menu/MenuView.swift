@@ -23,7 +23,7 @@ struct MenuView: View {
     
     let menuSections: [MenuSection] = [
         MenuSection(title: .menu.general, cells: [
-            MenuCell(imageSystemName: "person", text: .menu.following, viewController: CinemaProfileViewController.self),
+            MenuCell(imageSystemName: "person", text: .menu.following, viewController: FollowingViewController.self),
             MenuCell(imageSystemName: "clock", text: .menu.activity),
             MenuCell(imageSystemName: "bookmark", text: .menu.saved),
             MenuCell(imageSystemName: "wallet.pass", text: .menu.icinemaWallet),

@@ -8,7 +8,7 @@
 import UIKit
 import ViewAnimator
 
-final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLayout {
+final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLayoutableSection {
     typealias ResposeType = String
     typealias cellType = PosterCollectionViewCell
     typealias supplementaryViewType = PosterPaginationView
@@ -16,20 +16,12 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
     // MARK: - Properties
     var posterPaginationView: PosterPaginationView?
     
-    var items: [ResposeType] = [] {
-        didSet {
-            itemsCount = items.count
-        }
-    }
+    var items: [ResposeType] = [] { didSet { itemsCount = items.count } }
     
     var itemsCount: Int = 0
-    var target: ViewController
     
-    // MARK: - initalizer
-    //
-    init(target: ViewController) {
-        self.target = target
-    }
+    var hostingViewController: UIViewController? = nil
+
     
     // MARK: - Section Layout
     func itemLayoutInGroup() -> NSCollectionLayoutItem {
@@ -48,24 +40,29 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
         let section = NSCollectionLayoutSection(group: self.groupLayoutInSection())
         section.orthogonalScrollingBehavior = .groupPagingCentered
         
-        // MARK: - add supplementary view at bottom
-        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .absolute(.home.posters.supplementaryHeight))
-        let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,
-                                                                            elementKind: supplementaryViewType.identifier,
-                                                                            alignment: .bottom)
-        section.boundarySupplementaryItems = [supplementaryItem]
+        // add supplementary item
+        section.boundarySupplementaryItems = [self.supplementaryItem()]
+        
         
         // MARK: - Update page control
-        section.visibleItemsInvalidationHandler = { [weak self] (items, offset, env) -> Void in
+        section.visibleItemsInvalidationHandler = { [unowned self] (items, offset, env) -> Void in
             let page = round(offset.x / Constants.screenBounds.width)
-            self?.posterPaginationView?.selectPage(at: Int(page))
+            self.posterPaginationView?.selectPage(at: Int(page))
         }
         
         return section
     }
     
-    // MARK: - Data
+    // MARK: - add supplementary view at bottom
+    private func supplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+        
+        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.home.posters.supplementaryHeight))
+        
+        return NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize, elementKind: supplementaryViewType.identifier, alignment: .bottom)
+        
+    }
+    
+    // MARK: - Delegate
     func registerCell(_ collectionView: UICollectionView) {
         collectionView.register(cellType.self)
     }
@@ -74,7 +71,7 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
         collectionView.register(supplementaryViewType.self, supplementaryViewOfKind: supplementaryViewType.identifier)
     }
         
-    func getItems(_ collectionView: UICollectionView) {
+    func updateItems(_ collectionView: UICollectionView) {
         self.items = ["", "", "", ""]
         collectionView.reloadData()
     }

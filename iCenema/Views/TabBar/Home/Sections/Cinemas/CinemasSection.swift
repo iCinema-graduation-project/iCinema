@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import ViewAnimator
 
-final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLayout {
+final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLayoutableSection {
     // MARK: - Typealias
     //
     typealias ResposeType = String
@@ -24,14 +24,9 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
         }
     }
     var itemsCount: Int = 0
-    var target: ViewController
+    var hostingViewController: UIViewController? = nil
     
-    
-    // MARK: - initalizer
-    //
-    init(target: ViewController) {
-        self.target = target
-    }
+
     
     // MARK: - Section Layout
     //
@@ -84,7 +79,7 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
         collectionView.register(supplementaryViewType.self, supplementaryViewOfKind: supplementaryViewType.identifier)
     }
     
-    func getItems(_ collectionView: UICollectionView) {
+    func updateItems(_ collectionView: UICollectionView) {
         self.items = ["", "", "", ""]
         collectionView.reloadData()
     }
@@ -113,13 +108,15 @@ final class CinemaCollectionViewSection: NSObject, CollectionViewCompositionalLa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let hostingViewController = hostingViewController as? ViewController else { return }
+
         let cinemaProfileVC = CinemaProfileViewController()
         
         let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5,
                                     ChairsCount: 430, followed: false)
         
         cinemaProfileVC.viewModel = .init(cinema: cinema)
-        self.target.presentViewController(cinemaProfileVC)
+        hostingViewController.presentViewController(cinemaProfileVC)
     }
     
 }

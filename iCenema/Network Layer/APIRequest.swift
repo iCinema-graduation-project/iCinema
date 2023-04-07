@@ -27,13 +27,14 @@ protocol APIRequest: AnyObject {
     // Associated type for the expected response type
     associatedtype DecodableType where DecodableType: Codable
     
-    var request: Request { get }
+    var networkRequest: Request { get }
+    
 }
 
 
 extension APIRequest{
     // Computed property that returns the full URL of the API request
-    private var url: String{ "https://\(request.host)\(request.endpoint)" }
+    private var url: String{ "https://\(networkRequest.host)\(networkRequest.endpoint)" }
     
     // Computed property that returns the headers for the API request
     private var headers: HTTPHeaders {
@@ -55,8 +56,8 @@ extension APIRequest where DecodableType: Decodable {
     func request() -> AnyPublisher<DataResponse<DecodableType, NetworkError>, Never> {
         print(url)
         // Send a request using Alamofire
-        return AF.request(url, method: request.method,
-                          parameters: request.parameters, encoding: URLEncoding.queryString, headers: headers)
+        return AF.request(url, method: networkRequest.method,
+                          parameters: networkRequest.parameters, encoding: URLEncoding.queryString, headers: headers)
         
             // Validate the response
             .validate()

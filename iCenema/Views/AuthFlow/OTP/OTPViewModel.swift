@@ -19,7 +19,7 @@ protocol OTPViewModelInput {
 class OTPViewModel: APIRequest {
     typealias DecodableType = Countries
 
-    var request: Request = Request(endpoint: "all_countries.php", method: .get, parameters: nil)
+    var networkRequest: Request = Request(endpoint: "all_countries.php", method: .get, parameters: nil)
    
     
     private(set) var otp = OTPString(count: 5)

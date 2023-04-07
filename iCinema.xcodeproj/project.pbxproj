@@ -25,6 +25,7 @@
 		730E1C2129A966CF00F2AB85 /* NotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C2029A966CF00F2AB85 /* NotificationCoordinator.swift */; };
 		730E1C2329A966DC00F2AB85 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E1C2229A966DC00F2AB85 /* NotificationViewController.swift */; };
 		730FA8E7298ED92C00F3B955 /* UIView+addAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FA8E6298ED92C00F3B955 /* UIView+addAnimate.swift */; };
+		7311249129E09C9C00AC7020 /* CollectionViewCompositionalLayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311249029E09C9C00AC7020 /* CollectionViewCompositionalLayoutProvider.swift */; };
 		7311C3132991B9D500C0610F /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */; };
 		7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311C3162991BA3000C0610F /* AppCoordinator.swift */; };
 		731FBF4E29B0BF7E00798DF5 /* IGMockLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF1929B0BF7E00798DF5 /* IGMockLoader.swift */; };
@@ -124,6 +125,9 @@
 		73B404EE29D092240044F58D /* CinemaDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B404ED29D092240044F58D /* CinemaDateViewController.swift */; };
 		73B404F029D092840044F58D /* CinemaDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B404EF29D092840044F58D /* CinemaDateView.swift */; };
 		73B404F229D092B60044F58D /* ICinemaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B404F129D092B60044F58D /* ICinemaView.swift */; };
+		73BB177F29E062340062155C /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB177E29E062340062155C /* FollowingViewController.swift */; };
+		73BB178229E087950062155C /* CompositionalLayoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB178129E087950062155C /* CompositionalLayoutDataSource.swift */; };
+		73BB178429E087BA0062155C /* CompositionalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB178329E087BA0062155C /* CompositionalLayoutDelegate.swift */; };
 		73BB19E829BF6CF700C3A373 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB19E729BF6CF700C3A373 /* Alamofire */; };
 		73BB19EB29BF6D8900C3A373 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19EA29BF6D8900C3A373 /* APIRequest.swift */; };
 		73BB19ED29BF722700C3A373 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19EC29BF722700C3A373 /* FileManager.swift */; };
@@ -211,6 +215,7 @@
 		730E1C2029A966CF00F2AB85 /* NotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCoordinator.swift; sourceTree = "<group>"; };
 		730E1C2229A966DC00F2AB85 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		730FA8E6298ED92C00F3B955 /* UIView+addAnimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addAnimate.swift"; sourceTree = "<group>"; };
+		7311249029E09C9C00AC7020 /* CollectionViewCompositionalLayoutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCompositionalLayoutProvider.swift; sourceTree = "<group>"; };
 		7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
 		7311C3162991BA3000C0610F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		731FBF1929B0BF7E00798DF5 /* IGMockLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGMockLoader.swift; sourceTree = "<group>"; };
@@ -311,6 +316,9 @@
 		73B404ED29D092240044F58D /* CinemaDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateViewController.swift; sourceTree = "<group>"; };
 		73B404EF29D092840044F58D /* CinemaDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateView.swift; sourceTree = "<group>"; };
 		73B404F129D092B60044F58D /* ICinemaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaView.swift; sourceTree = "<group>"; };
+		73BB177E29E062340062155C /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
+		73BB178129E087950062155C /* CompositionalLayoutDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutDataSource.swift; sourceTree = "<group>"; };
+		73BB178329E087BA0062155C /* CompositionalLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutDelegate.swift; sourceTree = "<group>"; };
 		73BB19EA29BF6D8900C3A373 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		73BB19EC29BF722700C3A373 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		73BB19F029BF7D1C00C3A373 /* +customObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+customObject.swift"; sourceTree = "<group>"; };
@@ -447,6 +455,7 @@
 				730E1C1A29A95FD100F2AB85 /* MenuViewController.swift */,
 				7309AF6D29CCA2700010401A /* MenuView.swift */,
 				736BECB529CE54E200944D16 /* MenuModels.swift */,
+				73BB177D29E062120062155C /* Following */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -886,6 +895,25 @@
 			path = Date;
 			sourceTree = "<group>";
 		};
+		73BB177D29E062120062155C /* Following */ = {
+			isa = PBXGroup;
+			children = (
+				73BB177E29E062340062155C /* FollowingViewController.swift */,
+			);
+			path = Following;
+			sourceTree = "<group>";
+		};
+		73BB178029E087780062155C /* CompositionalLayout Pattern */ = {
+			isa = PBXGroup;
+			children = (
+				73EF78B0298F2AF400A5DF2D /* CollectionViewCompositionalLayout.swift */,
+				7311249029E09C9C00AC7020 /* CollectionViewCompositionalLayoutProvider.swift */,
+				73BB178129E087950062155C /* CompositionalLayoutDataSource.swift */,
+				73BB178329E087BA0062155C /* CompositionalLayoutDelegate.swift */,
+			);
+			path = "CompositionalLayout Pattern";
+			sourceTree = "<group>";
+		};
 		73BB19E929BF6D4800C3A373 /* Network Layer */ = {
 			isa = PBXGroup;
 			children = (
@@ -937,6 +965,7 @@
 		73EC918A29834531002F3568 /* iCenema */ = {
 			isa = PBXGroup;
 			children = (
+				73BB178029E087780062155C /* CompositionalLayout Pattern */,
 				73EC91BD298345D3002F3568 /* Resources */,
 				73BB19E929BF6D4800C3A373 /* Network Layer */,
 				73EC91C329834D41002F3568 /* Extensions */,
@@ -1042,7 +1071,6 @@
 		73EF78AF298F294600A5DF2D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				73EF78B0298F2AF400A5DF2D /* CollectionViewCompositionalLayout.swift */,
 				73FE17F62991EB960009D238 /* Coordinator.swift */,
 				73F0C37129AD2B2D00F95B01 /* IdentifiableView.swift */,
 			);
@@ -1403,6 +1431,7 @@
 				73B404F029D092840044F58D /* CinemaDateView.swift in Sources */,
 				738EEF3029AE66E100CDEE88 /* PosterPaginationView.swift in Sources */,
 				734A819229D33C9B00949EB4 /* ProfileView.swift in Sources */,
+				73BB178229E087950062155C /* CompositionalLayoutDataSource.swift in Sources */,
 				73F04FBD2999333F00F543EE /* OTPString.swift in Sources */,
 				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
 				73BB19F529BF7E7A00C3A373 /* UserDefaults.swift in Sources */,
@@ -1479,6 +1508,7 @@
 				731FBF5629B0BF7E00798DF5 /* IGSnapProgressView.swift in Sources */,
 				73CD5C6329CFA5EA008078A5 /* CinemaChairsView.swift in Sources */,
 				73EC918C29834531002F3568 /* AppDelegate.swift in Sources */,
+				7311249129E09C9C00AC7020 /* CollectionViewCompositionalLayoutProvider.swift in Sources */,
 				73FED1E029886B0600395727 /* Constants.swift in Sources */,
 				730E1C1D29A960E000F2AB85 /* TicketViewController.swift in Sources */,
 				7307FDFE29BCCD1D00B13E24 /* MovieProfileViewController.swift in Sources */,
@@ -1527,7 +1557,9 @@
 				731FBF6429B0BF7E00798DF5 /* IGPlayerView.swift in Sources */,
 				73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */,
 				731FBF5829B0BF7E00798DF5 /* IGStory.swift in Sources */,
+				73BB178429E087BA0062155C /* CompositionalLayoutDelegate.swift in Sources */,
 				7348209529C518650014E607 /* NotificationNames.swift in Sources */,
+				73BB177F29E062340062155C /* FollowingViewController.swift in Sources */,
 				73F0C37429AD7AE900F95B01 /* PosterCell.swift in Sources */,
 				73AB522829D10DA4008A3CFF /* SelectHallViewModel.swift in Sources */,
 				738A450129CA8D7600FA07A8 /* ActivityIndicator.swift in Sources */,

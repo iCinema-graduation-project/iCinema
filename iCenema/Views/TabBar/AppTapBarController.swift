@@ -9,7 +9,6 @@ import UIKit
 import SwiftUI
 
 
-var iCinemaTabBar = TabBarViewModel()
 
 class AppTapBarController: ICinemaViewController {
     var tabBarView: UIView?
@@ -38,7 +37,7 @@ class AppTapBarController: ICinemaViewController {
         
         let viewControllers = [menuVC, reelsVC, homeVC, ticketVC, notificationVC]
         
-        self.tabBarView = AppTabBarView(tabs: viewControllers, selectedTabIndex: 2, tabBarViewModel: iCinemaTabBar).hostigView()
+        self.tabBarView = AppTabBarView(tabs: viewControllers, selectedTabIndex: 2, tabBarViewModel: TabBarViewModel.shared).hostigView()
         view.addSubview(tabBarView!)
         
     }

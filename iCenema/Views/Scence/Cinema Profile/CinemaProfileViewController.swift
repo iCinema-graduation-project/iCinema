@@ -52,7 +52,7 @@ class CinemaProfileViewController: ICinemaViewController {
             print(movie.name)
 
             self.dismiss()
-            iCinemaTabBar.hide()
+            TabBarViewModel.shared.hide()
             self.presenterViewController?.coordinator?.push()
             
         }

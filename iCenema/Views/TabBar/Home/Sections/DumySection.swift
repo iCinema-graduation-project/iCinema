@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DummyCollectionViewSection: NSObject, CollectionViewCompositionalLayout {
+final class DummyCollectionViewSection: NSObject, CollectionViewCompositionalLayoutableSection {
     // MARK: - Typealias
     //
     typealias ResposeType = String
@@ -18,13 +18,8 @@ final class DummyCollectionViewSection: NSObject, CollectionViewCompositionalLay
     var items: [ResposeType] = []
     var itemsCount: Int = 0
     
-    var target: ViewController
-    
-    // MARK: - initalizer
-    //
-    init(target: ViewController) {
-        self.target = target
-    }
+    var hostingViewController: UIViewController? = nil
+
     
     // MARK: - Section Layout
     //
@@ -54,7 +49,7 @@ final class DummyCollectionViewSection: NSObject, CollectionViewCompositionalLay
     
     func registerSupplementaryView(_ collectionView: UICollectionView) { }
         
-    func getItems(_ collectionView: UICollectionView) { }
+    func updateItems(_ collectionView: UICollectionView) { }
     
     // MARK: - Data Source
     //

@@ -75,7 +75,7 @@ class PhoneViewController:  ICinemaViewController {
         self.bindViewModelInput()
 
         phoneNumberTextField.delegate = self
-        
+//        viewModel.
     }
     
     // MARK: - Update UI
