@@ -10,45 +10,36 @@ import Combine
 
 
 // Get the current language code for localization, defaulting to "en"
-var languageCode: String {
+var appLanguageCode: String {
     Locale.current.languageCode ?? "en"
+}
+
+struct Request {
+    var host: String = "thesportsdb.com/api/v1/json/3/"
+    let endpoint: String
+    let method: HTTPMethod
+    var parameters: Parameters? = nil
 }
 
 // Define a protocol for an API request
 protocol APIRequest: AnyObject {
     
     // Associated type for the expected response type
-    associatedtype Response where Response: Codable
+    associatedtype DecodableType where DecodableType: Codable
     
-    // Host and endpoint for the API request
-    var host: String { get }
-    var endpoint: String { get set }
-    var requestMethod: HTTPMethod { get }
-    
-    // Optional parameters for the API request
-    var parameters: Parameters? { get set }
-    
+    var request: Request { get }
 }
 
-// Default implementations for the APIRequest protocol
-extension APIRequest {
-    var host: String { "www.thesportsdb.com/api/v1/json/3/" }
-    
-    private var userToken: String? {
-        UserDefaults.standard.load(object: User.self, fromKey: .userDefaults.user)?.token
-    }
-    
-}
 
 extension APIRequest{
     // Computed property that returns the full URL of the API request
-    private var url: String{ "https://\(host)\(endpoint)" }
+    private var url: String{ "https://\(request.host)\(request.endpoint)" }
     
     // Computed property that returns the headers for the API request
     private var headers: HTTPHeaders {
-        var header = HTTPHeaders(["Content-Type": "application/json", "lang": languageCode])
+        var header = HTTPHeaders(["Content-Type": "application/json", "lang": appLanguageCode])
         
-        if let userToken = userToken{
+        if let userToken = UserDefaults.standard.load(object: User.self, fromKey: .userDefaults.user)?.token{
             header["Authorization"] = userToken
         }
         
@@ -58,20 +49,20 @@ extension APIRequest{
 }
 
 // An extension for APIRequest that specifies a Codable Response type
-extension APIRequest where Response: Codable {
+extension APIRequest where DecodableType: Decodable {
     
     // A function that sends a request using the Alamofire library and returns a DataResponse object as a publisher
-    func request() -> AnyPublisher<DataResponse<Response, NetworkError>, Never> {
-        
+    func request() -> AnyPublisher<DataResponse<DecodableType, NetworkError>, Never> {
+        print(url)
         // Send a request using Alamofire
-        return AF.request(url, method: requestMethod,
-                          parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        return AF.request(url, method: request.method,
+                          parameters: request.parameters, encoding: URLEncoding.queryString, headers: headers)
         
             // Validate the response
             .validate()
         
             // Decode the response as the specified Response type
-            .publishDecodable(type: Response.self)
+            .publishDecodable(type: DecodableType.self)
         
             // Map errors to NetworkError types
             .map { response in

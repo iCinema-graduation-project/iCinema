@@ -6,12 +6,13 @@
 //
 
 import XCTest
+import Combine
 @testable import iCinema
 
 final class PhoneViewModelTests: XCTestCase {
     
     var viewModel: PhoneViewModel!
-    
+    var cancellabelSet: Set<AnyCancellable> = []
 
     override func setUpWithError() throws {
         viewModel = PhoneViewModel()
@@ -22,31 +23,29 @@ final class PhoneViewModelTests: XCTestCase {
     }
 
     func testValidPhoneNumber() {
-            let expectation = self.expectation(description: "Phone number is valid")
-            
-            viewModel.output.onPhoneNumberChanged { (isValid) in
-                XCTAssertTrue(isValid, "Phone number should be valid")
-                expectation.fulfill()
-            }
-            
-            viewModel.inputs.didChange(phoneNumber: "01234567890")
-            
-            waitForExpectations(timeout: 1, handler: nil)
-        }
+        let expectation = self.expectation(description: "Phone number is valid")
+        
+        viewModel.didChange(phoneNumber: "01234567890")
+        
+        viewModel.$isPhoneNumberValid.sink { isValid in
+            XCTAssertTrue(isValid, "Phone number should be valid")
+            expectation.fulfill()
+        }.store(in: &cancellabelSet)
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
     
     func testInvalidPhoneNumber() {
-            let expectation = self.expectation(description: "Phone number is invalid")
-            
-            viewModel.output.onPhoneNumberChanged { (isValid) in
-                XCTAssertFalse(isValid, "Phone number should be invalid")
-                expectation.fulfill()
-            }
-            
-            viewModel.inputs.didChange(phoneNumber: "112233445566")
-            
-            waitForExpectations(timeout: 1, handler: nil)
+        let expectation = self.expectation(description: "Phone number is invalid")
+        
+        viewModel.didChange(phoneNumber: "112233445566")
+        viewModel.$isPhoneNumberValid.sink { isValid in
+            XCTAssertFalse(isValid, "Phone number should be invalid")
+            expectation.fulfill()
         }
-
-  
+        .store(in: &cancellabelSet)
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
 
 }

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 import Combine
 
 // MARK: - PhoneViewModel Protocols
@@ -15,28 +14,22 @@ protocol PhoneViewModelInput {
     func didChange(phoneNumber: String)
 }
 
-protocol PhoneViewModelOutput {
-    func onPhoneNumberChanged(completion: @escaping (_ isPhoneNumberValid: Bool) -> Void )
+protocol PhoneViewModelOutput: APIRequest {
     var isPhoneNumberValid: Bool { get }
 }
 
-
 // MARK: - PhoneViewModel
 //
-class PhoneViewModel: APIRequest {
+class PhoneViewModel: PhoneViewModelOutput {
     
-    // MARK: - Network Request
-    typealias Response = Countries
-    var endpoint: String = "all_countries.php"
-    var parameters: Alamofire.Parameters? = nil
-    var requestMethod: HTTPMethod = .get
+    @Published private(set) var isPhoneNumberValid: Bool = false
+    
+    typealias DecodableType = Countries
+    var request: Request = Request(endpoint: "all_countries.php", method: .get, parameters: nil)
 
-   
-    private(set) var isPhoneNumberValid: Bool = false
 
     // MARK: - Private Properties
-    private var didPhoneNumberChanged: (_ isValid: Bool) -> Void = { _ in }
-    private var phoneNumber: String = "" {
+    private(set) var phoneNumber: String = "" {
         didSet {
             self.isPhoneNumberValid = self.checkPhoneNumberValidity(phoneNumber)
         }
@@ -52,20 +45,11 @@ class PhoneViewModel: APIRequest {
 }
 
 
-// MARK: - input bindind
+// MARK: - input binding
 //
 extension PhoneViewModel: PhoneViewModelInput {
     func didChange(phoneNumber: String) {
         self.phoneNumber = phoneNumber
-        self.didPhoneNumberChanged(isPhoneNumberValid)
-    }
-}
-
-// MARK: - output binding
-//
-extension PhoneViewModel: PhoneViewModelOutput {
-    func onPhoneNumberChanged(completion: @escaping (Bool) -> Void) {
-        self.didPhoneNumberChanged = completion
     }
 }
 

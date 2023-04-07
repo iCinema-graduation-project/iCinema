@@ -75,9 +75,10 @@ class PhoneViewController:  ICinemaViewController {
         self.bindViewModelInput()
 
         phoneNumberTextField.delegate = self
+        
     }
     
-    // MARK: - Update UI Methods
+    // MARK: - Update UI
     //
     private func addAndConfigurSubViews() {
         addDescriptionLabel()
@@ -115,7 +116,8 @@ class PhoneViewController:  ICinemaViewController {
         view.addSubview(getCodeButton)
         getCodeButton.centerXInSuperview()
         getCodeButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
-                                      padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding.bottom, right: 0))
+                                      padding: UIEdgeInsets(top: 0, left: 0,
+                                                            bottom: .view.padding.bottom, right: 0))
     }
     
     // MARK: - Actions
@@ -163,15 +165,18 @@ extension PhoneViewController : UITextFieldDelegate {
 // MARK: - Bind ViewModel Output
 //
 extension PhoneViewController {
+    
     private func bindViewModelOutput() {
-        viewModel.onPhoneNumberChanged { isPhoneNumberValid in
-            if isPhoneNumberValid {
+        viewModel.$isPhoneNumberValid.sink { isValid in
+            if isValid {
                 self.phoneNumberTextField.setState(.success, for: .editing)
                 self.phoneNumberTextField.setState(.success, for: .normal)
                 self.endEditing()
             }
         }
+        .store(in: &cancellableSet)
     }
+    
 }
 
 // MARK: - Bind ViewModel Input

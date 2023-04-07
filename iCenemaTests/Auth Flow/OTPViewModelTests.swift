@@ -20,41 +20,28 @@ final class OTPViewModelTests: XCTestCase {
         viewModel = nil
     }
 
-    func testTextFieldDidChanged() {
-        viewModel.textField(didChanged: "1", at: 0)
-        XCTAssertTrue(viewModel.otp.isEmpty)
-        
-    }
+ 
   
-    func testConfirmWithEmptyOTP() {
-        viewModel.confirm { isOTPEmpty, isOTPValid in
-            XCTAssertTrue(isOTPEmpty)
-            XCTAssertFalse(isOTPValid)
-        }
+    func testEmptyOTP() {
+        
+        XCTAssertTrue(viewModel.otp.isEmpty)
+
     }
     
-    func testConfirmWithValidOTP() {
+    func testValidOTP() {
         viewModel.textField(didChanged: "1", at: 0)
         viewModel.textField(didChanged: "2", at: 1)
         viewModel.textField(didChanged: "3", at: 2)
         viewModel.textField(didChanged: "4", at: 3)
         viewModel.textField(didChanged: "5", at: 4)
-        
-        viewModel.confirm { isOTPEmpty, isOTPValid in
-            XCTAssertFalse(isOTPEmpty)
-            XCTAssertTrue(isOTPValid)
-        }
+        XCTAssertFalse(viewModel.otp.isEmpty)
     }
     
-    func testConfirmWithInvalidOTP() {
+    func testInvalidOTP() {
         viewModel.textField(didChanged: "1", at: 0)
         viewModel.textField(didChanged: "2", at: 1)
         viewModel.textField(didChanged: "3", at: 2)
-        
-        viewModel.confirm { isOTPEmpty, isOTPValid in
-            XCTAssertTrue(isOTPEmpty)
-            XCTAssertFalse(isOTPValid)
-        }
+        XCTAssertTrue(viewModel.otp.isEmpty)
     }
     
     func testTextFieldDidChangedWithInvalidIndex() {

@@ -59,6 +59,9 @@ class WelcomeViewController: ICinemaViewController {
         addImageView()
         addDescriptionLabel()
         addRegisterAndGuestButtons()
+        
+        UNUserNotificationCenter.current().delegate = self
+        
     }
     
     // MARK: - Update UI Methods
@@ -98,9 +101,58 @@ class WelcomeViewController: ICinemaViewController {
     
     @objc private func guestButtonTapped(_ sender: ICinemaButton) {
         sender.addAnimate { 
-            
+            UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) { granted, error in
+                if granted {
+                    self.schenualNotification()
+                } else {
+                    
+                }
+            }
         }
     }
     
+    func schenualNotification() {
+        // 1 Notificatio content
+        let content = UNMutableNotificationContent()
+        content.title = "Reminder"
+        content.subtitle = "Hello How are you"
+        content.body = "We remind you that you have a movie at galaxy cinema at 2AM"
+        content.sound = .default
+        content.launchImageName = "cinema"
+        content.userInfo = ["name": "Ahmed Yamany"]
+        
+        // 2 Time Interval trigger
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(5), repeats: false)
+//        var dateComponents = DateComponents()
+//
+//        dateComponents.calendar = Calendar.current
+//        dateComponents.weekday = 5
+//        dateComponents.hour = 17
+//        dateComponents.minute = 34
+        
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        // 3 Request
+        let request = UNNotificationRequest(identifier: "test1", content: content, trigger: trigger)
+    
+        
+        // 4 add to notification center
+        UNUserNotificationCenter.current().add(request)
+    }
+    
+}
+
+extension WelcomeViewController: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("Clicked")
+        let userInfo = response.notification.request.content.userInfo
+        print(userInfo["name"] ?? "Ahmed")
+        
+    }
+    
+  
 }
 

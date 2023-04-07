@@ -17,10 +17,10 @@ protocol OTPViewModelInput {
 // MARK: - View Model
 //
 class OTPViewModel: APIRequest {
-    typealias Response = Countries
-    var endpoint: String = "all_countries.php"
-    var parameters: Alamofire.Parameters? = nil
-    var requestMethod: HTTPMethod = .get
+    typealias DecodableType = Countries
+
+    var request: Request = Request(endpoint: "all_countries.php", method: .get, parameters: nil)
+   
     
     private(set) var otp = OTPString(count: 5)
 }
