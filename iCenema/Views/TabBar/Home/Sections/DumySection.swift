@@ -7,20 +7,12 @@
 
 import UIKit
 
-final class DummyCollectionViewSection: NSObject, CollectionViewCompositionalLayoutableSection {
-    // MARK: - Typealias
-    //
-    typealias ResposeType = String
-    typealias cellType = UICollectionViewCell
+final class DummyCollectionViewSection: CompositionalLayoutableSection {
     
-    // MARK: - Properties
-    //
-    var items: [ResposeType] = []
-    var itemsCount: Int = 0
-    
-    var hostingViewController: UIViewController? = nil
-
-    
+    override init() {
+        super.init()
+        layout = self
+    }
     // MARK: - Section Layout
     //
     func itemLayoutInGroup() -> NSCollectionLayoutItem {
@@ -41,25 +33,7 @@ final class DummyCollectionViewSection: NSObject, CollectionViewCompositionalLay
         return section
     }
     
-    // MARK: - Data
-    //
-    func registerCell(_ collectionView: UICollectionView) {
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DummyCell")
-    }
-    
-    func registerSupplementaryView(_ collectionView: UICollectionView) { }
-        
-    func updateItems(_ collectionView: UICollectionView) { }
-    
-    // MARK: - Data Source
-    //
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { 0 }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "DummyCell", for: indexPath)
-    }
-    
-    
-    
 }
+
+extension DummyCollectionViewSection : CompositionalLayoutableSectionLayout { }
 

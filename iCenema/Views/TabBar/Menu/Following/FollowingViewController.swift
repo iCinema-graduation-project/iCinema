@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class FollowingViewController: ICinemaViewController, CollectionViewCompositionalLayoutProvider {
+final class FollowingViewController: ICinemaViewController, CompositionalLayoutProvider {
     
     // MARK: - Views
     //
@@ -16,13 +16,13 @@ final class FollowingViewController: ICinemaViewController, CollectionViewCompos
     
     // MARK: - Properties
     //
-    lazy var compositionalLayoutSections: [any CollectionViewCompositionalLayoutableSection] = [
-        PosterCollectionViewSection(),
+    lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [
+        PosterCollectionViewSection(hostingViewController: self),
         DummyCollectionViewSection()
     ]
     
-    lazy var providerDataSource: UICollectionViewDataSource = CompositionalLayoutDataSource(self)
-    lazy var providerDelegate: UICollectionViewDelegate = CompositionalLayoutDelegate(self)
+    lazy var compositionalLayoutProviderDataSource: UICollectionViewDataSource? = CompositionalLayoutDataSource(self)
+    lazy var compositionalLayoutProviderDelegate: UICollectionViewDelegate? = CompositionalLayoutDelegate(self)
     
     // MARK: - Life Cycle
     //
@@ -32,12 +32,12 @@ final class FollowingViewController: ICinemaViewController, CollectionViewCompos
         
         // setup collection view compositional layout
         collectionView.updatecollectionViewCompositionalLayout(with: self)
-        compositionalLayoutSections.forEach { $0.hostingViewController = self }
-        compositionalLayoutSections.forEach { $0.updateItems(self.collectionView) }
+//        compositionalLayoutSections.forEach { $0.hostingViewController = self }
+        compositionalLayoutSections.forEach { $0.delegate?.updateItems(self.collectionView) }
         
         // setup collection view delegate and datasource with compositional layout source and delegate
-        collectionView.delegate = providerDelegate
-        collectionView.dataSource = providerDataSource
+        collectionView.delegate = compositionalLayoutProviderDelegate
+        collectionView.dataSource = compositionalLayoutProviderDataSource
 
     }
     

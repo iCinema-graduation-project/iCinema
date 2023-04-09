@@ -9,14 +9,14 @@ import UIKit
 
 
 class CompositionalLayoutDelegate: NSObject, UICollectionViewDelegate {
-    var target: any CollectionViewCompositionalLayoutProvider
+    var profider: any CompositionalLayoutProvider
     
-    init(_ target: any CollectionViewCompositionalLayoutProvider) {
-        self.target = target
+    init(_ profider: any CompositionalLayoutProvider) {
+        self.profider = profider
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let section = self.target.getSection(at: indexPath)
-        section.collectionView?(collectionView, didSelectItemAt: indexPath)
+        let section = self.profider.getSection(at: indexPath)
+        section.delegate?.collectionView?(collectionView, didSelectItemAt: indexPath)
     }
 }

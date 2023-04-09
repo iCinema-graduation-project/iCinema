@@ -65,3 +65,23 @@ class AppTapBarController: ICinemaViewController {
     }
     
 }
+
+
+struct AppTapBarView: UIViewControllerRepresentable {
+    
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        return UINavigationController(rootViewController: AppTapBarController())
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+    }
+}
+
+struct AppTapBarView_Previews: PreviewProvider {
+    static var previews: some View {
+        AppTapBarView()
+            .ignoresSafeArea()
+    }
+}

@@ -10,30 +10,29 @@ import UIKit
 
 class CompositionalLayoutDataSource: NSObject, UICollectionViewDataSource {
     
-    var target: any CollectionViewCompositionalLayoutProvider
+    var profider: any CompositionalLayoutProvider
     
-    init(_ target: any CollectionViewCompositionalLayoutProvider) {
-        self.target = target
+    init(_ profider: any CompositionalLayoutProvider) {
+        self.profider = profider
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.target.compositionalLayoutSections.count
+        return self.profider.compositionalLayoutSections.count
     }
     
-    // FIXME: - items count
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let compositionalSection = self.target.getSection(at: IndexPath(item: 0, section: section))
-        return compositionalSection.itemsCount
+        let compositionalSection = self.profider.getSection(at: IndexPath(item: 0, section: section))
+        return compositionalSection.dataSource?.itemsCount ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let section = self.target.getSection(at: indexPath)
-        return section.collectionView(collectionView, cellForItemAt: indexPath)
+        let section = self.profider.getSection(at: indexPath)
+        return section.dataSource?.collectionView(collectionView, cellForItemAt: indexPath) ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let section = self.target.getSection(at: indexPath)
-        return section.collectionView?(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath) ?? UICollectionReusableView()
+        let section = self.profider.getSection(at: indexPath)
+        return section.dataSource?.collectionView?(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath) ?? UICollectionReusableView()
     }
     
 }

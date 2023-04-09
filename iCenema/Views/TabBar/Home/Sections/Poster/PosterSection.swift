@@ -8,75 +8,35 @@
 import UIKit
 import ViewAnimator
 
-final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLayoutableSection {
-    typealias ResposeType = String
+final class PosterCollectionViewSection: CompositionalLayoutableSection {
     typealias cellType = PosterCollectionViewCell
     typealias supplementaryViewType = PosterPaginationView
-    
-    // MARK: - Properties
-    var posterPaginationView: PosterPaginationView?
-    
-    var items: [ResposeType] = [] { didSet { itemsCount = items.count } }
-    
-    var itemsCount: Int = 0
-    
-    var hostingViewController: UIViewController? = nil
+    typealias ResposeType = Poster
 
     
-    // MARK: - Section Layout
-    func itemLayoutInGroup() -> NSCollectionLayoutItem {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        return item
-    }
+    var posterPaginationView: PosterPaginationView?
     
-    func groupLayoutInSection() -> NSCollectionLayoutGroup {
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.home.posters.sectionHeight))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [self.itemLayoutInGroup()])
-        return group
-    }
-    
-    func sectionLayout() -> NSCollectionLayoutSection {
-        let section = NSCollectionLayoutSection(group: self.groupLayoutInSection())
-        section.orthogonalScrollingBehavior = .groupPagingCentered
+    var hostingViewController: ViewController
+
+    init(hostingViewController: ViewController) {
+        self.hostingViewController = hostingViewController
+        super.init()
         
-        // add supplementary item
-        section.boundarySupplementaryItems = [self.supplementaryItem()]
-        
-        
-        // MARK: - Update page control
-        section.visibleItemsInvalidationHandler = { [unowned self] (items, offset, env) -> Void in
-            let page = round(offset.x / Constants.screenBounds.width)
-            self.posterPaginationView?.selectPage(at: Int(page))
-        }
-        
-        return section
-    }
-    
-    // MARK: - add supplementary view at bottom
-    private func supplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
-        
-        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.home.posters.supplementaryHeight))
-        
-        return NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize, elementKind: supplementaryViewType.identifier, alignment: .bottom)
+        dataSource = self
+        layout = self
+        delegate = self
         
     }
     
-    // MARK: - Delegate
-    func registerCell(_ collectionView: UICollectionView) {
-        collectionView.register(cellType.self)
-    }
-    
-    func registerSupplementaryView(_ collectionView: UICollectionView) {
-        collectionView.register(supplementaryViewType.self, supplementaryViewOfKind: supplementaryViewType.identifier)
-    }
+    var items: [ResposeType] = [] { didSet { itemsCount = items.count } }
+    var itemsCount: Int = 0
         
-    func updateItems(_ collectionView: UICollectionView) {
-        self.items = ["", "", "", ""]
-        collectionView.reloadData()
-    }
-    
-    // MARK: - Data Source
+}
+
+// MARK: - Data Source
+//
+extension PosterCollectionViewSection: CompositionalLayoutableSectionDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
@@ -90,13 +50,99 @@ final class PosterCollectionViewSection: NSObject, CollectionViewCompositionalLa
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        
         let posterPaginationView = collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self,
                                                                                    ofKind: supplementaryViewType.identifier,
                                                                                    for: indexPath)
         posterPaginationView.setNumberOfPages(self.itemsCount)
         self.posterPaginationView = posterPaginationView
         return posterPaginationView
+        
+    }
+}
+
+// MARK: - Section Layout
+//
+extension PosterCollectionViewSection : CompositionalLayoutableSectionLayout {
+    func itemLayoutInGroup() -> NSCollectionLayoutItem {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        return item
     }
     
+    func groupLayoutInSection() -> NSCollectionLayoutGroup {
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                               heightDimension: .absolute(.home.posters.sectionHeight))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitems: [self.itemLayoutInGroup()])
+        return group
+    }
+    
+    func sectionLayout() -> NSCollectionLayoutSection {
+        
+        let section = NSCollectionLayoutSection(group: self.groupLayoutInSection())
+        section.orthogonalScrollingBehavior = .groupPagingCentered
+        
+        // add supplementary item
+        section.boundarySupplementaryItems = [self.supplementaryItem()]
+        
+        // MARK: - Update page control
+        section.visibleItemsInvalidationHandler = { [unowned self] (items, offset, env) -> Void in
+            let page = round(offset.x / Constants.screenBounds.width)
+            self.posterPaginationView?.selectPage(at: Int(page))
+        }
+        return section
+    }
+    
+    // MARK: - supplementary item
+    private func supplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                       heightDimension: .absolute(.home.posters.supplementaryHeight))
+        
+        return NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,
+                                                           elementKind: supplementaryViewType.identifier, alignment: .bottom)
+    }
+
 }
+
+// MARK: - Delegate
+//
+extension PosterCollectionViewSection: CompositionalLayoutableSectionDelegate {
+    
+    func registerCell(_ collectionView: UICollectionView) {
+        collectionView.register(cellType.self)
+    }
+    
+    func registerSupplementaryView(_ collectionView: UICollectionView) {
+        
+        collectionView.register(supplementaryViewType.self, supplementaryViewOfKind: supplementaryViewType.identifier)
+        
+    }
+        
+    func updateItems(_ collectionView: UICollectionView) {
+        
+        // make a network request here
+        DispatchQueue.main.async { [ unowned self ]  in
+            
+            self.items = [
+                Poster(),
+                Poster(),
+                Poster(),
+                Poster(),
+                Poster(),
+            ]
+            
+            collectionView.reloadData()
+
+        }
+
+    }
+
+}
+
+
+
