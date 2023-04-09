@@ -9,6 +9,8 @@ import UIKit
 import ViewAnimator
 
 final class PosterCollectionViewSection: CompositionalLayoutableSection {
+    // MARK: - Typealias
+    //
     typealias cellType = PosterCollectionViewCell
     typealias supplementaryViewType = PosterPaginationView
     typealias ResposeType = Poster
@@ -96,6 +98,7 @@ extension PosterCollectionViewSection : CompositionalLayoutableSectionLayout {
             self.posterPaginationView?.selectPage(at: Int(page))
         }
         return section
+        
     }
     
     // MARK: - supplementary item

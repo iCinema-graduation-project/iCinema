@@ -7,7 +7,7 @@
 
 import UIKit
 
-var isAuthed = true
+var isAuthed = false
 
 class AppCoordinator {
     var rootViewController: UIViewController
@@ -18,7 +18,6 @@ class AppCoordinator {
             rootViewController = AppTapBarController()
         } else {
             let appFlowCoordinator = AuthFlowCoordinator()
-//            let appFlowCoordinator = BookingCoordinator()
             rootViewController = appFlowCoordinator.navigationController
         }
     }

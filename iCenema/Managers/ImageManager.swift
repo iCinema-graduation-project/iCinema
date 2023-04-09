@@ -15,8 +15,8 @@ extension UIImage {
     static let bookmark = "bookmark"
     static let bookmarkFill = "bookmark.fill"
     static let location = "location"
-    static let follow = UIImage(systemName: "person.badge.plus")
-    static let unFollow = UIImage(systemName: "person.fill.badge.minus")
+    static let follow = "person.badge.plus"
+    static let unFollow = "person.fill.badge.minus"
     
     static let shareIcon = UIImage(systemName: "square.and.arrow.up")!
     static let chairs = Chairs.self

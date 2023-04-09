@@ -92,11 +92,16 @@
 		736EAA8F2993060F00318F2E /* PhoneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */; };
 		73861C242984351E0020A63B /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* NewUserViewController.swift */; };
 		73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* ICinemaTextField.swift */; };
-		738A44F029CA26EE00FA07A8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 738A44EF29CA26EE00FA07A8 /* Lottie */; };
 		738A44FE29CA809300FA07A8 /* ActivityIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = 738A44FD29CA809300FA07A8 /* ActivityIndicator.json */; };
 		738A450129CA8D7600FA07A8 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A450029CA8D7600FA07A8 /* ActivityIndicator.swift */; };
 		738B062229C3919B00DC6DFC /* Coutries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B062129C3919B00DC6DFC /* Coutries.swift */; };
 		738B062429C39EC700DC6DFC /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B062329C39EC700DC6DFC /* RequestError.swift */; };
+		738DB6A329E290B000CB05C9 /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 738DB6A229E290B000CB05C9 /* SwiftUITrackableScrollView */; };
+		738DB6A629E290C600CB05C9 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 738DB6A529E290C600CB05C9 /* CountryPickerView */; };
+		738DB6A929E290DC00CB05C9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 738DB6A829E290DC00CB05C9 /* Alamofire */; };
+		738DB6AC29E290F600CB05C9 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 738DB6AB29E290F600CB05C9 /* Lottie */; };
+		738DB6B029E30D1300CB05C9 /* FollowingCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DB6AF29E30D1300CB05C9 /* FollowingCollectionViewSection.swift */; };
+		738DB6B229E316A900CB05C9 /* CinemaCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DB6B129E316A900CB05C9 /* CinemaCellView.swift */; };
 		738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2B29AE325000CDEE88 /* Poster.swift */; };
 		738EEF2E29AE330A00CDEE88 /* Cinema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2D29AE330A00CDEE88 /* Cinema.swift */; };
 		738EEF3029AE66E100CDEE88 /* PosterPaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2F29AE66E100CDEE88 /* PosterPaginationView.swift */; };
@@ -128,7 +133,6 @@
 		73BB177F29E062340062155C /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB177E29E062340062155C /* FollowingViewController.swift */; };
 		73BB178229E087950062155C /* CompositionalLayoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB178129E087950062155C /* CompositionalLayoutDataSource.swift */; };
 		73BB178429E087BA0062155C /* CompositionalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB178329E087BA0062155C /* CompositionalLayoutDelegate.swift */; };
-		73BB19E829BF6CF700C3A373 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB19E729BF6CF700C3A373 /* Alamofire */; };
 		73BB19EB29BF6D8900C3A373 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19EA29BF6D8900C3A373 /* APIRequest.swift */; };
 		73BB19ED29BF722700C3A373 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19EC29BF722700C3A373 /* FileManager.swift */; };
 		73BB19F129BF7D1C00C3A373 /* +customObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F029BF7D1C00C3A373 /* +customObject.swift */; };
@@ -160,8 +164,6 @@
 		73F0C37229AD2B2D00F95B01 /* IdentifiableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0C37129AD2B2D00F95B01 /* IdentifiableView.swift */; };
 		73F0C37429AD7AE900F95B01 /* PosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0C37329AD7AE900F95B01 /* PosterCell.swift */; };
 		73F0C37729AD813D00F95B01 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0C37629AD813D00F95B01 /* Movie.swift */; };
-		73F7137D29B61565001E469D /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 73F7137C29B61565001E469D /* SwiftUITrackableScrollView */; };
-		73F7138029B62086001E469D /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 73F7137F29B62086001E469D /* CountryPickerView */; };
 		73F7138329B632E6001E469D /* CinemaProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138229B632E6001E469D /* CinemaProfileHeaderView.swift */; };
 		73F7138529B636CD001E469D /* CinemaProfileInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138429B636CD001E469D /* CinemaProfileInformationView.swift */; };
 		73F7138729B65240001E469D /* CinemaProfileSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7138629B65240001E469D /* CinemaProfileSliderView.swift */; };
@@ -286,6 +288,8 @@
 		738A450029CA8D7600FA07A8 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		738B062129C3919B00DC6DFC /* Coutries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coutries.swift; sourceTree = "<group>"; };
 		738B062329C39EC700DC6DFC /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		738DB6AF29E30D1300CB05C9 /* FollowingCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingCollectionViewSection.swift; sourceTree = "<group>"; };
+		738DB6B129E316A900CB05C9 /* CinemaCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaCellView.swift; sourceTree = "<group>"; };
 		738EEF2B29AE325000CDEE88 /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
 		738EEF2D29AE330A00CDEE88 /* Cinema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinema.swift; sourceTree = "<group>"; };
 		738EEF2F29AE66E100CDEE88 /* PosterPaginationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterPaginationView.swift; sourceTree = "<group>"; };
@@ -380,11 +384,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				738A44F029CA26EE00FA07A8 /* Lottie in Frameworks */,
-				73F7137D29B61565001E469D /* SwiftUITrackableScrollView in Frameworks */,
-				73BB19E829BF6CF700C3A373 /* Alamofire in Frameworks */,
+				738DB6AC29E290F600CB05C9 /* Lottie in Frameworks */,
+				738DB6A929E290DC00CB05C9 /* Alamofire in Frameworks */,
+				738DB6A629E290C600CB05C9 /* CountryPickerView in Frameworks */,
+				738DB6A329E290B000CB05C9 /* SwiftUITrackableScrollView in Frameworks */,
 				DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */,
-				73F7138029B62086001E469D /* CountryPickerView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,6 +816,7 @@
 			isa = PBXGroup;
 			children = (
 				739864C429AFFCD3008420F6 /* CinemasSection.swift */,
+				738DB6B129E316A900CB05C9 /* CinemaCellView.swift */,
 				739864C629AFFCDE008420F6 /* CinemaCell.swift */,
 			);
 			path = Cinemas;
@@ -899,6 +904,7 @@
 			isa = PBXGroup;
 			children = (
 				73BB177E29E062340062155C /* FollowingViewController.swift */,
+				738DB6AF29E30D1300CB05C9 /* FollowingCollectionViewSection.swift */,
 			);
 			path = Following;
 			sourceTree = "<group>";
@@ -1183,10 +1189,10 @@
 			);
 			name = iCinema;
 			packageProductDependencies = (
-				73F7137C29B61565001E469D /* SwiftUITrackableScrollView */,
-				73F7137F29B62086001E469D /* CountryPickerView */,
-				73BB19E729BF6CF700C3A373 /* Alamofire */,
-				738A44EF29CA26EE00FA07A8 /* Lottie */,
+				738DB6A229E290B000CB05C9 /* SwiftUITrackableScrollView */,
+				738DB6A529E290C600CB05C9 /* CountryPickerView */,
+				738DB6A829E290DC00CB05C9 /* Alamofire */,
+				738DB6AB29E290F600CB05C9 /* Lottie */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -1265,10 +1271,10 @@
 			);
 			mainGroup = 73EC917F29834531002F3568;
 			packageReferences = (
-				73F7137B29B61565001E469D /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
-				73F7137E29B62086001E469D /* XCRemoteSwiftPackageReference "CountryPickerView" */,
-				73BB19E629BF6CF700C3A373 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				738A44EE29CA26EE00FA07A8 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				738DB6A129E290B000CB05C9 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
+				738DB6A429E290C600CB05C9 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
+				738DB6A729E290DC00CB05C9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				738DB6AA29E290F600CB05C9 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 73EC918929834531002F3568 /* Products */;
 			projectDirPath = "";
@@ -1474,6 +1480,7 @@
 				731FBF5D29B0BF7E00798DF5 /* IGResult.swift in Sources */,
 				739864C729AFFCDE008420F6 /* CinemaCell.swift in Sources */,
 				731FBF8229B0C2CB00798DF5 /* IGHomeView.swift in Sources */,
+				738DB6B029E30D1300CB05C9 /* FollowingCollectionViewSection.swift in Sources */,
 				730E1C1B29A95FD100F2AB85 /* MenuViewController.swift in Sources */,
 				731FBF5B29B0BF7E00798DF5 /* IGUser.swift in Sources */,
 				730E1C1929A95FA600F2AB85 /* MenuCoordinator.swift in Sources */,
@@ -1500,6 +1507,7 @@
 				736BECB829CE6C2000944D16 /* +hostigView.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
 				738B062229C3919B00DC6DFC /* Coutries.swift in Sources */,
+				738DB6B229E316A900CB05C9 /* CinemaCellView.swift in Sources */,
 				73F7138329B632E6001E469D /* CinemaProfileHeaderView.swift in Sources */,
 				731FBF5229B0BF7E00798DF5 /* UIView+Extension.swift in Sources */,
 				731FBF4E29B0BF7E00798DF5 /* IGMockLoader.swift in Sources */,
@@ -1927,23 +1935,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		738A44EE29CA26EE00FA07A8 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		73BB19E629BF6CF700C3A373 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		73F7137B29B61565001E469D /* XCRemoteSwiftPackageReference "trackable-scroll-view" */ = {
+		738DB6A129E290B000CB05C9 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/maxnatchanon/trackable-scroll-view";
 			requirement = {
@@ -1951,7 +1943,7 @@
 				kind = branch;
 			};
 		};
-		73F7137E29B62086001E469D /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
+		738DB6A429E290C600CB05C9 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
 			requirement = {
@@ -1959,28 +1951,44 @@
 				kind = branch;
 			};
 		};
+		738DB6A729E290DC00CB05C9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		738DB6AA29E290F600CB05C9 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		738A44EF29CA26EE00FA07A8 /* Lottie */ = {
+		738DB6A229E290B000CB05C9 /* SwiftUITrackableScrollView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 738A44EE29CA26EE00FA07A8 /* XCRemoteSwiftPackageReference "lottie-spm" */;
-			productName = Lottie;
-		};
-		73BB19E729BF6CF700C3A373 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 73BB19E629BF6CF700C3A373 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		73F7137C29B61565001E469D /* SwiftUITrackableScrollView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 73F7137B29B61565001E469D /* XCRemoteSwiftPackageReference "trackable-scroll-view" */;
+			package = 738DB6A129E290B000CB05C9 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */;
 			productName = SwiftUITrackableScrollView;
 		};
-		73F7137F29B62086001E469D /* CountryPickerView */ = {
+		738DB6A529E290C600CB05C9 /* CountryPickerView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 73F7137E29B62086001E469D /* XCRemoteSwiftPackageReference "CountryPickerView" */;
+			package = 738DB6A429E290C600CB05C9 /* XCRemoteSwiftPackageReference "CountryPickerView" */;
 			productName = CountryPickerView;
+		};
+		738DB6A829E290DC00CB05C9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 738DB6A729E290DC00CB05C9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		738DB6AB29E290F600CB05C9 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 738DB6AA29E290F600CB05C9 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

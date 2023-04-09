@@ -34,7 +34,10 @@ struct MovieCellView: View {
                     Button {
                         bookmarked.toggle()
                     } label: {
-                        BookMark(bookmarked: bookmarked)
+                        BookMark(bookmarked: bookmarked,
+                                 bookmarkedImage: UIImage.bookmarkFill,
+                                 notBookmarkedImage: UIImage.bookmark)
+                        .frame(width: .bookmark.width,  height: .bookmark.height)
                     }
                 }
                 
@@ -91,10 +94,11 @@ struct MovieCellView_Previews: PreviewProvider {
 
 struct BookMark: View {
     let bookmarked: Bool
+    var bookmarkedImage: String
+    var notBookmarkedImage: String
     var body: some View {
-        Image(systemName: bookmarked ? UIImage.bookmarkFill : UIImage.bookmark)
+        Image(systemName: bookmarked ? bookmarkedImage : notBookmarkedImage)
             .resizable()
-            .frame(width: .bookmark.width, height: .bookmark.height)
             .foregroundColor(Color(uiColor: .iCinemaYellowColor))
         
     }

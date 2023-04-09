@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SwiftUI
 
 final class FollowingViewController: ICinemaViewController, CompositionalLayoutProvider {
     
@@ -17,7 +17,7 @@ final class FollowingViewController: ICinemaViewController, CompositionalLayoutP
     // MARK: - Properties
     //
     lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [
-        PosterCollectionViewSection(hostingViewController: self),
+        FollowingCollectionViewSection(),
         DummyCollectionViewSection()
     ]
     
@@ -26,13 +26,18 @@ final class FollowingViewController: ICinemaViewController, CompositionalLayoutP
     
     // MARK: - Life Cycle
     //
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updatNavigationBar()
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         self.updateUI()
         
         // setup collection view compositional layout
         collectionView.updatecollectionViewCompositionalLayout(with: self)
-//        compositionalLayoutSections.forEach { $0.hostingViewController = self }
         compositionalLayoutSections.forEach { $0.delegate?.updateItems(self.collectionView) }
         
         // setup collection view delegate and datasource with compositional layout source and delegate
@@ -47,23 +52,33 @@ final class FollowingViewController: ICinemaViewController, CompositionalLayoutP
         collectionView.frame = view.bounds
         
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+  
     
     // MARK: - Update UI
     //
     private func updateUI(){
-        navigationItem.addTitleView(title: "Following")
+        title = " Following"
         self.updateCollectionView()
     }
  
     private func updateCollectionView() {
-        
+    
         // add and clear the background of the collection view
         view.addSubview(collectionView)
         collectionView.backgroundColor = .clear
                 
     }
     
+    private func updatNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.iCinemaYellowColor, .font: UIFont.title1]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.iCinemaYellowColor, .font: UIFont.title3]
+    }
+    
 }
-
 
 

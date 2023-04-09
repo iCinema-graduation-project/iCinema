@@ -47,12 +47,10 @@ class CinemaProfileViewController: ICinemaViewController {
         }
         
         
-        
         viewModel.bookNow = { movie in
             print(movie.name)
 
             self.dismiss()
-            TabBarViewModel.shared.hide()
             self.presenterViewController?.coordinator?.push()
             
         }

@@ -11,6 +11,12 @@ class CinemaDateViewController: ICinemaViewController {
 
     var viewModel = CinemaDateViewModel()
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        TabBarViewModel.shared.hide()
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         addStepperView()

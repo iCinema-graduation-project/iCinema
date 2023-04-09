@@ -7,7 +7,8 @@
 
 import UIKit
 
-protocol CompositionalLayoutableSectionDataSource: UICollectionViewDataSource {
+// Protocol defining the data source for a section in a compositional layout.
+public protocol CompositionalLayoutableSectionDataSource: UICollectionViewDataSource {
     /// A generic type representing the data type for the items in the section.
     associatedtype ResposeType
     
@@ -21,7 +22,9 @@ protocol CompositionalLayoutableSectionDataSource: UICollectionViewDataSource {
 
 }
 
-protocol CompositionalLayoutableSectionLayout {
+// Protocol defining the layout for a section in a compositional layout.
+@available(iOS 13.0, *)
+public protocol CompositionalLayoutableSectionLayout {
     /// Returns the layout for an item in the section.
     func itemLayoutInGroup() -> NSCollectionLayoutItem
     
@@ -33,7 +36,8 @@ protocol CompositionalLayoutableSectionLayout {
     
 }
 
-@objc protocol CompositionalLayoutableSectionDelegate: UICollectionViewDelegate {
+// Protocol defining the delegate for a section in a compositional layout.
+@objc public protocol CompositionalLayoutableSectionDelegate: UICollectionViewDelegate {
     /// Registers the cell type to be used for the items in the section.
     @objc func registerCell(_ collectionView: UICollectionView)
     
@@ -55,11 +59,12 @@ protocol CompositionalLayoutableSectionLayout {
  - You can create multiple objects Inherets from this class
    and switch between them to show different sections in the same collection view,
  */
-class CompositionalLayoutableSection: NSObject {
+@available(iOS 13.0, *)
+open class CompositionalLayoutableSection: NSObject {
     
-    var dataSource: (any CompositionalLayoutableSectionDataSource)? = nil
-    var layout: (any CompositionalLayoutableSectionLayout)? = nil
-    var delegate: (any CompositionalLayoutableSectionDelegate)? = nil
+    public var dataSource: (any CompositionalLayoutableSectionDataSource)? = nil
+    public var layout: (any CompositionalLayoutableSectionLayout)? = nil
+    public var delegate: (any CompositionalLayoutableSectionDelegate)? = nil
     
 }
 

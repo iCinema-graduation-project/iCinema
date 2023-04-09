@@ -24,18 +24,18 @@ struct MenuView: View {
     let menuSections: [MenuSection] = [
         MenuSection(title: .menu.general, cells: [
             MenuCell(imageSystemName: "person", text: .menu.following, viewController: FollowingViewController.self),
-            MenuCell(imageSystemName: "clock", text: .menu.activity),
-            MenuCell(imageSystemName: "bookmark", text: .menu.saved),
-            MenuCell(imageSystemName: "wallet.pass", text: .menu.icinemaWallet),
-            MenuCell(imageSystemName: "globe", text: .menu.language),
-            MenuCell(imageSystemName: "sun.max", text: .menu.lightMode)
+            MenuCell(imageSystemName: "clock", text: .menu.activity, viewController: FollowingViewController.self),
+            MenuCell(imageSystemName: "bookmark", text: .menu.saved, viewController: FollowingViewController.self),
+            MenuCell(imageSystemName: "wallet.pass", text: .menu.icinemaWallet, viewController: FollowingViewController.self),
+            MenuCell(imageSystemName: "globe", text: .menu.language, viewController: FollowingViewController.self),
+            MenuCell(imageSystemName: "sun.max", text: .menu.lightMode, viewController: FollowingViewController.self)
         ]),
         
         MenuSection(title: .menu.service, cells: [
-            MenuCell(imageSystemName: "mail", text: .menu.contactUs),
-            MenuCell(imageSystemName: "person.3", text: .menu.aboutUs),
-            MenuCell(imageSystemName: "star", text: .menu.rateUs),
-            MenuCell(imageSystemName: "iphone.and.arrow.forward", text: .menu.logout)
+            MenuCell(imageSystemName: "mail", text: .menu.contactUs, viewController: FollowingViewController.self),
+            MenuCell(imageSystemName: "person.3", text: .menu.aboutUs, viewController: FollowingViewController.self),
+            MenuCell(imageSystemName: "star", text: .menu.rateUs, viewController: FollowingViewController.self),
+            MenuCell(imageSystemName: "iphone.and.arrow.forward", text: .menu.logout, viewController: FollowingViewController.self)
         ])
     ]
     

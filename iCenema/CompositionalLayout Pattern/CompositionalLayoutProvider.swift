@@ -8,7 +8,8 @@
 import UIKit
 
 /// Protocol that defines the requirements for providing data for a compositional layout in a collection view
-protocol CompositionalLayoutProvider {
+@available(iOS 13.0, *)
+public protocol CompositionalLayoutProvider {
     
     /// An array of compositional layout sections to be used in the collection view's layout
     var compositionalLayoutSections: [CompositionalLayoutableSection] { get set }
@@ -19,25 +20,26 @@ protocol CompositionalLayoutProvider {
     
 }
 
+@available(iOS 13.0, *)
 extension CompositionalLayoutProvider {
     
     /// Registers cells for all sections in the collection view
-    func registerCells(for collectionView: UICollectionView) {
+    public func registerCells(for collectionView: UICollectionView) {
         compositionalLayoutSections.forEach { $0.delegate?.registerCell(collectionView) }
     }
     
     /// Registers supplementary views for all sections in the collection view
-    func registerSupplementaryViews(for collectionView: UICollectionView) {
+    public func registerSupplementaryViews(for collectionView: UICollectionView) {
         compositionalLayoutSections.forEach { $0.delegate?.registerSupplementaryView?(collectionView) }
     }
     
     /// Retrieves the section at the given index path
-    func getSection(at indexPath: IndexPath) -> CompositionalLayoutableSection {
+    public func getSection(at indexPath: IndexPath) -> CompositionalLayoutableSection {
         return self.compositionalLayoutSections[indexPath.section]
     }
     
     /// Constructs and returns a UICollectionViewCompositionalLayout instance based on the compositional layout sections
-    func collectionViewCompositionalLayout() -> UICollectionViewCompositionalLayout {
+    public func collectionViewCompositionalLayout() -> UICollectionViewCompositionalLayout {
         
       let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
           

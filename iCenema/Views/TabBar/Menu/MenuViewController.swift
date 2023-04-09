@@ -23,7 +23,7 @@ class MenuViewController: ICinemaViewController {
         super.viewWillAppear(animated)
         menu = MenuView()
 
-        self.layoutMenu()
+        self.layoutMenuView()
         self.bindViewModel()
     
     }
@@ -40,7 +40,7 @@ class MenuViewController: ICinemaViewController {
     
     // MARK: - Update UI
     //
-    private func layoutMenu() {
+    private func layoutMenuView() {
         let menuView = menu.hostigView()
         view.addSubview(menuView)
         

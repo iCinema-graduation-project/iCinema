@@ -27,7 +27,7 @@ extension CGFloat {
     static let iCinemaButton = ICinemaButton.self
     struct ICinemaButton {
         static let size = CGSize(width: 200, height: 40)
-        static let smallButtonSize = CGSize(width: 80, height: 24)
+        static let smallButtonSize = CGSize(width: 88, height: 24)
         static let cornerRadius: CGFloat = CGFloat.iCinemaButton.size.width / 25 // = 8
     }
     
@@ -55,7 +55,8 @@ extension CGFloat {
             static let imageHeight: CGFloat = 170
         }
         struct Cinemas {
-            static let size = CGSize(width: 168, height: 184)
+            static let size = CGSize(width: 168, height: 192)
+            static let imageSize = CGSize(width: 60, height: 60)
         }
     }
     

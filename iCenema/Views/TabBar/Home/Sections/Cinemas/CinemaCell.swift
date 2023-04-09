@@ -22,12 +22,11 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.updateContentView()
-        self.addImageView()
-        self.addDetailsSuperView()
-        self.addCinemaNameLabel()
-        self.addFollowButton()
+
+        let cinemaCellView = CinemaCellView().hostigView()
+        contentView.addSubview(cinemaCellView)
+        cinemaCellView.fillSuperviewConstraints()
         
-        imageView.image = UIImage(named: "cinema")
     }
     
     required init?(coder: NSCoder) {
@@ -36,9 +35,22 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
     
     //  MARK: - Update UI
     //
+    
+    private func updateUI() {
+        self.updateContentView()
+        self.addImageView()
+        self.addDetailsSuperView()
+        self.addCinemaNameLabel()
+        self.addFollowButton()
+        
+        imageView.image = UIImage(named: "cinema")
+
+    }
     private func updateContentView() {
         contentView.layer.cornerRadius = .view.cornerRadius
         contentView.backgroundColor = .iCinemaSecondBackgroudColor
+        contentView.clipsToBounds = true
+
     }
     
     // Adds an image view to the content view
@@ -49,7 +61,9 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         // Set Constraints
         imageView.centerXInSuperview()
         imageView.equalSizeConstraints(contentView.frame.width - (CGFloat.cell.padding.left * 2))
-        imageView.makeConstraints(topAnchor: contentView.topAnchor, padding: UIEdgeInsets(top: .cell.padding.top, left: 0, bottom: 0, right: 0))
+        imageView.makeConstraints(topAnchor: contentView.topAnchor,
+                                  padding: UIEdgeInsets(top: .cell.padding.top,
+                                                        left: 0, bottom: 0, right: 0))
     
         // Apply Some Styling
         imageView.layer.masksToBounds = true
@@ -78,8 +92,8 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
     }
     
     private func addFollowButton() {
-        followButton.setSelectedImage(.unFollow)
-        followButton.setUnSelectedImage(.follow)
+        followButton.setSelectedImage(UIImage(systemName: UIImage.unFollow))
+        followButton.setUnSelectedImage(UIImage(systemName: UIImage.follow))
         detailsSuperView.addSubview(followButton)
         followButton.makeConstraints(trailingAnchor: detailsSuperView.trailingAnchor)
         followButton.centerYInSuperview()
