@@ -96,6 +96,7 @@
 		738A450129CA8D7600FA07A8 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A450029CA8D7600FA07A8 /* ActivityIndicator.swift */; };
 		738B062229C3919B00DC6DFC /* Coutries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B062129C3919B00DC6DFC /* Coutries.swift */; };
 		738B062429C39EC700DC6DFC /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B062329C39EC700DC6DFC /* RequestError.swift */; };
+		738B51BD29E5947C009A20A5 /* MovieProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B51BC29E5947C009A20A5 /* MovieProfileViewModel.swift */; };
 		738DB6A329E290B000CB05C9 /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 738DB6A229E290B000CB05C9 /* SwiftUITrackableScrollView */; };
 		738DB6A629E290C600CB05C9 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 738DB6A529E290C600CB05C9 /* CountryPickerView */; };
 		738DB6A929E290DC00CB05C9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 738DB6A829E290DC00CB05C9 /* Alamofire */; };
@@ -288,6 +289,7 @@
 		738A450029CA8D7600FA07A8 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		738B062129C3919B00DC6DFC /* Coutries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coutries.swift; sourceTree = "<group>"; };
 		738B062329C39EC700DC6DFC /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		738B51BC29E5947C009A20A5 /* MovieProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProfileViewModel.swift; sourceTree = "<group>"; };
 		738DB6AF29E30D1300CB05C9 /* FollowingCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingCollectionViewSection.swift; sourceTree = "<group>"; };
 		738DB6B129E316A900CB05C9 /* CinemaCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaCellView.swift; sourceTree = "<group>"; };
 		738EEF2B29AE325000CDEE88 /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 			children = (
 				739ADAA729B8AA1900FFA78E /* MovieProfileView.swift */,
 				7307FDFD29BCCD1D00B13E24 /* MovieProfileViewController.swift */,
+				738B51BC29E5947C009A20A5 /* MovieProfileViewModel.swift */,
 			);
 			path = "Movie Profile";
 			sourceTree = "<group>";
@@ -1539,6 +1542,7 @@
 				730FA8E7298ED92C00F3B955 /* UIView+addAnimate.swift in Sources */,
 				73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */,
 				733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */,
+				738B51BD29E5947C009A20A5 /* MovieProfileViewModel.swift in Sources */,
 				73EC91C02983462E002F3568 /* ColorsManager.swift in Sources */,
 				73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */,
 				7311C3132991B9D500C0610F /* AuthFlowCoordinator.swift in Sources */,

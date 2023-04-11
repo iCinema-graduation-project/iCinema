@@ -18,6 +18,8 @@ class ViewController: UIViewController{
     var coordinator: Coordinator?
     var coordinatorType: CoordinatorType = .navigation
     
+    var userInfo: [String: Any]? = nil
+    
     // used to notify the coordinator when the view controller is popped from the navigation stack.
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)

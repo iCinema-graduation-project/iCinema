@@ -11,8 +11,11 @@ import UIKit
 final class FollowingCollectionViewSection: CompositionalLayoutableSection {
     typealias CellType = CinemaCell
 
-    override init() {
+    var hostingViewController: UIViewController?
+    init(hostingViewController: UIViewController) {
+       
         super.init()
+        self.hostingViewController = hostingViewController
         dataSource = self
         delegate = self
         layout = self
@@ -116,5 +119,16 @@ extension FollowingCollectionViewSection: CompositionalLayoutableSectionDelegate
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let hostingViewController = hostingViewController as? ViewController else { return }
+
+        let cinemaProfileVC = CinemaProfileViewController()
+        
+        let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5,
+                                    ChairsCount: 430, followed: false)
+        
+        cinemaProfileVC.viewModel = .init(cinema: cinema)
+        hostingViewController.presentViewController(cinemaProfileVC)
+    }
     
 }

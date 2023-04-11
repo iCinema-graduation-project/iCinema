@@ -24,17 +24,30 @@ class ICinemaButton: UIView {
 }
 
 struct ICinemaButtonView: View {
+    
+    enum Buttontype {
+        case large
+        case small
+    }
+    
     let title: String
+   
+//    var type: Buttontype = .large
     let action: () -> Void
-    let size: CGSize
     
-    @State var animate = false
+    private var size: CGSize
+    @State private var animate = false
     
-    init(title: String, size: CGSize = CGFloat.iCinemaButton.size,
-         action: @escaping () -> Void = {}) {
+    init(title: String, type: Buttontype = .large, action: @escaping () -> Void = {}) {
         self.title = title
-        self.size = size
         self.action = action
+        
+        switch type {
+        case .large:
+            self.size = CGFloat.iCinemaButton.size
+        case .small:
+            self.size = CGFloat.iCinemaButton.smallButtonSize
+        }
     }
     
     var body: some View {

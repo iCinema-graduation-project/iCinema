@@ -10,8 +10,8 @@ import SwiftUITrackableScrollView
 import AVKit
 
 struct MovieProfileView: View {
-
-    let closeButtonAction: () -> Void
+    @EnvironmentObject var viewModel: MovieProfileViewModel
+    
     @State private var scrollViewContentOffset = CGFloat(0)
     @State private var showCinemaImageInToolbarItem = false
     
@@ -49,7 +49,7 @@ struct MovieProfileView: View {
 
                     //
                     ICinemaButtonView(title: "Book Now", action: {
-                        
+                        viewModel.bookNow(viewModel.movie)
                     })
                     .padding()
             
@@ -76,7 +76,7 @@ struct MovieProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        self.closeButtonAction()
+                        self.viewModel.dismissAction()
                     } label: {
                         Image(systemName: "x.circle")
                             .foregroundColor(Color(uiColor: .iCinemaYellowColor))
@@ -107,7 +107,7 @@ struct MovieProfileView: View {
 
 struct MovieProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieProfileView(closeButtonAction: {})
+        MovieProfileView()
     }
 }
 

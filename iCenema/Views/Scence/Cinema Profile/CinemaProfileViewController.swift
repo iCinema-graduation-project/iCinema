@@ -41,17 +41,17 @@ class CinemaProfileViewController: ICinemaViewController {
         viewModel.showMore = { movie in
 
             let movieVC = MovieProfileViewController()
-            movieVC.setup(movie: movie)
+            movieVC.viewModel = .init(movie: movie)
             self.presentViewController(movieVC)
             
         }
         
         
         viewModel.bookNow = { movie in
-            print(movie.name)
 
-            self.dismiss()
-            self.presenterViewController?.coordinator?.push()
+            self.dismiss {
+                Booking.shared.startBooking(movie)
+            }
             
         }
         
@@ -59,3 +59,20 @@ class CinemaProfileViewController: ICinemaViewController {
     
     
 }
+
+struct Booking {
+    static var shared = Booking()
+    
+    var homeCoordinator: Coordinator? = nil
+    
+    public func startBooking(_ movie: Movie) {
+        TabBarViewModel.shared.selectedTabIndex = 2
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+            homeCoordinator?.push(userInfo: ["movie": movie])
+        })
+        
+    }
+
+}
+

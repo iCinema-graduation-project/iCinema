@@ -112,9 +112,10 @@ struct MovieListCellView: View {
                         
                         Spacer()
                         
-                        ICinemaButtonView(title: .bookNow, size: CGFloat.iCinemaButton.smallButtonSize) {
+                        ICinemaButtonView(title: .bookNow, type: .small) {
+                            
                             viewModel.bookNow(movie)
-
+                            
                         }
                     }
                 }

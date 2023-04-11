@@ -21,10 +21,11 @@ enum CoordinatorType {
 }
 
 extension Coordinator {
-    func push() {
+    func push(userInfo: [String: Any]? = nil ) {
         increaseCurrentIndex()
         
         let currentCoordinator = self.coordinators[currentIndex].init()
+        currentCoordinator.userInfo = userInfo
         currentCoordinator.coordinator = self
         
         if currentCoordinator.coordinatorType == .navigation {

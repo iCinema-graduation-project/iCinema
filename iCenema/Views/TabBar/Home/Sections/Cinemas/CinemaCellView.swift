@@ -50,8 +50,9 @@ struct CinemaCellView: View {
                         .foregroundColor(.gray)
                 }
                 
-                ICinemaButtonView(title: .unfollow,
-                                  size: CGFloat.iCinemaButton.smallButtonSize)
+                ICinemaButtonView(title: .unfollow, type: .small) {
+                    
+                }
             }
             .foregroundColor(Color(uiColor: .iCinemaTextColor))
             .padding(.horizontal, .cell.padding.left)

@@ -25,7 +25,9 @@ class AppTapBarController: ICinemaViewController {
         let reelsVC = ReelsCoordinator().navigationController
         buildCoordinator(vc: reelsVC, image: .tabBar.reels, selectedImage: .tabBar.reelsSelected, tag: 1)
         
-        let homeVC = HomeCoordinator().navigationController
+        let home = HomeCoordinator()
+        let homeVC = home.navigationController
+        Booking.shared.homeCoordinator = home
         buildCoordinator(vc: homeVC, image: .tabBar.home, selectedImage: .tabBar.homeSelected, tag: 2)
         
         let ticketVC = TicketCoordinator().navigationController
@@ -37,7 +39,9 @@ class AppTapBarController: ICinemaViewController {
         
         let viewControllers = [menuVC, reelsVC, homeVC, ticketVC, notificationVC]
         
-        self.tabBarView = AppTabBarView(tabs: viewControllers, selectedTabIndex: 2, tabBarViewModel: TabBarViewModel.shared).hostigView()
+        
+        self.tabBarView = AppTabBarView(tabs: viewControllers,
+                                        tabBarViewModel: TabBarViewModel.shared).hostigView()
         view.addSubview(tabBarView!)
         
     }

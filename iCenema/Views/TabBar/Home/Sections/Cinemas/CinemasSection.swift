@@ -21,7 +21,7 @@ final class CinemaCollectionViewSection: CompositionalLayoutableSection {
     var items: [ResposeType] = [] { didSet { itemsCount = items.count } }
     var itemsCount: Int = 0
     
-    var hostingViewController: UIViewController? = nil
+    var hostingViewController: UIViewController?
     init(hostingViewController: UIViewController) {
         
         super.init()

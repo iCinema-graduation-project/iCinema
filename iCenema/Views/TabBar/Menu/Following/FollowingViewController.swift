@@ -17,7 +17,7 @@ final class FollowingViewController: ICinemaViewController, CompositionalLayoutP
     // MARK: - Properties
     //
     lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [
-        FollowingCollectionViewSection(),
+        FollowingCollectionViewSection(hostingViewController: self),
         DummyCollectionViewSection()
     ]
     

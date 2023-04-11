@@ -20,6 +20,10 @@ class CinemaDateViewController: ICinemaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addStepperView()
+        
+        guard let userInfo = userInfo, let movie = userInfo["movie"] as? Movie else { return }
+        print("hi")
+        print(movie.bookmarket)
 
         let cinemaDateView = CinemaDateView()
             .environmentObject(viewModel)

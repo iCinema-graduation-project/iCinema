@@ -11,20 +11,18 @@ import UIKit
 
 struct AppTabBarView: View {
     var tabs: [UIViewController]
-    @State var selectedTabIndex: Int
     @ObservedObject var tabBarViewModel: TabBarViewModel
     
-    init(tabs: [UIViewController], selectedTabIndex: Int, tabBarViewModel: TabBarViewModel) {
+    init(tabs: [UIViewController], tabBarViewModel: TabBarViewModel) {
         self.tabs = tabs
-        self.selectedTabIndex = selectedTabIndex
         self.tabBarViewModel = tabBarViewModel
         UITabBar.appearance().isHidden = true
     }
 
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
-        // TabBar View Controllers
-            TabView(selection: $selectedTabIndex) {
+            // TabBar View Controllers
+            TabView(selection: $tabBarViewModel.selectedTabIndex) {
                 ForEach(tabs, id: \.self) { viewController in
                     MakeViewControllerView(viewController: viewController)
                         .ignoresSafeArea()
@@ -32,56 +30,63 @@ struct AppTabBarView: View {
                 }
             }
             
-        // TabBar View
+            // TabBar View
             if !tabBarViewModel.isHidden {
-                TabBarView(tabs: tabs, selectedTabIndex: $selectedTabIndex)
+                
+                TabBarView(tabs: tabs)
+                    .environmentObject(tabBarViewModel)
+                
             }
+        
         }
         .ignoresSafeArea(.all, edges: .bottom)
     }
 }
 
 struct TabBarView: View {
-    var tabs: [UIViewController]
-    @Binding var selectedTabIndex: Int
-
-    @State var xAxis: CGFloat = 0
-    @Namespace var animation
     
+    var tabs: [UIViewController]
+    @EnvironmentObject var viewModel: TabBarViewModel
+    
+    @Namespace var animation
     let currentLanguage = Locale.current.languageCode ?? "en"
     
-
     var body: some View {
         HStack(spacing: 0) {
             ForEach(tabs, id: \.self) { viewController in
                 let tag = viewController.tabBarItem.tag
                 GeometryReader { reader in
+
                     Button {
                         withAnimation(.spring()) {
-                            selectedTabIndex = tag
-                            xAxis = reader.frame(in: .global).minX + 15
+                            viewModel.selectedTabIndex = tag
                         }
                         
                     } label: {
-                        let image = (selectedTabIndex == tag ? viewController.tabBarItem.selectedImage! : viewController.tabBarItem.image!)
                         
+                        let image = (viewModel.selectedTabIndex == tag ? viewController.tabBarItem.selectedImage! : viewController.tabBarItem.image!)
+
                         Image(uiImage: image)
                             .resizable()
                             .renderingMode(.template)
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 25, height: 25, alignment: .center)
-                            .padding(selectedTabIndex == tag ? 15 : 0)
-                            .foregroundColor(selectedTabIndex == tag ? Color(uiColor: .iCinemaOnlyGray) : Color(uiColor: .iCinemaTextColor))
-                            .background(Color(uiColor: .iCinemaOnlyYellow).opacity(selectedTabIndex == tag ? 1 : 0 ).clipShape(Circle()))
+                            .padding(viewModel.selectedTabIndex == tag ? 15 : 0)
+                            .foregroundColor(viewModel.selectedTabIndex == tag ? Color(uiColor: .iCinemaOnlyGray) : Color(uiColor: .iCinemaTextColor))
+                            .background(Color(uiColor: .iCinemaOnlyYellow).opacity(viewModel.selectedTabIndex == tag ? 1 : 0 ).clipShape(Circle()))
                             .matchedGeometryEffect(id: tag, in: animation)
-                            .offset(x: selectedTabIndex == tag ? ((reader.frame(in: .global).minX - reader.frame(in: .global).midX) - (currentLanguage == "ar" ?  5 : 0)) : 0 ,
-                                    y: selectedTabIndex == tag ? -45 : 0)
+                            .offset(x: imageOffsetX(tag, reader), y: viewModel.selectedTabIndex == tag ? -45 : 0)
+                        
                     }
                     .onAppear {
-                        if selectedTabIndex == tag {
-                            xAxis = reader.frame(in: .global).minX + 15
+                        
+                        viewModel.readers.append(reader)
+
+                        if viewModel.selectedTabIndex == tag {
+                            viewModel.xAxis = reader.frame(in: .global).minX + 15
                         }
                     }
+                    
                 }
                 .frame(width: 25, height:25)
                 if viewController != tabs.last {
@@ -93,15 +98,21 @@ struct TabBarView: View {
         .padding(.vertical)
 //        .padding(.bottom, 12)
         .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
-        .background(Color(uiColor: UIColor.iCinemaSecondBackgroudColor).clipShape(CustomShape(xAxis: xAxis, curve: 30)))
+        .background(Color(uiColor: UIColor.iCinemaSecondBackgroudColor)
+        .clipShape(CustomShape(xAxis: viewModel.xAxis, curve: 30)))
 
     }
+    
+    private func imageOffsetX(_ tag:Int, _ reader: GeometryProxy) -> CGFloat {
+        viewModel.selectedTabIndex == tag ? ((reader.frame(in: .global).minX - reader.frame(in: .global).midX) - (currentLanguage == "ar" ?  5 : 0)) : 0
+    }
+    
 }
 
 
 struct AppTabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        AppTabBarView(tabs: [], selectedTabIndex: 0, tabBarViewModel: TabBarViewModel())
+        AppTabBarView(tabs: [], tabBarViewModel: TabBarViewModel())
     }
 }
 

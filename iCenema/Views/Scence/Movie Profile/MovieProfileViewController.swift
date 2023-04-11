@@ -10,21 +10,32 @@ import SwiftUI
 
 class MovieProfileViewController: ICinemaViewController {
 
-    var movie: Movie?
+    var viewModel: MovieProfileViewModel?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let movieProfileView =  MovieProfileView(closeButtonAction: {
-            self.dismiss()
-        }).hostigView()
+        guard let viewModel = viewModel else { return }
+
+        let movieProfileView =  MovieProfileView()
+            .environmentObject(viewModel)
+            .hostigView()
         
         view.addSubview(movieProfileView)
         movieProfileView.fillSuperviewConstraints()
+        
+        
+        viewModel.dismissAction = {
+            self.dismiss()
+        }
+        
+        viewModel.bookNow = { movie in
+            self.dismiss {
+                Booking.shared.startBooking(movie)
+            }
+        }
+        
     }
     
-    public func setup(movie: Movie?) {
-        self.movie = movie
-    }
     
 }
