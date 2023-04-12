@@ -1,14 +1,14 @@
 //
-//  FollowingViewController.swift
+//  SavedViewController.swift
 //  iCinema
 //
-//  Created by Ahmed Yamany on 07/04/2023.
+//  Created by Ahmed Yamany on 12/04/2023.
 //
 
 import UIKit
 import SwiftUI
 
-final class FollowingViewController: ICinemaViewController, CompositionalLayoutProvider {
+final class SavedViewController: ICinemaViewController, CompositionalLayoutProvider {
     
     // MARK: - Views
     //
@@ -17,7 +17,7 @@ final class FollowingViewController: ICinemaViewController, CompositionalLayoutP
     // MARK: - Properties
     //
     lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [
-        FollowingCollectionViewSection(hostingViewController: self),
+        SavedCollectionViewSection(hostingViewController: self),
         DummyCollectionViewSection()
     ]
     
@@ -61,7 +61,7 @@ final class FollowingViewController: ICinemaViewController, CompositionalLayoutP
     // MARK: - Update UI
     //
     private func updateUI(){
-        title = " Following"
+        title = " Saved"
         self.updateCollectionView()
     }
  

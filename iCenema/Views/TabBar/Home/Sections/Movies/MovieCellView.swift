@@ -71,12 +71,12 @@ struct MovieCellView: View {
                 
                 Spacer()
             }
-            .padding(.horizontal, .cell.padding.left + 10)
+            .padding(.horizontal, .cell.padding.top)
             .padding(.top, .cell.padding.top)
             .foregroundColor(Color(uiColor: .iCinemaTextColor))
 
         }
-        .frame(width: .home.movies.size.width, height: .home.movies.size.height)
+        .frame(width: .infinity, height: .infinity)
         .background(Color(uiColor: .iCinemaSecondBackgroudColor))
         .onAppear {
             bookmarked = movie.bookmarket
