@@ -146,10 +146,10 @@ extension CinemaCollectionViewSection: CompositionalLayoutableSectionDelegate {
         guard let hostingViewController = hostingViewController as? ViewController else { return }
 
         let cinemaProfileVC = CinemaProfileViewController()
-        
+
         let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5,
                                     ChairsCount: 430, followed: false)
-        
+
         cinemaProfileVC.viewModel = .init(cinema: cinema)
         hostingViewController.presentViewController(cinemaProfileVC)
     }

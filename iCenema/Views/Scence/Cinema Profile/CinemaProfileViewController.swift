@@ -48,15 +48,10 @@ class CinemaProfileViewController: ICinemaViewController {
         
         
         viewModel.bookNow = { movie in
-
-            self.dismiss {
-                Booking.shared.startBooking(movie)
-            }
-            
+            Booking.shared.startBooking(movie)
         }
         
     }
-    
     
 }
 
@@ -69,6 +64,7 @@ struct Booking {
         TabBarViewModel.shared.selectedTabIndex = 2
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+
             homeCoordinator?.push(userInfo: ["movie": movie])
         })
         

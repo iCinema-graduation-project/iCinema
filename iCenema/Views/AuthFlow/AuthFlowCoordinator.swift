@@ -9,12 +9,12 @@ import UIKit
 
 
 final class AuthFlowCoordinator: Coordinator {
-    var currentIndex: Int = -1
-    var navigationController: UINavigationController = .init(nibName: nil, bundle: nil)
-    var coordinators: [ViewController.Type] = [WelcomeViewController.self, PhoneViewController.self, OTPViewController.self, NewUserViewController.self, AppTapBarController.self]
-    
-    init() {
-//        currentIndex = 2
+
+    override init() {
+        super.init()
+        coordinators = [WelcomeViewController.self, PhoneViewController.self,
+                        OTPViewController.self, NewUserViewController.self,
+                        AppTapBarController.self]
         push()
     }
 

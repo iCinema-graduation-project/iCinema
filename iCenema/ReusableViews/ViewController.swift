@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController{
     // used to store properities when presenting view controller
     public var presenterViewController: ViewController?
-    private weak var presentedView:  UIView?
+    public weak var presentedView:  UIView?
     public var presentedViewAnchoredConstraints: AnchoredConstraints?
 
     // the coordinator is responsible for managing navigation between view controllers.
@@ -32,7 +32,7 @@ class ViewController: UIViewController{
     // This Method presents the given view controller on top of the current view controller.
     @objc public func presentViewController(_ viewControllerToPresent: ViewController, completion: @escaping () -> Void = {} ){
         viewControllerToPresent.presenterViewController = self
-
+        
         // Set the presentedView property to the view of the view controller being presented.
         self.presentedView = viewControllerToPresent.view
         
@@ -58,15 +58,16 @@ class ViewController: UIViewController{
     private func beginFullScreenAnimation(completion: @escaping () -> Void) {
         guard let presentedView = self.presentedView else { return }
 
+
         UIView.animate(withDuration: 0.7,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.7,
                        options: .curveEaseOut) {
-            
+
             self.navigationController?.navigationBar.isHidden = true
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-//
+
             presentedView.fillXSuperViewConstraints()
             self.presentedViewAnchoredConstraints = presentedView.makeConstraints(topAnchor: self.view.topAnchor, bottomAnchor: self.view.bottomAnchor)
             
@@ -78,7 +79,9 @@ class ViewController: UIViewController{
     }
     
     @objc public func dismiss(completion: @escaping () -> Void = {}) {
-
+        self.presenterViewController?.navigationController?.navigationBar.isHidden = false
+        self.presenterViewController?.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        
         UIView.animate(withDuration: 0.7,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
@@ -89,14 +92,17 @@ class ViewController: UIViewController{
             
             self.presenterViewController?.view.layoutIfNeeded()
             self.presenterViewController?.presentedView?.layoutIfNeeded()
-            self.presenterViewController?.navigationController?.navigationBar.isHidden = false
-            self.presenterViewController?.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+            
+         
             self.presenterViewController?.coordinator?.pop()
 
         } completion: { _ in
             self.presenterViewController?.presentedView?.removeFromSuperview()
-            completion()
             self.presenterViewController?.presentedView = nil
+            completion()
         }
     }
+    
+    
+    
 }

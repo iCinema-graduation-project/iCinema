@@ -30,9 +30,7 @@ class MovieProfileViewController: ICinemaViewController {
         }
         
         viewModel.bookNow = { movie in
-            self.dismiss {
-                Booking.shared.startBooking(movie)
-            }
+            Booking.shared.startBooking(movie)
         }
         
     }

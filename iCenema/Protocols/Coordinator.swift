@@ -14,13 +14,11 @@ enum CoordinatorType {
 
 // defines the expected behavior of coordinators,
 // including managing a navigation controller and managing a stack of view controllers.
-@objc protocol Coordinator {
-    var navigationController: UINavigationController { get set }
-    var coordinators: [ViewController.Type] { get set }
-    var currentIndex: Int { get set }
-}
+ class Coordinator {
+    var navigationController: UINavigationController = .init(nibName: nil, bundle: nil)
+    var coordinators: [ViewController.Type]  = []
+    var currentIndex: Int = -1
 
-extension Coordinator {
     func push(userInfo: [String: Any]? = nil ) {
         increaseCurrentIndex()
         
@@ -41,6 +39,7 @@ extension Coordinator {
     }
     
     func pop() {
+        print(currentIndex)
         decreaseCurrentIndex()
     }
     

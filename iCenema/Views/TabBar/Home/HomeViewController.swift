@@ -53,6 +53,9 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         TabBarViewModel.shared.show()
+//        print("appered")
+//        self.navigationController?.navigationBar.isHidden = false
+//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     // MARK: - Update UI
