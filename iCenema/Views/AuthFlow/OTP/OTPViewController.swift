@@ -101,7 +101,8 @@ class OTPViewController: ICinemaViewController {
             self.selectEmptyTextField()
             return
         }
-        self.networkRequest()
+        self.coordinator?.push()
+//        self.networkRequest()
     }
     
     private func networkRequest() {

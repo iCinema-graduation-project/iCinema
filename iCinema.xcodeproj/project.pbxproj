@@ -100,10 +100,6 @@
 		738B062229C3919B00DC6DFC /* Coutries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B062129C3919B00DC6DFC /* Coutries.swift */; };
 		738B062429C39EC700DC6DFC /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B062329C39EC700DC6DFC /* RequestError.swift */; };
 		738B51BD29E5947C009A20A5 /* MovieProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B51BC29E5947C009A20A5 /* MovieProfileViewModel.swift */; };
-		738DB6A329E290B000CB05C9 /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 738DB6A229E290B000CB05C9 /* SwiftUITrackableScrollView */; };
-		738DB6A629E290C600CB05C9 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 738DB6A529E290C600CB05C9 /* CountryPickerView */; };
-		738DB6A929E290DC00CB05C9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 738DB6A829E290DC00CB05C9 /* Alamofire */; };
-		738DB6AC29E290F600CB05C9 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 738DB6AB29E290F600CB05C9 /* Lottie */; };
 		738DB6B029E30D1300CB05C9 /* FollowingCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DB6AF29E30D1300CB05C9 /* FollowingCollectionViewSection.swift */; };
 		738DB6B229E316A900CB05C9 /* CinemaCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DB6B129E316A900CB05C9 /* CinemaCellView.swift */; };
 		738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2B29AE325000CDEE88 /* Poster.swift */; };
@@ -142,6 +138,12 @@
 		73BB19F129BF7D1C00C3A373 /* +customObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F029BF7D1C00C3A373 /* +customObject.swift */; };
 		73BB19F329BF7D9B00C3A373 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F229BF7D9B00C3A373 /* User.swift */; };
 		73BB19F529BF7E7A00C3A373 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */; };
+		73BB55FF29E9A29000F34A62 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB55FE29E9A29000F34A62 /* CountryPickerView */; };
+		73BB560229E9A2AB00F34A62 /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB560129E9A2AB00F34A62 /* SwiftUITrackableScrollView */; };
+		73BB560529E9A2BF00F34A62 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB560429E9A2BF00F34A62 /* Alamofire */; };
+		73BB560829E9A2D700F34A62 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB560729E9A2D700F34A62 /* Lottie */; };
+		73BB560B29E9A35100F34A62 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB560A29E9A35100F34A62 /* UserProfileViewController.swift */; };
+		73BB560D29E9B4B000F34A62 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB560C29E9B4B000F34A62 /* GenderView.swift */; };
 		73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */; };
 		73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFEFA12989EFA600969452 /* OTPViewController.swift */; };
 		73C9D73B29D09E6800B84564 /* CinemaChairsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C9D73A29D09E6800B84564 /* CinemaChairsViewModel.swift */; };
@@ -336,6 +338,8 @@
 		73BB19F029BF7D1C00C3A373 /* +customObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+customObject.swift"; sourceTree = "<group>"; };
 		73BB19F229BF7D9B00C3A373 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		73BB560A29E9A35100F34A62 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		73BB560C29E9B4B000F34A62 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
 		73BFEFA12989EFA600969452 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		73C9D73A29D09E6800B84564 /* CinemaChairsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsViewModel.swift; sourceTree = "<group>"; };
@@ -392,10 +396,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				738DB6AC29E290F600CB05C9 /* Lottie in Frameworks */,
-				738DB6A929E290DC00CB05C9 /* Alamofire in Frameworks */,
-				738DB6A629E290C600CB05C9 /* CountryPickerView in Frameworks */,
-				738DB6A329E290B000CB05C9 /* SwiftUITrackableScrollView in Frameworks */,
+				73BB560829E9A2D700F34A62 /* Lottie in Frameworks */,
+				73BB560529E9A2BF00F34A62 /* Alamofire in Frameworks */,
+				73BB560229E9A2AB00F34A62 /* SwiftUITrackableScrollView in Frameworks */,
+				73BB55FF29E9A29000F34A62 /* CountryPickerView in Frameworks */,
 				DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -738,6 +742,7 @@
 			children = (
 				73861C232984351E0020A63B /* NewUserViewController.swift */,
 				73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */,
+				73BB560C29E9B4B000F34A62 /* GenderView.swift */,
 			);
 			path = "New User";
 			sourceTree = "<group>";
@@ -751,6 +756,7 @@
 				739ADAAC29B8FAF900FFA78E /* Cinema Post */,
 				733DAA2329B3A07300741211 /* Cinema Profile */,
 				732959BF29B822C500E2DF9B /* Movie Profile */,
+				73BB560929E9A33400F34A62 /* UserProfile */,
 			);
 			path = Scence;
 			sourceTree = "<group>";
@@ -964,6 +970,14 @@
 				73BB19F029BF7D1C00C3A373 /* +customObject.swift */,
 			);
 			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		73BB560929E9A33400F34A62 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				73BB560A29E9A35100F34A62 /* UserProfileViewController.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		73EC917F29834531002F3568 = {
@@ -1209,10 +1223,10 @@
 			);
 			name = iCinema;
 			packageProductDependencies = (
-				738DB6A229E290B000CB05C9 /* SwiftUITrackableScrollView */,
-				738DB6A529E290C600CB05C9 /* CountryPickerView */,
-				738DB6A829E290DC00CB05C9 /* Alamofire */,
-				738DB6AB29E290F600CB05C9 /* Lottie */,
+				73BB55FE29E9A29000F34A62 /* CountryPickerView */,
+				73BB560129E9A2AB00F34A62 /* SwiftUITrackableScrollView */,
+				73BB560429E9A2BF00F34A62 /* Alamofire */,
+				73BB560729E9A2D700F34A62 /* Lottie */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -1291,10 +1305,10 @@
 			);
 			mainGroup = 73EC917F29834531002F3568;
 			packageReferences = (
-				738DB6A129E290B000CB05C9 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
-				738DB6A429E290C600CB05C9 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
-				738DB6A729E290DC00CB05C9 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				738DB6AA29E290F600CB05C9 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				73BB55FD29E9A29000F34A62 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
+				73BB560029E9A2AB00F34A62 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
+				73BB560329E9A2BF00F34A62 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				73BB560629E9A2D700F34A62 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 73EC918929834531002F3568 /* Products */;
 			projectDirPath = "";
@@ -1452,6 +1466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73BB560D29E9B4B000F34A62 /* GenderView.swift in Sources */,
 				73BB19ED29BF722700C3A373 /* FileManager.swift in Sources */,
 				731FBF5429B0BF7E00798DF5 /* Color+Additions.swift in Sources */,
 				73B404F029D092840044F58D /* CinemaDateView.swift in Sources */,
@@ -1549,6 +1564,7 @@
 				731FBF5029B0BF7E00798DF5 /* IGStoryPreviewModel.swift in Sources */,
 				73B404EE29D092240044F58D /* CinemaDateViewController.swift in Sources */,
 				738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */,
+				73BB560B29E9A35100F34A62 /* UserProfileViewController.swift in Sources */,
 				738B062429C39EC700DC6DFC /* RequestError.swift in Sources */,
 				733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */,
 				731FBF6D29B0BF7E00798DF5 /* UIView+Anchor.swift in Sources */,
@@ -1959,15 +1975,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		738DB6A129E290B000CB05C9 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/maxnatchanon/trackable-scroll-view";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		738DB6A429E290C600CB05C9 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
+		73BB55FD29E9A29000F34A62 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
 			requirement = {
@@ -1975,7 +1983,15 @@
 				kind = branch;
 			};
 		};
-		738DB6A729E290DC00CB05C9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		73BB560029E9A2AB00F34A62 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxnatchanon/trackable-scroll-view";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		73BB560329E9A2BF00F34A62 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1983,7 +1999,7 @@
 				kind = branch;
 			};
 		};
-		738DB6AA29E290F600CB05C9 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+		73BB560629E9A2D700F34A62 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
 			requirement = {
@@ -1994,24 +2010,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		738DB6A229E290B000CB05C9 /* SwiftUITrackableScrollView */ = {
+		73BB55FE29E9A29000F34A62 /* CountryPickerView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 738DB6A129E290B000CB05C9 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */;
-			productName = SwiftUITrackableScrollView;
-		};
-		738DB6A529E290C600CB05C9 /* CountryPickerView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 738DB6A429E290C600CB05C9 /* XCRemoteSwiftPackageReference "CountryPickerView" */;
+			package = 73BB55FD29E9A29000F34A62 /* XCRemoteSwiftPackageReference "CountryPickerView" */;
 			productName = CountryPickerView;
 		};
-		738DB6A829E290DC00CB05C9 /* Alamofire */ = {
+		73BB560129E9A2AB00F34A62 /* SwiftUITrackableScrollView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 738DB6A729E290DC00CB05C9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 73BB560029E9A2AB00F34A62 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */;
+			productName = SwiftUITrackableScrollView;
+		};
+		73BB560429E9A2BF00F34A62 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73BB560329E9A2BF00F34A62 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		738DB6AB29E290F600CB05C9 /* Lottie */ = {
+		73BB560729E9A2D700F34A62 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 738DB6AA29E290F600CB05C9 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			package = 73BB560629E9A2D700F34A62 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */

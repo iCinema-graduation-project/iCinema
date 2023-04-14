@@ -81,10 +81,12 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
         let imageView = UIImageView(image: UIImage(named: "profile"))
             .makeCircleImage(withWidth: .profile.imageSize.width)
         
-        imageView.layer.borderColor = UIColor.iCinemaYellowColor.cgColor
         
-        imageView.layer.borderWidth = 1.5
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: imageView)
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.userProfileTapped))
+        imageView.addGestureRecognizer(gesture)
+        
         
     }
     
@@ -93,6 +95,10 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
         view.addSubview(collectionView)
         collectionView.backgroundColor = .clear
         
+    }
+    
+    @objc private func userProfileTapped() {
+        self.navigationController?.pushViewController(UserProfileViewController(), animated: true)
     }
     
 }

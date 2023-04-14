@@ -47,16 +47,5 @@ extension UIView {
         }
         return self.centerYAnchor
     }
-    var width: CGFloat {
-        if #available(iOS 11.0, *) {
-            return safeAreaLayoutGuide.layoutFrame.width
-        }
-        return frame.width
-    }
-    var height: CGFloat {
-        if #available(iOS 11.0, *) {
-            return safeAreaLayoutGuide.layoutFrame.height
-        }
-        return frame.height
-    }
+
 }

@@ -13,6 +13,8 @@ enum Gender: String{
     case female = "Female"
 }
 
+
+
 class NewUserViewController: ICinemaViewController {
     // MARK: - Properties
     var gender: Gender = .female
@@ -43,53 +45,7 @@ class NewUserViewController: ICinemaViewController {
         return ageField
     }()
     
-    /// Gender Select
-    private let genderView: ICinemaTextField = {
-        let textfield = ICinemaTextField(placeholder: .newUser.gender)
-        textfield.text = "."
-        textfield.isEnabled = false
-        textfield.setState(.normal, for: .disabled)
-        textfield.setTextColor(.clear, for: .disabled)
-        textfield.font = .textfeild
-        return textfield
-    }()
-    
-    private lazy var femaleButton: RadioButton = {
-        let button = RadioButton(onSelected: { isSelected in
-            if isSelected {
-                self.maleButton.isSelected = false
-                self.gender = .female
-                self.maleButton.isUserInteractionEnabled = true
-                self.femaleButton.isUserInteractionEnabled = false
-            }
-        })
-        button.setTitle(.newUser.female, for: .normal)
-        button.titleLabel?.font = .footnote
-        return button
-    }()
-    
-    private lazy var maleButton: RadioButton = {
-        let button = RadioButton { isSelected in
-            if isSelected {
-                self.femaleButton.isSelected = false
-                self.gender = .male
-                self.maleButton.isUserInteractionEnabled = false
-                self.femaleButton.isUserInteractionEnabled = true
-            }
-        }
-        button.setTitle(.newUser.male, for: .normal)
-        button.titleLabel?.font = .footnote
-        return button
-    }()
-    
-    private lazy var genderStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [femaleButton, maleButton])
-        stackView.axis = .horizontal
-        stackView.spacing = .view.spacing
-        stackView.arrangedSubviews.forEach { $0.tintColor = .iCinemaTextColor }
-        return stackView
-    }()
-    
+
     /// Create Account Button
     private lazy var createAccountButton = ICinemaButton(title: .newUser.createAccount, action: self.createAccountButtonTapped)
     
@@ -101,7 +57,6 @@ class NewUserViewController: ICinemaViewController {
         navigationItem.addTitleView(title: .newUser.newUser)
         addDescriptionLabel()
         addTextFieldsStackView()
-        addGenderStackView()
         addCreateAccountButton()
     }
     
@@ -125,22 +80,23 @@ class NewUserViewController: ICinemaViewController {
     
         TextFieldsStackView.addArrangedSubview(fullNameTextField)
         TextFieldsStackView.addArrangedSubview(ageTextField)
-        TextFieldsStackView.addArrangedSubview(genderView)
+        let genderView = GenderView(presenterView: view)
+        TextFieldsStackView.addArrangedSubview(genderView.view)
         TextFieldsStackView.arrangedSubviews.forEach {$0.widthConstraints(.view.width)}
         fullNameTextField.font = .textfeild
+        
+        genderView.updateGenders()
+
     }
     
-    private func addGenderStackView() {
-        view.addSubview(genderStackView)
-        genderStackView.makeConstraints(centerXAnchor: genderView.centerXAnchor, centerYAnchor: genderView.centerYAnchor)
-    }
+
     
     private func addCreateAccountButton(){
         view.addSubview(createAccountButton)
         createAccountButton.centerXInSuperview()
         createAccountButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
                                             padding: UIEdgeInsets(top: 0, left: 0,
-                                                                  bottom: .view.padding.top, right: 0))
+                                                                  bottom: .view.padding.bottom, right: 0))
     }
     
     // MARK: - Actions

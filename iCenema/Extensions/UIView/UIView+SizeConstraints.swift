@@ -8,6 +8,20 @@
 import UIKit
 
 public extension UIView{
+    
+    var width: CGFloat {
+        if #available(iOS 11.0, *) {
+            return safeAreaLayoutGuide.layoutFrame.width
+        }
+        return frame.width
+    }
+    var height: CGFloat {
+        if #available(iOS 11.0, *) {
+            return safeAreaLayoutGuide.layoutFrame.height
+        }
+        return frame.height
+    }
+    
     @discardableResult
     func widthConstraints(_ constant: CGFloat) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
