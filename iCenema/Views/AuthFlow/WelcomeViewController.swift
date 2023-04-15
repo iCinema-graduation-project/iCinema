@@ -37,19 +37,8 @@ class WelcomeViewController: ICinemaViewController {
     
     private lazy var registerButton: ICinemaButton = ICinemaButton(title: .register, action: self.registerButtonTapped)
         
-    private let guestButton: UIButton = {
-        let button = UIButton()
-        button.heightConstraints(.iCinemaButton.size.height)
-        button.backgroundColor = .white
-        button.layer.shadowColor = UIColor.iCinemaYellowColor.cgColor
-        button.setTitleColor(.iCinemaOnlyGray, for: .normal)
-        button.setTitle(.welcome.guest, for: .normal)
-        button.layer.shadowOpacity = 0.5
-        button.layer.shadowOffset = CGSize(width: 2, height: 2)
-        button.layer.cornerRadius = .iCinemaButton.cornerRadius
-        button.titleLabel?.font = .button
-        return button
-    }()
+    private lazy var guestButton = CancelButton(title: .welcome.guest, action: self.guestButtonTapped)
+
         
     
     // MARK: - Life Cycle
@@ -90,7 +79,7 @@ class WelcomeViewController: ICinemaViewController {
         stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
                                   padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding.bottom, right: 0))
         
-        guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)
+//        guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)
     }
     
     // MARK: - Actions
@@ -99,8 +88,8 @@ class WelcomeViewController: ICinemaViewController {
         self.coordinator?.push()
     }
     
-    @objc private func guestButtonTapped(_ sender: ICinemaButton) {
-        sender.addAnimate { 
+    @objc private func guestButtonTapped() {
+        guestButton.addAnimate {
             UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) { granted, error in
                 if granted {
                     self.schenualNotification()

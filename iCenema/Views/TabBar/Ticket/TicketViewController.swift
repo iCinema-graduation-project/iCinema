@@ -9,6 +9,13 @@ import UIKit
 
 class TicketViewController: ICinemaViewController {
 
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        TabBarViewModel.shared.show()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

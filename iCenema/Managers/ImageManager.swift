@@ -21,6 +21,8 @@ extension UIImage {
     static let shareIcon = UIImage(systemName: "square.and.arrow.up")!
     static let chairs = Chairs.self
     
+    static let ticketsEmpty = "tickets.empty"
+    
     struct TabBar {
         static let home = UIImage(named: "home")
         static let homeSelected = UIImage(named: "homeS")

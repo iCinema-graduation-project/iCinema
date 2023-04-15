@@ -14,7 +14,7 @@ struct TicketView: View {
     @State private var qrWidth: CGFloat = 50
     @State private var qrHeight: CGFloat = 50
     @State private var qrYPosition: CGFloat = 0
-    @State private var qrShadowRadius: CGFloat = 3
+    @State private var qrShadowRadius: CGFloat = 1
     
     var body: some View {
 //        ICinemaView {
@@ -26,7 +26,7 @@ struct TicketView: View {
                     TicketBottomView()
                     
                 }
-                
+                // Qr Code
                 Image("code")
                     .resizable()
                     .frame(width: qrWidth, height: qrHeight)
@@ -38,21 +38,22 @@ struct TicketView: View {
                             if qrWidth == 50 {
                                 qrWidth = 150
                                 qrHeight = 150
-                                qrYPosition = -30
-                                qrShadowRadius = 10
+                                qrYPosition = -40
+                                qrShadowRadius = 3
                             } else {
                                 qrWidth = 50
                                 qrHeight = 50
                                 qrYPosition = 0
-                                qrShadowRadius = 3
+                                qrShadowRadius = 1
                             }
                         }
                     }
+                
             }
             .frame(height: 460)
             .font(Font(UIFont.callout))
-            .shadow(radius: 10)
-            
+            .glow(color: Color(uiColor: .iCinemaYellowColor), radius: 1)
+
 //        }
     }
 }
@@ -144,10 +145,8 @@ struct TicketBottomView: View {
             .foregroundColor(Color(uiColor: .iCinemaYellowColor))
 
 
-
         }
         .frame(width: 250, height: 135, alignment: .top)
-//        .background(.thickMaterial)
         .background(
             Color(uiColor: .iCinemaSecondBackgroudColor)
         )

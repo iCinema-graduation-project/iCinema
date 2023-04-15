@@ -9,6 +9,12 @@ import UIKit
 
 class NotificationViewController: ICinemaViewController {
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        TabBarViewModel.shared.show()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

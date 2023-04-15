@@ -14,28 +14,69 @@ struct TicketsView: View {
     Ticket(image: "posterImage2"),
     Ticket(image: "posterImage3"),
     Ticket(image: "posterImage"),
-    Ticket(image: "posterImage2"),
-    Ticket(image: "posterImage3"),
-    Ticket(image: "posterImage"),
-    Ticket(image: "posterImage2"),
-    Ticket(image: "posterImage3")
+//    Ticket(image: "posterImage2"),
+//    Ticket(image: "posterImage3"),
+//    Ticket(image: "posterImage"),
+//    Ticket(image: "posterImage2"),
+//    Ticket(image: "posterImage3")
         ]
     
+    @State private var showAlert: Bool = false
     var body: some View {
         ICinemaView{
-            //            TicketView()
-            
-            ZStack {
-                ForEach(tickets) { ticket in
-                    InfiniteStackView(tickets: $tickets, ticket: ticket)
+            ZStack(alignment: .bottom) {
+                if tickets.count > 0 {
+                    VStack {
+                        ZStack {
+                            ForEach(tickets) { ticket in
+                                InfiniteStackView(tickets: $tickets, ticket: ticket, showAlert: $showAlert)
+                            }
+                        }
+                        .padding(.horizontal)
+                        .padding(.vertical, 50)
+                        
+                        Spacer()
+                    }
+                } else {
+                    
+                    VStack(spacing: 20.0) {
+                        Image("tickets.empty")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        Text("You don't have any booked tickets right now .")
+                    }
+                    .padding()
+                }
+                
+                if showAlert {
+                    AlertView {
+                        VStack(spacing: 15.0) {
+                            Text("Do you realy wany to delet")
+                            
+                            ICinemaButtonView(title: "Yes, Delete") {
+                                withAnimation {
+                                    showAlert = false
+                                    tickets.removeFirst()
+                                }
+                            }
+                            
+                            CancelButtonView(title: "Cancel") {
+                                withAnimation {
+                                    showAlert = false
+                                }
+                            }
+                            .background(.white)
+                        }
+                    }
+                        .padding(.bottom, 100)
+                        .transition(.move(edge: .bottom))
                 }
             }
-            .padding()
-            
-         Spacer()
         }
         
     }
+    
+ 
 }
 
 struct TicketsView_Previews: PreviewProvider {
@@ -48,6 +89,8 @@ struct InfiniteStackView: View {
     @Binding var tickets: [Ticket]
     var ticket: Ticket
     
+    @Binding var showAlert: Bool
+
     @State var height: CGFloat = 0
     
     @State private var offsetx: CGFloat = .zero
@@ -95,7 +138,7 @@ struct InfiniteStackView: View {
                                 self.removeFirstAndAddToLast()
                             }
                         }else if -offsetx > (width / 2){
-                            removeFirst()
+                            showAlert = true
                         }
                         offsetx = .zero
                         height = .zero
@@ -128,9 +171,23 @@ struct InfiniteStackView: View {
         }
     }
     
-    private func removeFirst() {
-        tickets.removeFirst()
-    }
+   
     
 }
 
+
+
+struct AlertView<Content: View>: View {
+    @ViewBuilder var content: Content
+
+    var body: some View {
+        VStack {
+            content
+        }
+        .frame(width: 342, height: 220)
+        .background(Color(uiColor: .iCinemaSecondBackgroudColor))
+        .addBorder(withColor: Color(uiColor: .iCinemaYellowColor), height: 220)
+        .frame(width: 342)
+
+    }
+}

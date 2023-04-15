@@ -21,6 +21,8 @@ class MenuViewController: ICinemaViewController {
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        TabBarViewModel.shared.show()
+
         menu = MenuView()
 
         self.layoutMenuView()
@@ -28,6 +30,7 @@ class MenuViewController: ICinemaViewController {
     
     }
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.addTitleView(title: .menu.menu)
