@@ -14,6 +14,8 @@
 "bookNow" = "احجز الان";
 "moreDetails" = "اعرض المزيد";
 "next" = "التالي";
+"saveEdits" = "حفظ التعديلات";
+"profile" = "بيانات الحساب";
 
 // MARK: - Welcome
 "welecome.descriptionLabel" = "توفر لك iCinema تجربة فريدة لمعرفة كل ما يتعلق بالأفلام ، يمكنك مشاهدة كل ما تريده وحجزه والبحث عنه";
@@ -45,6 +47,7 @@
 "home.forYou" = "من اجلك";
 
 // MARK: - Menu
+"menu" = "القائمه";
 "menu.general" = "العام";
 "menu.following" = "المتابعة";
 "menu.activity" = "النشاط";

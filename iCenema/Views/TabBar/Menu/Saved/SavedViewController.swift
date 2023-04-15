@@ -43,6 +43,9 @@ final class SavedViewController: ICinemaViewController, CompositionalLayoutProvi
         // setup collection view delegate and datasource with compositional layout source and delegate
         collectionView.delegate = compositionalLayoutProviderDelegate
         collectionView.dataSource = compositionalLayoutProviderDataSource
+        
+       
+     
 
     }
     
@@ -61,7 +64,7 @@ final class SavedViewController: ICinemaViewController, CompositionalLayoutProvi
     // MARK: - Update UI
     //
     private func updateUI(){
-        title = " Saved"
+        title = .menu.saved
         self.updateCollectionView()
     }
  
@@ -72,7 +75,6 @@ final class SavedViewController: ICinemaViewController, CompositionalLayoutProvi
         collectionView.backgroundColor = .clear
                 
     }
-    
     
     
 }

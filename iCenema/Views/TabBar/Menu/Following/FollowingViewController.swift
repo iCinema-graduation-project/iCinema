@@ -61,7 +61,7 @@ final class FollowingViewController: ICinemaViewController, CompositionalLayoutP
     // MARK: - Update UI
     //
     private func updateUI(){
-        title = " Following"
+        title = .menu.following
         self.updateCollectionView()
     }
  

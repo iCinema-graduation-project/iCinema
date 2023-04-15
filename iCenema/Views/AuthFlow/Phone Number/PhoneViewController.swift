@@ -129,7 +129,9 @@ class PhoneViewController:  ICinemaViewController {
             self.phoneNumberTextField.setState(.fail, with: message, for: .editing)
             return
         }
-        self.networkRequest()
+        self.coordinator?.push()
+
+//        self.networkRequest()
     }
     
     private func networkRequest() {

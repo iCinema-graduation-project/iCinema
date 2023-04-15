@@ -16,8 +16,8 @@ extension String {
     static let bookNow = getLocalized(with: "bookNow")
     static let moreDetails = getLocalized(with: "moreDetails")
     static let next = getLocalized(with: "next")
-
-    
+    static let saveEdits = getLocalized(with: "saveEdits")
+    static let profile = getLocalized(with: "profile")
     // MARK: - Auth Flow
     static let welcome = Welcome.self
     static let phone = Phone.self
@@ -63,8 +63,6 @@ extension String {
         static let chairs = getLocalized(with: "cinemaProfile.chairs")
         
         static let location = getLocalized(with: "cinemaProfile.location")
-        
-
     }
     
     
@@ -79,6 +77,7 @@ extension String {
     static let menu = Menu.self
     
     struct Menu {
+        static let menu = getLocalized(with: "menu")
         static let general = getLocalized(with: "menu.general")
         static let following = getLocalized(with: "menu.following")
         static let activity = getLocalized(with: "menu.activity")
@@ -93,8 +92,6 @@ extension String {
         static let aboutUs = getLocalized(with: "menu.aboutUs")
         static let rateUs = getLocalized(with: "menu.rateUs")
         static let logout = getLocalized(with: "menu.logout")
-        
-
     }
     
     
@@ -104,10 +101,7 @@ extension String {
         static let pickADay = getLocalized(with: "booking.pickADay")
         static let pickATime = getLocalized(with: "booking.pickATime")
         static let pickAHall = getLocalized(with: "booking.pickAHall")
-        
-        
     }
-
     
 }
 

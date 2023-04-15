@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class UserProfileViewController: ICinemaViewController {
     
     // MARK: - Views
     //
     private let scrollView = UIScrollView()
+    
     private let profileImageView: UIImageView = UIImageView()
     
     private let TextFieldsStackView: UIStackView = {
@@ -40,8 +42,7 @@ final class UserProfileViewController: ICinemaViewController {
     
     private lazy var genderView = GenderView(presenterView: view)
 
-
-    private lazy var saveButton = ICinemaButton(title: .newUser.createAccount, action: self.createAccountButtonTapped)
+    private lazy var saveButton = ICinemaButton(title: .saveEdits, action: self.saveEditsButtonTapped)
     
     
     // MARK: - Life Cycle
@@ -53,7 +54,7 @@ final class UserProfileViewController: ICinemaViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.addTitleView(title: "Profile")
+        navigationItem.addTitleView(title: .profile)
         self.updateUI()
     
     }
@@ -63,7 +64,7 @@ final class UserProfileViewController: ICinemaViewController {
         self.addScrollView()
         self.updateProfileImageView()
         self.addTextFieldsStackView()
-        self.addCreateAccountButton()
+        self.addSaveEditsButton()
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.scrollViewTapGeture))
         scrollView.addGestureRecognizer(gesture)
@@ -107,11 +108,9 @@ final class UserProfileViewController: ICinemaViewController {
     
         fullNameTextField.font = .textfeild
         genderView.updateGenders()
-        print(TextFieldsStackView.bounds)
-
     }
     
-    private func addCreateAccountButton(){
+    private func addSaveEditsButton(){
         view.addSubview(saveButton)
         saveButton.centerXInSuperview()
         saveButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
@@ -120,9 +119,28 @@ final class UserProfileViewController: ICinemaViewController {
     }
     
     // MARK: - Actions
-    func createAccountButtonTapped() {
-        self.coordinator?.push()
+    func saveEditsButtonTapped() {
+
     }
     
 }
 
+
+struct UserProfileView: UIViewControllerRepresentable {
+    
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        return UINavigationController(rootViewController: UserProfileViewController())
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+    }
+}
+
+struct UserProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        UserProfileView()
+            .ignoresSafeArea()
+    }
+}

@@ -30,7 +30,7 @@ class MenuViewController: ICinemaViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.addTitleView(title: "Menu")
+        navigationItem.addTitleView(title: .menu.menu)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
