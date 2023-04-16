@@ -15,7 +15,13 @@ struct ICinemaView<Content: View>: View {
             content
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+//        .padding(.leading, .view.padding.left)
+//        .padding(.trailing, .view.padding.right)
+//    
+//        .foregroundColor(Color(uiColor: .iCinemaTextColor))
+//        .font(Font(UIFont.title3))
         .background(Color(uiColor: .iCinemaBackgroundColor))
+
     }
 }
 

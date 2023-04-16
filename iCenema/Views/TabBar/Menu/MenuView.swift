@@ -89,6 +89,7 @@ struct MenuView: View {
         Section(content: content)
             .listRowBackground(Color(uiColor: .iCinemaSecondBackgroudColor))
             .foregroundColor(Color(uiColor: .iCinemaTextColor))
+        
     }
     
     private func menuCell(imageSystemName: String, text: String) -> some View {

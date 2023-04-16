@@ -17,8 +17,9 @@ final class HomeCoordinator: Coordinator {
  */
     override init() {
         super.init()
-        coordinators =  [HomeViewController.self, CinemaDateViewController.self, SelectHallViewController.self,
-                         CinemaChairsViewController.self, BookingSuccessViewController.self]
+        coordinators =  [HomeViewController.self, CinemaDateViewController.self,
+                         SelectHallViewController.self, CinemaChairsViewController.self,
+                         PaymentMethodViewController.self, BookingSuccessViewController.self]
         push()
     }
     

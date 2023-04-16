@@ -28,6 +28,15 @@
       }
     },
     {
+      "identity" : "spconfetti",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ivanvorobei/SPConfetti",
+      "state" : {
+        "revision" : "257a8674c62212a3919abd1f9cb31dc2fc7b0992",
+        "version" : "1.4.1"
+      }
+    },
+    {
       "identity" : "trackable-scroll-view",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/maxnatchanon/trackable-scroll-view",

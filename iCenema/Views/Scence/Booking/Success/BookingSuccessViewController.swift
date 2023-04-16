@@ -7,14 +7,12 @@
 
 import UIKit
 import SwiftUI
+import ViewAnimator
+import SPConfetti
 
 final class BookingSuccessViewController: ICinemaViewController {
-    
-    let imageView: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "tikets.done"))
-
-        return image
-    }()
+    // MARK: - Views
+    let imageView: UIImageView = UIImageView(image: UIImage(named: "tikets.done"))
     
     private let descreptionLabel: UILabel = {
         let label = UILabel()
@@ -26,15 +24,18 @@ final class BookingSuccessViewController: ICinemaViewController {
         
     private lazy var homeButton = CancelButton(title: "Home", action: self.homeButtonTapped)
 
-    
+    // MARK: - Life Cycle
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
          
         addImageView()
         addDescriptionLabel()
         addRegisterAndGuestButtons()
+        
+        SPConfetti.startAnimating(.centerWidthToDown, particles: [ .star, .heart], duration: 3)
+
     }
-    
     
     private func addImageView() {
         view.addSubview(imageView)
@@ -43,7 +44,10 @@ final class BookingSuccessViewController: ICinemaViewController {
 
         imageView.centerInSuperview()
         imageView.heightConstraints(300)
-
+        
+        let zoomAnimation = AnimationType.zoom(scale: 0.2)
+        imageView.animate(animations: [zoomAnimation])
+        
     }
     
     private func addDescriptionLabel() {

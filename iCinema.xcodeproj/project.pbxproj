@@ -11,6 +11,10 @@
 		73019E7329AAA66C001A03D5 /* UINavigationItem+addTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73019E7229AAA66C001A03D5 /* UINavigationItem+addTitleView.swift */; };
 		73019E7629AAB5A0001A03D5 /* +makeCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73019E7529AAB5A0001A03D5 /* +makeCircleImage.swift */; };
 		7307FDFE29BCCD1D00B13E24 /* MovieProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7307FDFD29BCCD1D00B13E24 /* MovieProfileViewController.swift */; };
+		7308840A29EBA27D0090D621 /* PaymentMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7308840929EBA27D0090D621 /* PaymentMethodViewController.swift */; };
+		7308840C29EBA2E90090D621 /* PaymentMehodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7308840B29EBA2E90090D621 /* PaymentMehodView.swift */; };
+		7308840E29EBB1850090D621 /* PaymentMethodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7308840D29EBB1850090D621 /* PaymentMethodViewModel.swift */; };
+		7308841129EBB42A0090D621 /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = 7308841029EBB42A0090D621 /* SPConfetti */; };
 		7309AF6E29CCA2700010401A /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7309AF6D29CCA2700010401A /* MenuView.swift */; };
 		730CA21E29BBE93000C82C0A /* MovieCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730CA21D29BBE93000C82C0A /* MovieCellView.swift */; };
 		730CA22029BBFFF400C82C0A /* Image+makeCircled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730CA21F29BBFFF400C82C0A /* Image+makeCircled.swift */; };
@@ -215,6 +219,9 @@
 		73019E7229AAA66C001A03D5 /* UINavigationItem+addTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+addTitleView.swift"; sourceTree = "<group>"; };
 		73019E7529AAB5A0001A03D5 /* +makeCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+makeCircleImage.swift"; sourceTree = "<group>"; };
 		7307FDFD29BCCD1D00B13E24 /* MovieProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProfileViewController.swift; sourceTree = "<group>"; };
+		7308840929EBA27D0090D621 /* PaymentMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewController.swift; sourceTree = "<group>"; };
+		7308840B29EBA2E90090D621 /* PaymentMehodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMehodView.swift; sourceTree = "<group>"; };
+		7308840D29EBB1850090D621 /* PaymentMethodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewModel.swift; sourceTree = "<group>"; };
 		7309AF6D29CCA2700010401A /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		730CA21D29BBE93000C82C0A /* MovieCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellView.swift; sourceTree = "<group>"; };
 		730CA21F29BBFFF400C82C0A /* Image+makeCircled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+makeCircled.swift"; sourceTree = "<group>"; };
@@ -409,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73BB560829E9A2D700F34A62 /* Lottie in Frameworks */,
+				7308841129EBB42A0090D621 /* SPConfetti in Frameworks */,
 				73BB560529E9A2BF00F34A62 /* Alamofire in Frameworks */,
 				73BB560229E9A2AB00F34A62 /* SwiftUITrackableScrollView in Frameworks */,
 				73BB55FF29E9A29000F34A62 /* CountryPickerView in Frameworks */,
@@ -450,6 +458,16 @@
 				73019E7529AAB5A0001A03D5 /* +makeCircleImage.swift */,
 			);
 			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		7308840829EBA25D0090D621 /* Payment Method */ = {
+			isa = PBXGroup;
+			children = (
+				7308840929EBA27D0090D621 /* PaymentMethodViewController.swift */,
+				7308840B29EBA2E90090D621 /* PaymentMehodView.swift */,
+				7308840D29EBB1850090D621 /* PaymentMethodViewModel.swift */,
+			);
+			path = "Payment Method";
 			sourceTree = "<group>";
 		};
 		730E1C0729A950F600F2AB85 /* TabBar */ = {
@@ -793,6 +811,7 @@
 				73B404EC29D091F00044F58D /* Date */,
 				73AB522129D10C81008A3CFF /* Select Hall */,
 				73B404EB29D08F4D0044F58D /* Chairs */,
+				7308840829EBA25D0090D621 /* Payment Method */,
 				73B10C5529EB039A00EB2D2D /* Success */,
 			);
 			path = Booking;
@@ -1269,6 +1288,7 @@
 				73BB560129E9A2AB00F34A62 /* SwiftUITrackableScrollView */,
 				73BB560429E9A2BF00F34A62 /* Alamofire */,
 				73BB560729E9A2D700F34A62 /* Lottie */,
+				7308841029EBB42A0090D621 /* SPConfetti */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -1351,6 +1371,7 @@
 				73BB560029E9A2AB00F34A62 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
 				73BB560329E9A2BF00F34A62 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				73BB560629E9A2D700F34A62 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				7308840F29EBB42A0090D621 /* XCRemoteSwiftPackageReference "SPConfetti" */,
 			);
 			productRefGroup = 73EC918929834531002F3568 /* Products */;
 			projectDirPath = "";
@@ -1542,6 +1563,7 @@
 				733DAA2929B3BA3D00741211 /* DumySection.swift in Sources */,
 				731FBF6B29B0BF7E00798DF5 /* CubeAttributesAnimator.swift in Sources */,
 				730E1C2129A966CF00F2AB85 /* NotificationCoordinator.swift in Sources */,
+				7308840E29EBB1850090D621 /* PaymentMethodViewModel.swift in Sources */,
 				73F0BC072989C4D800742BA2 /* PhoneViewController.swift in Sources */,
 				731FBF6529B0BF7E00798DF5 /* IGCommon.swift in Sources */,
 				731FBF6229B0BF7E00798DF5 /* IGCache.swift in Sources */,
@@ -1566,6 +1588,7 @@
 				730E1C1929A95FA600F2AB85 /* MenuCoordinator.swift in Sources */,
 				73BB19F129BF7D1C00C3A373 /* +customObject.swift in Sources */,
 				73FED1E42988750100395727 /* SizeManager.swift in Sources */,
+				7308840C29EBA2E90090D621 /* PaymentMehodView.swift in Sources */,
 				731FBF6729B0BF7E00798DF5 /* IGRetryButton.swift in Sources */,
 				7309AF6E29CCA2700010401A /* MenuView.swift in Sources */,
 				73C9D73B29D09E6800B84564 /* CinemaChairsViewModel.swift in Sources */,
@@ -1586,6 +1609,7 @@
 				732959BE29B76B2400E2DF9B /* MoviesListView.swift in Sources */,
 				73C9D73D29D09EE300B84564 /* CinemaDateViewModel.swift in Sources */,
 				73B10C5729EB03B600EB2D2D /* BookingSuccessViewController.swift in Sources */,
+				7308840A29EBA27D0090D621 /* PaymentMethodViewController.swift in Sources */,
 				736BECB829CE6C2000944D16 /* +hostigView.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
 				738B062229C3919B00DC6DFC /* Coutries.swift in Sources */,
@@ -2023,6 +2047,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7308840F29EBB42A0090D621 /* XCRemoteSwiftPackageReference "SPConfetti" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPConfetti";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		73BB55FD29E9A29000F34A62 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
@@ -2058,6 +2090,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7308841029EBB42A0090D621 /* SPConfetti */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7308840F29EBB42A0090D621 /* XCRemoteSwiftPackageReference "SPConfetti" */;
+			productName = SPConfetti;
+		};
 		73BB55FE29E9A29000F34A62 /* CountryPickerView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 73BB55FD29E9A29000F34A62 /* XCRemoteSwiftPackageReference "CountryPickerView" */;

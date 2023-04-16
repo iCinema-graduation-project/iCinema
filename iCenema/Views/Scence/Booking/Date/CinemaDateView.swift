@@ -65,6 +65,8 @@ struct CinemaDateView: View {
                 .padding(.bottom, CGFloat.view.padding.bottom)
                 
             }
+            .padding(.top, .view.padding.top)
+
             .padding(.leading, .view.padding.left)
             .padding(.trailing, .view.padding.right)
         
