@@ -121,6 +121,9 @@
 		739ADAAE29B8FB0B00FFA78E /* CinemaPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAAD29B8FB0B00FFA78E /* CinemaPost.swift */; };
 		739ADAB029BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAAF29BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift */; };
 		739ADAB229BA351800FFA78E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAB129BA351800FFA78E /* ViewController.swift */; };
+		739FAA4329ED669100BAC9ED /* ActivityKeyBoardField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739FAA4229ED669100BAC9ED /* ActivityKeyBoardField.swift */; };
+		739FAA4629ED676D00BAC9ED /* CreditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739FAA4529ED676D00BAC9ED /* CreditCardView.swift */; };
+		739FAA4829ED99AD00BAC9ED /* EWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739FAA4729ED99AC00BAC9ED /* EWalletView.swift */; };
 		73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73A30CA929835B1F00D672E6 /* Localizable.strings */; };
 		73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAB29835B4000D672E6 /* LanguageManager.swift */; };
 		73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */; };
@@ -328,6 +331,9 @@
 		739ADAAD29B8FB0B00FFA78E /* CinemaPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaPost.swift; sourceTree = "<group>"; };
 		739ADAAF29BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+addScaleAnimationOnTapGesture.swift"; sourceTree = "<group>"; };
 		739ADAB129BA351800FFA78E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		739FAA4229ED669100BAC9ED /* ActivityKeyBoardField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityKeyBoardField.swift; sourceTree = "<group>"; };
+		739FAA4529ED676D00BAC9ED /* CreditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardView.swift; sourceTree = "<group>"; };
+		739FAA4729ED99AC00BAC9ED /* EWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EWalletView.swift; sourceTree = "<group>"; };
 		73A30CA429835B0200D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		73A30CA829835B1F00D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73A30CAA29835B2500D672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -463,8 +469,9 @@
 		7308840829EBA25D0090D621 /* Payment Method */ = {
 			isa = PBXGroup;
 			children = (
+				739FAA4429ED675400BAC9ED /* View */,
+				739FAA4129ED667B00BAC9ED /* Model */,
 				7308840929EBA27D0090D621 /* PaymentMethodViewController.swift */,
-				7308840B29EBA2E90090D621 /* PaymentMehodView.swift */,
 				7308840D29EBB1850090D621 /* PaymentMethodViewModel.swift */,
 			);
 			path = "Payment Method";
@@ -914,6 +921,24 @@
 				739ADAAD29B8FB0B00FFA78E /* CinemaPost.swift */,
 			);
 			path = "Cinema Post";
+			sourceTree = "<group>";
+		};
+		739FAA4129ED667B00BAC9ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				739FAA4229ED669100BAC9ED /* ActivityKeyBoardField.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		739FAA4429ED675400BAC9ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7308840B29EBA2E90090D621 /* PaymentMehodView.swift */,
+				739FAA4529ED676D00BAC9ED /* CreditCardView.swift */,
+				739FAA4729ED99AC00BAC9ED /* EWalletView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		73A30C9E29835A6800D672E6 /* Localizable */ = {
@@ -1538,7 +1563,9 @@
 				73BB178229E087950062155C /* CompositionalLayoutDataSource.swift in Sources */,
 				73F04FBD2999333F00F543EE /* OTPString.swift in Sources */,
 				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
+				739FAA4329ED669100BAC9ED /* ActivityKeyBoardField.swift in Sources */,
 				73BB19F529BF7E7A00C3A373 /* UserDefaults.swift in Sources */,
+				739FAA4629ED676D00BAC9ED /* CreditCardView.swift in Sources */,
 				73687B7529AEA23F007DB431 /* MovieCell.swift in Sources */,
 				7365DF0029EAAAFE00E7AC35 /* utls.swift in Sources */,
 				7365DEFE29EAA9BF00E7AC35 /* TicketView.swift in Sources */,
@@ -1560,6 +1587,7 @@
 				73B404F229D092B60044F58D /* ICinemaView.swift in Sources */,
 				731FBF5E29B0BF7E00798DF5 /* IGRoundedView.swift in Sources */,
 				739ADAB229BA351800FFA78E /* ViewController.swift in Sources */,
+				739FAA4829ED99AD00BAC9ED /* EWalletView.swift in Sources */,
 				733DAA2929B3BA3D00741211 /* DumySection.swift in Sources */,
 				731FBF6B29B0BF7E00798DF5 /* CubeAttributesAnimator.swift in Sources */,
 				730E1C2129A966CF00F2AB85 /* NotificationCoordinator.swift in Sources */,

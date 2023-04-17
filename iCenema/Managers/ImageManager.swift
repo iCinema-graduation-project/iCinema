@@ -50,6 +50,7 @@ extension UIImage {
         static let creditCard = UIImage(named: "credit-card")!
         static let eWallet = UIImage(named: "E-Wallet")!
         static let iCinemaWallet = UIImage(named: "icinema-Wallet")!
+        static let visa = UIImage(named: "visa")!
     }
     
 }
