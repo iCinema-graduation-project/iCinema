@@ -101,6 +101,12 @@ extension String {
         static let pickADay = getLocalized(with: "booking.pickADay")
         static let pickATime = getLocalized(with: "booking.pickATime")
         static let pickAHall = getLocalized(with: "booking.pickAHall")
+        static let pickApayment = getLocalized(with: "booking.pickApayment")
+        static let creditCard = getLocalized(with: "booking.creditCard")
+        static let eWallet = getLocalized(with: "booking.e-wallet")
+        static let icinemaWallet = getLocalized(with: "booking.icinema-wallet")
+        
+        
     }
     
 }

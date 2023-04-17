@@ -75,5 +75,9 @@
 "booking.pickADay" = "اختار يوما:";
 "booking.pickATime" = "اختار وقتا:";
 "booking.pickAHall" = "اختر قاعة:";
+"booking.pickApayment" = "اختر طريقة الدفع:";
+"booking.creditCard" = "بطاقة إئتمان";
+"booking.e-wallet" = "المحفظة الإلكترونية";
+"booking.icinema-wallet" = "محفظة iCinema";
 
 

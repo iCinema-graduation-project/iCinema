@@ -45,6 +45,13 @@ extension UIImage {
         static let selected = UIImage(named: "chairSelected")!
     }
     
+    static let payment = Payment.self
+    struct Payment {
+        static let creditCard = UIImage(named: "credit-card")!
+        static let eWallet = UIImage(named: "E-Wallet")!
+        static let iCinemaWallet = UIImage(named: "icinema-Wallet")!
+    }
+    
 }
 
 

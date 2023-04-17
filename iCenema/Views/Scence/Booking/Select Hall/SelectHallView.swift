@@ -18,6 +18,7 @@ struct SelectHallView: View {
                 VStack(alignment: .leading) {
                     Text(String.booking.pickAHall)
                         .padding(.horizontal, CGFloat.view.padding.left)
+                        .font(Font(UIFont.title3))
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 0){
@@ -42,7 +43,6 @@ struct SelectHallView: View {
                 
             }
             .foregroundColor(Color(uiColor: .iCinemaTextColor))
-            .font(Font(UIFont.title3))
             .padding(.top, CGFloat.view.padding.top)
 
             

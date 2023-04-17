@@ -17,41 +17,20 @@ struct PaymentMehodView: View {
             VStack() {
                     
                 VStack(alignment: .leading, spacing: 20.0) {
-                    Text("Choose a payment method :")
+                    Text(String.booking.pickApayment)
+                        .font(Font(UIFont.title3))
                     
-                    HStack(spacing: 20.0) {
-                        Image("wallet")
-                        
-                        VStack(alignment: .leading) {
-                            Text("Credit Card")
-                                .font(Font(UIFont.footnote))
-                            Text("**** **** **** 1425")
-                                .font(Font(UIFont.caption1))
-                        }
-                        
-                    }
-                    .padding(10)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color(uiColor: .iCinemaSecondBackgroudColor))
-                    .cornerRadius(8)
+                    cell(image: .payment.creditCard,
+                         title: .booking.creditCard,
+                         subtitle: "**** **** **** 1425")
                     
-                    HStack(spacing: 20.0) {
-                        Image("wallet")
-                        
-                        VStack(alignment: .leading) {
-                            Text("Credit Card")
-                                .font(Font(UIFont.footnote))
-                            Text("**** **** **** 1425")
-                                .font(Font(UIFont.caption1))
-                        }
-                        
-                    }
-                    .padding(10)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color(uiColor: .iCinemaSecondBackgroudColor))
-                    .cornerRadius(8)
+                    cell(image: .payment.eWallet,
+                         title: .booking.eWallet,
+                         subtitle: "Vodafone Cash, Etisalat, etc")
                     
-                    
+                    cell(image: .payment.iCinemaWallet,
+                         title: .booking.icinemaWallet,
+                         subtitle: "Current balance : 0 EGP")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, CGFloat.view.padding.left)
@@ -67,9 +46,28 @@ struct PaymentMehodView: View {
           
             .padding(.top, .view.padding.top)
             .foregroundColor(Color(uiColor: .iCinemaTextColor))
-            .font(Font(UIFont.title3))
 
         }
+        
+        
+    }
+    
+    @ViewBuilder
+    private func cell(image: UIImage, title: String, subtitle: String) -> some View {
+        HStack(spacing: 20.0) {
+            Image(uiImage: image)
+            
+            VStack(alignment: .leading) {
+                Text(title)
+                    .font(Font(UIFont.footnote))
+                Text(subtitle)
+                    .font(Font(UIFont.caption1))
+            }
+        }
+        .padding(10)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(uiColor: .iCinemaSecondBackgroudColor))
+        .cornerRadius(8)
     }
 }
 
