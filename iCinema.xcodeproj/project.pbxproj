@@ -133,6 +133,7 @@
 		73AB522329D10CEA008A3CFF /* SelectHallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB522229D10CEA008A3CFF /* SelectHallView.swift */; };
 		73AB522629D10D26008A3CFF /* SelectHallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB522529D10D26008A3CFF /* SelectHallViewController.swift */; };
 		73AB522829D10DA4008A3CFF /* SelectHallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB522729D10DA4008A3CFF /* SelectHallViewModel.swift */; };
+		73B0BD2229EEA95C00E755E0 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0BD2129EEA95C00E755E0 /* SearchResultViewController.swift */; };
 		73B10C5729EB03B600EB2D2D /* BookingSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B10C5629EB03B600EB2D2D /* BookingSuccessViewController.swift */; };
 		73B35C5229C1DEEC00F93CA7 /* Stolzl-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C4C29C1DEEC00F93CA7 /* Stolzl-Medium.ttf */; };
 		73B35C5329C1DEEC00F93CA7 /* Stolzl-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C4D29C1DEEC00F93CA7 /* Stolzl-Light.ttf */; };
@@ -345,6 +346,7 @@
 		73AB522229D10CEA008A3CFF /* SelectHallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHallView.swift; sourceTree = "<group>"; };
 		73AB522529D10D26008A3CFF /* SelectHallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHallViewController.swift; sourceTree = "<group>"; };
 		73AB522729D10DA4008A3CFF /* SelectHallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHallViewModel.swift; sourceTree = "<group>"; };
+		73B0BD2129EEA95C00E755E0 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		73B10C5629EB03B600EB2D2D /* BookingSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingSuccessViewController.swift; sourceTree = "<group>"; };
 		73B35C4C29C1DEEC00F93CA7 /* Stolzl-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Medium.ttf"; sourceTree = "<group>"; };
 		73B35C4D29C1DEEC00F93CA7 /* Stolzl-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Light.ttf"; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 				73F0C36B29AD1FA800F95B01 /* Sections */,
 				730E1C0D29A955F700F2AB85 /* HomeCoordinator.swift */,
 				730E1C0F29A9580800F2AB85 /* HomeViewController.swift */,
+				73B0BD2129EEA95C00E755E0 /* SearchResultViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1584,6 +1587,7 @@
 				73687B7729AEA318007DB431 /* MovieSectionHeader.swift in Sources */,
 				730E1C1F29A960F300F2AB85 /* TicketCoordinator.swift in Sources */,
 				730E1C1429A95D9F00F2AB85 /* ReelsCoordinator.swift in Sources */,
+				73B0BD2229EEA95C00E755E0 /* SearchResultViewController.swift in Sources */,
 				73B404F229D092B60044F58D /* ICinemaView.swift in Sources */,
 				731FBF5E29B0BF7E00798DF5 /* IGRoundedView.swift in Sources */,
 				739ADAB229BA351800FFA78E /* ViewController.swift in Sources */,

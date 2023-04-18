@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import ViewAnimator
 
  
 final class HomeViewController: ICinemaViewController, CompositionalLayoutProvider {
@@ -14,6 +15,14 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     // MARK: - Views
     //
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
+    
+    let searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: SearchResultViewController())
+        searchController.searchBar.tintColor = .iCinemaYellowColor
+        searchController.searchBar.searchTextField.textColor = .iCinemaTextColor
+        return searchController
+    }()
+    
     
     // MARK: - CompositionalLayoutProvider confirmation
     //
@@ -42,7 +51,7 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
         
         collectionView.updatecollectionViewCompositionalLayout(with: self)
         self.compositionalLayoutSections.forEach { $0.delegate?.updateItems(self.collectionView) }
-
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -67,9 +76,12 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     }
     
     private func addMagnifyingGlassToRightBarButtonItem(){
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
-                                                            style: .plain, target: self, action: nil)
+                                                            style: .plain, target: self,
+                                                            action: #selector(self.magnifyingGlassTappedAction))
+       
+        self.searchController.searchResultsUpdater = self
+        navigationItem.hidesSearchBarWhenScrolling = false
         
     }
     
@@ -83,19 +95,43 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.userProfileTapped))
         imageView.addGestureRecognizer(gesture)
-        
-        
     }
     
     private func addCollectionView() {
-        
         view.addSubview(collectionView)
         collectionView.backgroundColor = .clear
-        
     }
     
     @objc private func userProfileTapped() {
         self.navigationController?.pushViewController(UserProfileViewController(), animated: true)
+    }
+    
+    @objc private func magnifyingGlassTappedAction() {
+        
+        if navigationItem.searchController == nil {
+        
+            navigationItem.searchController = searchController
+            let zoomAnimation = AnimationType.zoom(scale: 0.2)
+            
+            navigationItem.searchController?.searchBar.animate(animations: [zoomAnimation])
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.searchController.searchBar.becomeFirstResponder()
+            })
+            
+        }
+    }
+}
+
+extension HomeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if !searchController.isActive {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                self.navigationItem.searchController = nil
+            })
+        }
+        
+        
     }
     
 }

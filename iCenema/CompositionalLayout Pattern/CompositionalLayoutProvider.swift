@@ -13,11 +13,7 @@ public protocol CompositionalLayoutProvider {
     
     /// An array of compositional layout sections to be used in the collection view's layout
     var compositionalLayoutSections: [CompositionalLayoutableSection] { get set }
-    
-    /// data source and delegate to be used by the collection view
-    var compositionalLayoutProviderDataSource: UICollectionViewDataSource? { get }
-    var compositionalLayoutProviderDelegate: UICollectionViewDelegate? { get }
-    
+     
 }
 
 @available(iOS 13.0, *)
