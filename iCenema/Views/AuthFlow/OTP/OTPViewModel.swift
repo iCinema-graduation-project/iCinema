@@ -6,28 +6,20 @@
 //
 
 import UIKit
+import Combine
 import Alamofire
 
-// MARK: - view model protocols
-//
-protocol OTPViewModelInput {
-    func textField(didChanged text: String, at index: Int)
-}
+
+
 
 // MARK: - View Model
 //
-class OTPViewModel: APIRequest {
-    typealias DecodableType = Countries
-
-    var networkRequest: Request = Request(endpoint: "all_countries.php", method: .get, parameters: nil)
-   
+class OTPViewModel: CancellableViewModel {
     
     private(set) var otp = OTPString(count: 5)
-}
-
-// MARK: - View Model input
-//
-extension OTPViewModel: OTPViewModelInput {
+    var service = OTPService()
+    var cancellableSet: Set<AnyCancellable> = []
+    
     func textField(didChanged text: String, at index: Int) {
         let textIsNotEmpty = !text.isEmpty
         if textIsNotEmpty {
@@ -35,8 +27,28 @@ extension OTPViewModel: OTPViewModelInput {
         }else{
             self.otp.removeCharachter(at: index)
         }
-        print(self.otp.code)
     }
+    
+    public func request(_ completion: @escaping (Result<User, NetworkError>) -> Void ) {
+        service.request()
+            .sink { response in
+                if let error = response.error {
+                    completion(.failure(error))
+                } else if let value = response.value {
+                    completion(.success(value))
+                } else {
+                    completion(.failure(.other))
+                }
+            }
+            .store(in: &cancellableSet)
+    }
+    
+    public func reset() {
+        self.otp.reset()
+    }
+    
 }
+
+
 
 

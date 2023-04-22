@@ -15,7 +15,7 @@ var appLanguageCode: String {
 }
 
 struct Request {
-    var host: String = "thesportsdb.com/api/v1/json/3/"
+    var host: String = "http://localhost:8000/api/v1/"
     let endpoint: String
     let method: HTTPMethod
     var parameters: Parameters? = nil
@@ -25,7 +25,7 @@ struct Request {
 protocol APIRequest: AnyObject {
     
     // Associated type for the expected response type
-    associatedtype DecodableType where DecodableType: Codable
+    associatedtype DecodableType where DecodableType: Decodable
     
     var networkRequest: Request { get }
     
@@ -34,7 +34,7 @@ protocol APIRequest: AnyObject {
 
 extension APIRequest{
     // Computed property that returns the full URL of the API request
-    private var url: String{ "https://\(networkRequest.host)\(networkRequest.endpoint)" }
+    private var url: String{ "\(networkRequest.host)\(networkRequest.endpoint)" }
     
     // Computed property that returns the headers for the API request
     private var headers: HTTPHeaders {
@@ -49,41 +49,41 @@ extension APIRequest{
     
 }
 
-// An extension for APIRequest that specifies a Codable Response type
-extension APIRequest where DecodableType: Decodable {
+extension APIRequest {
     
     // A function that sends a request using the Alamofire library and returns a DataResponse object as a publisher
     func request() -> AnyPublisher<DataResponse<DecodableType, NetworkError>, Never> {
         print(url)
         // Send a request using Alamofire
         return AF.request(url, method: networkRequest.method,
-                          parameters: networkRequest.parameters, encoding: URLEncoding.queryString, headers: headers)
+                          parameters: networkRequest.parameters, encoding: URLEncoding.queryString)
         
             // Validate the response
             .validate()
         
             // Decode the response as the specified Response type
             .publishDecodable(type: DecodableType.self)
-        
             // Map errors to NetworkError types
             .map { response in
                 response.mapError { error in
-                    
+
                     // Try to decode a BackendError from the response data
                     let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
-                    
+
                     // If a BackendError is found, return a backendError NetworkError
                     if let backendError = backendError {
                         return .backendError(backendError)
                     }
-                    
+
                     // Otherwise, return an initialError NetworkError with the original error
                     else {
                         return .initialError(error)
                     }
+                    
                 }
+
             }
-        
+            
             // Receive the result on the main thread
             .receive(on: DispatchQueue.main)
         
@@ -91,18 +91,5 @@ extension APIRequest where DecodableType: Decodable {
             .eraseToAnyPublisher()
     }
     
-    // A function that extracts an error message from a NetworkError object
-    func getErrorMessage(from error: NetworkError) -> String {
-        switch error {
-            
-        // If the error is a backendError, return the message from the BackendError object
-        case .backendError(let error):
-            return error.message
-            
-        // If the error is an initialError, split the localizedDescription and return the second part as the error message
-        case .initialError(let error):
-            return String(error.localizedDescription.split(separator: ":")[1])
-        }
-    }
     
 }

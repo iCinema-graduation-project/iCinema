@@ -7,27 +7,15 @@
 
 import UIKit
 import CountryPickerView
-import Combine
+import SPAlert
 
 class PhoneViewController:  ICinemaViewController {
     // MARK: - Views
     //
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = .phone.descriptionLabel
-        return label
-    }()
+    private let descriptionLabel: UILabel = UILabel()
     
-    /// Input Text Fields
-    private let TextFieldsStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.spacing = .view.spacing
-        return stackView
-    }()
+    private let TextFieldsStackView: UIStackView = UIStackView()
     
-    /// Select Country
     private let countryView: ICinemaTextField = {
         let textfield = ICinemaTextField(placeholder: .phone.country)
         textfield.text = "."
@@ -54,51 +42,59 @@ class PhoneViewController:  ICinemaViewController {
         return textfield
     }()
     
-    /// button
     private lazy var getCodeButton = ICinemaButton(title: .phone.getCode, action: self.getCodeButtonTapped)
     
     let activityIndicator = ActivityIndicator()
     
     // MARK: - Properites
     //
-    let viewModel = PhoneViewModel()
-    private var cancellableSet: Set<AnyCancellable> = []
-
+    var viewModel = PhoneViewModel()
+    
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.addTitleView(title: .register)
-        addAndConfigurSubViews()
-  
+        self.updateUI()
+        
         self.bindViewModelOutput()
         self.bindViewModelInput()
-
+        
         phoneNumberTextField.delegate = self
-//        viewModel.
+                
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.phoneNumberTextField.becomeFirstResponder()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.cancelAllRequests()
     }
     
     // MARK: - Update UI
     //
-    private func addAndConfigurSubViews() {
+    private func updateUI() {
         addDescriptionLabel()
         addTextFieldsStackView()
         addCountryPickerView()
         addGetCodeButton()
     }
-
+    
     private func addDescriptionLabel() {
         view.addSubview(descriptionLabel)
+        descriptionLabel.text = .phone.descriptionLabel
         descriptionLabel.makeDescreptionLabel()
-
     }
     
     private func addTextFieldsStackView() {
         view.addSubview(TextFieldsStackView)
+        TextFieldsStackView.axis = .vertical
+        TextFieldsStackView.distribution = .fill
+        TextFieldsStackView.spacing = .view.spacing
         TextFieldsStackView.centerXInSuperview()
-        TextFieldsStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor,
-                                            padding: CGFloat.view.padding)
-    
+        TextFieldsStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor, padding: CGFloat.view.padding)
         TextFieldsStackView.addArrangedSubview(countryView)
         TextFieldsStackView.addArrangedSubview(phoneNumberTextField)
         TextFieldsStackView.arrangedSubviews.forEach {$0.widthConstraints(.view.width)}
@@ -110,14 +106,12 @@ class PhoneViewController:  ICinemaViewController {
                                           centerYAnchor: countryView.centerYAnchor,
                                           padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
         countryPickerView.hostViewController = self
+        countryPickerView.isUserInteractionEnabled = false
     }
-
+    
     private func addGetCodeButton(){
         view.addSubview(getCodeButton)
-        getCodeButton.centerXInSuperview()
-        getCodeButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
-                                      padding: UIEdgeInsets(top: 0, left: 0,
-                                                            bottom: .view.padding.bottom, right: 0))
+        getCodeButton.addToitsSuperView()
     }
     
     // MARK: - Actions
@@ -129,29 +123,34 @@ class PhoneViewController:  ICinemaViewController {
             self.phoneNumberTextField.setState(.fail, with: message, for: .editing)
             return
         }
-        self.coordinator?.push()
-
-//        self.networkRequest()
+        
+        self.networkRequest()
     }
     
     private func networkRequest() {
         view.addSubview(activityIndicator)
         activityIndicator.play()
-        self.viewModel.request()
-            .sink { [ unowned self ] response in
-                self.activityIndicator.stop()
-                if let error = response.error {
-                    let errorMessage = viewModel.getErrorMessage(from: error)
-                    self.phoneNumberTextField.setState(.fail, with: errorMessage, for: .editing)
-                    self.phoneNumberTextField.setState(.fail, with: errorMessage, for: .normal)
-                }else {
-                    self.coordinator?.push()
-                }
+        
+        self.viewModel.request { result in
+            self.activityIndicator.stop()
+            
+            switch result {
+            case .success( _ ):
+                self.coordinator?.push()
+            case .failure(let failure):
+                let error = NetworkError.getErrorMessage(from: failure)
+                self.phoneNumberTextField.setState(.fail, with: error, for: .editing)
+                self.phoneNumberTextField.setState(.fail, with: error, for: .normal)
+             
             }
-            .store(in: &cancellableSet)
+            
+        
+        }
+        
     }
     
 }
+
 
 // MARK: - UITextFieldDelegate
 //
@@ -176,7 +175,7 @@ extension PhoneViewController {
                 self.endEditing()
             }
         }
-        .store(in: &cancellableSet)
+        .store(in: &viewModel.cancellableSet)
     }
     
 }
@@ -189,7 +188,7 @@ extension PhoneViewController {
     }
     
     @objc private func phoneNumberTextFieldEditingChanged(_ sender: ICinemaTextField) {
-        self.viewModel.didChange(phoneNumber: sender.text!)
+        self.viewModel.didChanged(phoneNumber: sender.text!)
     }
 }
 

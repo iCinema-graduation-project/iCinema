@@ -6,65 +6,56 @@
 //
 
 import UIKit
-import Combine
+import SPAlert
 
 class OTPViewController: ICinemaViewController {
     // MARK: - Views
     //
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = .otp.descriptionLabel
-        return label
-    }()
-    
-    private let verificationCodeStackView: UIStackView = {
-        let stackview = UIStackView()
-        stackview.axis = .horizontal
-        stackview.distribution = .fillEqually
-        stackview.spacing = 10
-        return stackview
-    }()
-    
+    private let descriptionLabel: UILabel = UILabel()
+    private let verificationCodeStackView: UIStackView = UIStackView()
     lazy var verificationCodeTextFields: [ICinemaTextField] = []
-    
     private lazy var confirmButton = ICinemaButton(title: .otp.confirm, action: self.confirmButtonTapped)
     
     let activityIndicator = ActivityIndicator()
     
     // MARK: - Properties
     lazy var viewModel = OTPViewModel()
-    private var cancellableSet: Set<AnyCancellable> = []
     
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.addTitleView(title: .otp.verification)
-        self.addAndConfigureSubviews()
+        self.updateUI()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.selectEmptyTextField()
     }
     
-    // MARK: - View Helper Methods
+    // MARK: - Update UI
     //
-    private func addAndConfigureSubviews(){
+    private func updateUI(){
         addDescriptionLabel()
-        addverificationCodeStackView()
+        addVerificationCodeStackView()
         addVerificationCodeTextFields()
         addConfirmButton()
     }
     
     private func addDescriptionLabel() {
         view.addSubview(descriptionLabel)
+        descriptionLabel.text = .otp.descriptionLabel
         descriptionLabel.makeDescreptionLabel()
     }
     
-    private func addverificationCodeStackView() {
+    private func addVerificationCodeStackView() {
         view.addSubview(verificationCodeStackView)
-        verificationCodeStackView.fillXSuperViewConstraints(paddingLeft: .view.padding.left,
-                                                            paddingRight: .view.padding.right)
+        verificationCodeStackView.axis = .horizontal
+        verificationCodeStackView.distribution = .fillEqually
+        verificationCodeStackView.spacing = 10
+        verificationCodeStackView.fillXSuperViewConstraints(paddingLeft: .view.padding.left, paddingRight: .view.padding.right)
         verificationCodeStackView.centerXInSuperview()
-        verificationCodeStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor,
-                                                  padding: UIEdgeInsets(top: .view.padding.top,
-                                                                        left: 0, bottom: 0, right: 0))
+        verificationCodeStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor, padding: CGFloat.view.padding)
     }
     
     private func addVerificationCodeTextFields() {
@@ -78,7 +69,7 @@ class OTPViewController: ICinemaViewController {
             textField.keyboardType = .numberPad
             textField.textContentType = .oneTimeCode
             textField.addTarget(self, action: #selector(self.textFieldsDidChanged(_:)), for: .editingChanged)
-            textField.font = .callout
+            textField.font = .textfeild
             if index != 0 {
                 textField.isEnabled = false
             }
@@ -87,10 +78,7 @@ class OTPViewController: ICinemaViewController {
     
     private func addConfirmButton() {
         view.addSubview(confirmButton)
-        confirmButton.centerXInSuperview()
-        confirmButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
-                                      padding: UIEdgeInsets(top: 0, left: 0,
-                                                            bottom: .view.padding.bottom, right: 0))
+        confirmButton.addToitsSuperView()
     }
     
     
@@ -101,28 +89,43 @@ class OTPViewController: ICinemaViewController {
             self.selectEmptyTextField()
             return
         }
-        self.coordinator?.push()
-//        self.networkRequest()
+        self.networkRequest()
     }
     
     private func networkRequest() {
         view.addSubview(activityIndicator)
         activityIndicator.play()
-        self.viewModel.request()
-            .sink { [ unowned self ]  response in
-                self.activityIndicator.stop()
-                if let _ = response.error {
-                   
-                } else {
-                    self.coordinator?.push()
-                }
+        
+        self.viewModel.request { result in
+            self.activityIndicator.stop()
+            
+            switch result {
+            case .success( _ ):
+                self.coordinator?.push()
+            case .failure(let failure):
+                let error = NetworkError.getErrorMessage(from: failure)
+                print(error)
+                self.resetTextFields(with: .fail)
+
             }
-            .store(in: &cancellableSet)
+        }
+        
+    }
+    
+    private func resetTextFields(with state: TextFieldState) {
+        for field in self.verificationCodeTextFields {
+            field.text = nil
+            field.setState(state, for: .normal)
+            field.setState(state, for: .disabled)
+            if field.tag != 0 {
+                field.isEnabled = false
+            }
+        }
+        self.viewModel.reset()
     }
     
     @objc private func textFieldsDidChanged(_ textField: ICinemaTextField) {
         let text = textField.text ?? ""
-
         self.viewModel.textField(didChanged: text, at: textField.tag)
         
         if !text.isEmpty {

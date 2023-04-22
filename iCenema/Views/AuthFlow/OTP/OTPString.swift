@@ -31,4 +31,7 @@ struct OTPString {
         code.remove(at: stringIndex)
     }
     
+    public mutating func reset() {
+        self.code = ""
+    }
 }

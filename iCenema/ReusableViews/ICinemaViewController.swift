@@ -16,6 +16,9 @@ class ICinemaViewController: ViewController {
         super.viewDidLoad()
         configureNavegationControllar()
         view.backgroundColor = .iCinemaBackgroundColor
+        
+        self.addSkipButton()
+
     }
     
     // end editing whene user begin touching
@@ -56,3 +59,12 @@ class ICinemaViewController: ViewController {
 
 }
 
+extension ICinemaViewController {
+    public func addSkipButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "skip", style: .done, target: self, action: #selector(self.skip))
+    }
+    
+    @objc private func skip() {
+        self.coordinator?.push()
+    }
+}

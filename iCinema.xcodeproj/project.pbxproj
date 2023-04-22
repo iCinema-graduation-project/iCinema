@@ -71,6 +71,8 @@
 		731FBF8129B0C2CB00798DF5 /* IGHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF7C29B0C2CB00798DF5 /* IGHomeViewModel.swift */; };
 		731FBF8229B0C2CB00798DF5 /* IGHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF7D29B0C2CB00798DF5 /* IGHomeView.swift */; };
 		731FBF8329B0C2CB00798DF5 /* IGStoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF7E29B0C2CB00798DF5 /* IGStoryListCell.swift */; };
+		73215FB229F3F75B00C62B7E /* OTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73215FB129F3F75B00C62B7E /* OTPService.swift */; };
+		73215FB529F409F200C62B7E /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 73215FB429F409F200C62B7E /* SPAlert */; };
 		7325B8732988B7FA0009B8EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7325B8722988B7FA0009B8EC /* README.md */; };
 		732959BB29B761A900E2DF9B /* CinemaProfilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732959BA29B761A900E2DF9B /* CinemaProfilePickerView.swift */; };
 		732959BE29B76B2400E2DF9B /* MoviesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732959BD29B76B2400E2DF9B /* MoviesListView.swift */; };
@@ -106,8 +108,7 @@
 		73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* ICinemaTextField.swift */; };
 		738A44FE29CA809300FA07A8 /* ActivityIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = 738A44FD29CA809300FA07A8 /* ActivityIndicator.json */; };
 		738A450129CA8D7600FA07A8 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A450029CA8D7600FA07A8 /* ActivityIndicator.swift */; };
-		738B062229C3919B00DC6DFC /* Coutries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B062129C3919B00DC6DFC /* Coutries.swift */; };
-		738B062429C39EC700DC6DFC /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B062329C39EC700DC6DFC /* RequestError.swift */; };
+		738B062429C39EC700DC6DFC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B062329C39EC700DC6DFC /* NetworkError.swift */; };
 		738B51BD29E5947C009A20A5 /* MovieProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B51BC29E5947C009A20A5 /* MovieProfileViewModel.swift */; };
 		738DB6B029E30D1300CB05C9 /* FollowingCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DB6AF29E30D1300CB05C9 /* FollowingCollectionViewSection.swift */; };
 		738DB6B229E316A900CB05C9 /* CinemaCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DB6B129E316A900CB05C9 /* CinemaCellView.swift */; };
@@ -164,6 +165,7 @@
 		73C9D73D29D09EE300B84564 /* CinemaDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */; };
 		73CD5C6129CFA5B6008078A5 /* CinemaChairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD5C6029CFA5B6008078A5 /* CinemaChairsViewController.swift */; };
 		73CD5C6329CFA5EA008078A5 /* CinemaChairsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD5C6229CFA5EA008078A5 /* CinemaChairsView.swift */; };
+		73D0DB1829F0A639008B0CDE /* PhoneNumberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D0DB1729F0A639008B0CDE /* PhoneNumberService.swift */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
 		73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918D29834531002F3568 /* SceneDelegate.swift */; };
 		73EC919529834533002F3568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919429834533002F3568 /* Assets.xcassets */; };
@@ -282,6 +284,7 @@
 		731FBF7C29B0C2CB00798DF5 /* IGHomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGHomeViewModel.swift; sourceTree = "<group>"; };
 		731FBF7D29B0C2CB00798DF5 /* IGHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGHomeView.swift; sourceTree = "<group>"; };
 		731FBF7E29B0C2CB00798DF5 /* IGStoryListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGStoryListCell.swift; sourceTree = "<group>"; };
+		73215FB129F3F75B00C62B7E /* OTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPService.swift; sourceTree = "<group>"; };
 		7325B8722988B7FA0009B8EC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		732959BA29B761A900E2DF9B /* CinemaProfilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfilePickerView.swift; sourceTree = "<group>"; };
 		732959BD29B76B2400E2DF9B /* MoviesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListView.swift; sourceTree = "<group>"; };
@@ -317,8 +320,7 @@
 		73861C2529843A170020A63B /* ICinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaTextField.swift; sourceTree = "<group>"; };
 		738A44FD29CA809300FA07A8 /* ActivityIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityIndicator.json; sourceTree = "<group>"; };
 		738A450029CA8D7600FA07A8 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		738B062129C3919B00DC6DFC /* Coutries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coutries.swift; sourceTree = "<group>"; };
-		738B062329C39EC700DC6DFC /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		738B062329C39EC700DC6DFC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		738B51BC29E5947C009A20A5 /* MovieProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProfileViewModel.swift; sourceTree = "<group>"; };
 		738DB6AF29E30D1300CB05C9 /* FollowingCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingCollectionViewSection.swift; sourceTree = "<group>"; };
 		738DB6B129E316A900CB05C9 /* CinemaCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaCellView.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 		73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateViewModel.swift; sourceTree = "<group>"; };
 		73CD5C6029CFA5B6008078A5 /* CinemaChairsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsViewController.swift; sourceTree = "<group>"; };
 		73CD5C6229CFA5EA008078A5 /* CinemaChairsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsView.swift; sourceTree = "<group>"; };
+		73D0DB1729F0A639008B0CDE /* PhoneNumberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberService.swift; sourceTree = "<group>"; };
 		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC918B29834531002F3568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73EC918D29834531002F3568 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -423,6 +426,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73215FB529F409F200C62B7E /* SPAlert in Frameworks */,
 				73BB560829E9A2D700F34A62 /* Lottie in Frameworks */,
 				7308841129EBB42A0090D621 /* SPConfetti in Frameworks */,
 				73BB560529E9A2BF00F34A62 /* Alamofire in Frameworks */,
@@ -775,6 +779,7 @@
 				73BFEFA12989EFA600969452 /* OTPViewController.swift */,
 				733116B72990A9AE00EFD002 /* OTPViewModel.swift */,
 				73F04FBC2999333F00F543EE /* OTPString.swift */,
+				73215FB129F3F75B00C62B7E /* OTPService.swift */,
 			);
 			path = OTP;
 			sourceTree = "<group>";
@@ -850,7 +855,7 @@
 			children = (
 				73F0BC062989C4D800742BA2 /* PhoneViewController.swift */,
 				736674E4298EE37C009CA617 /* PhoneViewModel.swift */,
-				738B062129C3919B00DC6DFC /* Coutries.swift */,
+				73D0DB1729F0A639008B0CDE /* PhoneNumberService.swift */,
 			);
 			path = "Phone Number";
 			sourceTree = "<group>";
@@ -1039,7 +1044,7 @@
 			isa = PBXGroup;
 			children = (
 				73BB19EA29BF6D8900C3A373 /* APIRequest.swift */,
-				738B062329C39EC700DC6DFC /* RequestError.swift */,
+				738B062329C39EC700DC6DFC /* NetworkError.swift */,
 			);
 			path = "Network Layer";
 			sourceTree = "<group>";
@@ -1317,6 +1322,7 @@
 				73BB560429E9A2BF00F34A62 /* Alamofire */,
 				73BB560729E9A2D700F34A62 /* Lottie */,
 				7308841029EBB42A0090D621 /* SPConfetti */,
+				73215FB429F409F200C62B7E /* SPAlert */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -1400,6 +1406,7 @@
 				73BB560329E9A2BF00F34A62 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				73BB560629E9A2D700F34A62 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				7308840F29EBB42A0090D621 /* XCRemoteSwiftPackageReference "SPConfetti" */,
+				73215FB329F409F200C62B7E /* XCRemoteSwiftPackageReference "SPAlert" */,
 			);
 			productRefGroup = 73EC918929834531002F3568 /* Products */;
 			projectDirPath = "";
@@ -1576,6 +1583,7 @@
 				73AB522329D10CEA008A3CFF /* SelectHallView.swift in Sources */,
 				731FBF8129B0C2CB00798DF5 /* IGHomeViewModel.swift in Sources */,
 				731FBF7729B0C25C00798DF5 /* IGAppUtility.swift in Sources */,
+				73D0DB1829F0A639008B0CDE /* PhoneNumberService.swift in Sources */,
 				73EC91D829834D41002F3568 /* UIView+CenterInSuperviewConstraints.swift in Sources */,
 				73EF78B1298F2AF400A5DF2D /* CompositionalLayoutableSection.swift in Sources */,
 				73F7138529B636CD001E469D /* CinemaProfileInformationView.swift in Sources */,
@@ -1644,7 +1652,6 @@
 				7308840A29EBA27D0090D621 /* PaymentMethodViewController.swift in Sources */,
 				736BECB829CE6C2000944D16 /* +hostigView.swift in Sources */,
 				73EC91D729834D41002F3568 /* UIView+MakeConstraints.swift in Sources */,
-				738B062229C3919B00DC6DFC /* Coutries.swift in Sources */,
 				738DB6B229E316A900CB05C9 /* CinemaCellView.swift in Sources */,
 				73F7138329B632E6001E469D /* CinemaProfileHeaderView.swift in Sources */,
 				731FBF5229B0BF7E00798DF5 /* UIView+Extension.swift in Sources */,
@@ -1669,7 +1676,8 @@
 				73B404EE29D092240044F58D /* CinemaDateViewController.swift in Sources */,
 				738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */,
 				73BB560B29E9A35100F34A62 /* UserProfileViewController.swift in Sources */,
-				738B062429C39EC700DC6DFC /* RequestError.swift in Sources */,
+				73215FB229F3F75B00C62B7E /* OTPService.swift in Sources */,
+				738B062429C39EC700DC6DFC /* NetworkError.swift in Sources */,
 				733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */,
 				731FBF6D29B0BF7E00798DF5 /* UIView+Anchor.swift in Sources */,
 				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,
@@ -2087,6 +2095,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		73215FB329F409F200C62B7E /* XCRemoteSwiftPackageReference "SPAlert" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPAlert";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		73BB55FD29E9A29000F34A62 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
@@ -2126,6 +2142,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7308840F29EBB42A0090D621 /* XCRemoteSwiftPackageReference "SPConfetti" */;
 			productName = SPConfetti;
+		};
+		73215FB429F409F200C62B7E /* SPAlert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73215FB329F409F200C62B7E /* XCRemoteSwiftPackageReference "SPAlert" */;
+			productName = SPAlert;
 		};
 		73BB55FE29E9A29000F34A62 /* CountryPickerView */ = {
 			isa = XCSwiftPackageProductDependency;

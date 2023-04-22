@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import ViewAnimator
 
 final class SavedCollectionViewSection: CompositionalLayoutableSection {
     typealias CellType = MovieCell
@@ -57,6 +57,9 @@ extension SavedCollectionViewSection: CompositionalLayoutableSectionDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(CellType.self, for: indexPath)
+        
+        let animator = AnimationType.from(direction: .bottom, offset: 100)
+        cell.animate(animations: [animator], delay: 0.0 , duration: 0.5)
         
         return cell
     }

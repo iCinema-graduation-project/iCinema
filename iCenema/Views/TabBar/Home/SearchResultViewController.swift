@@ -33,7 +33,9 @@ final class SearchResultViewController: ICinemaViewController, CompositionalLayo
         segmentControl.insertSegment(withTitle: "Position", at: 0, animated: true)
         segmentControl.insertSegment(withTitle: "Price", at: 1, animated: true)
         segmentControl.selectedSegmentIndex = 0
-     
+       
+        collectionView.reloadData()
+
     }
  
     // MARK: - Update UI

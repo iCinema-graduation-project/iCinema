@@ -13,21 +13,11 @@ enum Gender: String{
     case female = "Female"
 }
 
-
-
 class NewUserViewController: ICinemaViewController {
-    // MARK: - Properties
-    var gender: Gender = .female
-   
+    
     // MARK: - Views
     //
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = .newUser.descriptionLabel
-        return label
-    }()
-    
-    /// Input Text Fields
+    private let descriptionLabel: UILabel = UILabel()
     private let TextFieldsStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -45,9 +35,9 @@ class NewUserViewController: ICinemaViewController {
         return ageField
     }()
     
+    private lazy var genderView = GenderView(presenterView: view)
 
-    /// Create Account Button
-    private lazy var createAccountButton = ICinemaButton(title: .newUser.createAccount, action: self.createAccountButtonTapped)
+    private lazy var createAccountButton = ICinemaButton(title: .saveEdits, action: self.createAccountButtonTapped)
     
     
     // MARK: - Life Cycle
@@ -64,39 +54,33 @@ class NewUserViewController: ICinemaViewController {
     //
     private func addDescriptionLabel() {
         view.addSubview(descriptionLabel)
+        descriptionLabel.text = .newUser.descriptionLabel
         descriptionLabel.makeDescreptionLabel()
         descriptionLabel.centerXInSuperview()
         descriptionLabel.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor,
-                                         padding: UIEdgeInsets(top: .view.padding.top, left: 0,
-                                                               bottom: 0, right: 0))
+                                         padding: CGFloat.view.padding)
     }
     
     private func addTextFieldsStackView() {
         view.addSubview(TextFieldsStackView)
         TextFieldsStackView.centerXInSuperview()
         TextFieldsStackView.makeConstraints(topAnchor: descriptionLabel.bottomAnchor,
-                                            padding: UIEdgeInsets(top: .view.padding.top, left: 0,
-                                                                  bottom: 0, right: 0))
+                                            padding: CGFloat.view.padding)
     
         TextFieldsStackView.addArrangedSubview(fullNameTextField)
         TextFieldsStackView.addArrangedSubview(ageTextField)
-        let genderView = GenderView(presenterView: view)
         TextFieldsStackView.addArrangedSubview(genderView.view)
         TextFieldsStackView.arrangedSubviews.forEach {$0.widthConstraints(.view.width)}
         fullNameTextField.font = .textfeild
         
         genderView.updateGenders()
-
+        
     }
     
 
-    
     private func addCreateAccountButton(){
         view.addSubview(createAccountButton)
-        createAccountButton.centerXInSuperview()
-        createAccountButton.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
-                                            padding: UIEdgeInsets(top: 0, left: 0,
-                                                                  bottom: .view.padding.bottom, right: 0))
+        createAccountButton.addToitsSuperView()
     }
     
     // MARK: - Actions

@@ -7,6 +7,8 @@
 
 import UIKit
 import UserNotifications
+import ViewAnimator
+import SPAlert
 
 extension UILabel {
     func makeDescreptionLabel() {
@@ -28,44 +30,53 @@ class WelcomeViewController: ICinemaViewController {
     // MARK: - Views
     //
     private let imageView: UIImageView = UIImageView(image: .welcomeImage)
-    
-    private let descreptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = .welcome.descriptionLabel
-        return label
-    }()
-    
+    private let descreptionLabel: UILabel = UILabel()
     private lazy var registerButton: ICinemaButton = ICinemaButton(title: .register, action: self.registerButtonTapped)
-        
     private lazy var guestButton = CancelButton(title: .welcome.guest, action: self.guestButtonTapped)
 
-        
+    // MARK: - Properties
+    var timer: Timer!
+    var imageViewConstraints: AnchoredConstraints!
     
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-        addImageView()
-        addDescriptionLabel()
-        addRegisterAndGuestButtons()
-        
+        self.updateUI()
         UNUserNotificationCenter.current().delegate = self
         
+        
+      
     }
     
     // MARK: - Update UI Methods
     //
+    private func updateUI() {
+        addImageView()
+        addDescriptionLabel()
+        addRegisterAndGuestButtons()
+    }
+    
     private func addImageView() {
         view.addSubview(imageView)
         imageView.sizeConstraints(width: 250, height: 250)
         imageView.centerXInSuperview()
-        imageView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor)
+        imageViewConstraints = imageView.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor)
+        
+        let animation = AnimationType.zoom(scale: 0.2)
+        imageView.animate(animations: [animation])
+        self.timer = .scheduledTimer(timeInterval: 3.05,
+                                     target: self,
+                                     selector: #selector(self.animateImageView),
+                                     userInfo: nil,
+                                     repeats: true)
     }
     
     private func addDescriptionLabel() {
         view.addSubview(descreptionLabel)
         descreptionLabel.makeDescreptionLabel()
         descreptionLabel.centerYInSuperview()
+        descreptionLabel.text = .welcome.descriptionLabel
     }
     
     private func addRegisterAndGuestButtons() {
@@ -77,9 +88,23 @@ class WelcomeViewController: ICinemaViewController {
         view.addSubview(stackview)
         stackview.centerXInSuperview()
         stackview.makeConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
-                                  padding: UIEdgeInsets(top: 0, left: 0, bottom: .view.padding.bottom, right: 0))
+                                  padding: CGFloat.view.padding)
         
-//        guestButton.addTarget(self, action: #selector(self.guestButtonTapped(_:)), for: .touchUpInside)
+    }
+    
+    @objc private func animateImageView() {
+        
+        UIView.animate(withDuration: 1.5) {
+            self.imageViewConstraints.top?.constant = 20
+            self.view.layoutIfNeeded()
+
+        }completion: { _ in
+            UIView.animate(withDuration: 1.5) {
+                self.imageViewConstraints.top?.constant = 0
+                self.view.layoutIfNeeded()
+            }
+        }
+                
     }
     
     // MARK: - Actions

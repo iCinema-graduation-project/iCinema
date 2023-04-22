@@ -11,6 +11,7 @@ import UIKit
 final class LanguageViewController: ICinemaViewController {
     
     override func viewDidLoad() {
+        navigationController?.popViewController(animated: false)
         Task {
             let opened = await openSettings()
             print(opened)

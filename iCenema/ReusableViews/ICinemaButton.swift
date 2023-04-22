@@ -21,6 +21,12 @@ class ICinemaButton: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    public func addToitsSuperView() {
+        centerXInSuperview()
+        makeConstraints(bottomAnchor: superview!.safeAreaLayoutGuide.bottomAnchor,
+                                      padding: CGFloat.view.padding)
+    }
 }
 
 class CancelButton: UIView {
