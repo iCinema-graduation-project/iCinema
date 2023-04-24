@@ -11,6 +11,6 @@ extension String {
     static var userDefaults = UserDefaults.self
     
     struct UserDefaults {
-        static let user = "user"
+        static let user = "User"
     }
 }

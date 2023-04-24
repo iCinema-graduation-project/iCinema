@@ -13,7 +13,7 @@ final class AuthFlowCoordinator: Coordinator {
     override init() {
         super.init()
         coordinators = [WelcomeViewController.self, PhoneViewController.self,
-                        OTPViewController.self, NewUserViewController.self,
+                        OTPViewController.self,
                         AppTapBarController.self]
         push()
     }

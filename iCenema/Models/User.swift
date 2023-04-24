@@ -7,30 +7,21 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct Login: Decodable {
-    let key, msg: String?
-    let data: User
-}
-
 
 // MARK: - User
-struct User: Decodable {
-    let id: Int
+struct User: Codable {
+    let id: Int?
     let name: String?
-    let countryCode, phone, fullPhone: String
-    let image: String
-    let dob, age: Int?
+    let countryCode, phone: String
+    let image: String?
+    let dob: String?
+    let age: Int?
     let gender: String?
     let token: String
-    let lat, lng: String?
-    let address: String?
+    let lat, lng, address: String?
 
     enum CodingKeys: String, CodingKey {
         case id, name
         case countryCode = "country_code"
-        case phone
-        case fullPhone = "full_phone"
-        case image, dob, age, gender, token, lat, lng, address
-    }
-}
+        case phone, image, dob, age, gender, token, lat, lng, address
+    }}

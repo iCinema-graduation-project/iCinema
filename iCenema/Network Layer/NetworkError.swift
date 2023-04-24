@@ -32,6 +32,6 @@ enum NetworkError: Error {
 }
 
 struct BackendError: Codable, Error {
-    var key: String
+    var error: String
     var msg: String
 }

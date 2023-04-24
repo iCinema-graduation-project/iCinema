@@ -26,7 +26,7 @@ struct MenuView: View {
             MenuCell(imageSystemName: "person", text: .menu.following, viewController: FollowingViewController.self),
             MenuCell(imageSystemName: "clock", text: .menu.activity, viewController: FollowingViewController.self),
             MenuCell(imageSystemName: "bookmark", text: .menu.saved, viewController: SavedViewController.self),
-            MenuCell(imageSystemName: "wallet.pass", text: .menu.icinemaWallet, viewController: FollowingViewController.self),
+            MenuCell(imageSystemName: "wallet.pass", text: .menu.icinemaWallet, viewController: ICinemaWalletViewController.self),
             MenuCell(imageSystemName: "globe", text: .menu.language, viewController: LanguageViewController.self),
 //            MenuCell(imageSystemName: "sun.max", text: .menu.lightMode, viewController: FollowingViewController.self)
         ]),

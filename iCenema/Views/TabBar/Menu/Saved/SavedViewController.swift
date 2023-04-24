@@ -26,11 +26,7 @@ final class SavedViewController: ICinemaViewController, CompositionalLayoutProvi
     
     // MARK: - Life Cycle
     //
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.convertToICinema()
-
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -55,16 +51,11 @@ final class SavedViewController: ICinemaViewController, CompositionalLayoutProvi
         collectionView.frame = view.bounds
         
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
-    }
-  
-    
+
     // MARK: - Update UI
     //
     private func updateUI(){
-        title = .menu.saved
+        navigationItem.addTitleView(title: .menu.saved)
         self.updateCollectionView()
     }
  

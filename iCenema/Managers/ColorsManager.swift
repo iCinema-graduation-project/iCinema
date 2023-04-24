@@ -13,6 +13,7 @@ extension UIColor {
     static let iCinemaSecondBackgroudColor: UIColor = UIColor(named: "iCinemaSecondBackgroudColor")!
     
     static let iCinemaYellowColor = UIColor(named: "iCinemaYellowColor")!
+    static let iCinemaYellowColorReverce = UIColor(named: "iCinemaYellowColorReverce")!
     static let iCinemaTextColor: UIColor = UIColor(named: "iCinemaTextColor")!
     static let iCinemaTextColorReverce: UIColor = UIColor(named: "iCinemaTextColorReverce")!
     

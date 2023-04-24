@@ -59,7 +59,7 @@ class OTPViewController: ICinemaViewController {
     }
     
     private func addVerificationCodeTextFields() {
-        for index in 0...4{
+        for index in 0...5{
             let textField = ICinemaTextField(placeholder: "")
             textField.delegate = self
             verificationCodeStackView.addArrangedSubview(textField)
@@ -95,13 +95,26 @@ class OTPViewController: ICinemaViewController {
     private func networkRequest() {
         view.addSubview(activityIndicator)
         activityIndicator.play()
+        let phone = self.userInfo!["phone"] as! String
         
-        self.viewModel.request { result in
+        self.viewModel.request(phone: phone) { result in
             self.activityIndicator.stop()
             
             switch result {
-            case .success( _ ):
-                self.coordinator?.push()
+            case .success( let value ):
+                
+                let userDefaults = UserDefaults.standard
+                userDefaults.save(customObject: value.data, inKey: .userDefaults.user)
+                
+                if value.key == "compelete_data" {
+                    
+                    self.coordinator?.push(to: NewUserViewController.self)
+                    
+                }else if value.key == "success" {
+                    
+                    self.coordinator?.push()
+                    
+                }
             case .failure(let failure):
                 let error = NetworkError.getErrorMessage(from: failure)
                 print(error)
@@ -143,6 +156,8 @@ class OTPViewController: ICinemaViewController {
             }
         }
     }
+    
+    
 }
 
 // MARK: - UITextFieldDelegate

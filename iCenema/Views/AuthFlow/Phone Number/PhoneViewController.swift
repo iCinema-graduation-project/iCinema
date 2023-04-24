@@ -135,8 +135,9 @@ class PhoneViewController:  ICinemaViewController {
             self.activityIndicator.stop()
             
             switch result {
-            case .success( _ ):
-                self.coordinator?.push()
+            case .success( let value ):
+                print(value)
+                self.coordinator?.push(userInfo: ["phone": self.viewModel.phoneNumber])
             case .failure(let failure):
                 let error = NetworkError.getErrorMessage(from: failure)
                 self.phoneNumberTextField.setState(.fail, with: error, for: .editing)

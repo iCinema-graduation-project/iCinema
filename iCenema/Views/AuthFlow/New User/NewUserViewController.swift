@@ -40,18 +40,22 @@ class NewUserViewController: ICinemaViewController {
     private lazy var createAccountButton = ICinemaButton(title: .saveEdits, action: self.createAccountButtonTapped)
     
     
+
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.updateUI()
+    }
+    
+    // MARK: - Update UI
+    //
+    private func updateUI() {
         navigationItem.addTitleView(title: .newUser.newUser)
         addDescriptionLabel()
         addTextFieldsStackView()
         addCreateAccountButton()
     }
-    
-    // MARK: - View Helper Functions
-    //
     private func addDescriptionLabel() {
         view.addSubview(descriptionLabel)
         descriptionLabel.text = .newUser.descriptionLabel

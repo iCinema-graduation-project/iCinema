@@ -8,8 +8,20 @@
 import Foundation
 
 class OTPService: APIRequest {
-    typealias DecodableType = User
+    typealias DecodableType = VerifyCode
 
-    var networkRequest: Request = Request(endpoint: "login", method: .post, parameters: nil)
+    lazy var networkRequest: Request = Request(endpoint: "verify-phone?_method=patch", method: .post, parameters: [
+        "country_code": "20",
+        "phone": phone,
+        "code": code,
+        "device_id": "dwdwedwwer",
+        "device_type": "ios"
+    ])
    
+    let code: String
+    let phone: String
+    init(phone:String, code: String) {
+        self.code = code
+        self.phone = phone
+    }
 }

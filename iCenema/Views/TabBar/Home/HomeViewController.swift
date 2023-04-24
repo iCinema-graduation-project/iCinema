@@ -52,6 +52,8 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
         collectionView.updatecollectionViewCompositionalLayout(with: self)
         self.compositionalLayoutSections.forEach { $0.delegate?.updateItems(self.collectionView) }
         
+        LocationManager.shared.startUpdatingLocation()
+
     }
     
     override func viewDidLayoutSubviews() {

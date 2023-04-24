@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import Combine
+
+class NewUserViewModel: CancellableViewModel {
+    
+    var cancellableSet: Set<AnyCancellable> = []
+    let service = NewUserService()
+    
+}

@@ -15,10 +15,31 @@ var appLanguageCode: String {
 }
 
 struct Request {
-    var host: String = "http://localhost:8000/api/v1/"
+    var host: String
     let endpoint: String
     let method: HTTPMethod
     var parameters: Parameters? = nil
+    
+    var headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "lang": appLanguageCode
+        ]
+    
+    init(host: String = "http://localhost:8000/api/v1/",
+         endpoint: String,
+         method: HTTPMethod,
+         parameters: Parameters? = nil) {
+        self.host = host
+        self.endpoint = endpoint
+        self.method = method
+        self.parameters = parameters
+        
+        if let userToken = UserDefaults.standard.load(object: User.self, fromKey: .userDefaults.user)?.token{
+            self.headers["Authorization"] = "Bearer \(userToken)"
+        }
+
+    }
+
 }
 
 // Define a protocol for an API request
@@ -35,18 +56,7 @@ protocol APIRequest: AnyObject {
 extension APIRequest{
     // Computed property that returns the full URL of the API request
     private var url: String{ "\(networkRequest.host)\(networkRequest.endpoint)" }
-    
-    // Computed property that returns the headers for the API request
-    private var headers: HTTPHeaders {
-        var header = HTTPHeaders(["Content-Type": "application/json", "lang": appLanguageCode])
-        
-        if let userToken = UserDefaults.standard.load(object: User.self, fromKey: .userDefaults.user)?.token{
-            header["Authorization"] = userToken
-        }
-        
-        return header
-    }
-    
+ 
 }
 
 extension APIRequest {
@@ -56,7 +66,9 @@ extension APIRequest {
         print(url)
         // Send a request using Alamofire
         return AF.request(url, method: networkRequest.method,
-                          parameters: networkRequest.parameters, encoding: URLEncoding.queryString)
+                          parameters: networkRequest.parameters,
+                          encoding: URLEncoding.queryString,
+                          headers: networkRequest.headers)
         
             // Validate the response
             .validate()

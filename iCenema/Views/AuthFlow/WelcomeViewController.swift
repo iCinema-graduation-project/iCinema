@@ -10,6 +10,7 @@ import UserNotifications
 import ViewAnimator
 import SPAlert
 
+
 extension UILabel {
     func makeDescreptionLabel() {
         textAlignment = .center
@@ -26,6 +27,7 @@ extension UILabel {
     }
 }
 
+
 class WelcomeViewController: ICinemaViewController {
     // MARK: - Views
     //
@@ -38,6 +40,7 @@ class WelcomeViewController: ICinemaViewController {
     var timer: Timer!
     var imageViewConstraints: AnchoredConstraints!
     
+    
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
@@ -45,10 +48,10 @@ class WelcomeViewController: ICinemaViewController {
         self.updateUI()
         UNUserNotificationCenter.current().delegate = self
         
+        LocationManager.shared.startUpdatingLocation()
         
-      
     }
-    
+
     // MARK: - Update UI Methods
     //
     private func updateUI() {

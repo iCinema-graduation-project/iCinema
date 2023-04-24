@@ -17,10 +17,14 @@ class CinemaProfileViewController: ICinemaViewController {
     
     var cancellableSet: Set<AnyCancellable> = []
     
+    let manager = LocationManager()
+
+        
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+
         guard let viewModel = viewModel else { return }
         
         coordinatorType = .segue
@@ -50,6 +54,8 @@ class CinemaProfileViewController: ICinemaViewController {
         viewModel.bookNow = { movie in
             Booking.shared.startBooking(movie)
         }
+        
+        print(LocationManager.shared.latitude)
         
     }
     

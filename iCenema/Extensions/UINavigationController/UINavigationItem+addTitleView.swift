@@ -11,11 +11,12 @@ import UIKit
 extension UINavigationItem {
     
     /// Add a new UILabel instance as the title view with the specified title
-    public func addTitleView(title: String) {
+    public func addTitleView(title: String, color: UIColor? = nil) {
+        
         let label = UILabel()
         label.text = title
         label.font = .title2
-        label.textColor = .iCinemaYellowColor
+        label.textColor = color == nil ? .iCinemaYellowColor : color
         titleView = label
     }
     

@@ -16,8 +16,8 @@ import Alamofire
 //
 class OTPViewModel: CancellableViewModel {
     
-    private(set) var otp = OTPString(count: 5)
-    var service = OTPService()
+    private(set) var otp = OTPString(count: 6)
+    
     var cancellableSet: Set<AnyCancellable> = []
     
     func textField(didChanged text: String, at index: Int) {
@@ -29,7 +29,9 @@ class OTPViewModel: CancellableViewModel {
         }
     }
     
-    public func request(_ completion: @escaping (Result<User, NetworkError>) -> Void ) {
+    public func request(phone: String, _ completion: @escaping (Result<VerifyCode, NetworkError>) -> Void ) {
+        let service = OTPService(phone: phone, code: self.otp.code)
+        
         service.request()
             .sink { response in
                 if let error = response.error {
@@ -41,6 +43,7 @@ class OTPViewModel: CancellableViewModel {
                 }
             }
             .store(in: &cancellableSet)
+        
     }
     
     public func reset() {

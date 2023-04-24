@@ -7,12 +7,15 @@
 
 import UIKit
 
-var isAuthed = false
 
 class AppCoordinator {
     var rootViewController: UIViewController
-    
+    var isAuthed = false
+
     init() {
+        if let _ = UserDefaults.standard.load(object: User.self, fromKey: .userDefaults.user) {
+            isAuthed = false
+        }
         
         if isAuthed {
             rootViewController = AppTapBarController()
