@@ -89,6 +89,10 @@
 		734A819629D3404400949EB4 /* ProfileViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A819529D3404400949EB4 /* ProfileViewDelegate.swift */; };
 		734C8A4729BAACC7008B28B5 /* OTPViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */; };
 		7353D38F29C9F2FF00BB8272 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7353D38E29C9F2FF00BB8272 /* StepperView.swift */; };
+		735C13E929F7E86A00C4654E /* CancellableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C13E829F7E86A00C4654E /* CancellableViewModel.swift */; };
+		735C13EE29F8098C00C4654E /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C13ED29F8098C00C4654E /* AvatarView.swift */; };
+		735C13F129F83BC400C4654E /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C13F029F83BC400C4654E /* Categories.swift */; };
+		735C13F429F83F2F00C4654E /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C13F329F83F2F00C4654E /* CategoriesService.swift */; };
 		7365DEF729EA9EA000E7AC35 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365DEF629EA9EA000E7AC35 /* LanguageViewController.swift */; };
 		7365DEFA29EAA8D500E7AC35 /* TicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365DEF929EAA8D500E7AC35 /* TicketsView.swift */; };
 		7365DEFC29EAA97C00E7AC35 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365DEFB29EAA97C00E7AC35 /* Ticket.swift */; };
@@ -105,7 +109,7 @@
 		7375ECD629E6CF9F00D6061D /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7375ECD529E6CF9F00D6061D /* SavedViewController.swift */; };
 		7375ECD829E6D04E00D6061D /* SavedCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7375ECD729E6D04E00D6061D /* SavedCollectionViewSection.swift */; };
 		7379FFF029F6A9CE0093E759 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7379FFEF29F6A9CE0093E759 /* LocationManager.swift */; };
-		73861C242984351E0020A63B /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* NewUserViewController.swift */; };
+		73861C242984351E0020A63B /* EditUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* EditUserProfileViewController.swift */; };
 		73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* ICinemaTextField.swift */; };
 		738A44FE29CA809300FA07A8 /* ActivityIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = 738A44FD29CA809300FA07A8 /* ActivityIndicator.json */; };
 		738A450129CA8D7600FA07A8 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A450029CA8D7600FA07A8 /* ActivityIndicator.swift */; };
@@ -141,8 +145,8 @@
 		73AD757A29F5681800C55602 /* verifyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757929F5681800C55602 /* verifyCode.swift */; };
 		73AD757E29F56ACB00C55602 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757D29F56ACB00C55602 /* PhoneNumber.swift */; };
 		73AD758029F56D6400C55602 /* OTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757F29F56D6400C55602 /* OTP.swift */; };
-		73AD758329F58F6D00C55602 /* NewUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD758229F58F6D00C55602 /* NewUserService.swift */; };
-		73AD758529F5902900C55602 /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD758429F5902900C55602 /* NewUser.swift */; };
+		73AD758329F58F6D00C55602 /* EditUserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD758229F58F6D00C55602 /* EditUserProfileService.swift */; };
+		73AD758529F5902900C55602 /* EditUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD758429F5902900C55602 /* EditUserProfile.swift */; };
 		73B0BD2229EEA95C00E755E0 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0BD2129EEA95C00E755E0 /* SearchResultViewController.swift */; };
 		73B10C5729EB03B600EB2D2D /* BookingSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B10C5629EB03B600EB2D2D /* BookingSuccessViewController.swift */; };
 		73B35C5229C1DEEC00F93CA7 /* Stolzl-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73B35C4C29C1DEEC00F93CA7 /* Stolzl-Medium.ttf */; };
@@ -168,7 +172,7 @@
 		73BB560829E9A2D700F34A62 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB560729E9A2D700F34A62 /* Lottie */; };
 		73BB560B29E9A35100F34A62 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB560A29E9A35100F34A62 /* UserProfileViewController.swift */; };
 		73BB560D29E9B4B000F34A62 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB560C29E9B4B000F34A62 /* GenderView.swift */; };
-		73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */; };
+		73BBF3CB29969DFC00920F53 /* EditUserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBF3CA29969DFC00920F53 /* EditUserProfileViewModel.swift */; };
 		73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFEFA12989EFA600969452 /* OTPViewController.swift */; };
 		73C9D73B29D09E6800B84564 /* CinemaChairsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C9D73A29D09E6800B84564 /* CinemaChairsViewModel.swift */; };
 		73C9D73D29D09EE300B84564 /* CinemaDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */; };
@@ -310,6 +314,10 @@
 		734A819529D3404400949EB4 /* ProfileViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewDelegate.swift; sourceTree = "<group>"; };
 		734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModelTests.swift; sourceTree = "<group>"; };
 		7353D38E29C9F2FF00BB8272 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
+		735C13E829F7E86A00C4654E /* CancellableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableViewModel.swift; sourceTree = "<group>"; };
+		735C13ED29F8098C00C4654E /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		735C13F029F83BC400C4654E /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		735C13F329F83F2F00C4654E /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
 		7365DEF629EA9EA000E7AC35 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		7365DEF929EAA8D500E7AC35 /* TicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsView.swift; sourceTree = "<group>"; };
 		7365DEFB29EAA97C00E7AC35 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
@@ -326,7 +334,7 @@
 		7375ECD529E6CF9F00D6061D /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		7375ECD729E6D04E00D6061D /* SavedCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewSection.swift; sourceTree = "<group>"; };
 		7379FFEF29F6A9CE0093E759 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		73861C232984351E0020A63B /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		73861C232984351E0020A63B /* EditUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileViewController.swift; sourceTree = "<group>"; };
 		73861C2529843A170020A63B /* ICinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaTextField.swift; sourceTree = "<group>"; };
 		738A44FD29CA809300FA07A8 /* ActivityIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityIndicator.json; sourceTree = "<group>"; };
 		738A450029CA8D7600FA07A8 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -364,8 +372,8 @@
 		73AD757929F5681800C55602 /* verifyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verifyCode.swift; sourceTree = "<group>"; };
 		73AD757D29F56ACB00C55602 /* PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
 		73AD757F29F56D6400C55602 /* OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTP.swift; sourceTree = "<group>"; };
-		73AD758229F58F6D00C55602 /* NewUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserService.swift; sourceTree = "<group>"; };
-		73AD758429F5902900C55602 /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
+		73AD758229F58F6D00C55602 /* EditUserProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileService.swift; sourceTree = "<group>"; };
+		73AD758429F5902900C55602 /* EditUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfile.swift; sourceTree = "<group>"; };
 		73B0BD2129EEA95C00E755E0 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		73B10C5629EB03B600EB2D2D /* BookingSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingSuccessViewController.swift; sourceTree = "<group>"; };
 		73B35C4C29C1DEEC00F93CA7 /* Stolzl-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Medium.ttf"; sourceTree = "<group>"; };
@@ -387,7 +395,7 @@
 		73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		73BB560A29E9A35100F34A62 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		73BB560C29E9B4B000F34A62 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
-		73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
+		73BBF3CA29969DFC00920F53 /* EditUserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileViewModel.swift; sourceTree = "<group>"; };
 		73BFEFA12989EFA600969452 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		73C9D73A29D09E6800B84564 /* CinemaChairsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsViewModel.swift; sourceTree = "<group>"; };
 		73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateViewModel.swift; sourceTree = "<group>"; };
@@ -578,7 +586,6 @@
 				736674E3298EE27B009CA617 /* Phone Number */,
 				733116B62990A99600EFD002 /* OTP */,
 				733116B92990B43000EFD002 /* New User */,
-				73751F3829B2A96C004E8C31 /* Intersts */,
 			);
 			path = AuthFlow;
 			sourceTree = "<group>";
@@ -808,10 +815,11 @@
 			isa = PBXGroup;
 			children = (
 				73AD758129F58F5400C55602 /* Model */,
-				73861C232984351E0020A63B /* NewUserViewController.swift */,
-				73BBF3CA29969DFC00920F53 /* NewUserViewModel.swift */,
+				73861C232984351E0020A63B /* EditUserProfileViewController.swift */,
+				73BBF3CA29969DFC00920F53 /* EditUserProfileViewModel.swift */,
 				73BB560C29E9B4B000F34A62 /* GenderView.swift */,
-				73AD758229F58F6D00C55602 /* NewUserService.swift */,
+				733DAA2029B37B5D00741211 /* InterstsView.swift */,
+				73AD758229F58F6D00C55602 /* EditUserProfileService.swift */,
 			);
 			path = "New User";
 			sourceTree = "<group>";
@@ -852,6 +860,22 @@
 				73B10C5529EB039A00EB2D2D /* Success */,
 			);
 			path = Booking;
+			sourceTree = "<group>";
+		};
+		735C13EF29F83BB600C4654E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				735C13F029F83BC400C4654E /* Categories.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		735C13F229F83F1000C4654E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				735C13F329F83F2F00C4654E /* CategoriesService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		7365DEF529EA9E7000E7AC35 /* Language */ = {
@@ -900,14 +924,6 @@
 				734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */,
 			);
 			path = "Auth Flow";
-			sourceTree = "<group>";
-		};
-		73751F3829B2A96C004E8C31 /* Intersts */ = {
-			isa = PBXGroup;
-			children = (
-				733DAA2029B37B5D00741211 /* InterstsView.swift */,
-			);
-			path = Intersts;
 			sourceTree = "<group>";
 		};
 		7375ECD229E6CE4100D6061D /* Saved */ = {
@@ -1046,7 +1062,7 @@
 		73AD758129F58F5400C55602 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				73AD758429F5902900C55602 /* NewUser.swift */,
+				73AD758429F5902900C55602 /* EditUserProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1172,6 +1188,7 @@
 		73EC918A29834531002F3568 /* iCenema */ = {
 			isa = PBXGroup;
 			children = (
+				735C13F229F83F1000C4654E /* Services */,
 				73BB178029E087780062155C /* CompositionalLayout Pattern */,
 				73EC91BD298345D3002F3568 /* Resources */,
 				73BB19E929BF6D4800C3A373 /* Network Layer */,
@@ -1273,6 +1290,7 @@
 				73F7935829A7DB5A007252BE /* CustomShape.swift */,
 				738A450029CA8D7600FA07A8 /* ActivityIndicator.swift */,
 				73B404F129D092B60044F58D /* ICinemaView.swift */,
+				735C13ED29F8098C00C4654E /* AvatarView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -1282,6 +1300,7 @@
 			children = (
 				73FE17F62991EB960009D238 /* Coordinator.swift */,
 				73F0C37129AD2B2D00F95B01 /* IdentifiableView.swift */,
+				735C13E829F7E86A00C4654E /* CancellableViewModel.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1319,6 +1338,7 @@
 		73F0C37529AD7E8000F95B01 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				735C13EF29F83BB600C4654E /* Settings */,
 				73F0C37629AD813D00F95B01 /* Movie.swift */,
 				738EEF2B29AE325000CDEE88 /* Poster.swift */,
 				738EEF2D29AE330A00CDEE88 /* Cinema.swift */,
@@ -1639,6 +1659,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				735C13E929F7E86A00C4654E /* CancellableViewModel.swift in Sources */,
 				73BB560D29E9B4B000F34A62 /* GenderView.swift in Sources */,
 				73AD757729F5647200C55602 /* Login.swift in Sources */,
 				73BB19ED29BF722700C3A373 /* FileManager.swift in Sources */,
@@ -1656,7 +1677,7 @@
 				7365DF0029EAAAFE00E7AC35 /* utls.swift in Sources */,
 				7365DEFE29EAA9BF00E7AC35 /* TicketView.swift in Sources */,
 				730E1C2329A966DC00F2AB85 /* NotificationViewController.swift in Sources */,
-				73AD758329F58F6D00C55602 /* NewUserService.swift in Sources */,
+				73AD758329F58F6D00C55602 /* EditUserProfileService.swift in Sources */,
 				73AB522329D10CEA008A3CFF /* SelectHallView.swift in Sources */,
 				731FBF8129B0C2CB00798DF5 /* IGHomeViewModel.swift in Sources */,
 				731FBF7729B0C25C00798DF5 /* IGAppUtility.swift in Sources */,
@@ -1675,6 +1696,7 @@
 				73B0BD2229EEA95C00E755E0 /* SearchResultViewController.swift in Sources */,
 				73B404F229D092B60044F58D /* ICinemaView.swift in Sources */,
 				731FBF5E29B0BF7E00798DF5 /* IGRoundedView.swift in Sources */,
+				735C13EE29F8098C00C4654E /* AvatarView.swift in Sources */,
 				739ADAB229BA351800FFA78E /* ViewController.swift in Sources */,
 				739FAA4829ED99AD00BAC9ED /* EWalletView.swift in Sources */,
 				733DAA2929B3BA3D00741211 /* DumySection.swift in Sources */,
@@ -1735,6 +1757,7 @@
 				731FBF5229B0BF7E00798DF5 /* UIView+Extension.swift in Sources */,
 				731FBF4E29B0BF7E00798DF5 /* IGMockLoader.swift in Sources */,
 				73F7935129A78E55007252BE /* AppTapBarController.swift in Sources */,
+				735C13F129F83BC400C4654E /* Categories.swift in Sources */,
 				73EC91D929834D41002F3568 /* UIView+FillSuperviewConstraints.swift in Sources */,
 				731FBF5629B0BF7E00798DF5 /* IGSnapProgressView.swift in Sources */,
 				73AD757A29F5681800C55602 /* verifyCode.swift in Sources */,
@@ -1745,7 +1768,7 @@
 				73FED1E029886B0600395727 /* Constants.swift in Sources */,
 				730E1C1D29A960E000F2AB85 /* TicketViewController.swift in Sources */,
 				7307FDFE29BCCD1D00B13E24 /* MovieProfileViewController.swift in Sources */,
-				73AD758529F5902900C55602 /* NewUser.swift in Sources */,
+				73AD758529F5902900C55602 /* EditUserProfile.swift in Sources */,
 				73FE17F72991EB960009D238 /* Coordinator.swift in Sources */,
 				73AD757429F5532000C55602 /* ICinemaWalletView.swift in Sources */,
 				73019E7629AAB5A0001A03D5 /* +makeCircleImage.swift in Sources */,
@@ -1777,6 +1800,7 @@
 				73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */,
 				7311C3132991B9D500C0610F /* AuthFlowCoordinator.swift in Sources */,
 				731FBF6C29B0BF7E00798DF5 /* AnimatedCollectionViewLayout.swift in Sources */,
+				735C13F429F83F2F00C4654E /* CategoriesService.swift in Sources */,
 				731FBF6029B0BF7E00798DF5 /* IGError.swift in Sources */,
 				731FBF5729B0BF7E00798DF5 /* IGStoryPreviewHeaderView.swift in Sources */,
 				731FBF8329B0C2CB00798DF5 /* IGStoryListCell.swift in Sources */,
@@ -1797,7 +1821,7 @@
 				73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */,
 				73687B7329AEA228007DB431 /* MoviesSection.swift in Sources */,
 				731FBF6429B0BF7E00798DF5 /* IGPlayerView.swift in Sources */,
-				73BBF3CB29969DFC00920F53 /* NewUserViewModel.swift in Sources */,
+				73BBF3CB29969DFC00920F53 /* EditUserProfileViewModel.swift in Sources */,
 				731FBF5829B0BF7E00798DF5 /* IGStory.swift in Sources */,
 				73BB178429E087BA0062155C /* CompositionalLayoutDelegate.swift in Sources */,
 				7348209529C518650014E607 /* NotificationNames.swift in Sources */,
@@ -1805,7 +1829,7 @@
 				73F0C37429AD7AE900F95B01 /* PosterCell.swift in Sources */,
 				73AB522829D10DA4008A3CFF /* SelectHallViewModel.swift in Sources */,
 				738A450129CA8D7600FA07A8 /* ActivityIndicator.swift in Sources */,
-				73861C242984351E0020A63B /* NewUserViewController.swift in Sources */,
+				73861C242984351E0020A63B /* EditUserProfileViewController.swift in Sources */,
 				731FBF5129B0BF7E00798DF5 /* IGStoryPreviewController.swift in Sources */,
 				731FBF5529B0BF7E00798DF5 /* ImageView+Additions.swift in Sources */,
 				73F7138729B65240001E469D /* CinemaProfileSliderView.swift in Sources */,

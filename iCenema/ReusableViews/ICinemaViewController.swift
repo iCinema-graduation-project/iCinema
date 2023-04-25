@@ -20,6 +20,10 @@ class ICinemaViewController: ViewController {
         self.addSkipButton()
 
     }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.endEditing()
+    }
     
     // end editing whene user begin touching
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -39,7 +43,7 @@ class ICinemaViewController: ViewController {
     
     // MARK: - Public Methods
     //
-    func getViewByTag(_ tag: Int) -> UIView?{
+    public func getViewByTag(_ tag: Int) -> UIView?{
         return self.view.viewWithTag(tag)
     }
     

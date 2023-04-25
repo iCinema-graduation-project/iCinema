@@ -7,10 +7,19 @@
 
 import UIKit
 
+protocol GenderViewDelegate {
+    func genderDidChanged(_ gender: Gender)
+}
 
 class GenderView {
-    var gender: Gender = .female
-   
+    var gender: Gender = .none {
+        didSet {
+            self.view.setState(.normal, for: .disabled)
+            self.delegate?.genderDidChanged(self.gender)
+        }
+    }
+    var delegate: GenderViewDelegate?
+    
     public lazy var view: ICinemaTextField = {
         let textfield = ICinemaTextField(placeholder: .newUser.gender)
         textfield.text = "."

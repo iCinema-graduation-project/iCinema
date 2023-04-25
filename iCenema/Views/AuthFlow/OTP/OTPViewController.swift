@@ -108,7 +108,7 @@ class OTPViewController: ICinemaViewController {
                 
                 if value.key == "compelete_data" {
                     
-                    self.coordinator?.push(to: NewUserViewController.self)
+                    self.coordinator?.push(to: EditUserProfileViewController.self)
                     
                 }else if value.key == "success" {
                     

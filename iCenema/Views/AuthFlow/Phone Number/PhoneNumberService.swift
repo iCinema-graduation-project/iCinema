@@ -13,16 +13,17 @@ class PhoneNumberService: APIRequest {
     
     let phone: String
 
-    lazy var networkRequest: Request = Request(endpoint: "login", method: .post, parameters: [
-        "country_code": "20",
-        "phone": phone,
-        "device_id": "dwdwedwwer",
-        "device_type": "ios"
-    ])
+    lazy var networkRequest: Request = Request(endpoint: "login",
+                                               method: .post,
+                                               parameters: [
+                                                "country_code": "20",
+                                                "phone": phone,
+                                                "device_id": "dwdwedwwer",
+                                                "device_type": "ios"
+                                               ])
 
     init(phone: String) {
         self.phone = phone
-        print(phone)
     }
     
 }

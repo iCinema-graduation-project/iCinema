@@ -8,16 +8,6 @@
 import UIKit
 import Combine
 
-protocol CancellableViewModel {
-    var cancellableSet: Set<AnyCancellable> { get set }
-}
-
-extension CancellableViewModel {
-    mutating func cancelAllRequests() {
-        self.cancellableSet.forEach { $0.cancel() }
-        self.cancellableSet.removeAll()
-    }
-}
 
 // MARK: - PhoneViewModel
 //
@@ -31,7 +21,7 @@ class PhoneViewModel: CancellableViewModel {
         }
     }
     
-    internal var cancellableSet: Set<AnyCancellable> = []
+    var cancellableSet: Set<AnyCancellable> = []
 
     // MARK: - Delegate
     func didChanged(phoneNumber: String) {
@@ -50,20 +40,29 @@ class PhoneViewModel: CancellableViewModel {
     
     
     public func request(_ completion: @escaping (Result<Login, NetworkError>) -> Void) {
+        
         let service = PhoneNumberService(phone: self.phoneNumber)
         service.request().sink { response in
+            
             if let error = response.error {
+                
                 completion(.failure(error))
+                
             } else if let value = response.value {
+                
                 completion(.success(value))
+                
             } else {
+                
                 completion(.failure(.other))
+                
             }
+            
         }
         .store(in: &cancellableSet)
         
-        
     }
     
-   
 }
+
+

@@ -105,7 +105,7 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     }
     
     @objc private func userProfileTapped() {
-        self.navigationController?.pushViewController(UserProfileViewController(), animated: true)
+        self.navigationController?.pushViewController(EditUserProfileViewController(), animated: true)
     }
     
     @objc private func magnifyingGlassTappedAction() {

@@ -7,6 +7,7 @@
 import Foundation
 import Alamofire
 import Combine
+import SPAlert
 
 
 // Get the current language code for localization, defaulting to "en"
@@ -78,20 +79,30 @@ extension APIRequest {
             // Map errors to NetworkError types
             .map { response in
                 response.mapError { error in
+                    let networkError: NetworkError
+                    
 
+                    
                     // Try to decode a BackendError from the response data
                     let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
 
                     // If a BackendError is found, return a backendError NetworkError
                     if let backendError = backendError {
-                        return .backendError(backendError)
+                        networkError = .backendError(backendError)
                     }
 
                     // Otherwise, return an initialError NetworkError with the original error
                     else {
-                        return .initialError(error)
+                        networkError = .initialError(error)
                     }
                     
+                    // if error occured show alert with the error
+                    let message = NetworkError.getErrorMessage(from: networkError)
+                    let alertView = SPAlertView(message: message)
+                    alertView.duration = 2
+                    alertView.present()
+                    
+                    return networkError
                 }
 
             }
