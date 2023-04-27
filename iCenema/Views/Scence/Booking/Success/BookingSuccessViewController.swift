@@ -9,6 +9,7 @@ import UIKit
 import SwiftUI
 import ViewAnimator
 import SPConfetti
+import MakeConstraints
 
 final class BookingSuccessViewController: ICinemaViewController {
     // MARK: - Views
