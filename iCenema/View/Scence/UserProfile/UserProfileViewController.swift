@@ -79,8 +79,8 @@ final class UserProfileViewController: ICinemaViewController {
         view.addSubview(scrollView)
         scrollView.fillSuperviewConstraints()
         scrollView.isScrollEnabled = true
-        scrollView.contentSize = CGSize(width: Constants.screenBounds.width,
-                                        height: Constants.screenBounds.height)
+        scrollView.contentSize = CGSize(width: CGFloat.screenBounds.width,
+                                        height: CGFloat.screenBounds.height)
 
     }
     

@@ -20,6 +20,9 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         contentView.addSubview(cinemaCellView)
         cinemaCellView.fillSuperviewConstraints()
         
+        layer.cornerRadius = .view.cornerRadius
+        layer.masksToBounds = true
+        
     }
     
     required init?(coder: NSCoder) {

@@ -10,6 +10,7 @@ import UIKit
 
 extension CGFloat {
     
+    static let screenBounds = UIScreen.main.bounds
     static let supplementaryHeight: CGFloat = 44
     
     

@@ -13,23 +13,6 @@ import NetworkLayer
 import MakeConstraints
 import LocationManager
 
-extension UILabel {
-    func makeDescreptionLabel() {
-        textAlignment = .center
-        numberOfLines = 0
-        textColor = .iCinemaTextColor
-        font = .footnote
-        centerXInSuperview()
-        fillXSuperViewConstraints(paddingLeft: .view.padding.left,
-                                  paddingRight: .view.padding.right)
-        
-        guard let superview = superview else { return }
-        makeConstraints(topAnchor: superview.safeAreaLayoutGuide.topAnchor,
-                                         padding: CGFloat.view.padding)
-    }
-}
-
-
 class WelcomeViewController: ICinemaViewController {
     // MARK: - Views
     //
@@ -42,9 +25,17 @@ class WelcomeViewController: ICinemaViewController {
     var timer: Timer!
     var imageViewConstraints: AnchoredConstraints!
     
-    
     // MARK: - Life Cycle
     //
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.timer = .scheduledTimer(timeInterval: 3.05,
+                                     target: self,
+                                     selector: #selector(self.animateImageView),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
@@ -52,6 +43,11 @@ class WelcomeViewController: ICinemaViewController {
         
         LocationManager.shared.startUpdatingLocation()
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.timer.invalidate()
     }
 
     // MARK: - Update UI Methods
@@ -70,11 +66,7 @@ class WelcomeViewController: ICinemaViewController {
         
         let animation = AnimationType.zoom(scale: 0.2)
         imageView.animate(animations: [animation])
-        self.timer = .scheduledTimer(timeInterval: 3.05,
-                                     target: self,
-                                     selector: #selector(self.animateImageView),
-                                     userInfo: nil,
-                                     repeats: true)
+
     }
     
     private func addDescriptionLabel() {

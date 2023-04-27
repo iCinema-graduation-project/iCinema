@@ -125,7 +125,7 @@ struct TagView: View {
             
             let labelWidth = label.frame.size.width + 40
             
-            if (width + labelWidth + 36) < Constants.screenBounds.width {
+            if (width + labelWidth + 36) < CGFloat.screenBounds.width {
                 width += labelWidth
                 tempItems.append(category)
             } else {

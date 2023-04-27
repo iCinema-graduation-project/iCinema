@@ -95,7 +95,7 @@ extension PosterCollectionViewSection : CompositionalLayoutableSectionLayout {
         
         // MARK: - Update page control
         section.visibleItemsInvalidationHandler = { [unowned self] (items, offset, env) -> Void in
-            let page = round(offset.x / Constants.screenBounds.width)
+            let page = round(offset.x / CGFloat.screenBounds.width)
             self.posterPaginationView?.selectPage(at: Int(page))
         }
         return section

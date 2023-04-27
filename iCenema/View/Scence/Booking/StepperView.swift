@@ -52,7 +52,7 @@ extension ICinemaViewController {
         let steperView = StepperView(countOfSteps: coordinator.viewControllers.count - 1,
                                      currentStep: coordinator.currentIndex).hostigView()
         
-        steperView.widthConstraints(Constants.screenBounds.width/2)
+        steperView.widthConstraints(CGFloat.screenBounds.width/2)
         navigationItem.addTitleView(view: steperView)
     }
 }

@@ -75,7 +75,7 @@ extension SavedCollectionViewSection: CompositionalLayoutableSectionLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let padding = (Constants.screenBounds.width - (CGFloat.home.movies.size.width * 2)) / 3
+        let padding = (CGFloat.screenBounds.width - (CGFloat.home.movies.size.width * 2)) / 3
 
         item.contentInsets = NSDirectionalEdgeInsets(top: 0,
                                                      leading: padding,

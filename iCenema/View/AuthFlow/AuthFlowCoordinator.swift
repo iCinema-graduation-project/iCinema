@@ -14,12 +14,10 @@ final class AuthFlowCoordinator: Coordinator {
         super.init()
         
         setViewControllers([
-            //            EditUserProfileViewController.self,
-                        WelcomeViewController.self,
-                                    PhoneViewController.self,
-                                    OTPViewController.self,
-                                    AppTapBarController.self])
-        
+            WelcomeViewController.self,
+            PhoneViewController.self,
+            OTPViewController.self,
+            AppTapBarController.self])
     }
 
 }
