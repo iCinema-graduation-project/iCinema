@@ -54,7 +54,6 @@ class CinemaProfileViewController: ICinemaViewController {
             Booking.shared.startBooking(movie)
         }
         
-        print(LocationManager.shared.latitude)
         
     }
     

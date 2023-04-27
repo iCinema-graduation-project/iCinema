@@ -7,20 +7,24 @@
 
 import Foundation
 import NetworkLayer
+import Combine
 
-class PhoneNumberService: APIRequest {
+class PhoneNumberLoginService: APIRequest {
+
     typealias DecodableType = Login
+
+    var cancellableSet: Set<AnyCancellable> = []
     
-    let phone: String
+    var networkRequest: NetworkRequest = NetworkRequest(endpoint: "login", method: .post)
 
-    lazy var networkRequest: NetworkRequest = NetworkRequest(endpoint: "login",
-                                               method: .post)
-
-    init(phone: String) {
-        self.phone = phone
+    init() {
+        self.updateParameters()
+    }
+    
+    
+    private func updateParameters() {
         networkRequest.parameters = [
             "country_code": "20",
-            "phone": phone,
             "device_id": "dwdwedwwer",
             "device_type": "ios"
            ]

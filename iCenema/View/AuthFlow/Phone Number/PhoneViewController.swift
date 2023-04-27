@@ -57,7 +57,6 @@ class PhoneViewController:  ICinemaViewController {
         super.viewDidLoad()
         navigationItem.addTitleView(title: .register)
         self.updateUI()
-        
         self.bindViewModelOutput()
         self.bindViewModelInput()
         
@@ -71,7 +70,7 @@ class PhoneViewController:  ICinemaViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        viewModel.cancelAllRequests()
+        viewModel.service.cancelAllPublishers()
     }
     
     // MARK: - Update UI
@@ -132,20 +131,17 @@ class PhoneViewController:  ICinemaViewController {
         view.addSubview(activityIndicator)
         activityIndicator.play()
         
-        self.viewModel.request { result in
+        self.viewModel.service.request { response in
             self.activityIndicator.stop()
             
-            switch result {
-            case .success( let value ):
-                print(value)
+            if let _ = response.value {
                 self.coordinator?.push(userInfo: ["phone": self.viewModel.phoneNumber])
-            case .failure(let failure):
-                let error = NetworkError.getErrorMessage(from: failure)
+
+            } else if let error = response.error {
+                let error = NetworkError.getErrorMessage(from: error)
                 self.phoneNumberTextField.setState(.fail, with: error, for: .editing)
                 self.phoneNumberTextField.setState(.fail, with: error, for: .normal)
-             
             }
-            
         }
         
     }
@@ -176,7 +172,7 @@ extension PhoneViewController {
                 self.endEditing()
             }
         }
-        .store(in: &viewModel.cancellableSet)
+        .store(in: &viewModel.service.cancellableSet)
     }
     
 }
@@ -189,7 +185,7 @@ extension PhoneViewController {
     }
     
     @objc private func phoneNumberTextFieldEditingChanged(_ sender: ICinemaTextField) {
-        self.viewModel.didChanged(phoneNumber: sender.text!)
+        self.viewModel.phoneNumber = sender.text ?? ""
     }
 }
 

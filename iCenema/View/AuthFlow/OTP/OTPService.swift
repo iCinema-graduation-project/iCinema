@@ -7,8 +7,11 @@
 
 import Foundation
 import NetworkLayer
+import Combine
 
 class OTPService: APIRequest {
+    var cancellableSet: Set<AnyCancellable> = []
+    
     typealias DecodableType = VerifyCode
 
     lazy var networkRequest: NetworkRequest = NetworkRequest(endpoint: "verify-phone?_method=patch", method: .post)

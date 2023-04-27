@@ -17,8 +17,9 @@ public protocol APIRequest {
     // Associated type for the expected response type
     associatedtype DecodableType where DecodableType: Decodable
     
-    var networkRequest: NetworkRequest { get }
-    
+    var networkRequest: NetworkRequest { get set }
+    var cancellableSet: Set<AnyCancellable> { get set }
+
 }
 
 @available(iOS 13.0, *)
@@ -75,5 +76,16 @@ extension APIRequest {
             .eraseToAnyPublisher()
     }
     
+    public mutating func request(_ completion: @escaping (DataResponse<DecodableType, NetworkError>) -> Void) {
+        self.request().sink { response in
+            completion(response)
+        }.store(in: &cancellableSet)
+    }
     
+    public mutating func cancelAllPublishers() {
+        self.cancellableSet.forEach { $0.cancel() }
+        self.cancellableSet.removeAll()
+    }
 }
+
+

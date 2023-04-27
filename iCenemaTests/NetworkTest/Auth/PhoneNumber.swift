@@ -11,7 +11,7 @@ import Combine
 
 final class PhoneNumber: XCTestCase {
     
-    var service: PhoneNumberService!
+    var service: PhoneNumberLoginService!
     internal var cancellableSet: Set<AnyCancellable> = []
 
     override func setUpWithError() throws { }
@@ -20,7 +20,7 @@ final class PhoneNumber: XCTestCase {
 
 
     func testLogin() {
-        service = PhoneNumberService(phone: "01551608020")
+        service = PhoneNumberLoginService(phone: "01551608020")
         service.request()
             .sink { response in
                 if let value = response.value {
@@ -30,7 +30,7 @@ final class PhoneNumber: XCTestCase {
     }
     
     func testValidationError() {
-        service = PhoneNumberService(phone: "")
+        service = PhoneNumberLoginService(phone: "")
         service.request()
             .sink { response in
                 if let value = response.value {

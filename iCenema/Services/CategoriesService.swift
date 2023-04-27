@@ -15,6 +15,8 @@ protocol CategoriesFeatcher {
 }
 
 class CategoriesService: APIRequest, CategoriesFeatcher {
+    var cancellableSet: Set<AnyCancellable> = []
+    
     typealias DecodableType = Categories
     
     var networkRequest: NetworkRequest = NetworkRequest(endpoint: "categories", method: .get)

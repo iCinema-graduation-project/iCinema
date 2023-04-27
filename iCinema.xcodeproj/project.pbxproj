@@ -169,7 +169,7 @@
 		73C9D73D29D09EE300B84564 /* CinemaDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */; };
 		73CD5C6129CFA5B6008078A5 /* CinemaChairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD5C6029CFA5B6008078A5 /* CinemaChairsViewController.swift */; };
 		73CD5C6329CFA5EA008078A5 /* CinemaChairsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD5C6229CFA5EA008078A5 /* CinemaChairsView.swift */; };
-		73D0DB1829F0A639008B0CDE /* PhoneNumberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D0DB1729F0A639008B0CDE /* PhoneNumberService.swift */; };
+		73D0DB1829F0A639008B0CDE /* PhoneNumberLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D0DB1729F0A639008B0CDE /* PhoneNumberLoginService.swift */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
 		73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918D29834531002F3568 /* SceneDelegate.swift */; };
 		73EC919529834533002F3568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919429834533002F3568 /* Assets.xcassets */; };
@@ -383,7 +383,7 @@
 		73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateViewModel.swift; sourceTree = "<group>"; };
 		73CD5C6029CFA5B6008078A5 /* CinemaChairsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsViewController.swift; sourceTree = "<group>"; };
 		73CD5C6229CFA5EA008078A5 /* CinemaChairsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsView.swift; sourceTree = "<group>"; };
-		73D0DB1729F0A639008B0CDE /* PhoneNumberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberService.swift; sourceTree = "<group>"; };
+		73D0DB1729F0A639008B0CDE /* PhoneNumberLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberLoginService.swift; sourceTree = "<group>"; };
 		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC918B29834531002F3568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73EC918D29834531002F3568 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -881,7 +881,7 @@
 				73AD757529F5645100C55602 /* Model */,
 				73F0BC062989C4D800742BA2 /* PhoneViewController.swift */,
 				736674E4298EE37C009CA617 /* PhoneViewModel.swift */,
-				73D0DB1729F0A639008B0CDE /* PhoneNumberService.swift */,
+				73D0DB1729F0A639008B0CDE /* PhoneNumberLoginService.swift */,
 			);
 			path = "Phone Number";
 			sourceTree = "<group>";
@@ -1655,7 +1655,7 @@
 				73AB522329D10CEA008A3CFF /* SelectHallView.swift in Sources */,
 				731FBF8129B0C2CB00798DF5 /* IGHomeViewModel.swift in Sources */,
 				731FBF7729B0C25C00798DF5 /* IGAppUtility.swift in Sources */,
-				73D0DB1829F0A639008B0CDE /* PhoneNumberService.swift in Sources */,
+				73D0DB1829F0A639008B0CDE /* PhoneNumberLoginService.swift in Sources */,
 				73F7138529B636CD001E469D /* CinemaProfileInformationView.swift in Sources */,
 				730E1C1629A95DBA00F2AB85 /* ReelsViewController.swift in Sources */,
 				7365DEFC29EAA97C00E7AC35 /* Ticket.swift in Sources */,

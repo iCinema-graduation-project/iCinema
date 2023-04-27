@@ -11,6 +11,8 @@ import Alamofire
 import NetworkLayer
 
 class ProfileFeatcher: APIRequest {
+    var cancellableSet: Set<AnyCancellable> = []
+    
     typealias DecodableType = Profile
     
     var networkRequest: NetworkRequest = NetworkRequest(endpoint: "profile", method: .get)

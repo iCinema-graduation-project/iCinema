@@ -8,9 +8,9 @@ import Foundation
 import Alamofire
 
 // Get the current language code for localization, defaulting to "en"
-//var appLanguageCode: String {
-//    Locale.current.languageCode ?? "en"
-//}
+var appLanguageCode: String {
+    Locale.current.languageCode ?? "en"
+}
 
 @available(iOS 13.0, *)
 public struct NetworkRequest {
@@ -21,7 +21,7 @@ public struct NetworkRequest {
     
     public var headers: HTTPHeaders = [
         "Content-Type": "application/json",
-//        "lang": appLanguageCode
+        "lang": appLanguageCode
     ]
     
     public init(host: String = "http://localhost:8000/api/v1/",

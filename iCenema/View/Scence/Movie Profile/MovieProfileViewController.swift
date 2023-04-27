@@ -26,8 +26,6 @@ class MovieProfileViewController: ICinemaViewController {
         
         
         viewModel.dismissAction = {
-            print(self.presenterViewController)
-
             self.dismiss()
         }
         

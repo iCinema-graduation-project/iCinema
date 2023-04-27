@@ -8,8 +8,11 @@
 import UIKit
 import Alamofire
 import NetworkLayer
+import Combine
 
 class EditUserProfileService: APIRequest {
+    var cancellableSet: Set<AnyCancellable> = []
+    
     typealias DecodableType = EditUserProfile
     
     lazy var networkRequest: NetworkRequest = .init(endpoint: "update-account-data?_method=put", method: .post)

@@ -8,24 +8,24 @@
 import UIKit
 import Combine
 import NetworkLayer
+import Alamofire
+
 
 // MARK: - PhoneViewModel
 //
-class PhoneViewModel: CancellableViewModel {
+class PhoneViewModel {
     
     @Published private(set) var isPhoneNumberValid: Bool = false
     
-    private(set) var phoneNumber: String = "" {
-        didSet {
-            self.isPhoneNumberValid = self.checkPhoneNumberValidity(phoneNumber)
-        }
-    }
+    @Published var phoneNumber: String = ""    
     
-    var cancellableSet: Set<AnyCancellable> = []
+    var service: some APIRequest = PhoneNumberLoginService()
 
-    // MARK: - Delegate
-    func didChanged(phoneNumber: String) {
-        self.phoneNumber = phoneNumber
+    init() {
+        $phoneNumber.sink {
+            self.isPhoneNumberValid = self.checkPhoneNumberValidity($0)
+            self.service.networkRequest.parameters?["phone"] = $0
+        }.store(in: &service.cancellableSet)
     }
     
     // MARK: - Helper
@@ -36,31 +36,6 @@ class PhoneViewModel: CancellableViewModel {
         let phonePredict = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
         
         return phonePredict.evaluate(with: phoneNumber)
-    }
-    
-    
-    public func request(_ completion: @escaping (Result<Login, NetworkError>) -> Void) {
-        
-        let service = PhoneNumberService(phone: self.phoneNumber)
-        service.request().sink { response in
-            
-            if let error = response.error {
-                
-                completion(.failure(error))
-                
-            } else if let value = response.value {
-                
-                completion(.success(value))
-                
-            } else {
-                
-                completion(.failure(.other))
-                
-            }
-            
-        }
-        .store(in: &cancellableSet)
-        
     }
     
 }

@@ -86,7 +86,7 @@ struct MovieCellView: View {
 
 struct MovieCellView_Previews: PreviewProvider {
     static var previews: some View {
-        var movie = Movie(poster: "posterImage", name: "Black Adam", bookmarket: true)
+        let movie = Movie(poster: "posterImage", name: "Black Adam", bookmarket: true)
         MovieCellView(movie: movie)
     }
 }
