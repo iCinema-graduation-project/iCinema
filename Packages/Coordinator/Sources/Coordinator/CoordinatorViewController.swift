@@ -1,36 +1,37 @@
 //
-//  ViewController.swift
-//  iCinema
+//  File.swift
+//  
 //
-//  Created by Ahmed Yamany on 09/03/2023.
+//  Created by Ahmed Yamany on 13/04/2023.
 //
 
 import UIKit
 import MakeConstraints
 
-class ViewController: UIViewController{
-    // used to store properities when presenting view controller
-    public var presenterViewController: ViewController?
-    public weak var presentedView:  UIView?
-    public var presentedViewAnchoredConstraints: AnchoredConstraints?
+open class CoordinatorViewController: UIViewController{
 
-    // the coordinator is responsible for managing navigation between view controllers.
-    var coordinator: Coordinator?
-    var coordinatorType: CoordinatorType = .navigation
+    public private(set) var presenterViewController: CoordinatorViewController? = nil
+    public private(set) weak var presentedView:  UIView? = nil
+    public var presentedViewAnchoredConstraints: AnchoredConstraints? = nil
     
-    var userInfo: [String: Any]? = nil
+    // the coordinator is responsible for managing navigation between view controllers.
+    public var coordinator: Coordinator?
+    public var coordinationType: CoordinationTypes = .navigation
+    
+    public var userInfo: [String: Any]? = nil
     
     // used to notify the coordinator when the view controller is popped from the navigation stack.
-    override func didMove(toParent parent: UIViewController?) {
+    open override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         if parent == nil {
             self.coordinator?.pop()
         }
     }
-    
-    
-    // This Method presents the given view controller on top of the current view controller.
-    @objc public func presentViewController(_ viewControllerToPresent: ViewController, completion: @escaping () -> Void = {} ){
+}
+
+extension CoordinatorViewController {
+    /// This Method presents the given view controller on top of the current view controller.
+    @objc public func presentViewController(_ viewControllerToPresent: CoordinatorViewController, completion: @escaping () -> Void = {} ){
         viewControllerToPresent.presenterViewController = self
         
         // Set the presentedView property to the view of the view controller being presented.
@@ -93,9 +94,6 @@ class ViewController: UIViewController{
             self.presenterViewController?.view.layoutIfNeeded()
             self.presenterViewController?.presentedView?.layoutIfNeeded()
             
-         
-            self.presenterViewController?.coordinator?.pop()
-
         } completion: { _ in
             self.presenterViewController?.presentedView?.removeFromSuperview()
             self.presenterViewController?.presentedView = nil
@@ -103,6 +101,6 @@ class ViewController: UIViewController{
         }
     }
     
-    
-    
+
+
 }

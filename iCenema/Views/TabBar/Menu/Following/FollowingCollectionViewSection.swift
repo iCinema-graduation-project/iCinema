@@ -124,7 +124,7 @@ extension FollowingCollectionViewSection: CompositionalLayoutableSectionDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let hostingViewController = hostingViewController as? ViewController else { return }
+        guard let hostingViewController = hostingViewController as? ICinemaViewController else { return }
 
         let cinemaProfileVC = CinemaProfileViewController()
         

@@ -6,13 +6,13 @@
 //
 
 import UIKit
-
+import Coordinator
 
 final class TicketCoordinator: Coordinator {
     
     override init() {
         super.init()
-        coordinators = [TicketViewController.self]
+        setViewControllers([TicketViewController.self])
         push()
     }
 

@@ -6,19 +6,20 @@
 //
 
 import UIKit
-
+import Coordinator
 
 final class AuthFlowCoordinator: Coordinator {
 
     override init() {
         super.init()
-        coordinators = [
-//            EditUserProfileViewController.self,
-            WelcomeViewController.self,
-                        PhoneViewController.self,
-                        OTPViewController.self,
-                        AppTapBarController.self]
-        push()
+        
+        setViewControllers([
+            //            EditUserProfileViewController.self,
+                        WelcomeViewController.self,
+                                    PhoneViewController.self,
+                                    OTPViewController.self,
+                                    AppTapBarController.self])
+        
     }
 
 }

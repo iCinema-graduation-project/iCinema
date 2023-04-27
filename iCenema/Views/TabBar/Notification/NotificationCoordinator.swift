@@ -6,14 +6,13 @@
 //
 
 import UIKit
-
+import Coordinator
 
 final class NotificationCoordinator: Coordinator {
  
     override init() {
         super.init()
-        coordinators = [NotificationViewController.self]
-        push()
+        setViewControllers([NotificationViewController.self])
     }
 
 }

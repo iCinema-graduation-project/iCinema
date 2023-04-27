@@ -8,9 +8,9 @@
 import SwiftUI
 
 class MenuViewModel: ObservableObject {
-    @Published var viewController: ViewController.Type? = nil
+    @Published var viewController: ICinemaViewController.Type? = nil
     
-    public func updateViewController(viewController: ViewController.Type?) {
+    public func updateViewController(viewController: ICinemaViewController.Type?) {
         self.viewController = viewController
     }
 }

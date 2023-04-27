@@ -11,6 +11,8 @@ import ViewAnimator
 import SPAlert
 import NetworkLayer
 import MakeConstraints
+import LocationManager
+
 extension UILabel {
     func makeDescreptionLabel() {
         textAlignment = .center

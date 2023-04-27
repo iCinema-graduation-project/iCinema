@@ -16,10 +16,6 @@
 		<string>Stolzl-Book.ttf</string>
 		<string>Stolzl-Bold.ttf</string>
 	</array>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We Use Location To find The nearest cinema</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We Use Location To find The nearest cinema</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -6,14 +6,13 @@
 //
 
 import UIKit
-
+import Coordinator
 
 final class ReelsCoordinator: Coordinator {
 
     override init() {
         super.init()
-        coordinators = [ReelsViewController.self]
-        push()
+        setViewControllers([ReelsViewController.self])
     }
 
 }

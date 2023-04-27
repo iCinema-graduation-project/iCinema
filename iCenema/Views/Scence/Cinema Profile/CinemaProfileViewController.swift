@@ -9,7 +9,8 @@ import UIKit
 import SwiftUI
 import Foundation
 import Combine
-
+import Coordinator
+import LocationManager
 
 class CinemaProfileViewController: ICinemaViewController {
     
@@ -27,7 +28,7 @@ class CinemaProfileViewController: ICinemaViewController {
 
         guard let viewModel = viewModel else { return }
         
-        coordinatorType = .segue
+        coordinationType = .segue
         
         let cinemaProfileView = CinemaProfileView()
             .environmentObject(viewModel)
@@ -43,11 +44,9 @@ class CinemaProfileViewController: ICinemaViewController {
         
         
         viewModel.showMore = { movie in
-
             let movieVC = MovieProfileViewController()
             movieVC.viewModel = .init(movie: movie)
             self.presentViewController(movieVC)
-            
         }
         
         

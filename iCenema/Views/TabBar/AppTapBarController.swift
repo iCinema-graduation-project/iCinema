@@ -43,18 +43,19 @@ class AppTapBarController: ICinemaViewController {
         self.tabBarView = AppTabBarView(tabs: viewControllers,
                                         tabBarViewModel: TabBarViewModel.shared).hostigView()
         view.addSubview(tabBarView!)
+        tabBarView?.fillSuperviewConstraints()
         
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        tabBarView?.fillSuperviewConstraints()
+//        tabBarView?.fillSuperviewConstraints()
     }
     
     // MARK: - Intializers
     //
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
-        coordinatorType = .segue
+        coordinationType = .segue
     }
     
     required init?(coder: NSCoder) {

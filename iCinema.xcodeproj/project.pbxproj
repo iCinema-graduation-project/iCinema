@@ -31,6 +31,7 @@
 		730FA8E7298ED92C00F3B955 /* UIView+addAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FA8E6298ED92C00F3B955 /* UIView+addAnimate.swift */; };
 		7311C3132991B9D500C0610F /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */; };
 		7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311C3162991BA3000C0610F /* AppCoordinator.swift */; };
+		7313574729FA8ECC00977858 /* Coordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 7313574629FA8ECC00977858 /* Coordinator */; };
 		731FBF4E29B0BF7E00798DF5 /* IGMockLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF1929B0BF7E00798DF5 /* IGMockLoader.swift */; };
 		731FBF4F29B0BF7E00798DF5 /* IGStoryPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF1B29B0BF7E00798DF5 /* IGStoryPreviewCell.swift */; };
 		731FBF5029B0BF7E00798DF5 /* IGStoryPreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF1D29B0BF7E00798DF5 /* IGStoryPreviewModel.swift */; };
@@ -109,7 +110,6 @@
 		7375ECD429E6CEF700D6061D /* navigationBar+convertToICinema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7375ECD329E6CEF700D6061D /* navigationBar+convertToICinema.swift */; };
 		7375ECD629E6CF9F00D6061D /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7375ECD529E6CF9F00D6061D /* SavedViewController.swift */; };
 		7375ECD829E6D04E00D6061D /* SavedCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7375ECD729E6D04E00D6061D /* SavedCollectionViewSection.swift */; };
-		7379FFF029F6A9CE0093E759 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7379FFEF29F6A9CE0093E759 /* LocationManager.swift */; };
 		73861C242984351E0020A63B /* EditUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* EditUserProfileViewController.swift */; };
 		73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* ICinemaTextField.swift */; };
 		738A44FE29CA809300FA07A8 /* ActivityIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = 738A44FD29CA809300FA07A8 /* ActivityIndicator.json */; };
@@ -126,7 +126,6 @@
 		739ADAA829B8AA1900FFA78E /* MovieProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAA729B8AA1900FFA78E /* MovieProfileView.swift */; };
 		739ADAAE29B8FB0B00FFA78E /* CinemaPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAAD29B8FB0B00FFA78E /* CinemaPost.swift */; };
 		739ADAB029BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAAF29BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift */; };
-		739ADAB229BA351800FFA78E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739ADAB129BA351800FFA78E /* ViewController.swift */; };
 		739FAA4329ED669100BAC9ED /* ActivityKeyBoardField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739FAA4229ED669100BAC9ED /* ActivityKeyBoardField.swift */; };
 		739FAA4629ED676D00BAC9ED /* CreditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739FAA4529ED676D00BAC9ED /* CreditCardView.swift */; };
 		739FAA4829ED99AD00BAC9ED /* EWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739FAA4729ED99AC00BAC9ED /* EWalletView.swift */; };
@@ -172,6 +171,7 @@
 		73BB560D29E9B4B000F34A62 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB560C29E9B4B000F34A62 /* GenderView.swift */; };
 		73BBF3CB29969DFC00920F53 /* EditUserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBF3CA29969DFC00920F53 /* EditUserProfileViewModel.swift */; };
 		73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFEFA12989EFA600969452 /* OTPViewController.swift */; };
+		73C0A2B229FABE02008065BA /* LocationManager in Frameworks */ = {isa = PBXBuildFile; productRef = 73C0A2B129FABE02008065BA /* LocationManager */; };
 		73C9D73B29D09E6800B84564 /* CinemaChairsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C9D73A29D09E6800B84564 /* CinemaChairsViewModel.swift */; };
 		73C9D73D29D09EE300B84564 /* CinemaDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */; };
 		73CD5C6129CFA5B6008078A5 /* CinemaChairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD5C6029CFA5B6008078A5 /* CinemaChairsViewController.swift */; };
@@ -199,7 +199,6 @@
 		73F7935129A78E55007252BE /* AppTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935029A78E55007252BE /* AppTapBarController.swift */; };
 		73F7935729A7C612007252BE /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935629A7C612007252BE /* AppTabBarView.swift */; };
 		73F7935929A7DB5A007252BE /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7935829A7DB5A007252BE /* CustomShape.swift */; };
-		73FE17F72991EB960009D238 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FE17F62991EB960009D238 /* Coordinator.swift */; };
 		73FED1E029886B0600395727 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1DF29886B0600395727 /* Constants.swift */; };
 		73FED1E2298874CD00395727 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1E1298874CD00395727 /* FontManager.swift */; };
 		73FED1E42988750100395727 /* SizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FED1E32988750100395727 /* SizeManager.swift */; };
@@ -251,6 +250,7 @@
 		7311C3122991B9D500C0610F /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
 		7311C3162991BA3000C0610F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7313574329FA8C6E00977858 /* MakeConstraints */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MakeConstraints; path = Packages/MakeConstraints; sourceTree = "<group>"; };
+		7313574529FA8E8400977858 /* Coordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Coordinator; path = Packages/Coordinator; sourceTree = "<group>"; };
 		731FBF1929B0BF7E00798DF5 /* IGMockLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGMockLoader.swift; sourceTree = "<group>"; };
 		731FBF1B29B0BF7E00798DF5 /* IGStoryPreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGStoryPreviewCell.swift; sourceTree = "<group>"; };
 		731FBF1D29B0BF7E00798DF5 /* IGStoryPreviewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGStoryPreviewModel.swift; sourceTree = "<group>"; };
@@ -328,7 +328,6 @@
 		7375ECD329E6CEF700D6061D /* navigationBar+convertToICinema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "navigationBar+convertToICinema.swift"; sourceTree = "<group>"; };
 		7375ECD529E6CF9F00D6061D /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		7375ECD729E6D04E00D6061D /* SavedCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewSection.swift; sourceTree = "<group>"; };
-		7379FFEF29F6A9CE0093E759 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		73861C232984351E0020A63B /* EditUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileViewController.swift; sourceTree = "<group>"; };
 		73861C2529843A170020A63B /* ICinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaTextField.swift; sourceTree = "<group>"; };
 		738A44FD29CA809300FA07A8 /* ActivityIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityIndicator.json; sourceTree = "<group>"; };
@@ -344,7 +343,6 @@
 		739ADAA729B8AA1900FFA78E /* MovieProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProfileView.swift; sourceTree = "<group>"; };
 		739ADAAD29B8FB0B00FFA78E /* CinemaPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaPost.swift; sourceTree = "<group>"; };
 		739ADAAF29BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+addScaleAnimationOnTapGesture.swift"; sourceTree = "<group>"; };
-		739ADAB129BA351800FFA78E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		739FAA4229ED669100BAC9ED /* ActivityKeyBoardField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityKeyBoardField.swift; sourceTree = "<group>"; };
 		739FAA4529ED676D00BAC9ED /* CreditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardView.swift; sourceTree = "<group>"; };
 		739FAA4729ED99AC00BAC9ED /* EWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EWalletView.swift; sourceTree = "<group>"; };
@@ -389,6 +387,7 @@
 		73BB560C29E9B4B000F34A62 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		73BBF3CA29969DFC00920F53 /* EditUserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileViewModel.swift; sourceTree = "<group>"; };
 		73BFEFA12989EFA600969452 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		73C0A2B029FABDE1008065BA /* LocationManager */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LocationManager; path = Packages/LocationManager; sourceTree = "<group>"; };
 		73C9D73A29D09E6800B84564 /* CinemaChairsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsViewModel.swift; sourceTree = "<group>"; };
 		73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateViewModel.swift; sourceTree = "<group>"; };
 		73CD5C6029CFA5B6008078A5 /* CinemaChairsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsViewController.swift; sourceTree = "<group>"; };
@@ -420,7 +419,6 @@
 		73F7935029A78E55007252BE /* AppTapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTapBarController.swift; sourceTree = "<group>"; };
 		73F7935629A7C612007252BE /* AppTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarView.swift; sourceTree = "<group>"; };
 		73F7935829A7DB5A007252BE /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
-		73FE17F62991EB960009D238 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		73FED1DF29886B0600395727 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		73FED1E1298874CD00395727 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		73FED1E32988750100395727 /* SizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeManager.swift; sourceTree = "<group>"; };
@@ -448,6 +446,8 @@
 				73BB55FF29E9A29000F34A62 /* CountryPickerView in Frameworks */,
 				73B21A2429FA7CAB0087019D /* CompositionalLayoutableSection in Frameworks */,
 				DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */,
+				7313574729FA8ECC00977858 /* Coordinator in Frameworks */,
+				73C0A2B229FABE02008065BA /* LocationManager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1143,9 +1143,11 @@
 		73EC917F29834531002F3568 = {
 			isa = PBXGroup;
 			children = (
+				73C0A2B029FABDE1008065BA /* LocationManager */,
+				73B21A2229FA7C9A0087019D /* NetworkLayer */,
+				7313574529FA8E8400977858 /* Coordinator */,
 				7313574329FA8C6E00977858 /* MakeConstraints */,
 				73B21A2129FA7C9A0087019D /* CompositionalLayoutableSection */,
-				73B21A2229FA7C9A0087019D /* NetworkLayer */,
 				7325B8722988B7FA0009B8EC /* README.md */,
 				73EC918A29834531002F3568 /* iCenema */,
 				73EC91A129834533002F3568 /* iCenemaTests */,
@@ -1169,8 +1171,8 @@
 		73EC918A29834531002F3568 /* iCenema */ = {
 			isa = PBXGroup;
 			children = (
-				735C13F229F83F1000C4654E /* Services */,
 				73EC91BD298345D3002F3568 /* Resources */,
+				735C13F229F83F1000C4654E /* Services */,
 				73EC91C329834D41002F3568 /* Extensions */,
 				73EC91BE2983460D002F3568 /* Managers */,
 				73EF78AF298F294600A5DF2D /* Protocols */,
@@ -1226,7 +1228,6 @@
 				73FED1E32988750100395727 /* SizeManager.swift */,
 				73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */,
 				7348209429C518650014E607 /* NotificationNames.swift */,
-				7379FFEF29F6A9CE0093E759 /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1256,7 +1257,6 @@
 		73EC91E029834ED7002F3568 /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
-				739ADAB129BA351800FFA78E /* ViewController.swift */,
 				731FBEAF29B0B7CC00798DF5 /* InstagramStories */,
 				73EC91BB29834569002F3568 /* ICinemaViewController.swift */,
 				73A30CB22983639000D672E6 /* ICinemaButton.swift */,
@@ -1273,7 +1273,6 @@
 		73EF78AF298F294600A5DF2D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				73FE17F62991EB960009D238 /* Coordinator.swift */,
 				73F0C37129AD2B2D00F95B01 /* IdentifiableView.swift */,
 				735C13E829F7E86A00C4654E /* CancellableViewModel.swift */,
 			);
@@ -1395,6 +1394,8 @@
 				73B21A2329FA7CAB0087019D /* CompositionalLayoutableSection */,
 				73B21A2529FA7CB00087019D /* NetworkLayer */,
 				738F24C729FA89A9007B7A2D /* MakeConstraints */,
+				7313574629FA8ECC00977858 /* Coordinator */,
+				73C0A2B129FABE02008065BA /* LocationManager */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -1670,7 +1671,6 @@
 				73B404F229D092B60044F58D /* ICinemaView.swift in Sources */,
 				731FBF5E29B0BF7E00798DF5 /* IGRoundedView.swift in Sources */,
 				735C13EE29F8098C00C4654E /* AvatarView.swift in Sources */,
-				739ADAB229BA351800FFA78E /* ViewController.swift in Sources */,
 				739FAA4829ED99AD00BAC9ED /* EWalletView.swift in Sources */,
 				733DAA2929B3BA3D00741211 /* DumySection.swift in Sources */,
 				731FBF6B29B0BF7E00798DF5 /* CubeAttributesAnimator.swift in Sources */,
@@ -1739,7 +1739,6 @@
 				730E1C1D29A960E000F2AB85 /* TicketViewController.swift in Sources */,
 				7307FDFE29BCCD1D00B13E24 /* MovieProfileViewController.swift in Sources */,
 				73AD758529F5902900C55602 /* EditUserProfile.swift in Sources */,
-				73FE17F72991EB960009D238 /* Coordinator.swift in Sources */,
 				73AD757429F5532000C55602 /* ICinemaWalletView.swift in Sources */,
 				73019E7629AAB5A0001A03D5 /* +makeCircleImage.swift in Sources */,
 				733DAA2129B37B5D00741211 /* InterstsView.swift in Sources */,
@@ -1753,7 +1752,6 @@
 				73215FB229F3F75B00C62B7E /* OTPService.swift in Sources */,
 				733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */,
 				731FBF6D29B0BF7E00798DF5 /* UIView+Anchor.swift in Sources */,
-				7379FFF029F6A9CE0093E759 /* LocationManager.swift in Sources */,
 				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,
 				731FBF5329B0BF7E00798DF5 /* IGAdditions.swift in Sources */,
 				732959BB29B761A900E2DF9B /* CinemaProfilePickerView.swift in Sources */,
@@ -1993,9 +1991,12 @@
 				INFOPLIST_FILE = iCenema/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = iCinema;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We Use Location To find The nearest cinema";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We Use Location To find The nearest cinema";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2023,9 +2024,12 @@
 				INFOPLIST_FILE = iCenema/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = iCinema;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We Use Location To find The nearest cinema";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We Use Location To find The nearest cinema";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2210,6 +2214,10 @@
 			package = 7308840F29EBB42A0090D621 /* XCRemoteSwiftPackageReference "SPConfetti" */;
 			productName = SPConfetti;
 		};
+		7313574629FA8ECC00977858 /* Coordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Coordinator;
+		};
 		73215FB429F409F200C62B7E /* SPAlert */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 73215FB329F409F200C62B7E /* XCRemoteSwiftPackageReference "SPAlert" */;
@@ -2241,6 +2249,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 73BB560629E9A2D700F34A62 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
+		};
+		73C0A2B129FABE02008065BA /* LocationManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LocationManager;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

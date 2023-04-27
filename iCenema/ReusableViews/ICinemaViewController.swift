@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import Coordinator
 
-
-class ICinemaViewController: ViewController {
+class ICinemaViewController: CoordinatorViewController {
     
     // MARK: - Life Cycle
     //

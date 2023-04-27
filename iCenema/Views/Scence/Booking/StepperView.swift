@@ -49,7 +49,7 @@ struct StepperView: View {
 extension ICinemaViewController {
     func addStepperView() {
         guard let coordinator = coordinator else { return }
-        let steperView = StepperView(countOfSteps: coordinator.coordinators.count - 1,
+        let steperView = StepperView(countOfSteps: coordinator.viewControllers.count - 1,
                                      currentStep: coordinator.currentIndex).hostigView()
         
         steperView.widthConstraints(Constants.screenBounds.width/2)

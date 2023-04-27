@@ -19,9 +19,9 @@ final class PosterCollectionViewSection: CompositionalLayoutableSection {
     
     var posterPaginationView: PosterPaginationView?
     
-    var hostingViewController: ViewController
+    var hostingViewController: ICinemaViewController
 
-    init(hostingViewController: ViewController) {
+    init(hostingViewController: ICinemaViewController) {
         self.hostingViewController = hostingViewController
         super.init()
         

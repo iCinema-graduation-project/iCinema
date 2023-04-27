@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import ViewAnimator
 import CompositionalLayoutableSection
-
+import LocationManager
  
 final class HomeViewController: ICinemaViewController, CompositionalLayoutProvider {
 

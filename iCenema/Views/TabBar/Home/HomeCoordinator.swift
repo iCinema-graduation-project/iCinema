@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Coordinator
 
 final class HomeCoordinator: Coordinator {
  /*
@@ -17,10 +17,9 @@ final class HomeCoordinator: Coordinator {
  */
     override init() {
         super.init()
-        coordinators =  [HomeViewController.self, CinemaDateViewController.self,
-                         SelectHallViewController.self, CinemaChairsViewController.self,
-                         PaymentMethodViewController.self, BookingSuccessViewController.self]
-        push()
+        setViewControllers([HomeViewController.self, CinemaDateViewController.self,
+                            SelectHallViewController.self, CinemaChairsViewController.self,
+                            PaymentMethodViewController.self, BookingSuccessViewController.self])
     }
     
     
@@ -37,7 +36,7 @@ final class HomeCoordinator: Coordinator {
         /// whene comming back from the booking
         if currentIndex == 1 {
             /// check if the presented view is not nil
-            if let visibleViewController = navigationController.visibleViewController as? ViewController,
+            if let visibleViewController = navigationController.visibleViewController as? ICinemaViewController,
                visibleViewController.presentedView != nil {
                 /// if that true hide the navigationController's navigationBar
                 self.navigationController.navigationBar.isHidden = true

@@ -6,14 +6,13 @@
 //
 
 import UIKit
-
+import Coordinator
 
 final class MenuCoordinator: Coordinator {
 
     override init() {
         super.init()
-        coordinators = [MenuViewController.self]
-        push()
+        setViewControllers([MenuViewController.self])
     }
 
 }

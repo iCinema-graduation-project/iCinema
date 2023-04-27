@@ -10,6 +10,7 @@ import Combine
 import SwiftUI
 import Alamofire
 import NetworkLayer
+import LocationManager
 
 class EditUserProfileViewModel: CancellableViewModel, ObservableObject {
 
