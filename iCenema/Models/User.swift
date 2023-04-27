@@ -19,9 +19,11 @@ struct User: Codable {
     let gender: String?
     let token: String
     let lat, lng, address: String?
+    let categories: [Category]?
 
     enum CodingKeys: String, CodingKey {
         case id, name
         case countryCode = "country_code"
         case phone, image, dob, age, gender, token, lat, lng, address
+        case categories
     }}

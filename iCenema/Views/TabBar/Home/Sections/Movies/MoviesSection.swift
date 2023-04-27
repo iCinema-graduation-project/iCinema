@@ -7,6 +7,8 @@
 
 import UIKit
 import ViewAnimator
+import CompositionalLayoutableSection
+
 
 final class MoviesCollectionViewSection: CompositionalLayoutableSection {
 

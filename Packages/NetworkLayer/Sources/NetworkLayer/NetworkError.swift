@@ -8,13 +8,13 @@
 import Foundation
 import Alamofire
 
-enum NetworkError: Error {
+public enum NetworkError: Error {
     case initialError(AFError)
     case backendError(BackendError)
     case other
     
     // A function that extracts an error message from a NetworkError object
-    static func getErrorMessage(from error: NetworkError) -> String {
+    public static func getErrorMessage(from error: NetworkError) -> String {
         switch error {
             
         // If the error is a backendError, return the message from the BackendError object
@@ -31,7 +31,7 @@ enum NetworkError: Error {
 
 }
 
-struct BackendError: Codable, Error {
+public struct BackendError: Codable, Error {
     var error: String
     var msg: String
 }

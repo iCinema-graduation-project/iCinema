@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CompositionalLayoutableSection
 
 final class SearchResultViewController: ICinemaViewController, CompositionalLayoutProvider {
     

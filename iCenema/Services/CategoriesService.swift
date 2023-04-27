@@ -7,6 +7,8 @@
 
 import Foundation
 import Combine
+import NetworkLayer
+
 
 protocol CategoriesFeatcher {
     func getCategories(_ completion: @escaping (Result<Categories, NetworkError>) -> Void)
@@ -15,20 +17,20 @@ protocol CategoriesFeatcher {
 class CategoriesService: APIRequest, CategoriesFeatcher {
     typealias DecodableType = Categories
     
-    var networkRequest: Request = Request(endpoint: "categories", method: .get)
+    var networkRequest: NetworkRequest = NetworkRequest(endpoint: "categories", method: .get)
     
     var cancelable: AnyCancellable = AnyCancellable({})
     
     func getCategories(_ completion: @escaping (Result<Categories, NetworkError>) -> Void) {
-        cancelable = self.request()
-            .sink { response in
-                if let value = response.value {
-                    completion(.success(value))
-                } else if let error = response.error {
-                    completion(.failure(error))
-                } else {
-                    completion(.failure(.other))
-                }
-            }
+//        cancelable = self.request()
+//            .sink { response in
+//                if let value = response.value {
+//                    completion(.success(value))
+//                } else if let error = response.error {
+//                    completion(.failure(error))
+//                } else {
+//                    completion(.failure(.other))
+//                }
+//            }
      }
 }

@@ -6,24 +6,24 @@
 //
 
 import Foundation
-
+import NetworkLayer
 
 class PhoneNumberService: APIRequest {
     typealias DecodableType = Login
     
     let phone: String
 
-    lazy var networkRequest: Request = Request(endpoint: "login",
-                                               method: .post,
-                                               parameters: [
-                                                "country_code": "20",
-                                                "phone": phone,
-                                                "device_id": "dwdwedwwer",
-                                                "device_type": "ios"
-                                               ])
+    lazy var networkRequest: NetworkRequest = NetworkRequest(endpoint: "login",
+                                               method: .post)
 
     init(phone: String) {
         self.phone = phone
+        networkRequest.parameters = [
+            "country_code": "20",
+            "phone": phone,
+            "device_id": "dwdwedwwer",
+            "device_type": "ios"
+           ]
     }
     
 }

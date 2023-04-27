@@ -9,64 +9,74 @@ import SwiftUI
 
 struct InterstsView: View {
     @ObservedObject var viewModel: EditUserProfileViewModel
-        
-    @State var title: String = ""
+    
+    @State private var categories: Categories = .init(key: "", msg: "", data: [])
+    
     var body: some View {
         VStack {
-            Text(title)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            TagView(viewModel: viewModel, title: $title)
-                .cornerRadius(.view.cornerRadius)
+            ForEach(categories.data, id: \.id) { categoriesData in
+                VStack {
+                    TagView(viewModel: viewModel, title: categoriesData.title, categories: Array(Set(categoriesData.children)))
+                    Spacer(minLength: .view.spacing)
+                }
+            }
         }
+        .onAppear {
+            self.viewModel.categoriesFeatcher.getCategories { result in
+                switch result {
+                case .success(let categories):
+                    self.categories = categories
+                case .failure(_):
+                    print("")
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+
     }
-    
 }
 
 
 struct TagView: View {
     @ObservedObject var viewModel: EditUserProfileViewModel
-        
+    var title: String
+    var categories: [Category]
+    
     @State private var groupedItems: [[Category]] = []
-    @Binding var title: String
     
     var body: some View {
         
-        VStack{
-            ForEach(groupedItems, id: \.self) { categories in
-                HStack {
-                    ForEach(categories, id: \.self) { category in
-                        
-                        Text(category.name)
-                            .font(.system(size: 18))
-                            .padding(.horizontal)
-                            .frame(height: 40)
-                            .background(self.getBackgroundColor(for: category))
-                            .foregroundColor(self.getForgroundColor(for: category))
-                            .cornerRadius(15)
-                            .onTapGesture {
-                                self.onTapGesure(for: category)
-                            }
+        VStack {
+            Text(title)
+                .foregroundColor(Color(uiColor: .iCinemaTextColor))
+                .font(Font(UIFont.body))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+            VStack{
+                ForEach(groupedItems, id: \.self) { categories in
+                    HStack {
+                        ForEach(categories, id: \.self) { category in
+                            Text(category.name)
+                                .font(.system(size: 18))
+                                .padding(.horizontal)
+                                .frame(height: 40)
+                                .background(self.getBackgroundColor(for: category))
+                                .foregroundColor(self.getForgroundColor(for: category))
+                                .cornerRadius(15)
+                                .onTapGesture {
+                                    self.onTapGesure(for: category)
+                                }
+                        }
                     }
                 }
+                
             }
-            
+            .padding()
+            .background(Color(uiColor: .iCinemaSecondBackgroudColor))
+            .cornerRadius(.view.cornerRadius)
         }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(uiColor: .iCinemaSecondBackgroudColor))
         .onAppear {
-            self.viewModel.categoriesFeatcher.getCategories { result in
-                switch result {
-                case .success(let categories):
-                    let data = categories.data.first!
-                    self.title = data.title
-                    self.groupedItems = self.createGroupedItems(categories: data.children)
-
-                case .failure(_):
-                    print("")
-                }
-            }
+            self.groupedItems = createGroupedItems(categories: categories)
         }
     }
     
@@ -137,8 +147,8 @@ struct TagView: View {
     
 }
 
-struct InterstsView_Previews: PreviewProvider {
-    static var previews: some View {
-        InterstsView(viewModel: EditUserProfileViewModel())        
-    }
-}
+//struct InterstsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InterstsView(viewModel: EditUserProfileViewModel())
+//    }
+//}

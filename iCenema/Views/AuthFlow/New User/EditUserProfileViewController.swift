@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import SPAlert
+import NetworkLayer
 
 enum Gender: String {
     case male = "male"
@@ -38,13 +39,12 @@ class EditUserProfileViewController: ICinemaViewController {
     
     private lazy var genderView = GenderView(presenterView: view)
     
-    private lazy var interstsView = InterstsView(viewModel: self.viewModel)
-                                                .hostigView()
+    private lazy var interstsView = InterstsView(viewModel: self.viewModel).hostigView()
     
     private lazy var createAccountButton = ICinemaButton(title: .saveEdits, action: self.createAccountButtonTapped)
     
     // MARK: - Properties
-    let viewModel = EditUserProfileViewModel()
+    var viewModel = EditUserProfileViewModel()
     
     // MARK: - Life Cycle
     //
@@ -57,6 +57,17 @@ class EditUserProfileViewController: ICinemaViewController {
         super.viewDidLoad()
         self.updateUI()
         self.genderView.delegate = self
+        self.avatarView.delegate = self
+        
+        self.viewModel.$fullName.sink { self.fullNameTextField.text = $0 }.store(in: &viewModel.cancellableSet)
+        self.viewModel.$age.sink { self.ageTextField.text = String($0) }.store(in: &viewModel.cancellableSet)
+        self.viewModel.$gender.sink { self.genderView.gender = $0 }.store(in: &viewModel.cancellableSet)
+
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+//        self.viewModel.cancelAllRequests()
     }
     
     // MARK: - Update UI
@@ -77,7 +88,7 @@ class EditUserProfileViewController: ICinemaViewController {
         scrollView.fillSuperviewConstraints()
         scrollView.isScrollEnabled = true
         scrollView.contentSize = CGSize(width: Constants.screenBounds.width,
-                                        height: Constants.screenBounds.height + 100)        
+                                        height: Constants.screenBounds.height + 900)        
     }
 
     private func updateAvatarView() {
@@ -105,7 +116,7 @@ class EditUserProfileViewController: ICinemaViewController {
         TextFieldsStackView.addArrangedSubview(ageTextField)
         TextFieldsStackView.addArrangedSubview(genderView.view)
         TextFieldsStackView.addArrangedSubview(interstsView)
-        interstsView.heightConstraints(400)
+        interstsView.heightConstraints(1000)
         TextFieldsStackView.arrangedSubviews[1...].forEach {$0.widthConstraints(.view.width)}
     
         genderView.updateGenders()

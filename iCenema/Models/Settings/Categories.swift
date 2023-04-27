@@ -7,10 +7,6 @@
 
 import Foundation
 
-//typealias Categories = [Category]
-
-
-
 // MARK: - Categories
 struct Categories: Codable {
     let key, msg: String

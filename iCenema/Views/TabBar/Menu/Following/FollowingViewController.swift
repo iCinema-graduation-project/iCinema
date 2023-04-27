@@ -7,6 +7,8 @@
 
 import UIKit
 import SwiftUI
+import CompositionalLayoutableSection
+
 
 final class FollowingViewController: ICinemaViewController, CompositionalLayoutProvider {
     

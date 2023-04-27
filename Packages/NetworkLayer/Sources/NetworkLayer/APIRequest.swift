@@ -1,4 +1,4 @@
-//
+
 //  APIRequest.swift
 //  iCinema
 //
@@ -10,60 +10,29 @@ import Combine
 import SPAlert
 
 
-// Get the current language code for localization, defaulting to "en"
-var appLanguageCode: String {
-    Locale.current.languageCode ?? "en"
-}
-
-struct Request {
-    var host: String
-    let endpoint: String
-    let method: HTTPMethod
-    var parameters: Parameters? = nil
-    
-    var headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "lang": appLanguageCode
-        ]
-    
-    init(host: String = "http://localhost:8000/api/v1/",
-         endpoint: String,
-         method: HTTPMethod,
-         parameters: Parameters? = nil) {
-        self.host = host
-        self.endpoint = endpoint
-        self.method = method
-        self.parameters = parameters
-        
-        if let userToken = UserDefaults.standard.load(object: User.self, fromKey: .userDefaults.user)?.token{
-            self.headers["Authorization"] = "Bearer \(userToken)"
-        }
-
-    }
-
-}
-
 // Define a protocol for an API request
-protocol APIRequest: AnyObject {
+@available(iOS 13.0, *)
+public protocol APIRequest {
     
     // Associated type for the expected response type
     associatedtype DecodableType where DecodableType: Decodable
     
-    var networkRequest: Request { get }
+    var networkRequest: NetworkRequest { get }
     
 }
 
-
+@available(iOS 13.0, *)
 extension APIRequest{
     // Computed property that returns the full URL of the API request
-    private var url: String{ "\(networkRequest.host)\(networkRequest.endpoint)" }
+    public var url: String{ "\(networkRequest.host)\(networkRequest.endpoint)" }
  
 }
 
+@available(iOS 13.0, *)
 extension APIRequest {
     
     // A function that sends a request using the Alamofire library and returns a DataResponse object as a publisher
-    func request() -> AnyPublisher<DataResponse<DecodableType, NetworkError>, Never> {
+    public func request() -> AnyPublisher<DataResponse<DecodableType, NetworkError>, Never> {
         print(url)
         // Send a request using Alamofire
         return AF.request(url, method: networkRequest.method,
@@ -81,8 +50,6 @@ extension APIRequest {
                 response.mapError { error in
                     let networkError: NetworkError
                     
-
-                    
                     // Try to decode a BackendError from the response data
                     let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
 
@@ -95,13 +62,7 @@ extension APIRequest {
                     else {
                         networkError = .initialError(error)
                     }
-                    
-                    // if error occured show alert with the error
-                    let message = NetworkError.getErrorMessage(from: networkError)
-                    let alertView = SPAlertView(message: message)
-                    alertView.duration = 2
-                    alertView.present()
-                    
+
                     return networkError
                 }
 

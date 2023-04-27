@@ -12,10 +12,23 @@ protocol GenderViewDelegate {
 }
 
 class GenderView {
-    var gender: Gender = .none {
+    public var gender: Gender = .none {
         didSet {
             self.view.setState(.normal, for: .disabled)
-            self.delegate?.genderDidChanged(self.gender)
+            if gender == .female {
+                self.maleButton.isUserInteractionEnabled = true
+                self.femaleButton.isUserInteractionEnabled = false
+                self.maleButton.isSelected = false
+                self.femaleButton.isSelected = true
+            }else if gender == .male {
+                self.maleButton.isUserInteractionEnabled = false
+                self.femaleButton.isUserInteractionEnabled = true
+                self.maleButton.isSelected = true
+                self.femaleButton.isSelected = false
+            } else {
+                self.maleButton.isUserInteractionEnabled = true
+                self.femaleButton.isUserInteractionEnabled = true
+            }
         }
     }
     var delegate: GenderViewDelegate?
@@ -34,11 +47,9 @@ class GenderView {
     private lazy var femaleButton: RadioButton = {
         let button = RadioButton(onSelected: { isSelected in
             if isSelected {
-                self.maleButton.isSelected = false
                 self.gender = .female
-                self.maleButton.isUserInteractionEnabled = true
-                self.femaleButton.isUserInteractionEnabled = false
             }
+            self.delegate?.genderDidChanged(self.gender)
         })
         button.setTitle(.newUser.female, for: .normal)
         button.titleLabel?.font = .footnote
@@ -48,11 +59,10 @@ class GenderView {
     private lazy var maleButton: RadioButton = {
         let button = RadioButton { isSelected in
             if isSelected {
-                self.femaleButton.isSelected = false
                 self.gender = .male
-                self.maleButton.isUserInteractionEnabled = false
-                self.femaleButton.isUserInteractionEnabled = true
             }
+            self.delegate?.genderDidChanged(self.gender)
+
         }
         button.setTitle(.newUser.male, for: .normal)
         button.titleLabel?.font = .footnote

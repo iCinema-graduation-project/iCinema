@@ -7,6 +7,7 @@
 
 import UIKit
 import ViewAnimator
+import CompositionalLayoutableSection
 
 final class SavedCollectionViewSection: CompositionalLayoutableSection {
     typealias CellType = MovieCell

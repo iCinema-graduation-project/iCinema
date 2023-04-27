@@ -8,6 +8,8 @@
 import UIKit
 import SwiftUI
 import ViewAnimator
+import CompositionalLayoutableSection
+
 
 final class CinemaCollectionViewSection: CompositionalLayoutableSection {
     // MARK: - Typealias
