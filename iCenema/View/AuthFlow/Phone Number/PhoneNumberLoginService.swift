@@ -25,7 +25,7 @@ class PhoneNumberLoginService: APIRequest {
     private func updateParameters() {
         networkRequest.parameters = [
             "country_code": "20",
-            "device_id": "dwdwedwwer",
+            "device_id": deviceID,
             "device_type": "ios"
            ]
     }

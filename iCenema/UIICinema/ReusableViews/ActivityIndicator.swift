@@ -10,6 +10,8 @@ import Lottie
 import MakeConstraints
 
 class ActivityIndicator: LottieAnimationView {
+    static let shared = ActivityIndicator()
+    
     let view = UIView()
 
     convenience init() {
@@ -21,10 +23,12 @@ class ActivityIndicator: LottieAnimationView {
         contentMode = .scaleAspectFill
         loopMode = .loop
     
-        centerInSuperview()
-        equalSizeConstraints(150)
         
-        if let superview = superview {
+        if let superview = UIApplication.shared.keyWindow?.rootViewController?.view {
+            superview.addSubview(self)
+            centerInSuperview()
+            equalSizeConstraints(150)
+            
             view.frame = superview.bounds
             superview.addSubview(view)
             view.backgroundColor = .darkGray

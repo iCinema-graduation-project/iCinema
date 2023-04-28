@@ -7,6 +7,7 @@
 
 import UIKit
 
+let deviceID = UIDevice.current.identifierForVendor!.uuidString
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?

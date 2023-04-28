@@ -18,10 +18,9 @@ class OTPViewController: ICinemaViewController {
     lazy var verificationCodeTextFields: [ICinemaTextField] = []
     private lazy var confirmButton = ICinemaButton(title: .otp.confirm, action: self.confirmButtonTapped)
     
-    let activityIndicator = ActivityIndicator()
     
     // MARK: - Properties
-    lazy var viewModel = OTPViewModel()
+    lazy var viewModel: some OTPViewModelType = OTPViewModel()
     
     // MARK: - Life Cycle
     //
@@ -95,39 +94,58 @@ class OTPViewController: ICinemaViewController {
     }
     
     private func networkRequest() {
-        view.addSubview(activityIndicator)
-        activityIndicator.play()
-        let phone = self.userInfo!["phone"] as! String
+        ActivityIndicator.shared.play()
         
-        self.viewModel.request(phone: phone) { result in
-            self.activityIndicator.stop()
+        guard let phone = self.userInfo!["phone"] as? String else {
+            SPAlert.showAlert(with: "Unkown Error Occurred")
+            return
+        }
+        
+        self.viewModel.updateNetworkRequestParameters(with: phone)
+        
+        self.viewModel.service.request { response in
+            ActivityIndicator.shared.stop()
             
-            switch result {
-            case .success( let value ):
+            if let value = response.value as? VerifyCode {
+                self.handelValue(value)
                 
-                let userDefaults = UserDefaults.standard
-                userDefaults.save(customObject: value.data, inKey: .userDefaults.user)
+            } else if let error = response.error {
+                self.handelError(error)
                 
-                if value.key == "compelete_data" {
-                    
-                    self.coordinator?.push(to: EditUserProfileViewController.self)
-                    
-                }else if value.key == "success" {
-                    
-                    self.coordinator?.push()
-                    
-                }
-            case .failure(let failure):
-                let error = NetworkError.getErrorMessage(from: failure)
-                print(error)
-                self.resetTextFields(with: .fail)
-
+            } else {
+                SPAlert.showAlert(with: "Unkown Error Occurred")
+                
             }
         }
         
     }
     
-    private func resetTextFields(with state: TextFieldState) {
+    private func handelValue(_ value: VerifyCode) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.save(customObject: value.data, inKey: .userDefaults.user)
+        
+        if value.key == "compelete_data" {
+            self.coordinator?.push(to: EditUserProfileViewController.self)
+            
+        }else if value.key == "success" {
+            self.coordinator?.push()
+            
+        } else {
+            SPAlert.showAlert(with: "Unkown Error Occurred")
+            
+        }
+
+    }
+    
+    private func handelError(_ error: NetworkError) {
+        let errorMessage = NetworkError.getErrorMessage(from: error)
+        print(error)
+        self.resetTextFields(withState: .fail)
+        SPAlert.showAlert(with: errorMessage)
+    }
+  
+    
+    private func resetTextFields(withState state: TextFieldState) {
         for field in self.verificationCodeTextFields {
             field.text = nil
             field.setState(state, for: .normal)
@@ -136,7 +154,7 @@ class OTPViewController: ICinemaViewController {
                 field.isEnabled = false
             }
         }
-        self.viewModel.reset()
+        self.viewModel.otp.reset()
     }
     
     @objc private func textFieldsDidChanged(_ textField: ICinemaTextField) {

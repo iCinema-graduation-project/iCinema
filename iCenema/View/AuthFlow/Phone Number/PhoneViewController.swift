@@ -44,9 +44,7 @@ class PhoneViewController:  ICinemaViewController {
     }()
     
     private lazy var getCodeButton = ICinemaButton(title: .phone.getCode, action: self.getCodeButtonTapped)
-    
-    let activityIndicator = ActivityIndicator()
-    
+        
     // MARK: - Properites
     //
     var viewModel = PhoneViewModel()
@@ -128,13 +126,13 @@ class PhoneViewController:  ICinemaViewController {
     }
     
     private func networkRequest() {
-        view.addSubview(activityIndicator)
-        activityIndicator.play()
+        ActivityIndicator.shared.play()
         
         self.viewModel.service.request { response in
-            self.activityIndicator.stop()
+            ActivityIndicator.shared.stop()
             
-            if let _ = response.value {
+            if let value = response.value as? Login{
+                print(value.key)
                 self.coordinator?.push(userInfo: ["phone": self.viewModel.phoneNumber])
 
             } else if let error = response.error {

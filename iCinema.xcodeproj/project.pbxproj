@@ -105,6 +105,7 @@
 		736EAA8F2993060F00318F2E /* PhoneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */; };
 		7375ECD629E6CF9F00D6061D /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7375ECD529E6CF9F00D6061D /* SavedViewController.swift */; };
 		7375ECD829E6D04E00D6061D /* SavedCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7375ECD729E6D04E00D6061D /* SavedCollectionViewSection.swift */; };
+		7385C89829FBE9FC00378653 /* SpAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385C89729FBE9FC00378653 /* SpAlertView.swift */; };
 		73861C242984351E0020A63B /* EditUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* EditUserProfileViewController.swift */; };
 		73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* ICinemaTextField.swift */; };
 		738A44FE29CA809300FA07A8 /* ActivityIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = 738A44FD29CA809300FA07A8 /* ActivityIndicator.json */; };
@@ -134,8 +135,8 @@
 		73AB522829D10DA4008A3CFF /* SelectHallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB522729D10DA4008A3CFF /* SelectHallViewModel.swift */; };
 		73AD757129F54CD700C55602 /* ICinemaWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757029F54CD700C55602 /* ICinemaWalletViewController.swift */; };
 		73AD757429F5532000C55602 /* ICinemaWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757329F5532000C55602 /* ICinemaWalletView.swift */; };
-		73AD757729F5647200C55602 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757629F5647200C55602 /* Login.swift */; };
-		73AD757A29F5681800C55602 /* verifyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757929F5681800C55602 /* verifyCode.swift */; };
+		73AD757729F5647200C55602 /* PhoneLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757629F5647200C55602 /* PhoneLoginModel.swift */; };
+		73AD757A29F5681800C55602 /* OTPVerifyCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757929F5681800C55602 /* OTPVerifyCodeModel.swift */; };
 		73AD757E29F56ACB00C55602 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757D29F56ACB00C55602 /* PhoneNumber.swift */; };
 		73AD758029F56D6400C55602 /* OTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757F29F56D6400C55602 /* OTP.swift */; };
 		73AD758329F58F6D00C55602 /* EditUserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD758229F58F6D00C55602 /* EditUserProfileService.swift */; };
@@ -321,6 +322,7 @@
 		736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModelTests.swift; sourceTree = "<group>"; };
 		7375ECD529E6CF9F00D6061D /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		7375ECD729E6D04E00D6061D /* SavedCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewSection.swift; sourceTree = "<group>"; };
+		7385C89729FBE9FC00378653 /* SpAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpAlertView.swift; sourceTree = "<group>"; };
 		73861C232984351E0020A63B /* EditUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileViewController.swift; sourceTree = "<group>"; };
 		73861C2529843A170020A63B /* ICinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaTextField.swift; sourceTree = "<group>"; };
 		738A44FD29CA809300FA07A8 /* ActivityIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityIndicator.json; sourceTree = "<group>"; };
@@ -351,8 +353,8 @@
 		73AB522729D10DA4008A3CFF /* SelectHallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHallViewModel.swift; sourceTree = "<group>"; };
 		73AD757029F54CD700C55602 /* ICinemaWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaWalletViewController.swift; sourceTree = "<group>"; };
 		73AD757329F5532000C55602 /* ICinemaWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaWalletView.swift; sourceTree = "<group>"; };
-		73AD757629F5647200C55602 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		73AD757929F5681800C55602 /* verifyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verifyCode.swift; sourceTree = "<group>"; };
+		73AD757629F5647200C55602 /* PhoneLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLoginModel.swift; sourceTree = "<group>"; };
+		73AD757929F5681800C55602 /* OTPVerifyCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyCodeModel.swift; sourceTree = "<group>"; };
 		73AD757D29F56ACB00C55602 /* PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
 		73AD757F29F56D6400C55602 /* OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTP.swift; sourceTree = "<group>"; };
 		73AD758229F58F6D00C55602 /* EditUserProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileService.swift; sourceTree = "<group>"; };
@@ -772,7 +774,7 @@
 		733116B62990A99600EFD002 /* OTP */ = {
 			isa = PBXGroup;
 			children = (
-				73AD757829F5680400C55602 /* Model */,
+				73AD757929F5681800C55602 /* OTPVerifyCodeModel.swift */,
 				73BFEFA12989EFA600969452 /* OTPViewController.swift */,
 				733116B72990A9AE00EFD002 /* OTPViewModel.swift */,
 				73F04FBC2999333F00F543EE /* OTPString.swift */,
@@ -878,7 +880,7 @@
 		736674E3298EE27B009CA617 /* Phone Number */ = {
 			isa = PBXGroup;
 			children = (
-				73AD757529F5645100C55602 /* Model */,
+				73AD757629F5647200C55602 /* PhoneLoginModel.swift */,
 				73F0BC062989C4D800742BA2 /* PhoneViewController.swift */,
 				736674E4298EE37C009CA617 /* PhoneViewModel.swift */,
 				73D0DB1729F0A639008B0CDE /* PhoneNumberLoginService.swift */,
@@ -1003,22 +1005,6 @@
 				73AD757329F5532000C55602 /* ICinemaWalletView.swift */,
 			);
 			path = "ICinema Wallet";
-			sourceTree = "<group>";
-		};
-		73AD757529F5645100C55602 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				73AD757629F5647200C55602 /* Login.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		73AD757829F5680400C55602 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				73AD757929F5681800C55602 /* verifyCode.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		73AD757B29F56A9200C55602 /* NetworkTest */ = {
@@ -1284,6 +1270,7 @@
 				73861C2529843A170020A63B /* ICinemaTextField.swift */,
 				73F29D9229FADB9800B9B52E /* GenderView.swift */,
 				73F29D9029FADA6C00B9B52E /* ICinemaButton.swift */,
+				7385C89729FBE9FC00378653 /* SpAlertView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -1636,7 +1623,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				735C13E929F7E86A00C4654E /* CancellableViewModel.swift in Sources */,
-				73AD757729F5647200C55602 /* Login.swift in Sources */,
+				73AD757729F5647200C55602 /* PhoneLoginModel.swift in Sources */,
 				731FBF5429B0BF7E00798DF5 /* Color+Additions.swift in Sources */,
 				73F29D9A29FAE5FD00B9B52E /* UINavigationItem+addTitleView.swift in Sources */,
 				73B404F029D092840044F58D /* CinemaDateView.swift in Sources */,
@@ -1727,7 +1714,7 @@
 				73F7935129A78E55007252BE /* AppTapBarController.swift in Sources */,
 				735C13F129F83BC400C4654E /* Categories.swift in Sources */,
 				731FBF5629B0BF7E00798DF5 /* IGSnapProgressView.swift in Sources */,
-				73AD757A29F5681800C55602 /* verifyCode.swift in Sources */,
+				73AD757A29F5681800C55602 /* OTPVerifyCodeModel.swift in Sources */,
 				73CD5C6329CFA5EA008078A5 /* CinemaChairsView.swift in Sources */,
 				73EC918C29834531002F3568 /* AppDelegate.swift in Sources */,
 				730E1C1D29A960E000F2AB85 /* TicketViewController.swift in Sources */,
@@ -1772,6 +1759,7 @@
 				73F29DA129FAEF7500B9B52E /* +makeDescreptionLabel.swift in Sources */,
 				730E1C1029A9580800F2AB85 /* HomeViewController.swift in Sources */,
 				736674E5298EE37C009CA617 /* PhoneViewModel.swift in Sources */,
+				7385C89829FBE9FC00378653 /* SpAlertView.swift in Sources */,
 				739ADAAE29B8FB0B00FFA78E /* CinemaPost.swift in Sources */,
 				736BECB629CE54E200944D16 /* MenuModels.swift in Sources */,
 				731FBF5929B0BF7E00798DF5 /* IGStories.swift in Sources */,
