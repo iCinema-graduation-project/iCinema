@@ -11,20 +11,23 @@ import Combine
 
 final class OTP: XCTestCase {
     
-    var service: OTPService!
-    internal var cancellableSet: Set<AnyCancellable> = []
-
-    override func setUpWithError() throws { }
-
-    override func tearDownWithError() throws { }
+    var service = OTPService()
     
-    func testVerifyCode() {
-        service = OTPService(phone: "01551608020", code: "123456")
-        
-        service.request()
-            .sink { response in
+    func testValidCode() {
+        service.networkRequest.update(parameters: ["phone": "01551608020", "code": "123456"])
                 
-            }.store(in: &cancellableSet)
+        service.request { response in
+            guard let _ = response.value else { XCTAssertNil(response.value); return }
+        }
+        
+    }
+    
+    func testInValidCode() {
+        service.networkRequest.update(parameters: ["phone": "01551608020", "code": "333"])
+                
+        service.request { response in
+            guard let _ = response.error else { XCTAssertNil(response.value); return }
+        }
         
     }
 

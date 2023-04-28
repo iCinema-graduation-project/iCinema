@@ -8,6 +8,7 @@
 import Foundation
 import NetworkLayer
 import Combine
+import Alamofire
 
 // Get the current language code for localization, defaulting to "en"
 var appLanguageCode: String {
@@ -21,17 +22,19 @@ class NetworkLayer<T>: APIRequest where T: Codable {
     
     var cancellableSet: Set<AnyCancellable> = []
     
-    init(networkRequest: NetworkRequest) {
-        self.networkRequest = networkRequest
+    init( endpoint: String, method: HTTPMethod) {
+        self.networkRequest = .init(host: "http://localhost:8000/api/v1/",
+                                    endpoint: endpoint, method: method)
+        
         self.updateNetworkRequest()
-      
     }
     
     private func updateNetworkRequest() {
-        
-        self.networkRequest.update(parameters: ["device_id": deviceID, "device_type": "ios"])
+        if self.networkRequest.method == .post {
+            self.networkRequest.update(parameters: ["device_id": deviceID, "device_type": "ios"])
+        }
 
-        if let userToken = UserDefaults.standard.load(object: User.self, fromKey: .userDefaults.user)?.token{
+        if let userToken = UserDefaults.standard.load(object: User.self, fromKey: .user)?.token{
             self.networkRequest.update(headers: ["Authorization": "Bearer \(userToken)"])
         }
                 
@@ -39,6 +42,7 @@ class NetworkLayer<T>: APIRequest where T: Codable {
             "Content-Type": "application/json",
             "lang": appLanguageCode
         ])
+        
         
     }
     

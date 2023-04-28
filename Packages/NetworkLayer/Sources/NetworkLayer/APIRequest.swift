@@ -34,7 +34,6 @@ extension APIRequest {
     
     // A function that sends a request using the Alamofire library and returns a DataResponse object as a publisher
     public func request() -> AnyPublisher<DataResponse<DecodableType, NetworkError>, Never> {
-        print(url)
         // Send a request using Alamofire
         return AF.request(url, method: networkRequest.method,
                           parameters: networkRequest.parameters,

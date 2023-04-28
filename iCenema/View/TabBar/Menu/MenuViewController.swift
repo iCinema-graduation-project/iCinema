@@ -56,8 +56,9 @@ class MenuViewController: ICinemaViewController {
     // MARK: -  Helper
     private func bindViewModel() {
         menu.viewModel.$viewController.sink { viewController in
-            guard let viewController = viewController else { return }
-            self.navigationController?.pushViewController(viewController.init(), animated: true)
+            if let viewController = viewController as? ICinemaViewController.Type {
+                self.coordinator?.push(to: viewController)
+            }
         }
         .store(in: &cancelableSet)
     }

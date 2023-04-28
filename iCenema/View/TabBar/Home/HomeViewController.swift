@@ -35,26 +35,25 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
         DummyCollectionViewSection()
     ]
     
-    var compositionalLayoutProviderDataSource: UICollectionViewDataSource?
-    var compositionalLayoutProviderDelegate: UICollectionViewDelegate?
+    private lazy var datesource: UICollectionViewDataSource? = CompositionalLayoutDataSource(self)
+    private lazy var delegate: UICollectionViewDelegate? = CompositionalLayoutDelegate(self)
+    
+    
     
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
+
+        collectionView.delegate = delegate
+        collectionView.dataSource = datesource
         
-        compositionalLayoutProviderDataSource = CompositionalLayoutDataSource(self)
-        compositionalLayoutProviderDelegate = CompositionalLayoutDelegate(self)
-        
-        collectionView.delegate = compositionalLayoutProviderDelegate
-        collectionView.dataSource = compositionalLayoutProviderDataSource
-        
-        collectionView.updatecollectionViewCompositionalLayout(with: self)
+        collectionView.updateCollectionViewCompositionalLayout(with: self)
         self.compositionalLayoutSections.forEach { $0.delegate?.updateItems(self.collectionView) }
         
         LocationManager.shared.startUpdatingLocation()
-
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -104,6 +103,7 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
         view.addSubview(collectionView)
         collectionView.backgroundColor = .clear
     }
+    
     
     @objc private func userProfileTapped() {
         self.navigationController?.pushViewController(EditUserProfileViewController(), animated: true)

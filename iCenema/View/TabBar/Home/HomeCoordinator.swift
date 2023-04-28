@@ -11,9 +11,9 @@ import Coordinator
 final class HomeCoordinator: Coordinator {
  /*
     The HomeCoordinator is responsible for booking
-    to access booking to have to first present movie or cinema Profile
-    that requiers to hide the presenterViewController navigationController's navigationBar
-    but when poping to the homeViewController mush view it
+    to access booking you have to first present movie or cinema Profile
+    that requiers to hide the presenterViewController's navigationController's navigationBar
+    but when poping to the homeViewController must view it
  */
     override init() {
         super.init()

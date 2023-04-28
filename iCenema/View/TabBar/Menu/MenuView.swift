@@ -8,9 +8,9 @@
 import SwiftUI
 
 class MenuViewModel: ObservableObject {
-    @Published var viewController: ICinemaViewController.Type? = nil
+    @Published var viewController: Any? = nil
     
-    public func updateViewController(viewController: ICinemaViewController.Type?) {
+    public func updateViewController(viewController: Any) {
         self.viewController = viewController
     }
 }
@@ -28,7 +28,7 @@ struct MenuView: View {
             MenuCell(imageSystemName: "bookmark", text: .menu.saved, viewController: SavedViewController.self),
             MenuCell(imageSystemName: "wallet.pass", text: .menu.icinemaWallet, viewController: ICinemaWalletViewController.self),
             MenuCell(imageSystemName: "globe", text: .menu.language, viewController: LanguageViewController.self),
-//            MenuCell(imageSystemName: "sun.max", text: .menu.lightMode, viewController: FollowingViewController.self)
+
         ]),
         
         MenuSection(title: .menu.service, cells: [
@@ -67,11 +67,11 @@ struct MenuView: View {
                         .font(Font(UIFont.footnote))
                     
                     ForEach(section.cells, id: \.id) { cell in
-                        Button {
-                            viewModel.updateViewController(viewController: cell.viewController)
-                        } label: {
-                            menuCell(imageSystemName: cell.imageSystemName, text: cell.text)
-                        }
+                        menuCell(imageSystemName: cell.imageSystemName, text: cell.text)
+                            .onTapGesture {
+                                viewModel.updateViewController(viewController: cell.viewController)
+                            }
+
                     }
                 }
             }

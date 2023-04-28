@@ -20,7 +20,7 @@ class EditUserProfileViewController: ICinemaViewController {
     
     let avatarView = AvatarView(size: 120, borderColor: .iCinemaYellowColor)
 
-    private let TextFieldsStackView: UIStackView = {
+    private let StackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fill
@@ -55,15 +55,17 @@ class EditUserProfileViewController: ICinemaViewController {
         self.genderView.delegate = self
         self.avatarView.delegate = self
         
-        self.viewModel.$fullName.sink { self.fullNameTextField.text = $0 }.store(in: &viewModel.cancellableSet)
-        self.viewModel.$age.sink { self.ageTextField.text = String($0) }.store(in: &viewModel.cancellableSet)
-        self.viewModel.$gender.sink { self.genderView.gender = $0 }.store(in: &viewModel.cancellableSet)
+        self.viewModel.$fullName.sink { self.fullNameTextField.text = $0 }.store(in: &viewModel.service.cancellableSet)
+        self.viewModel.$age.sink { self.ageTextField.text = String($0) }.store(in: &viewModel.service.cancellableSet)
+        self.viewModel.$gender.sink { self.genderView.gender = $0 }.store(in: &viewModel.service.cancellableSet)
 
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-//        self.viewModel.cancelAllRequests()
+        self.viewModel.service.cancelAllPublishers()
+        self.viewModel.profileFeatcher.cancelAllPublishers()
+        self.viewModel.categoriesFeatcher.cancelAllPublishers()
     }
     
     // MARK: - Update UI
@@ -103,17 +105,17 @@ class EditUserProfileViewController: ICinemaViewController {
     }
     
     private func addStackViewArrangedViews() {
-        scrollView.addSubview(TextFieldsStackView)
-        TextFieldsStackView.centerXInSuperview()
-        TextFieldsStackView.makeConstraints(topAnchor: scrollView.topAnchor)
+        scrollView.addSubview(StackView)
+        StackView.centerXInSuperview()
+        StackView.makeConstraints(topAnchor: scrollView.topAnchor)
         
-        TextFieldsStackView.addArrangedSubview(avatarView)
-        TextFieldsStackView.addArrangedSubview(fullNameTextField)
-        TextFieldsStackView.addArrangedSubview(ageTextField)
-        TextFieldsStackView.addArrangedSubview(genderView.view)
-        TextFieldsStackView.addArrangedSubview(interstsView)
+        StackView.addArrangedSubview(avatarView)
+        StackView.addArrangedSubview(fullNameTextField)
+        StackView.addArrangedSubview(ageTextField)
+        StackView.addArrangedSubview(genderView.view)
+        StackView.addArrangedSubview(interstsView)
         interstsView.heightConstraints(1000)
-        TextFieldsStackView.arrangedSubviews[1...].forEach {$0.widthConstraints(.view.width)}
+        StackView.arrangedSubviews[1...].forEach {$0.widthConstraints(.view.width)}
     
         genderView.updateGenders()
     }

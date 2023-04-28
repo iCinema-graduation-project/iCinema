@@ -9,15 +9,19 @@ import Foundation
 
 extension UserDefaults {
     
-   func save<T:Encodable>(customObject object: T, inKey key: String) {
+    enum Keys: String, CaseIterable{
+        case user = "User"
+    }
+    
+   func save(customObject object: some Encodable, inKey key: Keys) {
        let encoder = JSONEncoder()
        if let encoded = try? encoder.encode(object) {
-           self.set(encoded, forKey: key)
+           self.set(encoded, forKey: key.rawValue)
        }
    }
 
-   func load<T:Decodable>(object type: T.Type, fromKey key: String) -> T? {
-       if let data = self.data(forKey: key) {
+   func load<T:Decodable>(object type: T.Type, fromKey key: Keys) -> T? {
+       if let data = self.data(forKey: key.rawValue) {
            let decoder = JSONDecoder()
            if let object = try? decoder.decode(type, from: data) {
                return object
@@ -30,5 +34,9 @@ extension UserDefaults {
            return nil
        }
    }
+    
+    func reset() {
+        Keys.allCases.forEach { removeObject(forKey: $0.rawValue) }
+    }
 
 }

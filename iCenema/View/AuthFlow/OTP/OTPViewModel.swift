@@ -25,7 +25,7 @@ protocol OTPViewModelType {
 class OTPViewModel: OTPViewModelType {
     
     var otp = OTPString(count: 6)
-    var service: NetworkLayer = OTPService()
+    var service: NetworkLayer<VerifyCode> = .init(endpoint: "verify-phone?_method=patch", method: .post)
     
     func textField(didChanged text: String, at index: Int) {
         

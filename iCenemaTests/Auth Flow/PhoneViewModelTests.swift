@@ -25,7 +25,7 @@ final class PhoneViewModelTests: XCTestCase {
     func testValidPhoneNumber() {
         let expectation = self.expectation(description: "Phone number is valid")
         
-        viewModel.didChanged(phoneNumber: "01234567890")
+        viewModel.phoneNumber = "01234567890"
         
         viewModel.$isPhoneNumberValid.sink { isValid in
             XCTAssertTrue(isValid, "Phone number should be valid")
@@ -38,7 +38,7 @@ final class PhoneViewModelTests: XCTestCase {
     func testInvalidPhoneNumber() {
         let expectation = self.expectation(description: "Phone number is invalid")
         
-        viewModel.didChanged(phoneNumber: "112233445566")
+        viewModel.phoneNumber = "112233445566"
         viewModel.$isPhoneNumberValid.sink { isValid in
             XCTAssertFalse(isValid, "Phone number should be invalid")
             expectation.fulfill()

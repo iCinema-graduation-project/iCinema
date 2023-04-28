@@ -19,7 +19,7 @@ class PhoneViewModel {
     
     @Published var phoneNumber: String = ""    
     
-    var service: NetworkLayer = PhoneNumberLoginService()
+    var service: NetworkLayer<Login> = .init(endpoint: "login", method: .post)
 
     init() {
         $phoneNumber.sink {

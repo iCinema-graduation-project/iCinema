@@ -29,9 +29,15 @@ class OTPViewController: ICinemaViewController {
         navigationItem.addTitleView(title: .otp.verification)
         self.updateUI()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.selectEmptyTextField()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.endEditing()
     }
     
     // MARK: - Update UI
@@ -97,17 +103,13 @@ class OTPViewController: ICinemaViewController {
         ActivityIndicator.shared.play()
         
         guard let phone = self.userInfo!["phone"] as? String else {
-            SPAlert.showAlert(with: "Unkown Error Occurred")
+            SPAlert.showUnKnownError()
             return
         }
         
         self.viewModel.updateNetworkRequestParameters(with: phone)
         
-        self.viewModel.service.request { response in
-            let str = String(decoding: response.data!, as: UTF8.self)
-            print(str)
-            print(response.result)
-            print(response.response)
+        self.viewModel.service.request { response in          
             ActivityIndicator.shared.stop()
             
             if let value = response.value as? VerifyCode {
@@ -117,7 +119,7 @@ class OTPViewController: ICinemaViewController {
                 self.handelError(error)
                 
             } else {
-                SPAlert.showAlert(with: "Unkown Error Occurred")
+                SPAlert.showUnKnownError()
                 
             }
         }
@@ -126,7 +128,7 @@ class OTPViewController: ICinemaViewController {
     
     private func handelValue(_ value: VerifyCode) {
         let userDefaults = UserDefaults.standard
-        userDefaults.save(customObject: value.data, inKey: .userDefaults.user)
+        userDefaults.save(customObject: value.data, inKey: .user)
         
         if value.key == "compelete_data" {
             self.coordinator?.push(to: EditUserProfileViewController.self)
@@ -135,7 +137,7 @@ class OTPViewController: ICinemaViewController {
             self.coordinator?.push()
             
         } else {
-            SPAlert.showAlert(with: "Unkown Error Occurred")
+            SPAlert.showUnKnownError()
             
         }
 

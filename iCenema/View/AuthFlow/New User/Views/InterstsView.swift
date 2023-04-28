@@ -22,14 +22,14 @@ struct InterstsView: View {
             }
         }
         .onAppear {
-            self.viewModel.categoriesFeatcher.getCategories { result in
-                switch result {
-                case .success(let categories):
-                    self.categories = categories
-                case .failure(_):
-                    print("")
-                }
-            }
+//            self.viewModel.categoriesFeatcher.getCategories { result in
+//                switch result {
+//                case .success(let categories):
+//                    self.categories = categories
+//                case .failure(_):
+//                    print("")
+//                }
+//            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 

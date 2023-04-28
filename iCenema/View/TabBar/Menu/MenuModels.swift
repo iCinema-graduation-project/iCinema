@@ -11,9 +11,9 @@ class MenuCell {
     let id = UUID()
     let imageSystemName: String
     let text: String
-    var viewController: ICinemaViewController.Type
+    var viewController: Any
     
-    init(imageSystemName: String, text: String, viewController: ICinemaViewController.Type) {
+    init(imageSystemName: String, text: String, viewController: Any) {
         self.imageSystemName = imageSystemName
         self.text = text
         self.viewController = viewController

@@ -12,7 +12,7 @@ import Alamofire
 import NetworkLayer
 import LocationManager
 
-class EditUserProfileViewModel: CancellableViewModel, ObservableObject {
+class EditUserProfileViewModel: ObservableObject {
 
     @Published var image: UIImage = .init()
     @Published var fullName: String = ""
@@ -20,39 +20,43 @@ class EditUserProfileViewModel: CancellableViewModel, ObservableObject {
     @Published var gender: Gender = .none
     @Published var selectedCategories: [Category] = []
     
-    var cancellableSet: Set<AnyCancellable> = []
-    lazy var service = EditUserProfileService()
-    
-    var categoriesFeatcher: some CategoriesFeatcher = CategoriesService()
-    var profileFeatcher = ProfileFeatcher()
+    lazy var service: NetworkLayer<EditUserProfile> = .init(endpoint: "update-account-data?_method=put", method: .put)
+    var categoriesFeatcher: NetworkLayer = CategoriesFetcher()
+    var profileFeatcher: NetworkLayer = ProfileFetcher()
     
     init() {
-        self.bindCategories()
         
-        profileFeatcher.getProfile { response in
+        profileFeatcher.request { response in
+            print(response.value)
             if let value = response.value {
                 self.fullName = value.user?.name ?? ""
                 self.age = value.user?.age ?? 0
                 self.gender = Gender(rawValue: value.user?.gender ?? "") ?? .none
                 self.selectedCategories = value.user?.categories ?? []
+            } else if let error = response.error {
+                let errorMessage = NetworkError.getErrorMessage(from: error)
+                SPAlert.showAlert(with: errorMessage)
+            }else {
+                SPAlert.showUnKnownError()
             }
         }
+       
     }
     
     func updateProfile(_ completion: @escaping (Result<EditUserProfile, NetworkError>) -> Void) {
-        self.service.request()
-            .sink { response in
-                let str = String(decoding: response.data!, as: UTF8.self)
-                print(str)
-                if let value = response.value {
-                    completion(.success(value))
-                } else if let error = response.error {
-                    completion(.failure(error))
-                } else {
-                    
-                }
-            }
-            .store(in: &cancellableSet)
+//        self.service.request()
+//            .sink { response in
+//                let str = String(decoding: response.data!, as: UTF8.self)
+//                print(str)
+//                if let value = response.value {
+//                    completion(.success(value))
+//                } else if let error = response.error {
+//                    completion(.failure(error))
+//                } else {
+//
+//                }
+//            }
+//            .store(in: &cancellableSet)
     }
  
     
@@ -64,15 +68,15 @@ class EditUserProfileViewModel: CancellableViewModel, ObservableObject {
             "address": "Mansoura - Dikernes",
         ])
         
-        $fullName.sink { self.service.networkRequest.update(parameters:["name": $0 ]) }.store(in: &cancellableSet)
-        $gender.sink { self.service.networkRequest.update(parameters: ["gender": $0.rawValue]) }.store(in: &cancellableSet)
-        $age.sink { self.service.networkRequest.update(parameters: ["age": $0]) }.store(in: &cancellableSet)
-        $selectedCategories.sink { self.service.networkRequest.update(parameters: ["categories": $0.map { $0.id } ]) }.store(in: &cancellableSet)
-        
-        $image.sink { image in
-            
-            
-        }.store(in: &cancellableSet)
+//        $fullName.sink { self.service.networkRequest.update(parameters:["name": $0 ]) }.store(in: &cancellableSet)
+//        $gender.sink { self.service.networkRequest.update(parameters: ["gender": $0.rawValue]) }.store(in: &cancellableSet)
+//        $age.sink { self.service.networkRequest.update(parameters: ["age": $0]) }.store(in: &cancellableSet)
+//        $selectedCategories.sink { self.service.networkRequest.update(parameters: ["categories": $0.map { $0.id } ]) }.store(in: &cancellableSet)
+//
+//        $image.sink { image in
+//
+//
+//        }.store(in: &cancellableSet)
         
     }
   

@@ -16,7 +16,7 @@ public struct NetworkRequest {
     public private(set) var parameters: Parameters
     public private(set) var headers: HTTPHeaders
     
-    public init(host: String = "http://localhost:8000/api/v1/",
+    public init(host: String,
                 endpoint: String,
                 method: HTTPMethod,
                 parameters: Parameters = [:],

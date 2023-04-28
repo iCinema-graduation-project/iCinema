@@ -69,7 +69,6 @@
 		731FBF8129B0C2CB00798DF5 /* IGHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF7C29B0C2CB00798DF5 /* IGHomeViewModel.swift */; };
 		731FBF8229B0C2CB00798DF5 /* IGHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF7D29B0C2CB00798DF5 /* IGHomeView.swift */; };
 		731FBF8329B0C2CB00798DF5 /* IGStoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF7E29B0C2CB00798DF5 /* IGStoryListCell.swift */; };
-		73215FB229F3F75B00C62B7E /* OTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73215FB129F3F75B00C62B7E /* OTPService.swift */; };
 		73215FB529F409F200C62B7E /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 73215FB429F409F200C62B7E /* SPAlert */; };
 		7325B8732988B7FA0009B8EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7325B8722988B7FA0009B8EC /* README.md */; };
 		732959BB29B761A900E2DF9B /* CinemaProfilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732959BA29B761A900E2DF9B /* CinemaProfilePickerView.swift */; };
@@ -86,11 +85,11 @@
 		734A819629D3404400949EB4 /* ProfileViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A819529D3404400949EB4 /* ProfileViewDelegate.swift */; };
 		734C8A4729BAACC7008B28B5 /* OTPViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */; };
 		7353D38F29C9F2FF00BB8272 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7353D38E29C9F2FF00BB8272 /* StepperView.swift */; };
-		73550A8329F9A5E9007085F6 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73550A8229F9A5E9007085F6 /* ProfileService.swift */; };
+		73550A8329F9A5E9007085F6 /* ProfileFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73550A8229F9A5E9007085F6 /* ProfileFetcher.swift */; };
 		73550A8529F9A737007085F6 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73550A8429F9A737007085F6 /* Profile.swift */; };
 		735C13E929F7E86A00C4654E /* CancellableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C13E829F7E86A00C4654E /* CancellableViewModel.swift */; };
 		735C13F129F83BC400C4654E /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C13F029F83BC400C4654E /* Categories.swift */; };
-		735C13F429F83F2F00C4654E /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C13F329F83F2F00C4654E /* CategoriesService.swift */; };
+		735C13F429F83F2F00C4654E /* CategoriesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C13F329F83F2F00C4654E /* CategoriesFetcher.swift */; };
 		7365DEF729EA9EA000E7AC35 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365DEF629EA9EA000E7AC35 /* LanguageViewController.swift */; };
 		7365DEFA29EAA8D500E7AC35 /* TicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365DEF929EAA8D500E7AC35 /* TicketsView.swift */; };
 		7365DEFC29EAA97C00E7AC35 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365DEFB29EAA97C00E7AC35 /* Ticket.swift */; };
@@ -139,7 +138,6 @@
 		73AD757A29F5681800C55602 /* OTPVerifyCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757929F5681800C55602 /* OTPVerifyCodeModel.swift */; };
 		73AD757E29F56ACB00C55602 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757D29F56ACB00C55602 /* PhoneNumber.swift */; };
 		73AD758029F56D6400C55602 /* OTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD757F29F56D6400C55602 /* OTP.swift */; };
-		73AD758329F58F6D00C55602 /* EditUserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD758229F58F6D00C55602 /* EditUserProfileService.swift */; };
 		73AD758529F5902900C55602 /* EditUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AD758429F5902900C55602 /* EditUserProfile.swift */; };
 		73B0BD2229EEA95C00E755E0 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0BD2129EEA95C00E755E0 /* SearchResultViewController.swift */; };
 		73B10C5729EB03B600EB2D2D /* BookingSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B10C5629EB03B600EB2D2D /* BookingSuccessViewController.swift */; };
@@ -158,7 +156,6 @@
 		73BB177F29E062340062155C /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB177E29E062340062155C /* FollowingViewController.swift */; };
 		73BB19F129BF7D1C00C3A373 /* +customObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F029BF7D1C00C3A373 /* +customObject.swift */; };
 		73BB19F329BF7D9B00C3A373 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F229BF7D9B00C3A373 /* User.swift */; };
-		73BB19F529BF7E7A00C3A373 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */; };
 		73BB55FF29E9A29000F34A62 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB55FE29E9A29000F34A62 /* CountryPickerView */; };
 		73BB560229E9A2AB00F34A62 /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB560129E9A2AB00F34A62 /* SwiftUITrackableScrollView */; };
 		73BB560829E9A2D700F34A62 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB560729E9A2D700F34A62 /* Lottie */; };
@@ -171,7 +168,6 @@
 		73C9D73D29D09EE300B84564 /* CinemaDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */; };
 		73CD5C6129CFA5B6008078A5 /* CinemaChairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD5C6029CFA5B6008078A5 /* CinemaChairsViewController.swift */; };
 		73CD5C6329CFA5EA008078A5 /* CinemaChairsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD5C6229CFA5EA008078A5 /* CinemaChairsView.swift */; };
-		73D0DB1829F0A639008B0CDE /* PhoneNumberLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D0DB1729F0A639008B0CDE /* PhoneNumberLoginService.swift */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
 		73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918D29834531002F3568 /* SceneDelegate.swift */; };
 		73EC919529834533002F3568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919429834533002F3568 /* Assets.xcassets */; };
@@ -288,7 +284,6 @@
 		731FBF7C29B0C2CB00798DF5 /* IGHomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGHomeViewModel.swift; sourceTree = "<group>"; };
 		731FBF7D29B0C2CB00798DF5 /* IGHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGHomeView.swift; sourceTree = "<group>"; };
 		731FBF7E29B0C2CB00798DF5 /* IGStoryListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGStoryListCell.swift; sourceTree = "<group>"; };
-		73215FB129F3F75B00C62B7E /* OTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPService.swift; sourceTree = "<group>"; };
 		7325B8722988B7FA0009B8EC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		732959BA29B761A900E2DF9B /* CinemaProfilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfilePickerView.swift; sourceTree = "<group>"; };
 		732959BD29B76B2400E2DF9B /* MoviesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListView.swift; sourceTree = "<group>"; };
@@ -304,11 +299,11 @@
 		734A819529D3404400949EB4 /* ProfileViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewDelegate.swift; sourceTree = "<group>"; };
 		734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModelTests.swift; sourceTree = "<group>"; };
 		7353D38E29C9F2FF00BB8272 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
-		73550A8229F9A5E9007085F6 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		73550A8229F9A5E9007085F6 /* ProfileFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFetcher.swift; sourceTree = "<group>"; };
 		73550A8429F9A737007085F6 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		735C13E829F7E86A00C4654E /* CancellableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableViewModel.swift; sourceTree = "<group>"; };
 		735C13F029F83BC400C4654E /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
-		735C13F329F83F2F00C4654E /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
+		735C13F329F83F2F00C4654E /* CategoriesFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesFetcher.swift; sourceTree = "<group>"; };
 		7365DEF629EA9EA000E7AC35 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		7365DEF929EAA8D500E7AC35 /* TicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsView.swift; sourceTree = "<group>"; };
 		7365DEFB29EAA97C00E7AC35 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
@@ -358,7 +353,6 @@
 		73AD757929F5681800C55602 /* OTPVerifyCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyCodeModel.swift; sourceTree = "<group>"; };
 		73AD757D29F56ACB00C55602 /* PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
 		73AD757F29F56D6400C55602 /* OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTP.swift; sourceTree = "<group>"; };
-		73AD758229F58F6D00C55602 /* EditUserProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileService.swift; sourceTree = "<group>"; };
 		73AD758429F5902900C55602 /* EditUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfile.swift; sourceTree = "<group>"; };
 		73B0BD2129EEA95C00E755E0 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		73B10C5629EB03B600EB2D2D /* BookingSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingSuccessViewController.swift; sourceTree = "<group>"; };
@@ -377,7 +371,6 @@
 		73BB177E29E062340062155C /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		73BB19F029BF7D1C00C3A373 /* +customObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+customObject.swift"; sourceTree = "<group>"; };
 		73BB19F229BF7D9B00C3A373 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		73BB560A29E9A35100F34A62 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		73BBF3CA29969DFC00920F53 /* EditUserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileViewModel.swift; sourceTree = "<group>"; };
 		73BFEFA12989EFA600969452 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
@@ -387,7 +380,6 @@
 		73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateViewModel.swift; sourceTree = "<group>"; };
 		73CD5C6029CFA5B6008078A5 /* CinemaChairsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsViewController.swift; sourceTree = "<group>"; };
 		73CD5C6229CFA5EA008078A5 /* CinemaChairsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsView.swift; sourceTree = "<group>"; };
-		73D0DB1729F0A639008B0CDE /* PhoneNumberLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberLoginService.swift; sourceTree = "<group>"; };
 		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC918B29834531002F3568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73EC918D29834531002F3568 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -776,11 +768,10 @@
 		733116B62990A99600EFD002 /* OTP */ = {
 			isa = PBXGroup;
 			children = (
-				73AD757929F5681800C55602 /* OTPVerifyCodeModel.swift */,
 				73BFEFA12989EFA600969452 /* OTPViewController.swift */,
+				73AD757929F5681800C55602 /* OTPVerifyCodeModel.swift */,
 				733116B72990A9AE00EFD002 /* OTPViewModel.swift */,
 				73F04FBC2999333F00F543EE /* OTPString.swift */,
-				73215FB129F3F75B00C62B7E /* OTPService.swift */,
 			);
 			path = OTP;
 			sourceTree = "<group>";
@@ -792,7 +783,6 @@
 				73AD758129F58F5400C55602 /* Model */,
 				73861C232984351E0020A63B /* EditUserProfileViewController.swift */,
 				73BBF3CA29969DFC00920F53 /* EditUserProfileViewModel.swift */,
-				73AD758229F58F6D00C55602 /* EditUserProfileService.swift */,
 			);
 			path = "New User";
 			sourceTree = "<group>";
@@ -855,8 +845,8 @@
 		735C13F229F83F1000C4654E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				735C13F329F83F2F00C4654E /* CategoriesService.swift */,
-				73550A8229F9A5E9007085F6 /* ProfileService.swift */,
+				735C13F329F83F2F00C4654E /* CategoriesFetcher.swift */,
+				73550A8229F9A5E9007085F6 /* ProfileFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -885,7 +875,6 @@
 				73AD757629F5647200C55602 /* PhoneLoginModel.swift */,
 				73F0BC062989C4D800742BA2 /* PhoneViewController.swift */,
 				736674E4298EE37C009CA617 /* PhoneViewModel.swift */,
-				73D0DB1729F0A639008B0CDE /* PhoneNumberLoginService.swift */,
 			);
 			path = "Phone Number";
 			sourceTree = "<group>";
@@ -1103,6 +1092,7 @@
 		73C0A2B529FAD2BD008065BA /* UIICinema */ = {
 			isa = PBXGroup;
 			children = (
+				73EF78AF298F294600A5DF2D /* Protocols */,
 				73F29D9429FAE36D00B9B52E /* Generated */,
 				73F29D9629FAE5ED00B9B52E /* Extentions */,
 				73F29D9529FAE38600B9B52E /* ReusableViews */,
@@ -1150,10 +1140,9 @@
 				73EC91BB29834569002F3568 /* ICinemaViewController.swift */,
 				73C0A2B529FAD2BD008065BA /* UIICinema */,
 				73EC91BD298345D3002F3568 /* Resources */,
+				735C13F229F83F1000C4654E /* Services */,
 				73F0C37529AD7E8000F95B01 /* Model */,
 				73A30CAD29835D2500D672E6 /* View */,
-				735C13F229F83F1000C4654E /* Services */,
-				73EF78AF298F294600A5DF2D /* Protocols */,
 				73EC919929834533002F3568 /* Info.plist */,
 				73EC919629834533002F3568 /* LaunchScreen.storyboard */,
 			);
@@ -1241,12 +1230,11 @@
 		73F0C37529AD7E8000F95B01 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				73BB19F429BF7E7A00C3A373 /* UserDefaults.swift */,
 				735C13EF29F83BB600C4654E /* Settings */,
 				73F0C37629AD813D00F95B01 /* Movie.swift */,
+				73BB19F229BF7D9B00C3A373 /* User.swift */,
 				738EEF2B29AE325000CDEE88 /* Poster.swift */,
 				738EEF2D29AE330A00CDEE88 /* Cinema.swift */,
-				73BB19F229BF7D9B00C3A373 /* User.swift */,
 				7365DEFB29EAA97C00E7AC35 /* Ticket.swift */,
 			);
 			path = Model;
@@ -1635,17 +1623,14 @@
 				73F04FBD2999333F00F543EE /* OTPString.swift in Sources */,
 				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
 				739FAA4329ED669100BAC9ED /* ActivityKeyBoardField.swift in Sources */,
-				73BB19F529BF7E7A00C3A373 /* UserDefaults.swift in Sources */,
 				739FAA4629ED676D00BAC9ED /* CreditCardView.swift in Sources */,
 				73687B7529AEA23F007DB431 /* MovieCell.swift in Sources */,
 				7365DF0029EAAAFE00E7AC35 /* utls.swift in Sources */,
 				7365DEFE29EAA9BF00E7AC35 /* TicketView.swift in Sources */,
 				730E1C2329A966DC00F2AB85 /* NotificationViewController.swift in Sources */,
-				73AD758329F58F6D00C55602 /* EditUserProfileService.swift in Sources */,
 				73AB522329D10CEA008A3CFF /* SelectHallView.swift in Sources */,
 				731FBF8129B0C2CB00798DF5 /* IGHomeViewModel.swift in Sources */,
 				731FBF7729B0C25C00798DF5 /* IGAppUtility.swift in Sources */,
-				73D0DB1829F0A639008B0CDE /* PhoneNumberLoginService.swift in Sources */,
 				73F7138529B636CD001E469D /* CinemaProfileInformationView.swift in Sources */,
 				730E1C1629A95DBA00F2AB85 /* ReelsViewController.swift in Sources */,
 				7365DEFC29EAA97C00E7AC35 /* Ticket.swift in Sources */,
@@ -1733,7 +1718,6 @@
 				73B404EE29D092240044F58D /* CinemaDateViewController.swift in Sources */,
 				738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */,
 				73BB560B29E9A35100F34A62 /* UserProfileViewController.swift in Sources */,
-				73215FB229F3F75B00C62B7E /* OTPService.swift in Sources */,
 				733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */,
 				731FBF6D29B0BF7E00798DF5 /* UIView+Anchor.swift in Sources */,
 				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,
@@ -1752,7 +1736,7 @@
 				73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */,
 				7311C3132991B9D500C0610F /* AuthFlowCoordinator.swift in Sources */,
 				731FBF6C29B0BF7E00798DF5 /* AnimatedCollectionViewLayout.swift in Sources */,
-				735C13F429F83F2F00C4654E /* CategoriesService.swift in Sources */,
+				735C13F429F83F2F00C4654E /* CategoriesFetcher.swift in Sources */,
 				731FBF6029B0BF7E00798DF5 /* IGError.swift in Sources */,
 				731FBF5729B0BF7E00798DF5 /* IGStoryPreviewHeaderView.swift in Sources */,
 				731FBF8329B0C2CB00798DF5 /* IGStoryListCell.swift in Sources */,
@@ -1780,7 +1764,7 @@
 				73AB522829D10DA4008A3CFF /* SelectHallViewModel.swift in Sources */,
 				738A450129CA8D7600FA07A8 /* ActivityIndicator.swift in Sources */,
 				73861C242984351E0020A63B /* EditUserProfileViewController.swift in Sources */,
-				73550A8329F9A5E9007085F6 /* ProfileService.swift in Sources */,
+				73550A8329F9A5E9007085F6 /* ProfileFetcher.swift in Sources */,
 				731FBF5129B0BF7E00798DF5 /* IGStoryPreviewController.swift in Sources */,
 				731FBF5529B0BF7E00798DF5 /* ImageView+Additions.swift in Sources */,
 				73F7138729B65240001E469D /* CinemaProfileSliderView.swift in Sources */,

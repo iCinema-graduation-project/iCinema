@@ -68,6 +68,7 @@ class PhoneViewController:  ICinemaViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        self.endEditing()
         viewModel.service.cancelAllPublishers()
     }
     
@@ -132,8 +133,8 @@ class PhoneViewController:  ICinemaViewController {
             ActivityIndicator.shared.stop()
             let str = String(decoding: response.data!, as: UTF8.self)
             print(str)
-            if let value = response.value{
-              
+            if let _ = response.value{
+                
                 self.coordinator?.push(userInfo: ["phone": self.viewModel.phoneNumber])
 
             } else if let error = response.error {

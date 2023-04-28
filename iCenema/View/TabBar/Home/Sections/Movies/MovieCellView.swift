@@ -76,7 +76,7 @@ struct MovieCellView: View {
             .foregroundColor(Color(uiColor: .iCinemaTextColor))
 
         }
-        .frame(width: .infinity, height: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(uiColor: .iCinemaSecondBackgroudColor))
         .onAppear {
             bookmarked = movie.bookmarket
