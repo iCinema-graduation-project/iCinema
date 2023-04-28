@@ -154,6 +154,7 @@
 		73B404EE29D092240044F58D /* CinemaDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B404ED29D092240044F58D /* CinemaDateViewController.swift */; };
 		73B404F029D092840044F58D /* CinemaDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B404EF29D092840044F58D /* CinemaDateView.swift */; };
 		73B404F229D092B60044F58D /* ICinemaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B404F129D092B60044F58D /* ICinemaView.swift */; };
+		73B6607F29FC02D80019C913 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6607E29FC02D80019C913 /* NetworkLayer.swift */; };
 		73BB177F29E062340062155C /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB177E29E062340062155C /* FollowingViewController.swift */; };
 		73BB19F129BF7D1C00C3A373 /* +customObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F029BF7D1C00C3A373 /* +customObject.swift */; };
 		73BB19F329BF7D9B00C3A373 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F229BF7D9B00C3A373 /* User.swift */; };
@@ -372,6 +373,7 @@
 		73B404ED29D092240044F58D /* CinemaDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateViewController.swift; sourceTree = "<group>"; };
 		73B404EF29D092840044F58D /* CinemaDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateView.swift; sourceTree = "<group>"; };
 		73B404F129D092B60044F58D /* ICinemaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaView.swift; sourceTree = "<group>"; };
+		73B6607E29FC02D80019C913 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		73BB177E29E062340062155C /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		73BB19F029BF7D1C00C3A373 /* +customObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+customObject.swift"; sourceTree = "<group>"; };
 		73BB19F229BF7D9B00C3A373 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -1144,6 +1146,7 @@
 				73EC918B29834531002F3568 /* AppDelegate.swift */,
 				73EC918D29834531002F3568 /* SceneDelegate.swift */,
 				7311C3162991BA3000C0610F /* AppCoordinator.swift */,
+				73B6607E29FC02D80019C913 /* NetworkLayer.swift */,
 				73EC91BB29834569002F3568 /* ICinemaViewController.swift */,
 				73C0A2B529FAD2BD008065BA /* UIICinema */,
 				73EC91BD298345D3002F3568 /* Resources */,
@@ -1649,6 +1652,7 @@
 				739ADAB029BA0FC200FFA78E /* +addScaleAnimationOnTapGesture.swift in Sources */,
 				730CA22029BBFFF400C82C0A /* Image+makeCircled.swift in Sources */,
 				73F7935929A7DB5A007252BE /* TabBarCurveShape.swift in Sources */,
+				73B6607F29FC02D80019C913 /* NetworkLayer.swift in Sources */,
 				73687B7729AEA318007DB431 /* MovieSectionHeader.swift in Sources */,
 				730E1C1F29A960F300F2AB85 /* TicketCoordinator.swift in Sources */,
 				730E1C1429A95D9F00F2AB85 /* ReelsCoordinator.swift in Sources */,

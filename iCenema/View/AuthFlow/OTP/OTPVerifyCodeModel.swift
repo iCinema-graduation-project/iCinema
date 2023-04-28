@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - VerifyCode
-struct VerifyCode: Decodable {
+struct VerifyCode: Codable {
     let key, msg: String
     let data: User
 }

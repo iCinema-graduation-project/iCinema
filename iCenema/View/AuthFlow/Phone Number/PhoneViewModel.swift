@@ -19,13 +19,14 @@ class PhoneViewModel {
     
     @Published var phoneNumber: String = ""    
     
-    var service: some APIRequest = PhoneNumberLoginService()
+    var service: NetworkLayer = PhoneNumberLoginService()
 
     init() {
         $phoneNumber.sink {
             self.isPhoneNumberValid = self.checkPhoneNumberValidity($0)
-            self.service.networkRequest.parameters?["phone"] = $0
+            self.service.networkRequest.update(parameters: ["phone": $0])
         }.store(in: &service.cancellableSet)
+        self.service.networkRequest.update(parameters: ["country_code": "20"])
     }
     
     // MARK: - Helper

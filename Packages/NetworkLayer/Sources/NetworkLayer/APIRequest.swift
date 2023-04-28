@@ -15,9 +15,9 @@ import SPAlert
 public protocol APIRequest {
     
     // Associated type for the expected response type
-    associatedtype DecodableType where DecodableType: Decodable
+    associatedtype DecodableType where DecodableType: Codable
     
-    var networkRequest: NetworkRequest { get set }
+    var networkRequest: NetworkRequest { get }
     var cancellableSet: Set<AnyCancellable> { get set }
 
 }

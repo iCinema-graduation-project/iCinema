@@ -25,7 +25,7 @@ protocol OTPViewModelType {
 class OTPViewModel: OTPViewModelType {
     
     var otp = OTPString(count: 6)
-    var service: some APIRequest = OTPService()
+    var service: NetworkLayer = OTPService()
     
     func textField(didChanged text: String, at index: Int) {
         
@@ -38,13 +38,11 @@ class OTPViewModel: OTPViewModelType {
     }
     
     func updateNetworkRequestParameters(with phone: String) {
-        self.service.networkRequest.parameters = [
+        self.service.networkRequest.update(parameters: [
             "country_code": "20",
             "phone": phone,
             "code": self.otp.code,
-            "device_id": deviceID,
-            "device_type": "ios"
-        ]
+        ])
     }
     
     

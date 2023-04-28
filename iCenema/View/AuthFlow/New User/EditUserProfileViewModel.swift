@@ -57,24 +57,21 @@ class EditUserProfileViewModel: CancellableViewModel, ObservableObject {
  
     
     private func bindCategories() {
-        service.networkRequest.parameters = [
+        service.networkRequest.update(parameters: [
             "dob": "28-6-2001",
             "lat": LocationManager.shared.latitude ?? 0.0,
             "lng": LocationManager.shared.longitude ?? 0.0,
             "address": "Mansoura - Dikernes",
-        ]
+        ])
         
-        $fullName.sink { self.service.networkRequest.parameters?["name"] = $0 }.store(in: &cancellableSet)
-        $gender.sink { self.service.networkRequest.parameters?["gender"] = $0.rawValue }.store(in: &cancellableSet)
-        $age.sink { self.service.networkRequest.parameters?["age"] = $0 }.store(in: &cancellableSet)
-        $selectedCategories.sink { self.service.networkRequest.parameters?["categories"] = $0.map { $0.id } }.store(in: &cancellableSet)
+        $fullName.sink { self.service.networkRequest.update(parameters:["name": $0 ]) }.store(in: &cancellableSet)
+        $gender.sink { self.service.networkRequest.update(parameters: ["gender": $0.rawValue]) }.store(in: &cancellableSet)
+        $age.sink { self.service.networkRequest.update(parameters: ["age": $0]) }.store(in: &cancellableSet)
+        $selectedCategories.sink { self.service.networkRequest.update(parameters: ["categories": $0.map { $0.id } ]) }.store(in: &cancellableSet)
         
         $image.sink { image in
-            guard let data = image.pngData() else { return }
-            print(data)
-//            self.service.request.parameters?["image"] = data
-//            self.service.request.headers["Content-Type"] = "multipart/form-data; boundary=\(UUID().uuidString)"
-
+            
+            
         }.store(in: &cancellableSet)
         
     }

@@ -7,36 +7,33 @@
 import Foundation
 import Alamofire
 
-// Get the current language code for localization, defaulting to "en"
-var appLanguageCode: String {
-    Locale.current.languageCode ?? "en"
-}
 
 @available(iOS 13.0, *)
 public struct NetworkRequest {
-    public var host: String
-    public let endpoint: String
-    public let method: HTTPMethod
-    public var parameters: Parameters? = nil
-    
-    public var headers: HTTPHeaders = [
-        "Content-Type": "application/json",
-        "lang": appLanguageCode
-    ]
+    public private(set) var host: String
+    public private(set) var endpoint: String
+    public private(set) var method: HTTPMethod
+    public private(set) var parameters: Parameters
+    public private(set) var headers: HTTPHeaders
     
     public init(host: String = "http://localhost:8000/api/v1/",
-         endpoint: String,
-         method: HTTPMethod,
-         parameters: Parameters? = nil) {
+                endpoint: String,
+                method: HTTPMethod,
+                parameters: Parameters = [:],
+                headers: HTTPHeaders = [:]) {
+        
         self.host = host
         self.endpoint = endpoint
         self.method = method
         self.parameters = parameters
-        
-//        if let userToken = UserDefaults.standard.load(object: User.self, fromKey: .userDefaults.user)?.token{
-//            self.headers["Authorization"] = "Bearer \(userToken)"
-//        }
-        
+        self.headers = headers
     }
     
+    public mutating func update(parameters: Parameters) {
+        parameters.forEach { self.parameters[$0] = $1 }
+    }
+    
+    public mutating func update(headers: [String: String]) {
+        headers.forEach { self.headers.update(name: $0, value: $1) }
+    }
 }

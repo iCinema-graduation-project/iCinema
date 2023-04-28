@@ -104,6 +104,10 @@ class OTPViewController: ICinemaViewController {
         self.viewModel.updateNetworkRequestParameters(with: phone)
         
         self.viewModel.service.request { response in
+            let str = String(decoding: response.data!, as: UTF8.self)
+            print(str)
+            print(response.result)
+            print(response.response)
             ActivityIndicator.shared.stop()
             
             if let value = response.value as? VerifyCode {

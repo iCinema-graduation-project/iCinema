@@ -130,9 +130,10 @@ class PhoneViewController:  ICinemaViewController {
         
         self.viewModel.service.request { response in
             ActivityIndicator.shared.stop()
-            
-            if let value = response.value as? Login{
-                print(value.key)
+            let str = String(decoding: response.data!, as: UTF8.self)
+            print(str)
+            if let value = response.value{
+              
                 self.coordinator?.push(userInfo: ["phone": self.viewModel.phoneNumber])
 
             } else if let error = response.error {
