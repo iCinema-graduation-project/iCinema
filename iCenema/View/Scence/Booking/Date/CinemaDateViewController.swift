@@ -22,9 +22,9 @@ class CinemaDateViewController: ICinemaViewController {
         addStepperView()
         
         guard let userInfo = userInfo, let movie = userInfo["movie"] as? Movie else { return }
-        print("hi")
-        print(movie.bookmarket)
-
+        
+        print(movie.id)
+        
         let cinemaDateView = CinemaDateView()
             .environmentObject(viewModel)
             .hostigView()

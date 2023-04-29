@@ -149,6 +149,8 @@ class EditUserProfileViewController: ICinemaViewController {
     func saveEditsButtonTapped() {
         if self.isReadyToUpdateProfile() {
             self.viewModel.service.request { response in
+                let str = String(decoding: response.data!, as: UTF8.self)
+                print(str)
                 if let value = response.value {
                     print(value)
                     SPAlertView.init(title: value.msg, preset: .done).present()

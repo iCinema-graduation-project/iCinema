@@ -14,7 +14,7 @@ class AppCoordinator {
 
     init() {
         if let _ = UserDefaults.standard.load(object: User.self, fromKey: .user) {
-            isAuthed = false
+            isAuthed = true
         }
         
         if isAuthed {

@@ -7,10 +7,12 @@
 
 import Foundation
 import Combine
-import SwiftUI
+import UIKit.UIImage
 import Alamofire
 import NetworkLayer
 import LocationManager
+import SwiftyJSON
+
 
 class EditUserProfileViewModel: ObservableObject {
     // MARK: - Publishers
@@ -51,14 +53,32 @@ class EditUserProfileViewModel: ObservableObject {
         $selectedCategories.sink { self.service.networkRequest.update(parameters: ["categories": $0.map { $0.id } ]) }.store(in: &service.cancellableSet)
         
         $image.sink { image in
+            guard let imageDate = image.jpegData(compressionQuality: 1) else { return }
+            let randomKey = UUID().uuidString
+            let bodyBoundary = "--------------------------\(randomKey)"
 
-            self.service.networkRequest.update(parameters: ["image": ""])
+            self.service.networkRequest.update(headers: ["Content-Type": "multipart/form-data; boundary=\(bodyBoundary)"])
+            let data = self.createRequestBody(imageData: imageDate, boundary: bodyBoundary, attachmentKey: "profilePicture", fileName: "\(randomKey).jpg")
+//            self.service.networkRequest.update(parameters: ["image": data ])
             
         }.store(in: &service.cancellableSet)
         
     }
     
- 
+    func createRequestBody(imageData: Data, boundary: String, attachmentKey: String, fileName: String) -> Data{
+        let lineBreak = "\r\n"
+        var requestBody = Data()
+
+        requestBody.append("\(lineBreak)--\(boundary + lineBreak)" .data(using: .utf8)!)
+        requestBody.append("Content-Disposition: form-data; name=\"\(attachmentKey)\"; filename=\"\(fileName)\"\(lineBreak)" .data(using: .utf8)!)
+        requestBody.append("Content-Type: image/jpeg \(lineBreak + lineBreak)" .data(using: .utf8)!) // you can change the type accordingly if you want to
+        requestBody.append(imageData)
+        requestBody.append("\(lineBreak)--\(boundary)--\(lineBreak)" .data(using: .utf8)!)
+
+        return requestBody
+    }
+    
+    
     
   
 }

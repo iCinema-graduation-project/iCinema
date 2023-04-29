@@ -24,8 +24,9 @@ final class MoviesCollectionViewSection: CompositionalLayoutableSection {
     var itemsCount: Int = 0
     
     var hostingViewController: UIViewController? = nil
-    init(hostingViewController: UIViewController) {
-        
+    var supplementaryViewTitle: String
+    init(hostingViewController: UIViewController, supplementaryViewTitle: String) {
+        self.supplementaryViewTitle = supplementaryViewTitle
         super.init()
         self.hostingViewController = hostingViewController
         dataSource = self
@@ -34,7 +35,6 @@ final class MoviesCollectionViewSection: CompositionalLayoutableSection {
     
     }
 
-    
 }
 
 // MARK: - Data Source
@@ -50,7 +50,7 @@ extension MoviesCollectionViewSection: CompositionalLayoutableSectionDataSource 
         
         let fromAnimation = AnimationType.from(direction: .right, offset: 50.0)
         cell.animate(animations: [fromAnimation])
-        
+        cell.setup(with: self.items[indexPath.row])
         return cell
     }
     
@@ -59,11 +59,15 @@ extension MoviesCollectionViewSection: CompositionalLayoutableSectionDataSource 
         let supplementaryView = collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self,
                                                                                 ofKind: supplementaryViewType.identifier,
                                                                                 for: indexPath)
-        supplementaryView.setTitle(.home.forYou)
+        supplementaryView.setTitle(self.supplementaryViewTitle)
         
         return supplementaryView
     }
     
+    func update(_ collectionView: UICollectionView, with items: [Movie]) {
+        self.items = items
+        collectionView.reloadData()
+    }
     
 }
 
@@ -134,21 +138,6 @@ extension MoviesCollectionViewSection: CompositionalLayoutableSectionDelegate {
         
     }
         
-    func updateItems(_ collectionView: UICollectionView) {
-        DispatchQueue.main.async { [ unowned self ] in
-            
-            self.items = [
-                Movie(poster: "", name: "Avatar", bookmarket: false),
-                Movie(poster: "", name: "spider man", bookmarket: true),
-                Movie(poster: "", name: "pat man", bookmarket: false),
-                Movie(poster: "", name: "super man", bookmarket: false)
-            ]
-            
-            collectionView.reloadData()
-            
-        }
-        
-    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

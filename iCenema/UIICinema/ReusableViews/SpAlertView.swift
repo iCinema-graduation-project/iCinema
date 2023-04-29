@@ -8,7 +8,7 @@
 import SPAlert
 import Foundation
 
-class SPAlert {
+extension SPAlert {
     
     static func showAlert(with message: String, duration: TimeInterval = 4) {
         let alertView = SPAlertView(message: message)

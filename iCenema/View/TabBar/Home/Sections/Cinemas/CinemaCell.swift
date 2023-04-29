@@ -15,10 +15,6 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
     //
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        let cinemaCellView = CinemaCellView().hostigView()
-        contentView.addSubview(cinemaCellView)
-        cinemaCellView.fillSuperviewConstraints()
         
         layer.cornerRadius = .view.cornerRadius
         layer.masksToBounds = true
@@ -27,6 +23,13 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    public func setup(with cinema: Cinema) {
+        let cinemaCellView = CinemaCellView(cinema: cinema).hostigView()
+        contentView.addSubview(cinemaCellView)
+        cinemaCellView.fillSuperviewConstraints()
+        
     }
     
    

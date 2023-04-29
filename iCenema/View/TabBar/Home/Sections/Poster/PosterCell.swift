@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class PosterCollectionViewCell: UICollectionViewCell, IdentifiableView {
     // MARK: - Views
@@ -14,6 +15,14 @@ final class PosterCollectionViewCell: UICollectionViewCell, IdentifiableView {
     private let posterDescriptionLabel: UILabel = UILabel()
     
     private lazy var viewButton: ICinemaButton = ICinemaButton(title: .view, action: self.viewButtonTapped)
+    
+    
+    var homeSlide: HomeSlide? = nil {
+        didSet {
+            guard let homeSlide = homeSlide else { return }
+            posterImage.kf.setImage(with: URL(string: homeSlide.image))
+        }
+    }
     
     // MARK: - initialization
     override init(frame: CGRect) {

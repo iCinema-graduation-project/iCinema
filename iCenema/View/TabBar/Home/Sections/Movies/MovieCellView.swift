@@ -7,89 +7,125 @@
 
 import SwiftUI
 import UIKit
-
-
-
+import Kingfisher
+import SPAlert
+import NetworkLayer
 
 struct MovieCellView: View {
     
     var movie: Movie
     
-    @State var bookmarked = false
+    @State var movieSaver =  MovieSaver()
+    
+    @State var saved: Bool = false
+    @State var showAlert: Bool = false
+    @State var alertMessage: String = ""
     
     var body: some View {
         VStack {
+            
             VStack(alignment: .leading, spacing: 5) {
-
-                Image(movie.poster)
-                    .resizable()
-                    .addBorder(withColor: Color(uiColor: .iCinemaYellowColor),
-                               height: .home.movies.imageHeight)
                 
+                // Movie Image
+                AsyncImage(url: URL(string: movie.image)) { image in
+                    image
+                        .resizable()                        
+
+                } placeholder: {
+                    Color.gray
+                }
+                .addBorder(withColor: Color(uiColor: .iCinemaYellowColor),
+                                   height: .home.movies.imageHeight)
+     
+                // Movie Name
                 HStack {
                     Text(movie.name)
                         .font(Font(UIFont.body))
                         .lineLimit(1)
                     Spacer()
-                    Button {
-                        bookmarked.toggle()
-                    } label: {
-                        BookMark(bookmarked: bookmarked,
-                                 bookmarkedImage: UIImage.bookmarkFill,
-                                 notBookmarkedImage: UIImage.bookmark)
-                        .frame(width: .bookmark.width,  height: .bookmark.height)
+                    
+                    BookMark(bookmarked: saved,
+                             bookmarkedImage: UIImage.bookmarkFill,
+                             notBookmarkedImage: UIImage.bookmark)
+                    .frame(width: .bookmark.width,  height: .bookmark.height)
+                    .SPAlert(isPresent: $showAlert, message: alertMessage)
+                    .onTapGesture {
+                        saved.toggle()
+                       
+                        movieSaver.update(id: movie.id)
+                     
+                        movieSaver.request { response in
+                            if let value = response.value {
+                                self.alertMessage = value.msg
+
+                            } else if let error = response.error {
+                                self.alertMessage = NetworkError.getErrorMessage(from: error)
+
+                            }else {
+                                self.alertMessage = "Unkown error"
+                            }
+                            self.showAlert = true
+                        }
+
                     }
+     
                 }
-                
-                // Ciname
+
+                // Movie's Cinema
                 HStack {
-                    Image("cinema")
-                        .makeCircled(size: CGSize(width: 10, height: 10),
-                                     strockColor: Color(uiColor: .iCinemaYellowColor),
-                                     lineWidth: 0.5)
-                    Text("Galaxy")
+                    AsyncImage(url: URL(string: movie.cinema.logo)) { image in
+                        image
+                            .resizable()
+                            .makeCircled(size: CGSize(width: 15, height: 15),
+                                         strockColor: Color(uiColor: .iCinemaYellowColor),
+                                         lineWidth: 0.5)
+
+                    } placeholder: {
+                        Color.gray
+                    }
+  
+                    Text(movie.cinema.name)
                         .font(Font(UIFont.caption1))
                 }
-                
+
                 // Cinema Location
                 HStack {
                     Image(systemName: UIImage.location)
                         .resizable()
                         .frame(width: 12, height: 12)
                         .foregroundColor(Color(uiColor: .iCinemaYellowColor))
-                    
-                    Text("Cairo / 2.3km")
+
+                    Text(movie.cinema.distance ?? "")
                         .font(Font(UIFont.caption1))
+                        .lineLimit(1)
                 }
-       
+
                 // MARK: - Genre
                 Text("Action, Horror, Tragety")
                     .font(Font(UIFont.caption2))
                     .foregroundColor(.gray)
-            
 
-                
                 Spacer()
             }
             .padding(.horizontal, .cell.padding.top)
             .padding(.top, .cell.padding.top)
             .foregroundColor(Color(uiColor: .iCinemaTextColor))
-
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(uiColor: .iCinemaSecondBackgroudColor))
         .onAppear {
-            bookmarked = movie.bookmarket
+            saved = movie.saved
         }
     }
 }
 
-struct MovieCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        let movie = Movie(poster: "posterImage", name: "Black Adam", bookmarket: true)
-        MovieCellView(movie: movie)
-    }
-}
+//struct MovieCellView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let movie = Movie(poster: "posterImage", name: "Black Adam", bookmarket: true)
+//        MovieCellView(movie: movie)
+//    }
+//}
 
 
 struct BookMark: View {

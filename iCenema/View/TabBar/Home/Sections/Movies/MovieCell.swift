@@ -10,7 +10,6 @@ import SwiftUI
 class MovieCell: UICollectionViewCell, IdentifiableView {
     // MARK: - Views
     //
-    var movie = Movie(poster: "posterImage", name: "Black Adam", bookmarket: true)
     
     // MARK: - initialization
     //
@@ -19,17 +18,21 @@ class MovieCell: UICollectionViewCell, IdentifiableView {
         
         contentView.layer.cornerRadius = .view.cornerRadius
         contentView.clipsToBounds = true
-
-        let movieCellView = MovieCellView(movie: movie).hostigView()
-        contentView.addSubview(movieCellView)
-        movieCellView.fillSuperviewConstraints()
-        
+ 
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
+    
+    public func setup(with movie: Movie) {
+        
+        let movieCellView = MovieCellView(movie: movie).hostigView()
+        contentView.addSubview(movieCellView)
+        movieCellView.fillSuperviewConstraints()
+       
+    }
     
     
 }

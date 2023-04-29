@@ -15,7 +15,7 @@ final class MovieSectionHeader: UICollectionReusableView, IdentifiableView {
         addSubview(label)
         label.centerYInSuperview()
         label.makeConstraints(leadingAnchor: leadingAnchor,
-                              padding: UIEdgeInsets(top: 0, left: .view.spacing,
+                              padding: UIEdgeInsets(top: 0, left: 8,
                                                     bottom: 0, right: 0))
         label.textAlignment = .left
         label.font = .title3

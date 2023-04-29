@@ -36,7 +36,6 @@ final class FollowingViewController: ICinemaViewController, CompositionalLayoutP
         
         // setup collection view compositional layout
         collectionView.updateCollectionViewCompositionalLayout(with: self)
-        compositionalLayoutSections.forEach { $0.delegate?.updateItems(self.collectionView) }
         
         // setup collection view delegate and datasource with compositional layout source and delegate
         collectionView.delegate = compositionalLayoutProviderDelegate

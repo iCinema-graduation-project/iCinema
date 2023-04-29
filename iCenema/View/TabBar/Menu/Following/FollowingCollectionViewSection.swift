@@ -27,6 +27,10 @@ final class FollowingCollectionViewSection: CompositionalLayoutableSection {
 // MARK: - DataSource
 //
 extension FollowingCollectionViewSection: CompositionalLayoutableSectionDataSource {
+    func update(_ collectionView: UICollectionView, with items: [String]) {
+        
+    }
+    
     
     struct ItemsHolder {
         static var itemsHolder: [ResposeType] = []
@@ -116,7 +120,7 @@ extension FollowingCollectionViewSection: CompositionalLayoutableSectionDelegate
         collectionView.register(CellType.self)
     }
     
-    func updateItems(_ collectionView: UICollectionView) {
+    func update(_ collectionView: UICollectionView) {
         DispatchQueue.main.async { [ unowned self ] in
             self.items = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
             collectionView.reloadData()
@@ -128,10 +132,10 @@ extension FollowingCollectionViewSection: CompositionalLayoutableSectionDelegate
 
         let cinemaProfileVC = CinemaProfileViewController()
         
-        let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5,
-                                    ChairsCount: 430, followed: false)
+//        let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5,
+//                                    ChairsCount: 430, followed: false)
         
-        cinemaProfileVC.viewModel = .init(cinema: cinema)
+//        cinemaProfileVC.viewModel = .init(cinema: cinema)
         hostingViewController.presentViewController(cinemaProfileVC)
     }
     

@@ -10,6 +10,8 @@ import SwiftUI
 import ViewAnimator
 import CompositionalLayoutableSection
 import LocationManager
+import NetworkLayer
+import SPAlert
  
 final class HomeViewController: ICinemaViewController, CompositionalLayoutProvider {
 
@@ -27,32 +29,26 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     
     // MARK: - CompositionalLayoutProvider confirmation
     //
-    lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [
-        PosterCollectionViewSection(hostingViewController: self),
-        MoviesCollectionViewSection(hostingViewController: self),
-        CinemaCollectionViewSection(hostingViewController: self),
-        MoviesCollectionViewSection(hostingViewController: self),
-        DummyCollectionViewSection()
-    ]
+    lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [ ]
     
     private lazy var datesource: UICollectionViewDataSource? = CompositionalLayoutDataSource(self)
     private lazy var delegate: UICollectionViewDelegate? = CompositionalLayoutDelegate(self)
     
     
+    var service: NetworkLayer<HomeModel> = .init(endpoint: "home", method: .get)
     
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
-
+        
         collectionView.delegate = delegate
         collectionView.dataSource = datesource
-        
-        collectionView.updateCollectionViewCompositionalLayout(with: self)
-        self.compositionalLayoutSections.forEach { $0.delegate?.updateItems(self.collectionView) }
-        
+     
         LocationManager.shared.startUpdatingLocation()
+        
+        self.networkRequest()
         
     }
     
@@ -65,6 +61,69 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
         super.viewWillAppear(animated)
         TabBarViewModel.shared.show()
     }
+    
+    // MARK: - Network
+    
+    private func networkRequest() {
+        ActivityIndicator.shared.play()
+        service.request { response in
+            ActivityIndicator.shared.stop()
+            
+            if let value = response.value, let home = value.data{
+                self.makeHomeSlider(from: home.homeSlides)
+                self.makeCategories(from: home.categories)
+
+            }else {
+                self.handelError(response.error)
+            }
+            
+            self.compositionalLayoutSections.append(DummyCollectionViewSection())
+            self.collectionView.updateCollectionViewCompositionalLayout(with: self)
+        }
+    }
+    
+    private func makeHomeSlider(from homeSlides: [HomeSlide]) {
+        let poster = PosterCollectionViewSection(hostingViewController: self)
+        self.compositionalLayoutSections.append(poster)
+        poster.update(self.collectionView, with: homeSlides)
+    }
+    
+    private func makeCategories(from categories: [HomeCategory]) {
+        for category in categories {
+            if category.type == "movies", let movies = category.movies {
+                self.makeMoviesSection(from: movies, withTitle: category.title)
+            } else if category.type == "cinemas", let cinemas = category.cinemas {
+                self.makeCinemasSection(from: cinemas, withTitle: category.title)
+            }
+        }
+    }
+    
+    private func makeMoviesSection(from movies: [Movie], withTitle title: String) {
+        let movieSection = MoviesCollectionViewSection(hostingViewController: self, supplementaryViewTitle: title)
+        self.compositionalLayoutSections.append(movieSection)
+        movieSection.update(self.collectionView, with: movies)
+
+    }
+    
+    private func makeCinemasSection(from cinemas: [Cinema], withTitle title: String) {
+        let cinemaSection = CinemaCollectionViewSection(hostingViewController: self, supplementaryViewTitle: title)
+        self.compositionalLayoutSections.append(cinemaSection)
+        cinemaSection.update(self.collectionView, with: cinemas)
+
+    }
+    
+    /// handels error
+    private func handelError(_ error: NetworkError?) {
+        if let error = error {
+           let errorMessage = NetworkError.getErrorMessage(from: error)
+           SPAlert.showAlert(with: errorMessage)
+           
+       }else {
+           SPAlert.showUnKnownError()
+       }
+
+    }
+
     
     // MARK: - Update UI
     private func updateUI(){

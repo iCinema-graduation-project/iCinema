@@ -8,23 +8,32 @@
 import SwiftUI
 
 struct CinemaCellView: View {
+    let cinema: Cinema
+    
     @State var followed: Bool = false
+    
     var body: some View {
         VStack {
             VStack {
                 HStack {
-                    
-                    Image("cinema")
-                        .resizable()
-                        .makeCircled(size: CGFloat.home.cinemas.imageSize,
-                                     strockColor: Color(uiColor: .iCinemaYellowColor),
-                                     strockSpacing: 5)
-                        .frame(width: .home.cinemas.imageSize.width, height: .home.cinemas.imageSize.height)
+                    AsyncImage(url: URL(string: cinema.logo)) { image in
+                        image
+                            .resizable()
+                            .makeCircled(size: CGFloat.home.cinemas.imageSize,
+                                         strockColor: Color(uiColor: .iCinemaYellowColor),
+                                         strockSpacing: 5)
+
+                    } placeholder: {
+                        Color.gray
+                    }
+                    .frame(width: .home.cinemas.imageSize.width, height: .home.cinemas.imageSize.height)
                         
                 }
                 
-                Text("Galaxy Cinema")
+                Text(cinema.name)
                     .font(Font(UIFont.footnote))
+                    .lineLimit(1)
+
                 
                 // Cinema Location
                 HStack {
@@ -35,6 +44,7 @@ struct CinemaCellView: View {
                     
                     Text("Cairo / 2.3km")
                         .font(Font(UIFont.caption1))
+                        .lineLimit(1)
                 }
 
                 // Rate
@@ -45,13 +55,13 @@ struct CinemaCellView: View {
                         .foregroundColor(Color(uiColor: .iCinemaYellowColor))
                     
                     // MARK: - Rate
-                    Text("6.1/10")
+                    Text("\(cinema.averageRate)/10")
                         .font(Font(UIFont.caption1))
                         .foregroundColor(.gray)
                 }
                 
-                ICinemaButtonView(title: .unfollow, type: .small) {
-                    
+                ICinemaButtonView(title: followed ? .unfollow : .follow, type: .small) {
+                    followed.toggle()
                 }
             }
             .foregroundColor(Color(uiColor: .iCinemaTextColor))
@@ -60,12 +70,22 @@ struct CinemaCellView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(uiColor: .iCinemaSecondBackgroudColor))
+        .onAppear {
+            followed = cinema.following
+        }
 
     }
 }
 
 struct CinemaCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CinemaCellView()
+        CinemaCellView(cinema: Cinema( id:1,
+                                       logo:"http://localhost:8000/defaults/default.png",
+                                       cover:"http://localhost:8000/defaults/default.png",
+                                       name:"Elnora Koelpin",
+                                       following:false,
+                                       averageRate:0,
+                                       address:"361 Rodolfo Locks\nJanickstad, KY 69835",
+                                       distance:"36.51km"))
     }
 }

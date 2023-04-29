@@ -14,17 +14,15 @@ final class PosterCollectionViewSection: CompositionalLayoutableSection {
     //
     typealias cellType = PosterCollectionViewCell
     typealias supplementaryViewType = PosterPaginationView
-    typealias ResposeType = Poster
-
+    typealias ResposeType = HomeSlide
     
     var posterPaginationView: PosterPaginationView?
     
     var hostingViewController: ICinemaViewController
-
+    
     init(hostingViewController: ICinemaViewController) {
         self.hostingViewController = hostingViewController
         super.init()
-        
         dataSource = self
         layout = self
         delegate = self
@@ -33,8 +31,10 @@ final class PosterCollectionViewSection: CompositionalLayoutableSection {
     
     var items: [ResposeType] = [] { didSet { itemsCount = items.count } }
     var itemsCount: Int = 0
-        
+    
 }
+
+
 
 // MARK: - Data Source
 //
@@ -49,7 +49,7 @@ extension PosterCollectionViewSection: CompositionalLayoutableSectionDataSource 
                 
         let zoomAnimation = AnimationType.zoom(scale: 0.2)
         cell.animate(animations: [zoomAnimation])
-        
+        cell.homeSlide = self.items[indexPath.row]
         return cell
     }
     
@@ -64,6 +64,11 @@ extension PosterCollectionViewSection: CompositionalLayoutableSectionDataSource 
         self.posterPaginationView = posterPaginationView
         return posterPaginationView
         
+    }
+    
+    func update(_ collectionView: UICollectionView, with items: [HomeSlide]) {
+        self.items = items
+        collectionView.reloadData()
     }
 }
 
@@ -127,25 +132,6 @@ extension PosterCollectionViewSection: CompositionalLayoutableSectionDelegate {
         
     }
         
-    func updateItems(_ collectionView: UICollectionView) {
-        
-        // make a network request here
-        DispatchQueue.main.async { [ unowned self ]  in
-            
-            self.items = [
-                Poster(),
-                Poster(),
-                Poster(),
-                Poster(),
-                Poster(),
-            ]
-            
-            collectionView.reloadData()
-
-        }
-
-    }
-
 }
 
 

@@ -34,7 +34,7 @@ struct CinemaProfileHeaderView: View {
             
         }
         .onAppear {
-            followed = viewModel.cinema.followed
+//            followed = viewModel.cinema.followed
         }
     }
 }

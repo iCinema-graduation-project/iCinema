@@ -24,8 +24,9 @@ final class CinemaCollectionViewSection: CompositionalLayoutableSection {
     var itemsCount: Int = 0
     
     var hostingViewController: UIViewController?
-    init(hostingViewController: UIViewController) {
-        
+    var supplementaryViewTitle: String
+    init(hostingViewController: UIViewController, supplementaryViewTitle: String) {
+        self.supplementaryViewTitle = supplementaryViewTitle
         super.init()
         self.hostingViewController = hostingViewController
         dataSource = self
@@ -68,8 +69,8 @@ extension CinemaCollectionViewSection : CompositionalLayoutableSectionLayout {
         let section = NSCollectionLayoutSection(group: self.groupLayoutInSection())
         
         section.orthogonalScrollingBehavior = .continuous
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: .cell.padding.left, bottom: 0, trailing: 0)
-        
+        section.contentInsets = NSDirectionalEdgeInsets(top: .cell.padding.top, leading: .cell.padding.right
+                                                        , bottom: .cell.padding.bottom, trailing: .cell.padding.right)
         // MARK: - add supplementary view
         
         section.boundarySupplementaryItems = [self.supplementaryItem()]
@@ -101,7 +102,7 @@ extension CinemaCollectionViewSection: CompositionalLayoutableSectionDataSource 
         
         let fromAnimation = AnimationType.from(direction: .right, offset: 50.0)
         cell.animate(animations: [fromAnimation])
-        
+        cell.setup(with: self.items[indexPath.row])
         return cell
     }
     
@@ -109,8 +110,13 @@ extension CinemaCollectionViewSection: CompositionalLayoutableSectionDataSource 
         let supView = collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self,
                                                                       ofKind: supplementaryViewType.identifier,
                                                                       for: indexPath)
-        supView.setTitle(.cinemas)
+        supView.setTitle(self.supplementaryViewTitle)
         return supView
+    }
+    
+    func update(_ collectionView: UICollectionView, with items: [Cinema]) {
+        self.items = items
+        collectionView.reloadData()
     }
     
 }
@@ -127,16 +133,16 @@ extension CinemaCollectionViewSection: CompositionalLayoutableSectionDelegate {
         collectionView.register(supplementaryViewType.self, supplementaryViewOfKind: supplementaryViewType.identifier)
     }
     
-    func updateItems(_ collectionView: UICollectionView) {
+    func update(_ collectionView: UICollectionView) {
         // make network request here
         DispatchQueue.main.async { [ unowned self ] in
             
             self.items = [
-                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
-                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
-                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
-                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
-                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
+//                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
+//                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
+//                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
+//                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
+//                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
             ]
             collectionView.reloadData()
             
@@ -149,10 +155,10 @@ extension CinemaCollectionViewSection: CompositionalLayoutableSectionDelegate {
 
         let cinemaProfileVC = CinemaProfileViewController()
 
-        let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5,
-                                    ChairsCount: 430, followed: false)
+//        let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5,
+//                                    ChairsCount: 430, followed: false)
 
-        cinemaProfileVC.viewModel = .init(cinema: cinema)
+//        cinemaProfileVC.viewModel = .init(cinema: cinema)
         hostingViewController.presentViewController(cinemaProfileVC)
     }
     

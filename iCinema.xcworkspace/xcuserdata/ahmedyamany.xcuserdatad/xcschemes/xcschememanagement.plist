@@ -4,6 +4,27 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Playground (Playground) 1.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>Playground (Playground) 2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
+		<key>Playground (Playground).xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>Rx (Playground) 1.xcscheme</key>
 		<dict>
 			<key>isShown</key>

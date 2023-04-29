@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct Movie: Decodable {
-    let poster: String
+// MARK: - Movie
+struct Movie: Codable {
+    let id: Int
+    let image: String
+    let cover: String?
     let name: String
-    var bookmarket: Bool
+    let saved: Bool
+    let cinema: Cinema
 }

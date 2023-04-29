@@ -27,6 +27,10 @@ final class SavedCollectionViewSection: CompositionalLayoutableSection {
 // MARK: - DataSource
 //
 extension SavedCollectionViewSection: CompositionalLayoutableSectionDataSource {
+    func update(_ collectionView: UICollectionView, with items: [Movie]) {
+        
+    }
+    
     
     struct ItemsHolder {
         static var itemsHolder: [ResposeType] = []
@@ -120,19 +124,19 @@ extension SavedCollectionViewSection: CompositionalLayoutableSectionDelegate {
         collectionView.register(CellType.self)
     }
     
-    func updateItems(_ collectionView: UICollectionView) {
+    func update(_ collectionView: UICollectionView) {
         DispatchQueue.main.async { [ unowned self ] in
             self.items = [
-                Movie(poster: "", name: "Avatar", bookmarket: false),
-                Movie(poster: "", name: "spider man", bookmarket: true),
-                Movie(poster: "", name: "pat man", bookmarket: false),
-                Movie(poster: "", name: "super man", bookmarket: false),
-                Movie(poster: "", name: "pat man", bookmarket: false),
-                Movie(poster: "", name: "super man", bookmarket: false),
-                Movie(poster: "", name: "pat man", bookmarket: false),
-                Movie(poster: "", name: "super man", bookmarket: false),
-                Movie(poster: "", name: "pat man", bookmarket: false),
-                Movie(poster: "", name: "super man", bookmarket: false)
+//                Movie(poster: "", name: "Avatar", bookmarket: false),
+//                Movie(poster: "", name: "spider man", bookmarket: true),
+//                Movie(poster: "", name: "pat man", bookmarket: false),
+//                Movie(poster: "", name: "super man", bookmarket: false),
+//                Movie(poster: "", name: "pat man", bookmarket: false),
+//                Movie(poster: "", name: "super man", bookmarket: false),
+//                Movie(poster: "", name: "pat man", bookmarket: false),
+//                Movie(poster: "", name: "super man", bookmarket: false),
+//                Movie(poster: "", name: "pat man", bookmarket: false),
+//                Movie(poster: "", name: "super man", bookmarket: false)
             ]
             collectionView.reloadData()
         }

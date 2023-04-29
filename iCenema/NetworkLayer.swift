@@ -36,6 +36,7 @@ class NetworkLayer<T>: APIRequest where T: Codable {
 
         if let userToken = UserDefaults.standard.load(object: User.self, fromKey: .user)?.token{
             self.networkRequest.update(headers: ["Authorization": "Bearer \(userToken)"])
+            print(userToken)
         }
                 
         self.networkRequest.update(headers: [
