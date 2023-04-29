@@ -10,29 +10,17 @@ import SwiftUI
 struct InterstsView: View {
     @ObservedObject var viewModel: EditUserProfileViewModel
     
-    @State private var categories: Categories = .init(key: "", msg: "", data: [])
-    
     var body: some View {
-        VStack {
-            ForEach(categories.data, id: \.id) { categoriesData in
+         
+        VStack(spacing: .view.spacing) {
+            ForEach(viewModel.categories, id: \.id) { categoriesData in
                 VStack {
                     TagView(viewModel: viewModel, title: categoriesData.title, categories: Array(Set(categoriesData.children)))
-                    Spacer(minLength: .view.spacing)
+                    
                 }
             }
+            Spacer()
         }
-        .onAppear {
-//            self.viewModel.categoriesFeatcher.getCategories { result in
-//                switch result {
-//                case .success(let categories):
-//                    self.categories = categories
-//                case .failure(_):
-//                    print("")
-//                }
-//            }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-
     }
 }
 
@@ -72,11 +60,13 @@ struct TagView: View {
                 
             }
             .padding()
+            .frame(maxWidth: .infinity)
             .background(Color(uiColor: .iCinemaSecondBackgroudColor))
             .cornerRadius(.view.cornerRadius)
+            
         }
         .onAppear {
-            self.groupedItems = createGroupedItems(categories: categories)
+            self.groupedItems = Array(Set(createGroupedItems(categories: categories)))
         }
     }
     

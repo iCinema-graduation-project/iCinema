@@ -23,7 +23,7 @@ class NetworkLayer<T>: APIRequest where T: Codable {
     var cancellableSet: Set<AnyCancellable> = []
     
     init( endpoint: String, method: HTTPMethod) {
-        self.networkRequest = .init(host: "http://localhost:8000/api/v1/",
+        self.networkRequest = .init(host: "http://icinema.live/api/v1/",
                                     endpoint: endpoint, method: method)
         
         self.updateNetworkRequest()

@@ -131,8 +131,7 @@ class PhoneViewController:  ICinemaViewController {
         
         self.viewModel.service.request { response in
             ActivityIndicator.shared.stop()
-            let str = String(decoding: response.data!, as: UTF8.self)
-            print(str)
+            
             if let _ = response.value{
                 
                 self.coordinator?.push(userInfo: ["phone": self.viewModel.phoneNumber])

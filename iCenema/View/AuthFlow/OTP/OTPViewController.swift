@@ -102,7 +102,9 @@ class OTPViewController: ICinemaViewController {
     private func networkRequest() {
         ActivityIndicator.shared.play()
         
-        guard let phone = self.userInfo!["phone"] as? String else {
+        guard let phone = self.userInfo?["phone"] as? String else {
+            ActivityIndicator.shared.stop()
+            self.resetTextFields(withState: .fail)
             SPAlert.showUnKnownError()
             return
         }

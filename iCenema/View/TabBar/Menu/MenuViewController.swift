@@ -58,6 +58,8 @@ class MenuViewController: ICinemaViewController {
         menu.viewModel.$viewController.sink { viewController in
             if let viewController = viewController as? ICinemaViewController.Type {
                 self.coordinator?.push(to: viewController)
+            } else if let close = viewController as? () -> Void {
+                close()
             }
         }
         .store(in: &cancelableSet)

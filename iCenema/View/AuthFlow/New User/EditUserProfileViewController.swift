@@ -10,7 +10,7 @@ import SwiftUI
 import SPAlert
 import NetworkLayer
 import UIICinema
-
+import Kingfisher
 
 class EditUserProfileViewController: ICinemaViewController {
     
@@ -37,7 +37,7 @@ class EditUserProfileViewController: ICinemaViewController {
     
     private lazy var interstsView = InterstsView(viewModel: self.viewModel).hostigView()
     
-    private lazy var createAccountButton = ICinemaButton(title: .saveEdits, action: self.createAccountButtonTapped)
+    private lazy var createAccountButton = ICinemaButton(title: .saveEdits, action: self.saveEditsButtonTapped)
     
     // MARK: - Properties
     var viewModel = EditUserProfileViewModel()
@@ -54,11 +54,13 @@ class EditUserProfileViewController: ICinemaViewController {
         self.updateUI()
         self.genderView.delegate = self
         self.avatarView.delegate = self
+        self.bindPublishers()
+        self.fetchProfile()
+        self.fetchCategories()
         
-        self.viewModel.$fullName.sink { self.fullNameTextField.text = $0 }.store(in: &viewModel.service.cancellableSet)
-        self.viewModel.$age.sink { self.ageTextField.text = String($0) }.store(in: &viewModel.service.cancellableSet)
-        self.viewModel.$gender.sink { self.genderView.gender = $0 }.store(in: &viewModel.service.cancellableSet)
-
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.endEditing))
+        scrollView.addGestureRecognizer(gesture)
+    
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -86,7 +88,7 @@ class EditUserProfileViewController: ICinemaViewController {
         scrollView.fillSuperviewConstraints()
         scrollView.isScrollEnabled = true
         scrollView.contentSize = CGSize(width: CGFloat.screenBounds.width,
-                                        height: CGFloat.screenBounds.height + 900)        
+                                        height: CGFloat.screenBounds.height + 500)        
     }
 
     private func updateAvatarView() {
@@ -114,13 +116,14 @@ class EditUserProfileViewController: ICinemaViewController {
         StackView.addArrangedSubview(ageTextField)
         StackView.addArrangedSubview(genderView.view)
         StackView.addArrangedSubview(interstsView)
-        interstsView.heightConstraints(1000)
         StackView.arrangedSubviews[1...].forEach {$0.widthConstraints(.view.width)}
     
         genderView.updateGenders()
+    
     }
     
     private func updateInterstsView() {
+        interstsView.heightConstraints(800)
         interstsView.backgroundColor = .clear
     }
     
@@ -129,40 +132,59 @@ class EditUserProfileViewController: ICinemaViewController {
         createAccountButton.addToitsSuperView()
     }
     
+    // MARK: - Helpers
+    
+    private func bindPublishers() {
+        self.viewModel.$fullName.sink { self.fullNameTextField.text = $0 }.store(in: &viewModel.service.cancellableSet)
+        self.viewModel.$age.sink { self.ageTextField.text = $0 > 0 ? String($0) : "" }.store(in: &viewModel.service.cancellableSet)
+        self.viewModel.$gender.sink { self.genderView.gender = $0 }.store(in: &viewModel.service.cancellableSet)
+        self.viewModel.$profile.sink { profile in
+            guard let imageURl = profile?.user?.image else { return }
+            self.avatarView.avatar.kf.setImage(with: URL(string: imageURl))
+        }
+        .store(in: &viewModel.service.cancellableSet)
+    }
+    
     // MARK: - Actions
-    func createAccountButtonTapped() {
-        
+    func saveEditsButtonTapped() {
+        if self.isReadyToUpdateProfile() {
+            self.viewModel.service.request { response in
+                if let value = response.value {
+                    print(value)
+                    SPAlertView.init(title: value.msg, preset: .done).present()
+                    self.coordinator?.push()
+                } else {
+                    self.handelError(response.error)
+                }
+            }
+        }
+    }
+    
+    private func isReadyToUpdateProfile() -> Bool {
         if self.viewModel.fullName.count < 3 {
             
             self.fullNameTextField.setState(.fail, with: "", for: .editing)
             self.fullNameTextField.becomeFirstResponder()
+            return false
             
         } else if self.viewModel.age < 10 {
             
             self.ageTextField.setState(.fail, with: "", for: .editing)
             self.ageTextField.becomeFirstResponder()
+            return false
             
         } else if self.viewModel.gender == .none {
             
             self.genderView.view.setState(.fail, for: .disabled)
             self.genderView.view.becomeFirstResponder()
+            return false
             
         } else if self.viewModel.selectedCategories.count == 0 {
             
             SPAlertView(message: "select Genre before contenu").present()
-            
-        } else {
-            self.viewModel.updateProfile { result in
-                switch result {
-                case .success(let success):
-                    print(success)
-                    self.coordinator?.push()
-                case .failure(let failure):
-                    print(NetworkError.getErrorMessage(from: failure))
-                }
-            }
+            return false
         }
-        
+        return true
     }
     
     @objc private func fullNameTFEditingChanged() {
@@ -172,6 +194,66 @@ class EditUserProfileViewController: ICinemaViewController {
     @objc private func ageTFEditingChanged() {
         self.viewModel.age = Int(ageTextField.text ?? "") ?? 0
     }
+        
+        
+    // MARK: - Fetche Servecies
+    /// Method That Fetches The Categories
+    private func fetchCategories() {
+        let indicator = ActivityIndicator()
+        indicator.play()
+        
+        self.viewModel.categoriesFeatcher.request { response in
+            indicator.stop()
+            
+            if let value = response.value {
+                
+                self.viewModel.categories = value.data
+                
+            } else {
+                self.handelError(response.error)
+            }
+        }
+        
+    }
+    
+    /// Method That Fetches The user's Profile
+    private func fetchProfile() {
+        let indicator = ActivityIndicator()
+        indicator.play()
+        
+        self.viewModel.profileFeatcher.request { response in
+            indicator.stop()
+            if let profile = response.value {
+                self.updatePublishers(with: profile)
+                
+            } else {
+                self.handelError(response.error)
+            }
+        }
+    }
+    
+    /// update publishers with profile data when network request fineshes without errors
+    private func updatePublishers(with profile: Profile) {
+        self.viewModel.profile = profile
+        self.viewModel.fullName = profile.user?.name ?? ""
+        self.viewModel.age = profile.user?.age ?? 0
+        self.viewModel.gender = Gender(rawValue: profile.user?.gender ?? "") ?? .none
+        self.viewModel.selectedCategories = profile.user?.categories ?? []
+    }
+    
+    /// handels error
+    private func handelError(_ error: NetworkError?) {
+        if let error = error {
+           let errorMessage = NetworkError.getErrorMessage(from: error)
+           SPAlert.showAlert(with: errorMessage)
+           
+       }else {
+           SPAlert.showUnKnownError()
+       }
+
+    }
+
+
         
 }
 

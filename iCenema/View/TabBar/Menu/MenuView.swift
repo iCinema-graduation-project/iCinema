@@ -35,7 +35,9 @@ struct MenuView: View {
             MenuCell(imageSystemName: "mail", text: .menu.contactUs, viewController: FollowingViewController.self),
             MenuCell(imageSystemName: "person.3", text: .menu.aboutUs, viewController: FollowingViewController.self),
             MenuCell(imageSystemName: "star", text: .menu.rateUs, viewController: FollowingViewController.self),
-            MenuCell(imageSystemName: "iphone.and.arrow.forward", text: .menu.logout, viewController: FollowingViewController.self)
+            MenuCell(imageSystemName: "iphone.and.arrow.forward", text: .menu.logout, viewController: {
+                UserDefaults.standard.reset()
+            })
         ])
     ]
     

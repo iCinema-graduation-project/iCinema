@@ -159,7 +159,6 @@
 		73BB55FF29E9A29000F34A62 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB55FE29E9A29000F34A62 /* CountryPickerView */; };
 		73BB560229E9A2AB00F34A62 /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB560129E9A2AB00F34A62 /* SwiftUITrackableScrollView */; };
 		73BB560829E9A2D700F34A62 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB560729E9A2D700F34A62 /* Lottie */; };
-		73BB560B29E9A35100F34A62 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB560A29E9A35100F34A62 /* UserProfileViewController.swift */; };
 		73BBF3CB29969DFC00920F53 /* EditUserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBF3CA29969DFC00920F53 /* EditUserProfileViewModel.swift */; };
 		73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFEFA12989EFA600969452 /* OTPViewController.swift */; };
 		73C0A2B229FABE02008065BA /* LocationManager in Frameworks */ = {isa = PBXBuildFile; productRef = 73C0A2B129FABE02008065BA /* LocationManager */; };
@@ -168,6 +167,7 @@
 		73C9D73D29D09EE300B84564 /* CinemaDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */; };
 		73CD5C6129CFA5B6008078A5 /* CinemaChairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD5C6029CFA5B6008078A5 /* CinemaChairsViewController.swift */; };
 		73CD5C6329CFA5EA008078A5 /* CinemaChairsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD5C6229CFA5EA008078A5 /* CinemaChairsView.swift */; };
+		73D3C38A29FC764D00CE5256 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 73D3C38929FC764D00CE5256 /* Kingfisher */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
 		73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918D29834531002F3568 /* SceneDelegate.swift */; };
 		73EC919529834533002F3568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919429834533002F3568 /* Assets.xcassets */; };
@@ -371,7 +371,6 @@
 		73BB177E29E062340062155C /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		73BB19F029BF7D1C00C3A373 /* +customObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+customObject.swift"; sourceTree = "<group>"; };
 		73BB19F229BF7D9B00C3A373 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		73BB560A29E9A35100F34A62 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		73BBF3CA29969DFC00920F53 /* EditUserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileViewModel.swift; sourceTree = "<group>"; };
 		73BFEFA12989EFA600969452 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		73C0A2B029FABDE1008065BA /* LocationManager */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LocationManager; path = Packages/LocationManager; sourceTree = "<group>"; };
@@ -431,6 +430,7 @@
 			files = (
 				73B21A2629FA7CB00087019D /* NetworkLayer in Frameworks */,
 				73215FB529F409F200C62B7E /* SPAlert in Frameworks */,
+				73D3C38A29FC764D00CE5256 /* Kingfisher in Frameworks */,
 				73BB560829E9A2D700F34A62 /* Lottie in Frameworks */,
 				7308841129EBB42A0090D621 /* SPConfetti in Frameworks */,
 				73BB560229E9A2AB00F34A62 /* SwiftUITrackableScrollView in Frameworks */,
@@ -804,7 +804,6 @@
 				739ADAAC29B8FAF900FFA78E /* Cinema Post */,
 				733DAA2329B3A07300741211 /* Cinema Profile */,
 				732959BF29B822C500E2DF9B /* Movie Profile */,
-				73BB560929E9A33400F34A62 /* UserProfile */,
 			);
 			path = Scence;
 			sourceTree = "<group>";
@@ -1079,14 +1078,6 @@
 				73BB19F029BF7D1C00C3A373 /* +customObject.swift */,
 			);
 			path = UserDefaults;
-			sourceTree = "<group>";
-		};
-		73BB560929E9A33400F34A62 /* UserProfile */ = {
-			isa = PBXGroup;
-			children = (
-				73BB560A29E9A35100F34A62 /* UserProfileViewController.swift */,
-			);
-			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		73C0A2B529FAD2BD008065BA /* UIICinema */ = {
@@ -1372,6 +1363,7 @@
 				73C0A2B129FABE02008065BA /* LocationManager */,
 				73F29D8E29FAD65100B9B52E /* UIICinema */,
 				73F29D9D29FAED3200B9B52E /* FilesManager */,
+				73D3C38929FC764D00CE5256 /* Kingfisher */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -1455,6 +1447,7 @@
 				73BB560629E9A2D700F34A62 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				7308840F29EBB42A0090D621 /* XCRemoteSwiftPackageReference "SPConfetti" */,
 				73215FB329F409F200C62B7E /* XCRemoteSwiftPackageReference "SPAlert" */,
+				73D3C38829FC764D00CE5256 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 73EC918929834531002F3568 /* Products */;
 			projectDirPath = "";
@@ -1717,7 +1710,6 @@
 				7365DEF729EA9EA000E7AC35 /* LanguageViewController.swift in Sources */,
 				73B404EE29D092240044F58D /* CinemaDateViewController.swift in Sources */,
 				738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */,
-				73BB560B29E9A35100F34A62 /* UserProfileViewController.swift in Sources */,
 				733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */,
 				731FBF6D29B0BF7E00798DF5 /* UIView+Anchor.swift in Sources */,
 				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,
@@ -2176,6 +2168,14 @@
 				kind = branch;
 			};
 		};
+		73D3C38829FC764D00CE5256 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2223,6 +2223,11 @@
 		73C0A2B129FABE02008065BA /* LocationManager */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LocationManager;
+		};
+		73D3C38929FC764D00CE5256 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73D3C38829FC764D00CE5256 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		73F29D8E29FAD65100B9B52E /* UIICinema */ = {
 			isa = XCSwiftPackageProductDependency;
