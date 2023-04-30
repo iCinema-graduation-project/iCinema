@@ -6,11 +6,10 @@
 //
 
 import UIKit
+import MakeConstraints
 
 class TicketViewController: ICinemaViewController {
 
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         TabBarViewModel.shared.show()

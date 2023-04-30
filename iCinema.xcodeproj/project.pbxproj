@@ -86,7 +86,8 @@
 		734C8A4729BAACC7008B28B5 /* OTPViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */; };
 		7353D38F29C9F2FF00BB8272 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7353D38E29C9F2FF00BB8272 /* StepperView.swift */; };
 		73550A8329F9A5E9007085F6 /* ProfileFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73550A8229F9A5E9007085F6 /* ProfileFetcher.swift */; };
-		73550A8529F9A737007085F6 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73550A8429F9A737007085F6 /* Profile.swift */; };
+		73550A8529F9A737007085F6 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73550A8429F9A737007085F6 /* ProfileModel.swift */; };
+		7356E8E229FE7CB200A72D7E /* CinemaProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356E8E129FE7CB200A72D7E /* CinemaProfileModel.swift */; };
 		735C13E929F7E86A00C4654E /* CancellableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C13E829F7E86A00C4654E /* CancellableViewModel.swift */; };
 		735C13F129F83BC400C4654E /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C13F029F83BC400C4654E /* Categories.swift */; };
 		735C13F429F83F2F00C4654E /* CategoriesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C13F329F83F2F00C4654E /* CategoriesFetcher.swift */; };
@@ -116,7 +117,6 @@
 		738B51BD29E5947C009A20A5 /* MovieProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B51BC29E5947C009A20A5 /* MovieProfileViewModel.swift */; };
 		738DB6B029E30D1300CB05C9 /* FollowingCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DB6AF29E30D1300CB05C9 /* FollowingCollectionViewSection.swift */; };
 		738DB6B229E316A900CB05C9 /* CinemaCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DB6B129E316A900CB05C9 /* CinemaCellView.swift */; };
-		738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2B29AE325000CDEE88 /* Poster.swift */; };
 		738EEF2E29AE330A00CDEE88 /* Cinema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2D29AE330A00CDEE88 /* Cinema.swift */; };
 		738EEF3029AE66E100CDEE88 /* PosterPaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EEF2F29AE66E100CDEE88 /* PosterPaginationView.swift */; };
 		738F24C829FA89A9007B7A2D /* MakeConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 738F24C729FA89A9007B7A2D /* MakeConstraints */; };
@@ -304,7 +304,8 @@
 		734C8A4629BAACC7008B28B5 /* OTPViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModelTests.swift; sourceTree = "<group>"; };
 		7353D38E29C9F2FF00BB8272 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		73550A8229F9A5E9007085F6 /* ProfileFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFetcher.swift; sourceTree = "<group>"; };
-		73550A8429F9A737007085F6 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		73550A8429F9A737007085F6 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		7356E8E129FE7CB200A72D7E /* CinemaProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileModel.swift; sourceTree = "<group>"; };
 		735C13E829F7E86A00C4654E /* CancellableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableViewModel.swift; sourceTree = "<group>"; };
 		735C13F029F83BC400C4654E /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		735C13F329F83F2F00C4654E /* CategoriesFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesFetcher.swift; sourceTree = "<group>"; };
@@ -333,7 +334,6 @@
 		738B51BC29E5947C009A20A5 /* MovieProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProfileViewModel.swift; sourceTree = "<group>"; };
 		738DB6AF29E30D1300CB05C9 /* FollowingCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingCollectionViewSection.swift; sourceTree = "<group>"; };
 		738DB6B129E316A900CB05C9 /* CinemaCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaCellView.swift; sourceTree = "<group>"; };
-		738EEF2B29AE325000CDEE88 /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
 		738EEF2D29AE330A00CDEE88 /* Cinema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinema.swift; sourceTree = "<group>"; };
 		738EEF2F29AE66E100CDEE88 /* PosterPaginationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterPaginationView.swift; sourceTree = "<group>"; };
 		739864C429AFFCD3008420F6 /* CinemasSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemasSection.swift; sourceTree = "<group>"; };
@@ -824,6 +824,7 @@
 				733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */,
 				73AAAF4429B4FA1500ECCA57 /* CinemaProfileView.swift */,
 				734A819329D33E4C00949EB4 /* CinemaProfileViewModel.swift */,
+				7356E8E129FE7CB200A72D7E /* CinemaProfileModel.swift */,
 			);
 			path = "Cinema Profile";
 			sourceTree = "<group>";
@@ -845,7 +846,7 @@
 			isa = PBXGroup;
 			children = (
 				735C13F029F83BC400C4654E /* Categories.swift */,
-				73550A8429F9A737007085F6 /* Profile.swift */,
+				73550A8429F9A737007085F6 /* ProfileModel.swift */,
 				7384A19529FD782A007235D0 /* SaveMovieModel.swift */,
 			);
 			path = Settings;
@@ -1243,7 +1244,6 @@
 				735C13EF29F83BB600C4654E /* Settings */,
 				73F0C37629AD813D00F95B01 /* Movie.swift */,
 				73BB19F229BF7D9B00C3A373 /* User.swift */,
-				738EEF2B29AE325000CDEE88 /* Poster.swift */,
 				738EEF2D29AE330A00CDEE88 /* Cinema.swift */,
 				7365DEFB29EAA97C00E7AC35 /* Ticket.swift */,
 			);
@@ -1635,6 +1635,7 @@
 				738EEF3029AE66E100CDEE88 /* PosterPaginationView.swift in Sources */,
 				734A819229D33C9B00949EB4 /* ProfileView.swift in Sources */,
 				73F04FBD2999333F00F543EE /* OTPString.swift in Sources */,
+				7356E8E229FE7CB200A72D7E /* CinemaProfileModel.swift in Sources */,
 				7311C3172991BA3000C0610F /* AppCoordinator.swift in Sources */,
 				739FAA4329ED669100BAC9ED /* ActivityKeyBoardField.swift in Sources */,
 				739FAA4629ED676D00BAC9ED /* CreditCardView.swift in Sources */,
@@ -1679,7 +1680,7 @@
 				73F7935729A7C612007252BE /* AppTabBarView.swift in Sources */,
 				733DAA2529B3A0CA00741211 /* CinemaProfileViewController.swift in Sources */,
 				731FBF5D29B0BF7E00798DF5 /* IGResult.swift in Sources */,
-				73550A8529F9A737007085F6 /* Profile.swift in Sources */,
+				73550A8529F9A737007085F6 /* ProfileModel.swift in Sources */,
 				739864C729AFFCDE008420F6 /* CinemaCell.swift in Sources */,
 				731FBF8229B0C2CB00798DF5 /* IGHomeView.swift in Sources */,
 				738DB6B029E30D1300CB05C9 /* FollowingCollectionViewSection.swift in Sources */,
@@ -1731,7 +1732,6 @@
 				731FBF5029B0BF7E00798DF5 /* IGStoryPreviewModel.swift in Sources */,
 				7365DEF729EA9EA000E7AC35 /* LanguageViewController.swift in Sources */,
 				73B404EE29D092240044F58D /* CinemaDateViewController.swift in Sources */,
-				738EEF2C29AE325000CDEE88 /* Poster.swift in Sources */,
 				733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */,
 				731FBF6D29B0BF7E00798DF5 /* UIView+Anchor.swift in Sources */,
 				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,

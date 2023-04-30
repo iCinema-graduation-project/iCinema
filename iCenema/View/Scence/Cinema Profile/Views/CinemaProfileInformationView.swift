@@ -14,26 +14,26 @@ struct CinemaProfileInformationView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             VStack {
                 Divider()
-                HStack(alignment: .center, spacing: 10) {
-                    // Rate
-                    RateCinameInformationView(cinema: viewModel.cinema)
-                    Divider().frame(height: .cinemaProfile.cinemaInformationViewDividerHeight)
-                    
-                    // Follow Count
-//                    CinemaInformationView(caption2: .cinemaProfile.followers,
-//                                          title: "\(viewModel.cinema.followersCount)",
-//                                          caption: .cinemaProfile.count)
-                    // Location
-                    CinemaInformationView(caption2: .cinemaProfile.location,
-                                          title: "Cairo",
-                                          caption: "Egypt")
-                    // Size
-//                    CinemaInformationView(caption2: .cinemaProfile.size,
-//                                          title: "\(viewModel.cinema.ChairsCount)",
-//                                          caption: .cinemaProfile.chairs, hasLeftDivider: false)
-                }
-                .frame(height: .cinemaProfile.imageSize.height)
-                Divider()
+//                HStack(alignment: .center, spacing: 10) {
+//                    // Rate
+//                    RateCinameInformationView(cinema: viewModel.cinema)
+//                    Divider().frame(height: .cinemaProfile.cinemaInformationViewDividerHeight)
+//                    
+//                    // Follow Count
+////                    CinemaInformationView(caption2: .cinemaProfile.followers,
+////                                          title: "\(viewModel.cinema.followersCount)",
+////                                          caption: .cinemaProfile.count)
+//                    // Location
+//                    CinemaInformationView(caption2: .cinemaProfile.location,
+//                                          title: "Cairo",
+//                                          caption: "Egypt")
+//                    // Size
+////                    CinemaInformationView(caption2: .cinemaProfile.size,
+////                                          title: "\(viewModel.cinema.ChairsCount)",
+////                                          caption: .cinemaProfile.chairs, hasLeftDivider: false)
+//                }
+//                .frame(height: .cinemaProfile.imageSize.height)
+//                Divider()
             }
             .padding(.horizontal)
         }

@@ -25,7 +25,7 @@ class CinemaCell: UICollectionViewCell, IdentifiableView {
         super.init(coder: coder)
     }
     
-    public func setup(with cinema: Cinema) {
+    public func inject(with cinema: Cinema) {
         let cinemaCellView = CinemaCellView(cinema: cinema).hostigView()
         contentView.addSubview(cinemaCellView)
         cinemaCellView.fillSuperviewConstraints()

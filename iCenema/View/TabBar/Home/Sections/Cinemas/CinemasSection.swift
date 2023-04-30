@@ -102,7 +102,7 @@ extension CinemaCollectionViewSection: CompositionalLayoutableSectionDataSource 
         
         let fromAnimation = AnimationType.from(direction: .right, offset: 50.0)
         cell.animate(animations: [fromAnimation])
-        cell.setup(with: self.items[indexPath.row])
+        cell.inject(with: self.items[indexPath.row])
         return cell
     }
     
@@ -133,33 +133,16 @@ extension CinemaCollectionViewSection: CompositionalLayoutableSectionDelegate {
         collectionView.register(supplementaryViewType.self, supplementaryViewOfKind: supplementaryViewType.identifier)
     }
     
-    func update(_ collectionView: UICollectionView) {
-        // make network request here
-        DispatchQueue.main.async { [ unowned self ] in
-            
-            self.items = [
-//                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
-//                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
-//                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
-//                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
-//                Cinema(name: "Galaxy", followersCount: 12, rate: 3.5, ChairsCount: 200, followed: false),
-            ]
-            collectionView.reloadData()
-            
-        }
-        
-    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let hostingViewController = hostingViewController as? ICinemaViewController else { return }
 
         let cinemaProfileVC = CinemaProfileViewController()
-
-//        let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5,
-//                                    ChairsCount: 430, followed: false)
-
-//        cinemaProfileVC.viewModel = .init(cinema: cinema)
+        let cinema = self.items[indexPath.row]
+//        cinemaProfileVC.viewModel = .init(cinemaId: cinema.id)
+        cinemaProfileVC.inject(with: cinema.id)
         hostingViewController.presentViewController(cinemaProfileVC)
+        
     }
     
 }

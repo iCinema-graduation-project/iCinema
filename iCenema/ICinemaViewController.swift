@@ -7,6 +7,8 @@
 
 import UIKit
 import Coordinator
+import NetworkLayer
+import SPAlert
 
 class ICinemaViewController: CoordinatorViewController {
     
@@ -59,6 +61,18 @@ class ICinemaViewController: CoordinatorViewController {
        }
         nextTextField.isEnabled = true
        nextTextField.becomeFirstResponder()
+    }
+    
+    /// handels error
+    public func handelError(_ error: NetworkError?) {
+        if let error = error {
+           let errorMessage = NetworkError.getErrorMessage(from: error)
+           SPAlert.showAlert(with: errorMessage)
+           
+       }else {
+           SPAlert.showUnKnownError()
+       }
+
     }
 
 }

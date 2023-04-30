@@ -26,7 +26,7 @@ class MovieCell: UICollectionViewCell, IdentifiableView {
     }
     
     
-    public func setup(with movie: Movie) {
+    public func inject(with movie: Movie) {
         
         let movieCellView = MovieCellView(movie: movie).hostigView()
         contentView.addSubview(movieCellView)

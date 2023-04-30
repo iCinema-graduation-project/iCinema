@@ -11,6 +11,7 @@ import SPAlert
 import NetworkLayer
 import UIICinema
 import Kingfisher
+import Alamofire
 
 class EditUserProfileViewController: ICinemaViewController {
     
@@ -139,7 +140,7 @@ class EditUserProfileViewController: ICinemaViewController {
         self.viewModel.$age.sink { self.ageTextField.text = $0 > 0 ? String($0) : "" }.store(in: &viewModel.service.cancellableSet)
         self.viewModel.$gender.sink { self.genderView.gender = $0 }.store(in: &viewModel.service.cancellableSet)
         self.viewModel.$profile.sink { profile in
-            guard let imageURl = profile?.user?.image else { return }
+            guard let imageURl = profile?.user.image else { return }
             self.avatarView.avatar.kf.setImage(with: URL(string: imageURl))
         }
         .store(in: &viewModel.service.cancellableSet)
@@ -148,17 +149,24 @@ class EditUserProfileViewController: ICinemaViewController {
     // MARK: - Actions
     func saveEditsButtonTapped() {
         if self.isReadyToUpdateProfile() {
-            self.viewModel.service.request { response in
-                let str = String(decoding: response.data!, as: UTF8.self)
-                print(str)
-                if let value = response.value {
-                    print(value)
-                    SPAlertView.init(title: value.msg, preset: .done).present()
-                    self.coordinator?.push()
-                } else {
-                    self.handelError(response.error)
-                }
-            }
+        
+            guard let imageDate = self.avatarView.avatar.image?.jpegData(compressionQuality: 0.5) else { return }
+            let indicator = ActivityIndicator.shared
+            indicator.play()
+            self.viewModel.service.request(multiPart: ["image": .init(type: .image, extention: "png", data: imageDate)])
+                .sink { response in
+                    let str = String(decoding: response.data!, as: UTF8.self)
+                    print(str)
+                    indicator.stop()
+                    if let value = response.value {
+                        SPAlertView.init(title: value.msg, preset: .done).present()
+                        self.coordinator?.push()
+                    } else {
+                        
+                        self.handelError(response.error)
+                    }
+                }.store(in: &self.viewModel.service.cancellableSet)
+            
         }
     }
     
@@ -235,28 +243,14 @@ class EditUserProfileViewController: ICinemaViewController {
     }
     
     /// update publishers with profile data when network request fineshes without errors
-    private func updatePublishers(with profile: Profile) {
+    private func updatePublishers(with profile: ProfileModel) {
         self.viewModel.profile = profile
-        self.viewModel.fullName = profile.user?.name ?? ""
-        self.viewModel.age = profile.user?.age ?? 0
-        self.viewModel.gender = Gender(rawValue: profile.user?.gender ?? "") ?? .none
-        self.viewModel.selectedCategories = profile.user?.categories ?? []
+        self.viewModel.fullName = profile.user.name ?? ""
+        self.viewModel.age = profile.user.age ?? 0
+        self.viewModel.gender = Gender(rawValue: profile.user.gender ?? "") ?? .none
+        self.viewModel.selectedCategories = profile.user.categories ?? []
     }
     
-    /// handels error
-    private func handelError(_ error: NetworkError?) {
-        if let error = error {
-           let errorMessage = NetworkError.getErrorMessage(from: error)
-           SPAlert.showAlert(with: errorMessage)
-           
-       }else {
-           SPAlert.showUnKnownError()
-       }
-
-    }
-
-
-        
 }
 
 // MARK: - GenderViewDelegate

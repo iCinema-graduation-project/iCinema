@@ -50,7 +50,7 @@ extension MoviesCollectionViewSection: CompositionalLayoutableSectionDataSource 
         
         let fromAnimation = AnimationType.from(direction: .right, offset: 50.0)
         cell.animate(animations: [fromAnimation])
-        cell.setup(with: self.items[indexPath.row])
+        cell.inject(with: self.items[indexPath.row])
         return cell
     }
     

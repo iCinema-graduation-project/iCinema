@@ -112,17 +112,6 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
 
     }
     
-    /// handels error
-    private func handelError(_ error: NetworkError?) {
-        if let error = error {
-           let errorMessage = NetworkError.getErrorMessage(from: error)
-           SPAlert.showAlert(with: errorMessage)
-           
-       }else {
-           SPAlert.showUnKnownError()
-       }
-
-    }
 
     
     // MARK: - Update UI

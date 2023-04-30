@@ -8,16 +8,15 @@
 import SwiftUI
 
 class CinemaProfileViewModel: ProfileViewDelegate {
+    var dismissAction: (() -> Void) = { }
     
-    var cinema: Cinema
-
-    var dismissAction: (() -> Void) = { } 
     @Published var bookNow: ((_ movie: Movie) -> Void) = { _ in }
     @Published var showMore: ((_ movie: Movie) -> Void) = { _ in }
     
-    init(cinema: Cinema) {
-        self.cinema = cinema
-    }
+    @Published var cinema: Cinema? = nil
+
+  
+    @Published var text = "ahmed"
     
     
     public func followButtonTapped() {

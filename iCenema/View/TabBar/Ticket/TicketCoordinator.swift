@@ -13,7 +13,6 @@ final class TicketCoordinator: Coordinator {
     override init() {
         super.init()
         setViewControllers([TicketViewController.self])
-        push()
     }
 
 }

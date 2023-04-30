@@ -13,24 +13,28 @@ struct CinemaProfileView: View {
     @EnvironmentObject var viewModel: CinemaProfileViewModel
 
     var body: some View {
-        ProfileView(profileViewDelegate: viewModel,image: Image("cinema")) {
+        ProfileView(profileViewDelegate: viewModel, image: Image("cinema")) {
             
             VStack(spacing: .view.spacing) {
-                CinemaProfileHeaderView()
-                    .environmentObject(viewModel)
-                
-                CinemaProfileInformationView()
-                    .environmentObject(viewModel)
-
-                CinemaProfileSliderView()
-                    .environmentObject(viewModel)
-
-                CinemaProfilePickerView()
-                    .environmentObject(viewModel)
-                HStack { }
-                .frame(height: .supplementaryHeight)
+                Text(viewModel.text)
+//                CinemaProfileHeaderView()
+//                    .environmentObject(viewModel)
+//
+//                CinemaProfileInformationView()
+//                    .environmentObject(viewModel)
+//
+//                CinemaProfileSliderView()
+//                    .environmentObject(viewModel)
+//
+//                CinemaProfilePickerView()
+//                    .environmentObject(viewModel)
+//                HStack { }
+//                .frame(height: .supplementaryHeight)
                 
             }
+            
+        }
+        .onAppear {
             
         }
         

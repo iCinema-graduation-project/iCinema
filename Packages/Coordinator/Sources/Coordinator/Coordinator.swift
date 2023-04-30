@@ -80,7 +80,6 @@ open class Coordinator: NSObject {
     /// Method to set the viewControllers array
     public func setViewControllers(_ viewControllers: [CoordinatorViewController.Type]) {
         self.viewControllers = viewControllers
-        // Reset the current index to -1
         self.push()
     }
     

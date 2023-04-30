@@ -14,47 +14,69 @@ import LocationManager
 
 class CinemaProfileViewController: ICinemaViewController {
     
-    var viewModel: CinemaProfileViewModel?
-    
-    var cancellableSet: Set<AnyCancellable> = []
-    
-    let manager = LocationManager()
+    var viewModel: CinemaProfileViewModel = .init()
 
-        
+    var service: NetworkLayer<CinemaProfileModel> = .init(endpoint: "cinemas/details", method: .get)
+
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        guard let viewModel = viewModel else { return }
+        self.updateUI()
+        self.updateDismissAction()
         
-        coordinationType = .segue
-        
-        let cinemaProfileView = CinemaProfileView()
-            .environmentObject(viewModel)
-            .hostigView()
-            
-        
-        self.view.addSubview(cinemaProfileView)
-        cinemaProfileView.fillSuperviewConstraints()
-        
-        viewModel.dismissAction = {
-                self.dismiss()
-        }
-        
-        
+        /*
         viewModel.showMore = { movie in
             let movieVC = MovieProfileViewController()
             movieVC.viewModel = .init(movie: movie)
             self.presentViewController(movieVC)
         }
-        
-        
+
+
         viewModel.bookNow = { movie in
             Booking.shared.startBooking(movie)
         }
-        
-        
+        */
+    }
+    
+    // MARK: - Update UI
+    private func updateUI() {
+        let cinemaProfileView = CinemaProfileView()
+            .environmentObject(self.viewModel)
+            .hostigView()
+
+        self.view.addSubview(cinemaProfileView)
+        cinemaProfileView.fillSuperviewConstraints()
+
+    }
+    
+    // MARK: - 
+    public func inject(with cinemaID: Int) {
+        self.service.networkRequest.update(parameters: ["id": cinemaID])
+        self.makeNetworkRequest()
+    }
+    
+    private func makeNetworkRequest() {
+        print(self.service.networkRequest.parameters)
+        self.service.request { response in
+            if let _ = response.value {
+                
+                
+            } else {
+                self.handelError(response.error)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.dismiss()
+                }
+            }
+        }
+
+    }
+    
+    
+    private func updateDismissAction() {
+        self.viewModel.dismissAction = {
+                self.dismiss()
+        }
     }
     
 }

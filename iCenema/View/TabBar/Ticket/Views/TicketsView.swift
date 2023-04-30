@@ -14,11 +14,6 @@ struct TicketsView: View {
     Ticket(image: "posterImage2"),
     Ticket(image: "posterImage3"),
     Ticket(image: "posterImage"),
-//    Ticket(image: "posterImage2"),
-//    Ticket(image: "posterImage3"),
-//    Ticket(image: "posterImage"),
-//    Ticket(image: "posterImage2"),
-//    Ticket(image: "posterImage3")
         ]
     
     @State private var showAlert: Bool = false

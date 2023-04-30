@@ -17,7 +17,6 @@ struct TicketView: View {
     @State private var qrShadowRadius: CGFloat = 1
     
     var body: some View {
-//        ICinemaView {
             
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0.0) {

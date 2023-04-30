@@ -145,13 +145,11 @@ class OTPViewController: ICinemaViewController {
 
     }
     
-    private func handelError(_ error: NetworkError) {
-        let errorMessage = NetworkError.getErrorMessage(from: error)
-        print(error)
+    override func handelError(_ error: NetworkError?) {
+        super.handelError(error)
         self.resetTextFields(withState: .fail)
-        SPAlert.showAlert(with: errorMessage)
-    }
-  
+
+    }  
     
     private func resetTextFields(withState state: TextFieldState) {
         for field in self.verificationCodeTextFields {

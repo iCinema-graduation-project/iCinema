@@ -28,7 +28,6 @@ struct ProfileView<Content: View>: View {
                                 
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(uiColor: .iCinemaBackgroundColor))
-            
             .onChange(of: scrollViewContentOffset, perform: { value in
 
                 if scrollViewContentOffset > CGFloat.cinemaProfile.imageSize.height {

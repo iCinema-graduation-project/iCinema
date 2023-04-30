@@ -8,7 +8,7 @@
 import Foundation
 import NetworkLayer
 
-class ProfileFetcher: NetworkLayer<Profile> {
+class ProfileFetcher: NetworkLayer<ProfileModel> {
 
     init() {
         super.init(endpoint: "profile", method: .get)
