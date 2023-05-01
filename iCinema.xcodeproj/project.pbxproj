@@ -33,6 +33,8 @@
 		731976CC29FFDF7800514103 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731976CB29FFDF7800514103 /* Booking.swift */; };
 		731976CF29FFE92E00514103 /* MovieProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731976CE29FFE92E00514103 /* MovieProfileModel.swift */; };
 		731976D12A001D5A00514103 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731976D02A001D5A00514103 /* PlayerView.swift */; };
+		731976D32A00316600514103 /* FollowingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731976D22A00316600514103 /* FollowingViewModel.swift */; };
+		731976D52A0031E400514103 /* FollowingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731976D42A0031E400514103 /* FollowingModel.swift */; };
 		731FBF4E29B0BF7E00798DF5 /* IGMockLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF1929B0BF7E00798DF5 /* IGMockLoader.swift */; };
 		731FBF4F29B0BF7E00798DF5 /* IGStoryPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF1B29B0BF7E00798DF5 /* IGStoryPreviewCell.swift */; };
 		731FBF5029B0BF7E00798DF5 /* IGStoryPreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FBF1D29B0BF7E00798DF5 /* IGStoryPreviewModel.swift */; };
@@ -258,6 +260,8 @@
 		731976CB29FFDF7800514103 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
 		731976CE29FFE92E00514103 /* MovieProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProfileModel.swift; sourceTree = "<group>"; };
 		731976D02A001D5A00514103 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		731976D22A00316600514103 /* FollowingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewModel.swift; sourceTree = "<group>"; };
+		731976D42A0031E400514103 /* FollowingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingModel.swift; sourceTree = "<group>"; };
 		731FBF1929B0BF7E00798DF5 /* IGMockLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGMockLoader.swift; sourceTree = "<group>"; };
 		731FBF1B29B0BF7E00798DF5 /* IGStoryPreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGStoryPreviewCell.swift; sourceTree = "<group>"; };
 		731FBF1D29B0BF7E00798DF5 /* IGStoryPreviewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGStoryPreviewModel.swift; sourceTree = "<group>"; };
@@ -1120,6 +1124,8 @@
 			children = (
 				73BB177E29E062340062155C /* FollowingViewController.swift */,
 				738DB6AF29E30D1300CB05C9 /* FollowingCollectionViewSection.swift */,
+				731976D22A00316600514103 /* FollowingViewModel.swift */,
+				731976D42A0031E400514103 /* FollowingModel.swift */,
 			);
 			path = Following;
 			sourceTree = "<group>";
@@ -1789,6 +1795,7 @@
 				73EC91C02983462E002F3568 /* UIColor.Generated.swift in Sources */,
 				73F29D9B29FAE5FD00B9B52E /* NavigationBar+convertToICinema.swift in Sources */,
 				73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */,
+				731976D52A0031E400514103 /* FollowingModel.swift in Sources */,
 				7311C3132991B9D500C0610F /* AuthFlowCoordinator.swift in Sources */,
 				731FBF6C29B0BF7E00798DF5 /* AnimatedCollectionViewLayout.swift in Sources */,
 				735C13F429F83F2F00C4654E /* CategoriesFetcher.swift in Sources */,
@@ -1813,6 +1820,7 @@
 				73687B7329AEA228007DB431 /* MoviesSection.swift in Sources */,
 				731FBF6429B0BF7E00798DF5 /* IGPlayerView.swift in Sources */,
 				73BBF3CB29969DFC00920F53 /* EditUserProfileViewModel.swift in Sources */,
+				731976D32A00316600514103 /* FollowingViewModel.swift in Sources */,
 				731FBF5829B0BF7E00798DF5 /* IGStory.swift in Sources */,
 				73BB177F29E062340062155C /* FollowingViewController.swift in Sources */,
 				73F0C37429AD7AE900F95B01 /* PosterCell.swift in Sources */,

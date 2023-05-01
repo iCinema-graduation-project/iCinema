@@ -19,7 +19,7 @@ class ICinemaViewController: CoordinatorViewController {
         configureNavegationControllar()
         view.backgroundColor = .iCinemaBackgroundColor
         
-        self.addSkipButton()
+//        self.addSkipButton()
 
     }
     override func viewDidDisappear(_ animated: Bool) {

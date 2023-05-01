@@ -18,37 +18,63 @@ final class FollowingViewController: ICinemaViewController, CompositionalLayoutP
     
     // MARK: - Properties
     //
-    lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [
-        FollowingCollectionViewSection(hostingViewController: self),
-        DummyCollectionViewSection()
-    ]
+    lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [ ]
     
-    lazy var compositionalLayoutProviderDataSource: UICollectionViewDataSource? = CompositionalLayoutDataSource(self)
-    lazy var compositionalLayoutProviderDelegate: UICollectionViewDelegate? = CompositionalLayoutDelegate(self)
+    lazy var dataSource: UICollectionViewDataSource? = CompositionalLayoutDataSource(self)
+    lazy var delegate: UICollectionViewDelegate? = CompositionalLayoutDelegate(self)
+    
+    
+    var viewModel = FollowingViewModel()
     
     // MARK: - Life Cycle
     //
-   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.makeNetworkRequest()
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         self.updateUI()
-        
-        // setup collection view compositional layout
-        collectionView.updateCollectionViewCompositionalLayout(with: self)
-        
         // setup collection view delegate and datasource with compositional layout source and delegate
-        collectionView.delegate = compositionalLayoutProviderDelegate
-        collectionView.dataSource = compositionalLayoutProviderDataSource
-
+        collectionView.delegate = delegate
+        collectionView.dataSource = dataSource
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.viewModel.service.cancelAllPublishers()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         collectionView.frame = view.bounds
-        
     }
+    
+    private func makeNetworkRequest() {
+        ActivityIndicator.shared.play()
+        self.viewModel.service.networkRequest.update(headers: ["page": "1"])
+        self.viewModel.service.request { response in
+            ActivityIndicator.shared.stop()
+            
+            if let value = response.value{
+                let sec = FollowingCollectionViewSection(hostingViewController: self)
+                self.compositionalLayoutSections.append(sec)
+                sec.update(self.collectionView, with: value.data.cinemas)
+                
+            }else {
+                self.handelError(response.error)
+            }
+            
+            self.compositionalLayoutSections.append(DummyCollectionViewSection())
+            self.collectionView.updateCollectionViewCompositionalLayout(with: self)
+            
+            self.collectionView.reloadData()
+        }
+    }
+    
+    
+    
     
     // MARK: - Update UI
     //
@@ -59,14 +85,11 @@ final class FollowingViewController: ICinemaViewController, CompositionalLayoutP
     }
  
     private func updateCollectionView() {
-    
         // add and clear the background of the collection view
         view.addSubview(collectionView)
         collectionView.backgroundColor = .clear
-                
     }
-    
-    
+
     
 }
 

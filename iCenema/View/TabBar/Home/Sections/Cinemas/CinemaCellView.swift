@@ -49,13 +49,12 @@ struct CinemaCellView: View {
         AsyncImage(url: URL(string: cinema.logo)) { image in
             image
                 .resizable()
-                .makeCircled(size: CGFloat.home.cinemas.imageSize,
-                             strockColor: Color(uiColor: .iCinemaYellowColor),
-                             strockSpacing: 5)
-
         } placeholder: {
             Color.gray
         }
+        .makeCircled(size: CGFloat.home.cinemas.imageSize,
+                     strockColor: Color(uiColor: .iCinemaYellowColor),
+                     strockSpacing: 5)
         .frame(width: .home.cinemas.imageSize.width, height: .home.cinemas.imageSize.height)
     }
     

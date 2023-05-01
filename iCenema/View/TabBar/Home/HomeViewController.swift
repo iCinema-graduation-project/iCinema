@@ -19,6 +19,8 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     //
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     
+    var refresher:UIRefreshControl = UIRefreshControl()
+    
     let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: SearchResultViewController())
         searchController.searchBar.tintColor = .iCinemaYellowColor
@@ -39,6 +41,11 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     
     // MARK: - Life Cycle
     //
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        TabBarViewModel.shared.show()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
@@ -48,26 +55,44 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
      
         LocationManager.shared.startUpdatingLocation()
         
-        self.networkRequest()
+        ActivityIndicator.shared.play()
+        self.networkRequest { ActivityIndicator.shared.stop() }
+        
+        self.refresher = UIRefreshControl()
+        self.collectionView.alwaysBounceVertical = true
+        self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        collectionView.refreshControl = self.refresher
+     
+        refresher.tintColor = .iCinemaYellowColor
         
     }
+    
+    @objc func loadData() {
+        self.collectionView.refreshControl?.beginRefreshing()
+        
+//        self.networkRequest {
+//            self.stopRefresher()
+//        }
+     }
+    
+    func stopRefresher() {
+       self.collectionView.refreshControl?.endRefreshing()
+     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        TabBarViewModel.shared.show()
+ 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.viewModel.service.cancelAllPublishers()
     }
     
     // MARK: - Network
     
-    private func networkRequest() {
-        ActivityIndicator.shared.play()
+    private func networkRequest(_ completion: @escaping () -> Void = {}) {
         self.viewModel.service.request { response in
-            ActivityIndicator.shared.stop()
             
             if let value = response.value, let home = value.data{
                 self.makeHomeSlider(from: home.homeSlides)
@@ -79,6 +104,7 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
             
             self.compositionalLayoutSections.append(DummyCollectionViewSection())
             self.collectionView.updateCollectionViewCompositionalLayout(with: self)
+            completion()
         }
     }
     

@@ -72,9 +72,9 @@ class CinemaProfileViewController: ICinemaViewController {
     }
     
     private func updateShowMoreAboutMovie() {
-        viewModel.showMoreAboutMovie = { movie in
+        viewModel.showMoreAboutMovie = { movieID in
             let movieVC = MovieProfileViewController()
-            movieVC.viewModel = .init()
+            movieVC.inject(with: movieID)
             self.presentViewController(movieVC)
         }
     }

@@ -8,13 +8,22 @@
 import UIKit
 import ViewAnimator
 import CompositionalLayoutableSection
+import Coordinator
 
 final class FollowingCollectionViewSection: CompositionalLayoutableSection {
     typealias CellType = CinemaCell
 
+    typealias ResposeType = Cinema
+    
+    var items: [ResposeType] = [] {
+        didSet {
+            itemsCount = items.count
+        }
+    }
+    var itemsCount: Int = 0
+    
     var hostingViewController: UIViewController?
     init(hostingViewController: UIViewController) {
-       
         super.init()
         self.hostingViewController = hostingViewController
         dataSource = self
@@ -27,37 +36,9 @@ final class FollowingCollectionViewSection: CompositionalLayoutableSection {
 // MARK: - DataSource
 //
 extension FollowingCollectionViewSection: CompositionalLayoutableSectionDataSource {
-    func update(_ collectionView: UICollectionView, with items: [String]) {
-        
-    }
-    
-    
-    struct ItemsHolder {
-        static var itemsHolder: [ResposeType] = []
-        static var itemsCount: Int = 0
-    }
-    
-    typealias ResposeType = String
-    var items: [ResposeType] {
-        get {
-            return ItemsHolder.itemsHolder
-        }
-        set {
-            ItemsHolder.itemsHolder = newValue
-            itemsCount = items.count
-        }
-    }
-    var itemsCount: Int {
-        get {
-            return ItemsHolder.itemsCount
-        }
-        set {
-            ItemsHolder.itemsCount = newValue
-        }
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemsCount
+        return self.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -66,7 +47,15 @@ extension FollowingCollectionViewSection: CompositionalLayoutableSectionDataSour
         let animator = AnimationType.from(direction: .bottom, offset: 100)
         cell.animate(animations: [animator], delay: 0.0 , duration: 0.5)
         
+        cell.inject(with: self.items[indexPath.row])
+        
         return cell
+    }
+    
+    
+    func update(_ collectionView: UICollectionView, with items: [Cinema]) {
+        self.items = items
+        collectionView.reloadData()
     }
     
     
@@ -120,22 +109,12 @@ extension FollowingCollectionViewSection: CompositionalLayoutableSectionDelegate
         collectionView.register(CellType.self)
     }
     
-    func update(_ collectionView: UICollectionView) {
-        DispatchQueue.main.async { [ unowned self ] in
-            self.items = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
-            collectionView.reloadData()
-        }
-    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let hostingViewController = hostingViewController as? ICinemaViewController else { return }
 
         let cinemaProfileVC = CinemaProfileViewController()
-        
-//        let cinema: Cinema = Cinema(name: "Galaxy", followersCount: 63, rate: 3.5,
-//                                    ChairsCount: 430, followed: false)
-        
-//        cinemaProfileVC.viewModel = .init(cinema: cinema)
+        cinemaProfileVC.inject(with: items[indexPath.row].id)
         hostingViewController.presentViewController(cinemaProfileVC)
     }
     
