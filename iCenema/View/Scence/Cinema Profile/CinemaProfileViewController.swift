@@ -12,9 +12,10 @@ import Combine
 import Coordinator
 import LocationManager
 
+
 class CinemaProfileViewController: ICinemaViewController {
     
-    var viewModel: CinemaProfileViewModel = .init()
+    lazy var viewModel: CinemaProfileViewPresenter = .init(view: self)
 
     var service: NetworkLayer<CinemaProfileModel> = .init(endpoint: "cinemas/details", method: .get)
 
@@ -25,10 +26,10 @@ class CinemaProfileViewController: ICinemaViewController {
         self.updateUI()
         self.updateDismissAction()
         
-        /*
+        
         viewModel.showMore = { movie in
             let movieVC = MovieProfileViewController()
-            movieVC.viewModel = .init(movie: movie)
+            movieVC.viewModel = .init()
             self.presentViewController(movieVC)
         }
 
@@ -36,7 +37,7 @@ class CinemaProfileViewController: ICinemaViewController {
         viewModel.bookNow = { movie in
             Booking.shared.startBooking(movie)
         }
-        */
+        
     }
     
     // MARK: - Update UI
@@ -57,10 +58,13 @@ class CinemaProfileViewController: ICinemaViewController {
     }
     
     private func makeNetworkRequest() {
-        print(self.service.networkRequest.parameters)
+        ActivityIndicator.shared.play()
         self.service.request { response in
-            if let _ = response.value {
-                
+            ActivityIndicator.shared.stop()
+            if let value = response.value {
+                withAnimation(.easeInOut(duration: 1)) {
+                    self.viewModel.cinema = value.data
+                }
                 
             } else {
                 self.handelError(response.error)
@@ -86,12 +90,12 @@ struct Booking {
     
     var homeCoordinator: Coordinator? = nil
     
-    public func startBooking(_ movie: Movie) {
+    public func startBooking(_ movieID: Int) {
         TabBarViewModel.shared.selectedTabIndex = 2
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
 
-            homeCoordinator?.push(userInfo: ["movie": movie])
+            homeCoordinator?.push(userInfo: ["movie": movieID])
         })
         
     }

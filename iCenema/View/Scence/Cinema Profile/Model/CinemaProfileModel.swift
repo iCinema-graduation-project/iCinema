@@ -9,5 +9,5 @@ import Foundation
 
 struct CinemaProfileModel: Codable {
     let key, msg: String
-//    let data: Cinema
+    let data: Cinema
 }

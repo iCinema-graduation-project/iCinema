@@ -30,7 +30,7 @@ class MovieProfileViewController: ICinemaViewController {
         }
         
         viewModel.bookNow = { movie in
-            Booking.shared.startBooking(movie)
+            Booking.shared.startBooking(movie.id)
         }
         
     }

@@ -21,7 +21,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window.makeKeyAndVisible()
         self.window = window
+        
+        self.updateSegmentControl()
 
+    }
+    
+    private func updateSegmentControl() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = .iCinemaYellowColor
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.iCinemaTextColorReverce,
+                                                                .font: UIFont.callout
+        ], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.font: UIFont.body], for: .normal)
     }
 
 

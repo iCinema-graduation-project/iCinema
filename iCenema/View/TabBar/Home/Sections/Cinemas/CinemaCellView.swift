@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import SPAlert
+import NetworkLayer
 
 struct CinemaCellView: View {
     let cinema: Cinema
     
+    @State var cinemaFollowing = CinemaFollowing()
     @State var followed: Bool = false
+    
+    @State var showAlert: Bool = false
+    @State var alertMessage: String = ""
     
     var body: some View {
         VStack {
@@ -62,7 +68,23 @@ struct CinemaCellView: View {
                 
                 ICinemaButtonView(title: followed ? .unfollow : .follow, type: .small) {
                     followed.toggle()
+                    self.cinemaFollowing.update(id: self.cinema.id)
+                    self.cinemaFollowing.request { response in
+                        if let value = response.value {
+                            self.alertMessage = value.msg
+                            
+                        } else if let error = response.error {
+                            self.alertMessage = NetworkError.getErrorMessage(from: error)
+                            
+                        }else {
+                            self.alertMessage = "Unkown error"
+                        }
+                        self.showAlert = true
+                    }
+                    
                 }
+                .SPAlert(isPresent: $showAlert, message: alertMessage)
+
             }
             .foregroundColor(Color(uiColor: .iCinemaTextColor))
             .padding(.horizontal, .cell.padding.left)
@@ -77,15 +99,19 @@ struct CinemaCellView: View {
     }
 }
 
-struct CinemaCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        CinemaCellView(cinema: Cinema( id:1,
-                                       logo:"http://localhost:8000/defaults/default.png",
-                                       cover:"http://localhost:8000/defaults/default.png",
-                                       name:"Elnora Koelpin",
-                                       following:false,
-                                       averageRate:0,
-                                       address:"361 Rodolfo Locks\nJanickstad, KY 69835",
-                                       distance:"36.51km"))
-    }
-}
+//struct CinemaCellView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CinemaCellView(cinema: Cinema( id:1,
+//                                       
+//                                       logo:"http://localhost:8000/defaults/default.png",
+//                                       cover:"http://localhost:8000/defaults/default.png",
+//                                       name:"Elnora Koelpin",
+//                                       following:false,
+//                                       averageRate:0,
+//                                       countFollow: 5,
+//                                       address:"361 Rodolfo Locks\nJanickstad, KY 69835",
+//                                       distance:"36.51km")
+//                       
+//        )
+//    }
+//}

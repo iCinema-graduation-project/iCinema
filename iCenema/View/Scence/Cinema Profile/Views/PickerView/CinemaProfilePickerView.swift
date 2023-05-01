@@ -14,17 +14,11 @@ enum CinemaSections: String, CaseIterable {
 }
 
 struct CinemaProfilePickerView: View {
-    @EnvironmentObject var viewModel: CinemaProfileViewModel
+    @EnvironmentObject var viewModel: CinemaProfileViewPresenter
     
     @State var pickerSelectedSectin: CinemaSections = .movies
-    init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = .iCinemaYellowColor
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.iCinemaTextColorReverce,
-                                                                .font: UIFont.callout
-        ], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.font: UIFont.body], for: .normal)
+   
     
-    }
     var body: some View {
         VStack {
             Picker("Choose Secction", selection: $pickerSelectedSectin) {
@@ -45,7 +39,7 @@ struct CinemaProfilePickerView: View {
 
 
 struct ChosenSectionView: View {
-    @EnvironmentObject var viewModel: CinemaProfileViewModel
+    @EnvironmentObject var viewModel: CinemaProfileViewPresenter
 
     var section: CinemaSections
     var body: some View {

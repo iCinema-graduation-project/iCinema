@@ -149,14 +149,12 @@ class EditUserProfileViewController: ICinemaViewController {
     // MARK: - Actions
     func saveEditsButtonTapped() {
         if self.isReadyToUpdateProfile() {
-        
-            guard let imageDate = self.avatarView.avatar.image?.jpegData(compressionQuality: 0.5) else { return }
+            guard let imageDate = self.avatarView.avatar.image?.jpegData(compressionQuality: 0.25) else { return }
             let indicator = ActivityIndicator.shared
             indicator.play()
             self.viewModel.service.request(multiPart: ["image": .init(type: .image, extention: "png", data: imageDate)])
                 .sink { response in
-                    let str = String(decoding: response.data!, as: UTF8.self)
-                    print(str)
+                    
                     indicator.stop()
                     if let value = response.value {
                         SPAlertView.init(title: value.msg, preset: .done).present()
@@ -165,7 +163,9 @@ class EditUserProfileViewController: ICinemaViewController {
                         
                         self.handelError(response.error)
                     }
-                }.store(in: &self.viewModel.service.cancellableSet)
+                    
+                }
+                .store(in: &self.viewModel.service.cancellableSet)
             
         }
     }

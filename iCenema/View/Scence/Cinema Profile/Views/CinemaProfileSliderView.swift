@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct CinemaProfileSliderView: View {
-    @EnvironmentObject var viewModel: CinemaProfileViewModel
+    @EnvironmentObject var viewModel: CinemaProfileViewPresenter
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(0..<5) { i in
-                    Image("hale")
-                        .resizable()
-                        .frame(width: .cinemaProfile.sliderSize.width, height: .cinemaProfile.sliderSize.height)
+                HStack {
+                    ForEach(viewModel.cinema?.images ?? [], id: \.id) { imageLink in
+                        AsyncImage(url: URL(string: imageLink.image)) { image in
+                            image
+                                .resizable()
+                                .frame(width: .cinemaProfile.sliderSize.width, height: .cinemaProfile.sliderSize.height)
+                            
+                        } placeholder: {
+                            Color.gray
+                        }
+
+                    }
                 }
-            }
+                .transition(.scale)
+//            }
+                
         }
             .frame(width: .cinemaProfile.sliderSize.width, height: .cinemaProfile.sliderSize.height)
             .overlay {
@@ -27,5 +36,7 @@ struct CinemaProfileSliderView: View {
                     .frame(width: .cinemaProfile.sliderSize.width + 10,
                            height: .cinemaProfile.sliderSize.height + 10)
             }
+//            .transition(.move(edge: .trailing))
+
     }
 }

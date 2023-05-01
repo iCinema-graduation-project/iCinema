@@ -11,7 +11,7 @@ import SwiftUITrackableScrollView
 
 struct ProfileView<Content: View>: View {
     var profileViewDelegate: any ProfileViewDelegate
-    var image: Image
+    var imageUrl: String?
     var content: () -> Content
     
     
@@ -45,6 +45,7 @@ struct ProfileView<Content: View>: View {
             .navigationBarTitleDisplayMode(.inline)
             
             .toolbar {
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         profileViewDelegate.dismissAction()
@@ -53,20 +54,35 @@ struct ProfileView<Content: View>: View {
                             .foregroundColor(Color(uiColor: .iCinemaYellowColor))
                     }
                 }
+                
                 ToolbarItem(placement: .principal) {
                     HStack{
-                        image
-                            .makeCircled(size: CGFloat.profile.imageSize,
-                                         strockColor: Color(uiColor: .iCinemaYellowColor),
-                                         lineWidth: .profile.strockLineWidth
-                            )
-                            .isHidden(!showCinemaImageInToolbarItem)
+                        AsyncImage(url: URL(string: imageUrl ?? "")) { image in
+                            image
+                                .makeCircled(size: CGFloat.profile.imageSize,
+                                             strockColor: Color(uiColor: .iCinemaYellowColor),
+                                             lineWidth: .profile.strockLineWidth
+                                )
+                                .isHidden(!showCinemaImageInToolbarItem)
+                            
+                            
+                        } placeholder: {
+                            Color.gray
+                        }
+                        .frame(width: .profile.imageSize.width, height: .profile.imageSize.height)
+                        
+                        
+                        
                     }
                 }
             }
             
         }
     }
+    
+    
+ 
+    
 }
 
 

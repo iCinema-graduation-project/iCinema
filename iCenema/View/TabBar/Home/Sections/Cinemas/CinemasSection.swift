@@ -139,7 +139,6 @@ extension CinemaCollectionViewSection: CompositionalLayoutableSectionDelegate {
 
         let cinemaProfileVC = CinemaProfileViewController()
         let cinema = self.items[indexPath.row]
-//        cinemaProfileVC.viewModel = .init(cinemaId: cinema.id)
         cinemaProfileVC.inject(with: cinema.id)
         hostingViewController.presentViewController(cinemaProfileVC)
         

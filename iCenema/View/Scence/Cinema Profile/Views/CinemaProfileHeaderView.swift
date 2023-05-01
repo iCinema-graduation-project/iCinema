@@ -8,34 +8,46 @@
 import SwiftUI
 
 struct CinemaProfileHeaderView: View {
-    @EnvironmentObject var viewModel: CinemaProfileViewModel
+    @EnvironmentObject var viewModel: CinemaProfileViewPresenter
 
     @State var followed = false
     
     var body: some View {
         VStack {
             // Ciname Profile Image
-//            Image("cinema")
-//                .makeCircled(size: CGSize(width: .cinemaProfile.imageSize.width, height: .cinemaProfile.imageSize.height),
-//                             strockColor: Color(uiColor: .iCinemaYellowColor),
-//                             strockSpacing: 12,
-//                             lineWidth: 3)
-//
-//            // Cinema Name
-//            Text(viewModel.cinema.name + " Cinema")
-//                .foregroundColor(Color(uiColor: .iCinemaTextColor))
-//                .font(Font(UIFont.title3))
-//            
-//            // Follow Button
-//            ICinemaButtonView(title: followed ? .follow : .unfollow) {
-//                followed.toggle()
-//                viewModel.followButtonTapped()
-//            }
+            AsyncImage(url: URL(string: viewModel.cinema?.logo ?? "")) { image in
+                image
+                    .makeCircled(size: CGSize(width: .cinemaProfile.imageSize.width, height: .cinemaProfile.imageSize.height),
+                                 strockColor: Color(uiColor: .iCinemaYellowColor),
+                                 strockSpacing: 12,
+                                 lineWidth: 3)
+                
+            } placeholder: {
+                Color.gray
+            }
+            .frame(width: .cinemaProfile.imageSize.width, height: .cinemaProfile.imageSize.height)
             
+            
+            // Cinema Name
+            Text(viewModel.cinema?.name ?? "")
+                .foregroundColor(Color(uiColor: .iCinemaTextColor))
+                .font(Font(UIFont.title3))
+                .lineLimit(1)
+            
+            // Follow Button
+            ICinemaButtonView(title: followed ? .unfollow : .follow) {
+                followed.toggle()
+                viewModel.followButtonTapped()
+            }
         }
         .onAppear {
-//            followed = viewModel.cinema.followed
+            followed = viewModel.cinema?.following ?? false
         }
+        .transition(.move(edge: .leading))
+
+
+        
+       
     }
 }
 

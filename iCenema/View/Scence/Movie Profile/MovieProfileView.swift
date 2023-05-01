@@ -22,7 +22,7 @@ struct MovieProfileView: View {
             TrackableScrollView(.vertical, showIndicators: false, contentOffset: $scrollViewContentOffset) {
 
                 VStack(alignment: .center){
-                    MovieListCellView(showButtons: false)
+//                    MovieListCellView(showButtons: false, movie: <#CinemaMovie#>)
                     
                     HStack {
                         Text("English")

@@ -35,7 +35,7 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     private lazy var delegate: UICollectionViewDelegate? = CompositionalLayoutDelegate(self)
     
     
-    var service: NetworkLayer<HomeModel> = .init(endpoint: "home", method: .get)
+    var viewModel = HomeViewModel()
     
     // MARK: - Life Cycle
     //
@@ -66,7 +66,7 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     
     private func networkRequest() {
         ActivityIndicator.shared.play()
-        service.request { response in
+        self.viewModel.service.request { response in
             ActivityIndicator.shared.stop()
             
             if let value = response.value, let home = value.data{
