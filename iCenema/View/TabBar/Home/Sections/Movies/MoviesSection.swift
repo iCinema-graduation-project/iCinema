@@ -145,6 +145,7 @@ extension MoviesCollectionViewSection: CompositionalLayoutableSectionDelegate {
         let mv = MovieProfileViewController()
 //        mv.viewModel = .init(movie: self.items[indexPath.item])
         mv.viewModel = .init()
+        
         hostingViewController.presentViewController(mv)
         
     }

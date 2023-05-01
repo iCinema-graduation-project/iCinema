@@ -10,10 +10,10 @@ import SwiftUITrackableScrollView
 
 struct CinemaProfileView: View {
   
-    @EnvironmentObject var viewModel: CinemaProfileViewPresenter
+    @EnvironmentObject var viewModel: CinemaProfileViewModel
 
     var body: some View {
-        ProfileView(profileViewDelegate: viewModel, imageUrl: viewModel.cinema?.logo) {
+        ProfileView(profileViewDelegate: viewModel, imageUrl: viewModel.logo) {
             
             VStack(spacing: .view.spacing) {
                 

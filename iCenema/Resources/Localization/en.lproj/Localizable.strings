@@ -69,6 +69,8 @@
 "cinemaProfile.size" = "Size";
 "cinemaProfile.chairs" = "Chairs";
 "cinemaProfile.location" = "Location";
+"cinemaProfile.ratings" = "RATINGS";
+
 
 // MARK: - Booking
 "booking.pickADay" = "pick a day: ";

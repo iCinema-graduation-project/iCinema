@@ -70,6 +70,8 @@
 "cinemaProfile.size" = "المساحه";
 "cinemaProfile.chairs" = "كرسي";
 "cinemaProfile.location" = "الموقع";
+"cinemaProfile.ratings" = "التقيمات";
+
 
 // MARK: - Booking
 "booking.pickADay" = "اختار يوما:";

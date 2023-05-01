@@ -59,20 +59,16 @@ struct ProfileView<Content: View>: View {
                     HStack{
                         AsyncImage(url: URL(string: imageUrl ?? "")) { image in
                             image
-                                .makeCircled(size: CGFloat.profile.imageSize,
-                                             strockColor: Color(uiColor: .iCinemaYellowColor),
-                                             lineWidth: .profile.strockLineWidth
-                                )
-                                .isHidden(!showCinemaImageInToolbarItem)
-                            
-                            
+                                .resizable()
                         } placeholder: {
-                            Color.gray
+                            Color.clear
                         }
+                        .makeCircled(size: CGFloat.profile.imageSize,
+                                     strockColor: Color(uiColor: .iCinemaYellowColor),
+                                     lineWidth: .profile.strockLineWidth
+                        )
                         .frame(width: .profile.imageSize.width, height: .profile.imageSize.height)
-                        
-                        
-                        
+                        .isHidden(!showCinemaImageInToolbarItem)
                     }
                 }
             }

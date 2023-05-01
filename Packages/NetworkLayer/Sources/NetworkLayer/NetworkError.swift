@@ -23,7 +23,8 @@ public enum NetworkError: Error {
             
         // If the error is an initialError, split the localizedDescription and return the second part as the error message
         case .initialError(let error):
-            return String(error.localizedDescription.split(separator: ":")[1])
+//            return String(error.localizedDescription.split(separator: ":")[1])
+            return String(error.localizedDescription)
         case .other:
             return "unKnown Error"
         }
@@ -31,7 +32,3 @@ public enum NetworkError: Error {
 
 }
 
-public struct BackendError: Codable, Error {
-    var error: String
-    var msg: String
-}

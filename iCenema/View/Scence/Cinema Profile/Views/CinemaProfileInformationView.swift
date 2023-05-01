@@ -8,42 +8,54 @@
 import SwiftUI
 
 struct CinemaProfileInformationView: View {
-    @EnvironmentObject var viewModel: CinemaProfileViewPresenter
+    @EnvironmentObject var viewModel: CinemaProfileViewModel
 
-    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-//            if let cinema = viewModel.cinema {
-                VStack {
-                    Divider()
-                    HStack(alignment: .center, spacing: 10) {
-                        // Rate
-                        RateCinameInformationView(cinema: viewModel.cinema)
-                        Divider().frame(height: .cinemaProfile.cinemaInformationViewDividerHeight)
-                        
-                        // Follow Count
-                        CinemaInformationView(caption2: .cinemaProfile.followers,
-                                              title: "\(viewModel.cinema?.countFollow ?? 0)",
-                                                                  caption: .cinemaProfile.count)
-//                         Location
-                        CinemaInformationView(caption2: .cinemaProfile.location,
-                                              title: "Cairo",
-                                              caption: "Egypt")
-                        // Size
-                        CinemaInformationView(caption2: .cinemaProfile.size,
-                                                                  title: "50",
-                                                                  caption: .cinemaProfile.chairs, hasLeftDivider: false)
-                    }
-                    .frame(height: .cinemaProfile.imageSize.height)
-                    Divider()
+            VStack {
+                Divider()
+                HStack(alignment: .center, spacing: 10) {
+                    self.cinemaRate()
+                    Divider().frame(height: .cinemaProfile.cinemaInformationViewDividerHeight)
+                    self.cinemaFollowCount()
+                    self.cinemaLocation()
+                    self.cinemaSize()
                 }
-                .padding(.horizontal)
-                .transition(.move(edge: .trailing))
-
-//            }
+                .frame(height: .cinemaProfile.imageSize.height)
+                Divider()
+            }
+            .padding(.horizontal)
         }
 
     }
+    
+    @ViewBuilder
+    private func cinemaRate() -> some View {
+        RateCinameInformationView()
+            .environmentObject(viewModel)
+    }
+    
+    @ViewBuilder
+    private func cinemaFollowCount() -> some View {
+        CinemaInformationView(caption2: .cinemaProfile.followers,
+                              title: "\(viewModel.countFollow)",
+                              caption: .cinemaProfile.count)
+    }
+    
+    @ViewBuilder
+    private func cinemaLocation() -> some View {
+        CinemaInformationView(caption2: .cinemaProfile.location,
+                              title: "Cairo",
+                              caption: "Egypt")
+    }
+    
+    @ViewBuilder
+    private func cinemaSize() -> some View {
+        CinemaInformationView(caption2: .cinemaProfile.size,
+                              title: "50",
+                              caption: .cinemaProfile.chairs, hasLeftDivider: false)
+    }
+
 }
 struct CinemaInformationView: View {
     let caption2: String
@@ -58,9 +70,11 @@ struct CinemaInformationView: View {
                 Text(caption2.uppercased())
                     .font(Font(UIFont.callout))
                     .foregroundColor(.gray)
+                
                 /// title Text
                 Text(title.capitalized)
                     .font(Font(UIFont.title3))
+                
                 /// caption Text
                 Text(caption.capitalized)
                     .font(Font(UIFont.caption1))
@@ -75,22 +89,22 @@ struct CinemaInformationView: View {
 }
 
 struct RateCinameInformationView: View {
-    let cinema: Cinema?
+    @EnvironmentObject var viewModel: CinemaProfileViewModel
+
     var body: some View {
-        VStack {}
         VStack(alignment: .center,  spacing: 8) {
-            Text("RATINGS")
+            Text(String.cinemaProfile.ratings)
                 .font(Font(UIFont.callout))
                 .foregroundColor(.gray)
 
-            Text(String(format: "%.1f", cinema?.averageRate ?? "0.0"))
+            Text(String(format: "%.1f", viewModel.averageRate))
                 .font(Font(UIFont.title2))
 
             HStack(alignment: .center, spacing: 5.0) {
                 ForEach(0..<5) { i in
                     Image(systemName: "star.fill")
                         .resizable()
-                        .foregroundColor(Int(floor(Double(cinema?.averageRate ?? Int(0.0)))) > i ? Color(uiColor: .iCinemaYellowColor) : .gray)
+                        .foregroundColor(Int(floor(Double(viewModel.averageRate))) > i ? Color(uiColor: .iCinemaYellowColor) : .gray)
                         .frame(width: 10, height: 10)
                 }
             }

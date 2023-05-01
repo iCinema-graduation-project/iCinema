@@ -12,7 +12,7 @@ import NetworkLayer
 struct CinemaCellView: View {
     let cinema: Cinema
     
-    @State var cinemaFollowing = CinemaFollowing()
+    @State var cinemaFollowing = CinemaFollowingService()
     @State var followed: Bool = false
     
     @State var showAlert: Bool = false
@@ -21,70 +21,17 @@ struct CinemaCellView: View {
     var body: some View {
         VStack {
             VStack {
-                HStack {
-                    AsyncImage(url: URL(string: cinema.logo)) { image in
-                        image
-                            .resizable()
-                            .makeCircled(size: CGFloat.home.cinemas.imageSize,
-                                         strockColor: Color(uiColor: .iCinemaYellowColor),
-                                         strockSpacing: 5)
+                self.profileImage()
 
-                    } placeholder: {
-                        Color.gray
-                    }
-                    .frame(width: .home.cinemas.imageSize.width, height: .home.cinemas.imageSize.height)
-                        
-                }
-                
                 Text(cinema.name)
                     .font(Font(UIFont.footnote))
                     .lineLimit(1)
-
                 
-                // Cinema Location
-                HStack {
-                    Image(systemName: UIImage.location)
-                        .resizable()
-                        .frame(width: 12, height: 12)
-                        .foregroundColor(Color(uiColor: .iCinemaYellowColor))
-                    
-                    Text("Cairo / 2.3km")
-                        .font(Font(UIFont.caption1))
-                        .lineLimit(1)
-                }
-
-                // Rate
-                HStack(spacing: 5) {
-                    Image(systemName: "star.fill")
-                        .resizable()
-                        .frame(width: 10, height: 10)
-                        .foregroundColor(Color(uiColor: .iCinemaYellowColor))
-                    
-                    // MARK: - Rate
-                    Text("\(cinema.averageRate)/10")
-                        .font(Font(UIFont.caption1))
-                        .foregroundColor(.gray)
-                }
+                self.Location()
+                self.rate()
                 
-                ICinemaButtonView(title: followed ? .unfollow : .follow, type: .small) {
-                    followed.toggle()
-                    self.cinemaFollowing.update(id: self.cinema.id)
-                    self.cinemaFollowing.request { response in
-                        if let value = response.value {
-                            self.alertMessage = value.msg
-                            
-                        } else if let error = response.error {
-                            self.alertMessage = NetworkError.getErrorMessage(from: error)
-                            
-                        }else {
-                            self.alertMessage = "Unkown error"
-                        }
-                        self.showAlert = true
-                    }
-                    
-                }
-                .SPAlert(isPresent: $showAlert, message: alertMessage)
-
+                self.followButton()
+             
             }
             .foregroundColor(Color(uiColor: .iCinemaTextColor))
             .padding(.horizontal, .cell.padding.left)
@@ -95,6 +42,70 @@ struct CinemaCellView: View {
         .onAppear {
             followed = cinema.following
         }
+
+    }
+    
+    @ViewBuilder private func profileImage() -> some View {
+        AsyncImage(url: URL(string: cinema.logo)) { image in
+            image
+                .resizable()
+                .makeCircled(size: CGFloat.home.cinemas.imageSize,
+                             strockColor: Color(uiColor: .iCinemaYellowColor),
+                             strockSpacing: 5)
+
+        } placeholder: {
+            Color.gray
+        }
+        .frame(width: .home.cinemas.imageSize.width, height: .home.cinemas.imageSize.height)
+    }
+    
+    @ViewBuilder private func Location() -> some View {
+        HStack {
+            Image(systemName: UIImage.location)
+                .resizable()
+                .frame(width: 12, height: 12)
+                .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+            
+            Text("Cairo / 2.3km")
+                .font(Font(UIFont.caption1))
+                .lineLimit(1)
+        }
+
+    }
+    
+    @ViewBuilder private func rate() -> some View {
+        HStack(spacing: 5) {
+            Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 10, height: 10)
+                .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+            
+            // MARK: - Rate
+            Text("\(cinema.averageRate)/10")
+                .font(Font(UIFont.caption1))
+                .foregroundColor(.gray)
+        }
+    }
+    
+    @ViewBuilder private func followButton() -> some View {
+        ICinemaButtonView(title: followed ? .unfollow : .follow, type: .small) {
+            followed.toggle()
+            self.cinemaFollowing.update(id: self.cinema.id)
+            self.cinemaFollowing.request { response in
+                if let value = response.value {
+                    self.alertMessage = value.msg
+                    
+                } else if let error = response.error {
+                    self.alertMessage = NetworkError.getErrorMessage(from: error)
+                    
+                }else {
+                    self.alertMessage = "Unkown error"
+                }
+                self.showAlert = true
+            }
+            
+        }
+        .SPAlert(isPresent: $showAlert, message: alertMessage)
 
     }
 }

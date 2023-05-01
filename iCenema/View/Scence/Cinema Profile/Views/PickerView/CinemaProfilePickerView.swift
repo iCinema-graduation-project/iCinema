@@ -14,11 +14,10 @@ enum CinemaSections: String, CaseIterable {
 }
 
 struct CinemaProfilePickerView: View {
-    @EnvironmentObject var viewModel: CinemaProfileViewPresenter
+    @EnvironmentObject var viewModel: CinemaProfileViewModel
     
     @State var pickerSelectedSectin: CinemaSections = .movies
    
-    
     var body: some View {
         VStack {
             Picker("Choose Secction", selection: $pickerSelectedSectin) {
@@ -39,7 +38,7 @@ struct CinemaProfilePickerView: View {
 
 
 struct ChosenSectionView: View {
-    @EnvironmentObject var viewModel: CinemaProfileViewPresenter
+    @EnvironmentObject var viewModel: CinemaProfileViewModel
 
     var section: CinemaSections
     var body: some View {

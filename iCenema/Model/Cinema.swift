@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 // MARK: - Cinema
 struct Cinema: Codable, Equatable {

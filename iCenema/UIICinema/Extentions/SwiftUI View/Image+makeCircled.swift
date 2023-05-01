@@ -8,13 +8,12 @@
 import SwiftUI
 
 
-extension Image {
+extension View {
     @ViewBuilder func makeCircled(size: CGSize,
                                   strockColor: Color = .white,
                                   strockSpacing: CGFloat = 2,
                                   lineWidth: CGFloat = 1.0) -> some View {
-        self.resizable()
-            .frame(width: size.width, height: size.height)
+        self.frame(width: size.width, height: size.height)
             .mask(Circle())
             .overlay {
                 Circle()

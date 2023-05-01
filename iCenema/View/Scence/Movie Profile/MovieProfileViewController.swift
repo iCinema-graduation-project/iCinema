@@ -36,4 +36,9 @@ class MovieProfileViewController: ICinemaViewController {
     }
     
     
+    public func inject(with movieId: Int) {
+        
+    }
+    
+    
 }

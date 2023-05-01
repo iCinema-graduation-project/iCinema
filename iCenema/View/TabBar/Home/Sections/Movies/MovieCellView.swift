@@ -25,82 +25,12 @@ struct MovieCellView: View {
         VStack {
             
             VStack(alignment: .leading, spacing: 5) {
-                
-                // Movie Image
-                AsyncImage(url: URL(string: movie.image)) { image in
-                    image
-                        .resizable()                        
-
-                } placeholder: {
-                    Color.gray
-                }
-                .addBorder(withColor: Color(uiColor: .iCinemaYellowColor),
-                                   height: .home.movies.imageHeight)
-     
-                // Movie Name
-                HStack {
-                    Text(movie.name)
-                        .font(Font(UIFont.body))
-                        .lineLimit(1)
-                    Spacer()
-                    
-                    BookMark(bookmarked: saved,
-                             bookmarkedImage: UIImage.bookmarkFill,
-                             notBookmarkedImage: UIImage.bookmark)
-                    .frame(width: .bookmark.width,  height: .bookmark.height)
-                    .SPAlert(isPresent: $showAlert, message: alertMessage)
-                    .onTapGesture {
-                        saved.toggle()
-                       
-                        movieSaver.update(id: movie.id)
-                     
-                        movieSaver.request { response in
-                            if let value = response.value {
-                                self.alertMessage = value.msg
-
-                            } else if let error = response.error {
-                                self.alertMessage = NetworkError.getErrorMessage(from: error)
-
-                            }else {
-                                self.alertMessage = "Unkown error"
-                            }
-                            self.showAlert = true
-                        }
-
-                    }
-     
-                }
-
-                // Movie's Cinema
-                HStack {
-                    AsyncImage(url: URL(string: movie.cinema.logo)) { image in
-                        image
-                            .resizable()
-                            .makeCircled(size: CGSize(width: 15, height: 15),
-                                         strockColor: Color(uiColor: .iCinemaYellowColor),
-                                         lineWidth: 0.5)
-
-                    } placeholder: {
-                        Color.gray
-                    }
-  
-                    Text(movie.cinema.name)
-                        .font(Font(UIFont.caption1))
-                }
-
-                // Cinema Location
-                HStack {
-                    Image(systemName: UIImage.location)
-                        .resizable()
-                        .frame(width: 12, height: 12)
-                        .foregroundColor(Color(uiColor: .iCinemaYellowColor))
-
-                    Text(movie.cinema.distance ?? "")
-                        .font(Font(UIFont.caption1))
-                        .lineLimit(1)
-                }
-
-                // MARK: - Genre
+                self.movieImage()
+                self.movieName()
+                self.movieCinema()
+                self.cinemaLocation()
+             
+                /// Movie Genries
                 Text("Action, Horror, Tragety")
                     .font(Font(UIFont.caption2))
                     .foregroundColor(.gray)
@@ -118,6 +48,92 @@ struct MovieCellView: View {
             saved = movie.saved
         }
     }
+    
+    
+    @ViewBuilder
+    private func movieImage() -> some View {
+        AsyncImage(url: URL(string: movie.image)) { image in
+            image
+                .resizable()
+
+        } placeholder: {
+            Color.gray
+        }
+        .addBorder(withColor: Color(uiColor: .iCinemaYellowColor),
+                           height: .home.movies.imageHeight)
+
+    }
+    
+    @ViewBuilder
+    private func movieName() -> some View {
+        HStack {
+            Text(movie.name)
+                .font(Font(UIFont.body))
+                .lineLimit(1)
+            Spacer()
+            
+            BookMark(bookmarked: saved,
+                     bookmarkedImage: UIImage.bookmarkFill,
+                     notBookmarkedImage: UIImage.bookmark)
+            .frame(width: .bookmark.width,  height: .bookmark.height)
+            .SPAlert(isPresent: $showAlert, message: alertMessage)
+            .onTapGesture {
+                saved.toggle()
+               
+                movieSaver.update(id: movie.id)
+             
+                movieSaver.request { response in
+                    if let value = response.value {
+                        self.alertMessage = value.msg
+
+                    } else if let error = response.error {
+                        self.alertMessage = NetworkError.getErrorMessage(from: error)
+
+                    }else {
+                        self.alertMessage = "Unkown error"
+                    }
+                    self.showAlert = true
+                }
+                
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func movieCinema() -> some View {
+        HStack {
+            AsyncImage(url: URL(string: movie.cinema.logo)) { image in
+                image
+                    .resizable()
+                    .makeCircled(size: CGSize(width: 15, height: 15),
+                                 strockColor: Color(uiColor: .iCinemaYellowColor),
+                                 lineWidth: 0.5)
+
+            } placeholder: {
+                Color.gray
+            }
+
+            Text(movie.cinema.name)
+                .font(Font(UIFont.caption1))
+        }
+
+    }
+    
+    @ViewBuilder
+    private func cinemaLocation() -> some View {
+        HStack {
+            Image(systemName: UIImage.location)
+                .resizable()
+                .frame(width: 12, height: 12)
+                .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+
+            Text(movie.cinema.distance ?? "")
+                .font(Font(UIFont.caption1))
+                .lineLimit(1)
+        }
+
+    }
+    
 }
 
 //struct MovieCellView_Previews: PreviewProvider {

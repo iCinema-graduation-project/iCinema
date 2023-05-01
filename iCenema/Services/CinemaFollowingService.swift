@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CinemaFollowing: NetworkLayer<CinemaFollowingModel> {
+class CinemaFollowingService: NetworkLayer<CinemaFollowingModel> {
     
     init() {
         super.init(endpoint: "cinemas/follow-and-unfollow", method: .post)

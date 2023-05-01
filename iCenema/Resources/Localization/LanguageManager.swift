@@ -63,6 +63,7 @@ extension String {
         static let chairs = getLocalized(with: "cinemaProfile.chairs")
         
         static let location = getLocalized(with: "cinemaProfile.location")
+        static let ratings = getLocalized(with: "cinemaProfile.ratings")
     }
     
     

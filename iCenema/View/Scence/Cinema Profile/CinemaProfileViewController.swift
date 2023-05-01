@@ -7,38 +7,25 @@
 
 import UIKit
 import SwiftUI
-import Foundation
-import Combine
-import Coordinator
-import LocationManager
 
 
 class CinemaProfileViewController: ICinemaViewController {
     
-    lazy var viewModel: CinemaProfileViewPresenter = .init(view: self)
+    lazy var viewModel: CinemaProfileViewModel = .init()
 
     var service: NetworkLayer<CinemaProfileModel> = .init(endpoint: "cinemas/details", method: .get)
 
+    
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
         self.updateDismissAction()
-        
-        
-        viewModel.showMore = { movie in
-            let movieVC = MovieProfileViewController()
-            movieVC.viewModel = .init()
-            self.presentViewController(movieVC)
-        }
-
-
-        viewModel.bookNow = { movie in
-            Booking.shared.startBooking(movie)
-        }
-        
+        self.updateShowMoreAboutMovie()
+        self.updateStartBookingMovie()
     }
+    
     
     // MARK: - Update UI
     private func updateUI() {
@@ -61,44 +48,43 @@ class CinemaProfileViewController: ICinemaViewController {
         ActivityIndicator.shared.play()
         self.service.request { response in
             ActivityIndicator.shared.stop()
+            
             if let value = response.value {
                 withAnimation(.easeInOut(duration: 1)) {
-                    self.viewModel.cinema = value.data
+                    self.viewModel.updateModel(with: value.data)
                 }
-                
             } else {
-                self.handelError(response.error)
+                super.handelError(response.error)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.dismiss()
                 }
             }
+            
         }
-
     }
     
     
+    // MARK: - Helper
     private func updateDismissAction() {
         self.viewModel.dismissAction = {
                 self.dismiss()
         }
     }
     
-}
-
-struct Booking {
-    static var shared = Booking()
-    
-    var homeCoordinator: Coordinator? = nil
-    
-    public func startBooking(_ movieID: Int) {
-        TabBarViewModel.shared.selectedTabIndex = 2
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-
-            homeCoordinator?.push(userInfo: ["movie": movieID])
-        })
-        
+    private func updateShowMoreAboutMovie() {
+        viewModel.showMoreAboutMovie = { movie in
+            let movieVC = MovieProfileViewController()
+            movieVC.viewModel = .init()
+            self.presentViewController(movieVC)
+        }
     }
-
+    
+    private func updateStartBookingMovie() {
+        viewModel.startBookingMovie = { movie in
+            Booking.shared.startBooking(movie)
+        }
+    }
+    
 }
+
 
