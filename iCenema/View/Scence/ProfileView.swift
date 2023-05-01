@@ -12,6 +12,7 @@ import SwiftUITrackableScrollView
 struct ProfileView<Content: View>: View {
     var profileViewDelegate: any ProfileViewDelegate
     var imageUrl: String?
+    var ingnoreSaveArea: SafeAreaRegions = .keyboard
     var content: () -> Content
     
     
@@ -51,7 +52,12 @@ struct ProfileView<Content: View>: View {
                         profileViewDelegate.dismissAction()
                     } label: {
                         Image(systemName: "x.circle")
+//                            .resizable()
+//                            .frame(width: 15, height: 15)
                             .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+                            .padding(10)
+                            .background(.thinMaterial)
+                            .makeCircled(size: CGSize(width: 25, height: 25), strockColor: Color(uiColor: .iCinemaYellowColor))
                     }
                 }
                 
@@ -72,7 +78,7 @@ struct ProfileView<Content: View>: View {
                     }
                 }
             }
-            
+            .ignoresSafeArea(ingnoreSaveArea)
         }
     }
     

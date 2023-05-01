@@ -96,22 +96,34 @@ struct RateCinameInformationView: View {
             Text(String.cinemaProfile.ratings)
                 .font(Font(UIFont.callout))
                 .foregroundColor(.gray)
-
+            
             Text(String(format: "%.1f", viewModel.averageRate))
                 .font(Font(UIFont.title2))
-
-            HStack(alignment: .center, spacing: 5.0) {
-                ForEach(0..<5) { i in
-                    Image(systemName: "star.fill")
-                        .resizable()
-                        .foregroundColor(Int(floor(Double(viewModel.averageRate))) > i ? Color(uiColor: .iCinemaYellowColor) : .gray)
-                        .frame(width: 10, height: 10)
-                }
-            }
+            
+            RatingView(rate: viewModel.averageRate)
+            
         }
         .frame(width: .cinemaProfile.cinemaInformationViewWidth)
     }
 }
 
 
+struct RatingView: View {
+    
+    let rate: Int
+    var width: CGFloat = 10
+    var height: CGFloat = 10
+    
+    var body: some View {
+        HStack(alignment: .center, spacing: 5.0) {
+            ForEach(0..<5) { i in
+                Image(systemName: "star.fill")
+                    .resizable()
+                    .foregroundColor(rate > i ? Color(uiColor: .iCinemaYellowColor) : .gray)
+                    .frame(width: width, height: height)
+            }
+        }
+
+    }
+}
 

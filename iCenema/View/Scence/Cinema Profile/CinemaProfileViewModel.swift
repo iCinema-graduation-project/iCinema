@@ -35,8 +35,8 @@ class CinemaProfileViewModel: ProfileViewDelegate, ObservableObject {
         self.logo = cinema.logo
         self.cover = cinema.cover ?? ""
         self.name = cinema.name
-        self.following = cinema.following
-        self.averageRate = cinema.averageRate
+        self.following = cinema.following ?? false
+        self.averageRate = cinema.averageRate ?? 0
         self.countFollow = cinema.countFollow ?? 0
         self.address = cinema.address ?? ""
         self.distance = cinema.distance ?? ""

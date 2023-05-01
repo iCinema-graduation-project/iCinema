@@ -7,7 +7,7 @@
 
 import UIKit
 import SwiftUI
-
+import MakeConstraints
 
 class CinemaProfileViewController: ICinemaViewController {
     
@@ -50,7 +50,7 @@ class CinemaProfileViewController: ICinemaViewController {
             ActivityIndicator.shared.stop()
             
             if let value = response.value {
-                withAnimation(.easeInOut(duration: 1)) {
+                withAnimation(.linear(duration: 0.5)) {
                     self.viewModel.updateModel(with: value.data)
                 }
             } else {

@@ -40,7 +40,7 @@ struct CinemaCellView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(uiColor: .iCinemaSecondBackgroudColor))
         .onAppear {
-            followed = cinema.following
+            followed = cinema.following ?? false
         }
 
     }
@@ -81,7 +81,7 @@ struct CinemaCellView: View {
                 .foregroundColor(Color(uiColor: .iCinemaYellowColor))
             
             // MARK: - Rate
-            Text("\(cinema.averageRate)/10")
+            Text("\(cinema.averageRate ?? 0)/10")
                 .font(Font(UIFont.caption1))
                 .foregroundColor(.gray)
         }

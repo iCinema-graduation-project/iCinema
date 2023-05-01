@@ -44,10 +44,11 @@ extension CoordinatorViewController {
 
         // Animate the presentation of the presentedView at 0 seconds.
         UIView.animate(withDuration: 0, delay: 0) {
+            
+            presentedView.fillXSuperViewConstraints()
+                        
             presentedView.makeConstraints(
-                                        bottomAnchor: self.view.bottomAnchor,
-                                        leadingAnchor: self.view.leadingAnchor,
-                                        trailingAnchor: self.view.trailingAnchor)
+                                        bottomAnchor: self.view.bottomAnchor)
 
             presentedView.frame = .zero
         }completion: { _ in
@@ -64,13 +65,14 @@ extension CoordinatorViewController {
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.7,
-                       options: .curveEaseOut) {
+                       options: .curveEaseInOut) {
 
             self.navigationController?.navigationBar.isHidden = true
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
-            presentedView.fillXSuperViewConstraints()
-            self.presentedViewAnchoredConstraints = presentedView.makeConstraints(topAnchor: self.view.topAnchor, bottomAnchor: self.view.bottomAnchor)
+            self.presentedViewAnchoredConstraints = presentedView.makeConstraints(topAnchor: self.view.topAnchor,
+                                                                                  bottomAnchor: self.view.bottomAnchor)
+
             
             self.view.layoutIfNeeded()
             presentedView.layoutIfNeeded()

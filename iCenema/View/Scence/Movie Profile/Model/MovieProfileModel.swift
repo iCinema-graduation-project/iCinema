@@ -8,5 +8,6 @@
 import Foundation
 
 struct MovieProfileModel: Codable, Hashable {
-    
+    let key, msg: String
+    let data: Movie
 }
