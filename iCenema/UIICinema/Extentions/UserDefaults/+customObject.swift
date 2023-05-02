@@ -35,8 +35,9 @@ extension UserDefaults {
        }
    }
     
-    func reset() {
+    func reset(_ completion: @escaping () -> Void) {
         Keys.allCases.forEach { removeObject(forKey: $0.rawValue) }
+        completion()
     }
 
 }

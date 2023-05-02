@@ -24,7 +24,7 @@ class ActivityIndicator: LottieAnimationView {
         loopMode = .loop
     
         
-        if let superview = UIApplication.shared.keyWindow?.rootViewController?.view {
+        if let superview = UIApplication.shared.keyWindow?.windowScene?.windows.first?.rootViewController?.view {
             superview.addSubview(self)
             centerInSuperview()
             equalSizeConstraints(150)

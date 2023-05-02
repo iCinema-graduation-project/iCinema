@@ -15,7 +15,7 @@ open class ICinemaAlert {
     
     private var yConstraint: NSLayoutConstraint?
 
-    public let superView = UIApplication.shared.keyWindow?.rootViewController?.view
+    public let superView = UIApplication.shared.keyWindow?.windowScene?.windows.first?.rootViewController?.view
     public var view: UIView?
     
     let width: CGFloat

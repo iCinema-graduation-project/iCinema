@@ -11,6 +11,12 @@ import SwiftUI
 struct MenuView: View {
     let menuSections: [MenuSection]
     
+    @State private var profileFeatcher = ProfileFetcher()
+    
+    @State private var image: String = ""
+    @State private var name: String = ""
+    @State private var phone: String = ""
+    
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
         
@@ -18,19 +24,38 @@ struct MenuView: View {
             List {
                 menuSection {
                     HStack(spacing: 15.0) {
-                        Image("profile")
-                            .makeCircled(size: CGSize(width: 40, height: 40),
-                                         strockColor: Color(uiColor: .iCinemaYellowColor),
-                                         strockSpacing: 4, lineWidth: 1.5)
+                        
+                        AsyncImage(url: URL(string: image)) { image in
+                            image
+                                .resizable()
+                                
+
+                        } placeholder: {
+                            Color.gray
+                        }
+                        .makeCircled(size: CGSize(width: 40, height: 40),
+                                     strockColor: Color(uiColor: .iCinemaYellowColor),
+                                     strockSpacing: 4, lineWidth: 1.5)
+                    
+                        
                         VStack(alignment: .leading) {
-                            Text("Ahmed Yamany")
+                            Text(name.capitalized)
                                 .font(Font(UIFont.title3))
-                            Text("+20 1551608020")
+                            
+                            Text(phone)
                                 .foregroundColor(.gray)
                                 .font(Font(UIFont.body))
                         }
                     }
                     .foregroundColor(Color(uiColor: .iCinemaTextColor))
+                }
+                .onAppear {
+                    profileFeatcher.request { response in
+                        guard let value = response.value else { return }
+                        self.image = value.user.image ?? ""
+                        self.name = value.user.name ?? ""
+                        self.phone = value.user.phone
+                    }
                 }
                 
                 ForEach(menuSections , id: \.id) { section in

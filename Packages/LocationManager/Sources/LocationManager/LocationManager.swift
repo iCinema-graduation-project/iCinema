@@ -83,7 +83,7 @@ open class LocationManager: CLLocationManager, CLLocationManagerDelegate {
         }
         alertController.addAction(openAction)
         
-        UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true)
+        UIApplication.shared.keyWindow?.windowScene?.windows.first?.rootViewController?.present(alertController, animated: true)
         
     }
     

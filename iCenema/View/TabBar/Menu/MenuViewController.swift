@@ -65,7 +65,7 @@ class MenuViewController: ICinemaViewController {
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        TabBarViewModel.shared.show()
+//        TabBarViewModel.shared.show()
     }
     
     override func viewDidLoad() {
@@ -133,8 +133,11 @@ class MenuViewController: ICinemaViewController {
                     }
                     Spacer()
                     ICinemaButtonView(title: "Yes", type: .small) {
-                        UserDefaults.standard.reset()
-                        alertView.hide()
+                        UserDefaults.standard.reset {
+                            alertView.hide()
+                                                                                    
+                            UIApplication.shared.keyWindow?.windowScene?.windows.first?.rootViewController = AppCoordinator().rootViewController
+                        }
                     }
                     
                     Spacer()
@@ -145,9 +148,6 @@ class MenuViewController: ICinemaViewController {
             .padding()
         }
     }
-
-    
-    
-    
-    
 }
+
+

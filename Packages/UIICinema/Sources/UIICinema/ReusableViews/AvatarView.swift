@@ -85,7 +85,7 @@ open class AvatarView: UIView {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
-        UIApplication.shared.keyWindow?.rootViewController?.present(imagePicker, animated: true)
+        UIApplication.shared.keyWindow?.windowScene?.windows.first?.rootViewController?.present(imagePicker, animated: true)
         
     }
     

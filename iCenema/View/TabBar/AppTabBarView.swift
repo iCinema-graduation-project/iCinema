@@ -30,14 +30,11 @@ struct AppTabBarView: View {
                 }
             }
             
-            // TabBar View
-            if !tabBarViewModel.isHidden {
-                
-                TabBarView(tabs: tabs)
-                    .environmentObject(tabBarViewModel)
-                
-            }
-        
+            TabBarView(tabs: tabs)
+                .environmentObject(tabBarViewModel)
+                .isHidden(tabBarViewModel.isHidden)
+                .transition(.move(edge: .bottom))
+            
         }
         .ignoresSafeArea(.all, edges: .bottom)
     }
@@ -56,7 +53,7 @@ struct TabBarView: View {
             ForEach(tabs, id: \.self) { viewController in
                 let tag = viewController.tabBarItem.tag
                 GeometryReader { reader in
-
+                    
                     Button {
                         withAnimation(.spring()) {
                             viewModel.selectedTabIndex = tag
@@ -65,7 +62,7 @@ struct TabBarView: View {
                     } label: {
                         
                         let image = (viewModel.selectedTabIndex == tag ? viewController.tabBarItem.selectedImage! : viewController.tabBarItem.image!)
-
+                        
                         Image(uiImage: image)
                             .resizable()
                             .renderingMode(.template)
@@ -78,10 +75,9 @@ struct TabBarView: View {
                             .offset(x: imageOffsetX(tag, reader), y: viewModel.selectedTabIndex == tag ? -45 : 0)
                         
                     }
-                    .onAppear {
-                        
+                    .onAppear {                    
                         viewModel.readers.append(reader)
-
+                        
                         if viewModel.selectedTabIndex == tag {
                             viewModel.xAxis = reader.frame(in: .global).minX + 15
                         }
@@ -96,12 +92,11 @@ struct TabBarView: View {
         }
         .padding(.horizontal, 40)
         .padding(.vertical)
-//        .padding(.bottom, 12)
         .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
         .background(Color(uiColor: UIColor.iCinemaSecondBackgroudColor)
-        .clipShape(TabBarCurveShape(xAxis: viewModel.xAxis, curve: 30)))
-
+            .clipShape(TabBarCurveShape(xAxis: viewModel.xAxis, curve: 30)))
     }
+    
     
     private func imageOffsetX(_ tag:Int, _ reader: GeometryProxy) -> CGFloat {
         viewModel.selectedTabIndex == tag ? ((reader.frame(in: .global).minX - reader.frame(in: .global).midX) - (currentLanguage == "ar" ?  5 : 0)) : 0

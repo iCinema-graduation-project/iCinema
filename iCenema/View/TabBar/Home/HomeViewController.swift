@@ -217,8 +217,6 @@ extension HomeViewController: UISearchResultsUpdating {
                 self.navigationItem.searchController = nil
             })
         }
-        
-        
     }
     
 }
