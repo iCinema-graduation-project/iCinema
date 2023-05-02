@@ -1,5 +1,5 @@
 //
-//  PosterSupplementaryView.swift
+//  SliderSupplementaryView.swift
 //  iCinema
 //
 //  Created by Ahmed Yamany on 28/02/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PosterPaginationView: UICollectionReusableView, IdentifiableView {
+class SliderPaginationView: UICollectionReusableView, IdentifiableView {
     
     lazy var pageController: UIPageControl = {
         let pageController = UIPageControl()

@@ -8,38 +8,72 @@
 import UIKit
 import SwiftUI
 import Combine
-
+import MakeConstraints
+import UIICinema
 
 class MenuViewController: ICinemaViewController {
     // MARK: - Views
-    var menu: MenuView!
+    lazy var menu: MenuView = MenuView(menuSections: self.menuSections)
     
     // MARK: - Properties
-    var cancelableSet: Set<AnyCancellable> = []
+    //
+    lazy var menuSections: [MenuSection] = [
+        MenuSection(title: .menu.general, cells: [
+            MenuCell(imageSystemName: "person", text: .menu.following, action: {
+                self.coordinator?.push(to: FollowingViewController.self)
+            }),
+            
+            MenuCell(imageSystemName: "clock", text: .menu.activity, action: {
+                
+            }),
+            
+            MenuCell(imageSystemName: "bookmark", text: .menu.saved, action: {
+                self.coordinator?.push(to: SavedViewController.self)
+            }),
+            
+            MenuCell(imageSystemName: "wallet.pass", text: .menu.icinemaWallet, action: {
+                self.coordinator?.push(to: ICinemaWalletViewController.self)
+            }),
+            
+            MenuCell(imageSystemName: "globe", text: .menu.language, action: {
+                self.changeLangueage()
+            })
+
+        ]),
+        
+        MenuSection(title: .menu.service, cells: [
+            MenuCell(imageSystemName: "mail", text: .menu.contactUs, action: {
+                
+            }),
+            
+            MenuCell(imageSystemName: "person.3", text: .menu.aboutUs, action: {
+                
+            }),
+            
+            MenuCell(imageSystemName: "star", text: .menu.rateUs, action: {
+                
+            }),
+            
+            MenuCell(imageSystemName: "iphone.and.arrow.forward", text: .menu.logout, action: {
+                self.logout()
+            })
+            
+        ])
+    ]
     
     
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         TabBarViewModel.shared.show()
-
-        menu = MenuView()
-
-        self.layoutMenuView()
-        self.bindViewModel()
-    
     }
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.layoutMenuView()
         navigationItem.addTitleView(title: .menu.menu)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        cancelableSet.forEach { $0.cancel() }
-        cancelableSet.removeAll()
-    }
     
     // MARK: - Update UI
     //
@@ -54,15 +88,66 @@ class MenuViewController: ICinemaViewController {
     }
     
     // MARK: -  Helper
-    private func bindViewModel() {
-        menu.viewModel.$viewController.sink { viewController in
-            if let viewController = viewController as? ICinemaViewController.Type {
-                self.coordinator?.push(to: viewController)
-            } else if let close = viewController as? () -> Void {
-                close()
+    //
+    private func changeLangueage() {
+        let alertView = ICinemaAlert(width: 300, height: 160)
+        alertView.show {
+            VStack {
+                Spacer()
+                Text("We will open the settigns for you to change the language")
+                Spacer()
+                HStack {
+                    Spacer()
+                    CancelButtonView(title: "Cancel", type: .small) {
+                        alertView.hide()
+                    }
+                    Spacer()
+                    ICinemaButtonView(title: "OK", type: .small) {
+                        Task {
+                            let opened = await AppSettings.shared.open()
+                            print("settings opened? \(opened)")
+                            alertView.hide()
+                        }
+                    }
+                    
+                    Spacer()
+                }
+                Spacer()
             }
+            .font(Font(UIFont.body))
+            .padding()
         }
-        .store(in: &cancelableSet)
     }
+    
+    private func logout() {
+        let alertView = ICinemaAlert(width: 300, height: 160)
+        alertView.show {
+            VStack {
+                Spacer()
+                Text("Do you realy want to logout?")
+                Spacer()
+                HStack {
+                    Spacer()
+                    CancelButtonView(title: "No", type: .small) {
+                        alertView.hide()
+                    }
+                    Spacer()
+                    ICinemaButtonView(title: "Yes", type: .small) {
+                        UserDefaults.standard.reset()
+                        alertView.hide()
+                    }
+                    
+                    Spacer()
+                }
+                Spacer()
+            }
+            .font(Font(UIFont.body))
+            .padding()
+        }
+    }
+
+    
+    
+    
     
 }

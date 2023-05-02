@@ -1,17 +1,18 @@
 //
-//  +addBorder.swift
-//  iCinema
+//  File.swift
+//  
 //
-//  Created by Ahmed Yamany on 28/03/2023.
+//  Created by Ahmed Yamany on 02/05/2023.
 //
 
-import UIKit
 import SwiftUI
 
-extension View {
+
+@available(iOS 13.0, *)
+public extension View {
     @ViewBuilder func addBorder(withColor color: Color,
                                 padding: EdgeInsets = EdgeInsets(top: 0, leading: 0, bottom: 1.2, trailing: 0),
-                                cornorRadius: CGFloat = .view.cornerRadius, height: CGFloat) -> some View {
+                                cornorRadius: CGFloat = 16, height: CGFloat) -> some View {
         ZStack(alignment: .top) {
             Rectangle()
                 .foregroundColor(color)
@@ -28,7 +29,8 @@ extension View {
     }
 }
 
-extension UIView {
+
+public extension UIView {
     /*
      Allowing a border to be added to a view with specified color and thickness,
      along with customizable offsets for top, bottom, left, and right.

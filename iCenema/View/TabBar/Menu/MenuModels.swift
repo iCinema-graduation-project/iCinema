@@ -7,21 +7,20 @@
 
 import UIKit
 
-class MenuCell {
+struct MenuCell {
     let id = UUID()
     let imageSystemName: String
     let text: String
-    var viewController: Any
+    //    var viewController: Any
+    let action: () -> Void
     
-    init(imageSystemName: String, text: String, viewController: Any) {
+    
+    init(imageSystemName: String, text: String, action: @escaping () -> Void) {
         self.imageSystemName = imageSystemName
         self.text = text
-        self.viewController = viewController
+        self.action = action
     }
     
-    static func == (lhs: MenuCell, rhs: MenuCell) -> Bool {
-        lhs.id == rhs.id
-    }
 }
 struct MenuSection {
     let id = UUID()

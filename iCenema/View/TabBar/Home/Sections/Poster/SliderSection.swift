@@ -9,14 +9,14 @@ import UIKit
 import ViewAnimator
 import CompositionalLayoutableSection
 
-final class PosterCollectionViewSection: CompositionalLayoutableSection {
+final class SliderCollectionViewSection: CompositionalLayoutableSection {
     // MARK: - Typealias
     //
-    typealias cellType = PosterCollectionViewCell
-    typealias supplementaryViewType = PosterPaginationView
+    typealias cellType = SliderCollectionViewCell
+    typealias supplementaryViewType = SliderPaginationView
     typealias ResposeType = HomeSlide
     
-    var posterPaginationView: PosterPaginationView?
+    var SliderPaginationView: SliderPaginationView?
     
     var hostingViewController: ICinemaViewController
     
@@ -38,7 +38,7 @@ final class PosterCollectionViewSection: CompositionalLayoutableSection {
 
 // MARK: - Data Source
 //
-extension PosterCollectionViewSection: CompositionalLayoutableSectionDataSource {
+extension SliderCollectionViewSection: CompositionalLayoutableSectionDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
@@ -57,12 +57,12 @@ extension PosterCollectionViewSection: CompositionalLayoutableSectionDataSource 
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let posterPaginationView = collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self,
+        let SliderPaginationView = collectionView.dequeueReusableSupplementaryView(supplementaryViewType.self,
                                                                                    ofKind: supplementaryViewType.identifier,
                                                                                    for: indexPath)
-        posterPaginationView.setNumberOfPages(self.itemsCount)
-        self.posterPaginationView = posterPaginationView
-        return posterPaginationView
+        SliderPaginationView.setNumberOfPages(self.itemsCount)
+        self.SliderPaginationView = SliderPaginationView
+        return SliderPaginationView
         
     }
     
@@ -74,7 +74,7 @@ extension PosterCollectionViewSection: CompositionalLayoutableSectionDataSource 
 
 // MARK: - Section Layout
 //
-extension PosterCollectionViewSection : CompositionalLayoutableSectionLayout {
+extension SliderCollectionViewSection : CompositionalLayoutableSectionLayout {
     func itemLayoutInGroup() -> NSCollectionLayoutItem {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -83,7 +83,7 @@ extension PosterCollectionViewSection : CompositionalLayoutableSectionLayout {
     
     func groupLayoutInSection() -> NSCollectionLayoutGroup {
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                               heightDimension: .absolute(.home.posters.sectionHeight))
+                                               heightDimension: .absolute(.home.sliders.sectionHeight))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [self.itemLayoutInGroup()])
@@ -101,7 +101,7 @@ extension PosterCollectionViewSection : CompositionalLayoutableSectionLayout {
         // MARK: - Update page control
         section.visibleItemsInvalidationHandler = { [unowned self] (items, offset, env) -> Void in
             let page = round(offset.x / CGFloat.screenBounds.width)
-            self.posterPaginationView?.selectPage(at: Int(page))
+            self.SliderPaginationView?.selectPage(at: Int(page))
         }
         return section
         
@@ -110,7 +110,7 @@ extension PosterCollectionViewSection : CompositionalLayoutableSectionLayout {
     // MARK: - supplementary item
     private func supplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
         let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .absolute(.home.posters.supplementaryHeight))
+                                                       heightDimension: .absolute(.home.sliders.supplementaryHeight))
         
         return NSCollectionLayoutBoundarySupplementaryItem(layoutSize: supplementarySize,
                                                            elementKind: supplementaryViewType.identifier, alignment: .bottom)
@@ -120,7 +120,7 @@ extension PosterCollectionViewSection : CompositionalLayoutableSectionLayout {
 
 // MARK: - Delegate
 //
-extension PosterCollectionViewSection: CompositionalLayoutableSectionDelegate {
+extension SliderCollectionViewSection: CompositionalLayoutableSectionDelegate {
     
     func registerCell(_ collectionView: UICollectionView) {
         collectionView.register(cellType.self)

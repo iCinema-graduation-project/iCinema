@@ -54,7 +54,6 @@ struct ICinemaButtonView: View {
     
     let title: String
    
-//    var type: Buttontype = .large
     let action: () -> Void
     
     private var size: CGSize
@@ -97,7 +96,6 @@ struct CancelButtonView: View {
     
     let title: String
    
-//    var type: Buttontype = .large
     let action: () -> Void
     
     private var size: CGSize

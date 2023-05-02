@@ -41,15 +41,15 @@ extension CGFloat {
     // MARK: - Home
     static let home = Home.self
     struct Home {
-        static let posters = Posters.self
+        static let sliders = Sliders.self
         static let movies = Movies.self
         static let cinemas = Cinemas.self
         
-        struct Posters {
+        struct Sliders {
             static let supplementaryHeight: CGFloat = 30
 
             static let size = CGSize(width: 240, height: 276)
-            static let sectionHeight: CGFloat = CGFloat.home.posters.size.height + CGFloat.iCinemaButton.size.height + 15
+            static let sectionHeight: CGFloat = CGFloat.home.sliders.size.height + CGFloat.iCinemaButton.size.height + 15
         }
         struct Movies {
             static let size = CGSize(width: 168, height: 272)

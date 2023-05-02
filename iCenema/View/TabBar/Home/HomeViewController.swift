@@ -12,15 +12,14 @@ import CompositionalLayoutableSection
 import LocationManager
 import NetworkLayer
 import SPAlert
- 
+import Kingfisher
+
 final class HomeViewController: ICinemaViewController, CompositionalLayoutProvider {
 
     // MARK: - Views
     //
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
-    
-    var refresher:UIRefreshControl = UIRefreshControl()
-    
+        
     let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: SearchResultViewController())
         searchController.searchBar.tintColor = .iCinemaYellowColor
@@ -32,12 +31,12 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     // MARK: - CompositionalLayoutProvider confirmation
     //
     lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [ ]
-    
-    private lazy var datesource: UICollectionViewDataSource? = CompositionalLayoutDataSource(self)
-    private lazy var delegate: UICollectionViewDelegate? = CompositionalLayoutDelegate(self)
+    private lazy var datesource = CompositionalLayoutDataSource(self)
+    private lazy var delegate = CompositionalLayoutDelegate(self)
     
     
     var viewModel = HomeViewModel()
+    var profileFeatcher = ProfileFetcher()
     
     // MARK: - Life Cycle
     //
@@ -48,37 +47,27 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // update home UI
         self.updateUI()
         
+        // update collection view delegation
         collectionView.delegate = delegate
         collectionView.dataSource = datesource
-     
+        
+        // start updating location
         LocationManager.shared.startUpdatingLocation()
         
+        // make network request
         ActivityIndicator.shared.play()
-        self.networkRequest { ActivityIndicator.shared.stop() }
+        self.makeNetworkRequest { ActivityIndicator.shared.stop() }
         
-        self.refresher = UIRefreshControl()
-        self.collectionView.alwaysBounceVertical = true
-        self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        collectionView.refreshControl = self.refresher
-     
-        refresher.tintColor = .iCinemaYellowColor
-        
+        // add refresh controll
+        self.collectionView.addUIRefreshControl(target: self,
+                                                action: #selector(collectionViewRefershControlAction),
+                                                for: .valueChanged)
     }
     
-    @objc func loadData() {
-        self.collectionView.refreshControl?.beginRefreshing()
         
-//        self.networkRequest {
-//            self.stopRefresher()
-//        }
-     }
-    
-    func stopRefresher() {
-       self.collectionView.refreshControl?.endRefreshing()
-     }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
@@ -90,14 +79,12 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     }
     
     // MARK: - Network
-    
-    private func networkRequest(_ completion: @escaping () -> Void = {}) {
-        self.viewModel.service.request { response in
+    //
+    private func makeNetworkRequest(_ completion: @escaping () -> Void = {}) {
+        self.viewModel.service.request { [ unowned self ] response in
             
-            if let value = response.value, let home = value.data{
-                self.makeHomeSlider(from: home.homeSlides)
-                self.makeCategories(from: home.categories)
-
+            if let value = response.value, let homeData = value.data{
+                self.makeHomeLayout(with: homeData)
             }else {
                 self.handelError(response.error)
             }
@@ -105,13 +92,20 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
             self.compositionalLayoutSections.append(DummyCollectionViewSection())
             self.collectionView.updateCollectionViewCompositionalLayout(with: self)
             completion()
+            
         }
     }
     
+    private func makeHomeLayout(with home: HomeData) {
+        self.compositionalLayoutSections.removeAll()
+        self.makeHomeSlider(from: home.homeSlides)
+        self.makeCategories(from: home.categories)
+    }
+    
     private func makeHomeSlider(from homeSlides: [HomeSlide]) {
-        let poster = PosterCollectionViewSection(hostingViewController: self)
-        self.compositionalLayoutSections.append(poster)
-        poster.update(self.collectionView, with: homeSlides)
+        let Slider = SliderCollectionViewSection(hostingViewController: self)
+        self.compositionalLayoutSections.append(Slider)
+        Slider.update(self.collectionView, with: homeSlides)
     }
     
     private func makeCategories(from categories: [HomeCategory]) {
@@ -138,7 +132,6 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
 
     }
     
-
     
     // MARK: - Update UI
     private func updateUI(){
@@ -163,14 +156,20 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     
     private func addUserProfileImageToLeftBarButtonItem(){
         
-        let imageView = UIImageView(image: UIImage(named: "profile"))
+        let imageView = UIImageView()
             .makeCircleImage(withWidth: .profile.imageSize.width, borderColor: .iCinemaYellowColor)
-        
-        
+                
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: imageView)
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.userProfileTapped))
         imageView.addGestureRecognizer(gesture)
+        
+        
+        self.profileFeatcher.request { response in
+            guard let value = response.value  else{ return }
+            imageView.kf.setImage(with: URL(string: value.user.image ?? "" ))
+        }
+
     }
     
     private func addCollectionView() {
@@ -179,6 +178,15 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
     }
     
     
+    // MARK: - Actions
+    
+    @objc func collectionViewRefershControlAction() {
+        self.collectionView.refreshControl?.beginRefreshing()
+        self.makeNetworkRequest { [ unowned self ] in
+            self.collectionView.refreshControl?.endRefreshing()
+        }
+    }
+
     @objc private func userProfileTapped() {
         self.navigationController?.pushViewController(EditUserProfileViewController(), animated: true)
     }
@@ -198,6 +206,8 @@ final class HomeViewController: ICinemaViewController, CompositionalLayoutProvid
             
         }
     }
+    
+   
 }
 
 extension HomeViewController: UISearchResultsUpdating {

@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import UIICinema
+
 
 struct TicketsView: View {
     
     @State var tickets: [Ticket] = [
-    Ticket(image: "posterImage"),
-    Ticket(image: "posterImage2"),
-    Ticket(image: "posterImage3"),
-    Ticket(image: "posterImage"),
+    Ticket(image: "SliderImage"),
+    Ticket(image: "SliderImage2"),
+    Ticket(image: "SliderImage3"),
+    Ticket(image: "SliderImage"),
         ]
     
     @State private var showAlert: Bool = false
@@ -44,7 +46,7 @@ struct TicketsView: View {
                 }
                 
                 if showAlert {
-                    AlertView {
+                    ICinemaAlertView {
                         VStack(spacing: 15.0) {
                             Text("Do you realy wany to delet")
                             
@@ -171,18 +173,3 @@ struct InfiniteStackView: View {
 }
 
 
-
-struct AlertView<Content: View>: View {
-    @ViewBuilder var content: Content
-
-    var body: some View {
-        VStack {
-            content
-        }
-        .frame(width: 342, height: 220)
-        .background(Color(uiColor: .iCinemaSecondBackgroudColor))
-        .addBorder(withColor: Color(uiColor: .iCinemaYellowColor), height: 220)
-        .frame(width: 342)
-
-    }
-}

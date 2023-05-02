@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     func addAnimate(completion: @escaping () -> Void = {}) {
         let xScale : CGFloat = 1.025
         let yScale : CGFloat  = 1.05

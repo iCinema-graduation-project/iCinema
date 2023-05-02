@@ -27,6 +27,7 @@ open class CoordinatorViewController: UIViewController{
             self.coordinator?.pop()
         }
     }
+
 }
 
 extension CoordinatorViewController {

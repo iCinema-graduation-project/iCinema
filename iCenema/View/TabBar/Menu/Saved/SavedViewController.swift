@@ -18,42 +18,75 @@ final class SavedViewController: ICinemaViewController, CompositionalLayoutProvi
     
     // MARK: - Properties
     //
-    lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [
-        SavedCollectionViewSection(hostingViewController: self),
-        DummyCollectionViewSection()
-    ]
+    lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [ ]
     
-    lazy var compositionalLayoutProviderDataSource: UICollectionViewDataSource? = CompositionalLayoutDataSource(self)
-    lazy var compositionalLayoutProviderDelegate: UICollectionViewDelegate? = CompositionalLayoutDelegate(self)
+    lazy var dataSource = CompositionalLayoutDataSource(self)
+    lazy var delegate = CompositionalLayoutDelegate(self)
+    
+    var viewModel = SavedViewModel()
     
     // MARK: - Life Cycle
     //
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         self.updateUI()
-        
-        // setup collection view compositional layout
-        collectionView.updateCollectionViewCompositionalLayout(with: self)
-//        compositionalLayoutSections.forEach { $0.delegate?.update(self.collectionView) }
-        
-        // setup collection view delegate and datasource with compositional layout source and delegate
-        collectionView.delegate = compositionalLayoutProviderDelegate
-        collectionView.dataSource = compositionalLayoutProviderDataSource
-        
-       
-     
 
+        collectionView.delegate = delegate
+        collectionView.dataSource = dataSource
+        
+        ActivityIndicator.shared.play()
+        self.makeNetworkRequest { ActivityIndicator.shared.stop() }
+        
+        self.collectionView.addUIRefreshControl(target: self,
+                                                action: #selector(self.collectionViewRefershControlAction),
+                                                for: .valueChanged)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.viewModel.service.cancelAllPublishers()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         collectionView.frame = view.bounds
-        
+    }
+    
+    // MARK: - Actions
+    //
+    @objc func collectionViewRefershControlAction() {
+        self.collectionView.refreshControl?.beginRefreshing()
+        self.makeNetworkRequest { [ unowned self ] in
+            self.collectionView.refreshControl?.endRefreshing()
+        }
     }
 
+    
+    // MARK: - Network
+    //
+    private func makeNetworkRequest(_ completion: @escaping () -> Void = {} ) {
+        self.viewModel.service.networkRequest.update(headers: ["page": "1"])
+        self.viewModel.service.request { [ unowned self ]  response in
+            if let value = response.value{
+                self.compositionalLayoutSections.removeAll()
+                let sec = SavedCollectionViewSection(hostingViewController: self)
+                self.compositionalLayoutSections.append(sec)
+                sec.update(self.collectionView, with: value.data.movies)
+                
+            }else {
+                self.handelError(response.error)
+            }
+            
+            self.compositionalLayoutSections.append(DummyCollectionViewSection())
+            self.collectionView.updateCollectionViewCompositionalLayout(with: self)
+            
+            completion()
+        }
+    }
+    
+    
     // MARK: - Update UI
     //
     private func updateUI(){
@@ -62,14 +95,12 @@ final class SavedViewController: ICinemaViewController, CompositionalLayoutProvi
     }
  
     private func updateCollectionView() {
-    
-        // add and clear the background of the collection view
         view.addSubview(collectionView)
         collectionView.backgroundColor = .clear
-                
     }
-    
+
     
 }
+
 
 

@@ -11,7 +11,16 @@ import CompositionalLayoutableSection
 
 final class SavedCollectionViewSection: CompositionalLayoutableSection {
     typealias CellType = MovieCell
-
+    typealias ResposeType = Movie
+    
+    var items: [ResposeType] = [] {
+        didSet {
+            itemsCount = items.count
+        }
+    }
+    
+    var itemsCount: Int  = 0
+    
     var hostingViewController: UIViewController?
     init(hostingViewController: UIViewController) {
        
@@ -27,34 +36,6 @@ final class SavedCollectionViewSection: CompositionalLayoutableSection {
 // MARK: - DataSource
 //
 extension SavedCollectionViewSection: CompositionalLayoutableSectionDataSource {
-    func update(_ collectionView: UICollectionView, with items: [Movie]) {
-        
-    }
-    
-    
-    struct ItemsHolder {
-        static var itemsHolder: [ResposeType] = []
-        static var itemsCount: Int = 0
-    }
-    
-    typealias ResposeType = Movie
-    var items: [ResposeType] {
-        get {
-            return ItemsHolder.itemsHolder
-        }
-        set {
-            ItemsHolder.itemsHolder = newValue
-            itemsCount = items.count
-        }
-    }
-    var itemsCount: Int {
-        get {
-            return ItemsHolder.itemsCount
-        }
-        set {
-            ItemsHolder.itemsCount = newValue
-        }
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemsCount
@@ -65,11 +46,15 @@ extension SavedCollectionViewSection: CompositionalLayoutableSectionDataSource {
         
         let animator = AnimationType.from(direction: .bottom, offset: 100)
         cell.animate(animations: [animator], delay: 0.0 , duration: 0.5)
-        
+        cell.inject(with: self.items[indexPath.row])
         return cell
     }
     
-    
+    func update(_ collectionView: UICollectionView, with items: [Movie]) {
+        self.items = items
+        collectionView.reloadData()
+    }
+
 }
 
 // MARK: - Layout
@@ -89,8 +74,7 @@ extension SavedCollectionViewSection: CompositionalLayoutableSectionLayout {
     }
     
     func groupLayoutInSection() -> NSCollectionLayoutGroup {
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                               heightDimension: .absolute(.home.movies.size.height + 20))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(.home.movies.size.height + 20))
         let group: NSCollectionLayoutGroup
         
         if #available(iOS 16.0, *) {
@@ -98,7 +82,6 @@ extension SavedCollectionViewSection: CompositionalLayoutableSectionLayout {
         } else {
             group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: self.itemLayoutInGroup(), count: 2)
         }
-        
         
         group.contentInsets = NSDirectionalEdgeInsets(top: .cell.padding.top,
                                                       leading: 0,
@@ -124,29 +107,11 @@ extension SavedCollectionViewSection: CompositionalLayoutableSectionDelegate {
         collectionView.register(CellType.self)
     }
     
-    func update(_ collectionView: UICollectionView) {
-        DispatchQueue.main.async { [ unowned self ] in
-            self.items = [
-//                Movie(poster: "", name: "Avatar", bookmarket: false),
-//                Movie(poster: "", name: "spider man", bookmarket: true),
-//                Movie(poster: "", name: "pat man", bookmarket: false),
-//                Movie(poster: "", name: "super man", bookmarket: false),
-//                Movie(poster: "", name: "pat man", bookmarket: false),
-//                Movie(poster: "", name: "super man", bookmarket: false),
-//                Movie(poster: "", name: "pat man", bookmarket: false),
-//                Movie(poster: "", name: "super man", bookmarket: false),
-//                Movie(poster: "", name: "pat man", bookmarket: false),
-//                Movie(poster: "", name: "super man", bookmarket: false)
-            ]
-            collectionView.reloadData()
-        }
-    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let hostingViewController = hostingViewController as? ICinemaViewController else { return }
         let mv = MovieProfileViewController()
-//        mv.viewModel = .init(movie: self.items[indexPath.item])
-        mv.viewModel = .init()
+        mv.inject(with: self.items[indexPath.row].id)
         hostingViewController.presentViewController(mv)
         
     }

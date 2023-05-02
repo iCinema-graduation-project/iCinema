@@ -28,7 +28,7 @@ struct EWalletView: View {
                     .foregroundColor(Color(uiColor: .iCinemaYellowColor))
             }
             
-            AlertView {
+            ICinemaAlertView {
                 VStack {
                     VStack(alignment: .leading) {
                         Text("Wallet Number")

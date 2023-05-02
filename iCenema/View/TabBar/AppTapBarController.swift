@@ -7,8 +7,7 @@
 
 import UIKit
 import SwiftUI
-
-
+import MakeConstraints
 
 class AppTapBarController: ICinemaViewController {
     var tabBarView: UIView?
@@ -39,17 +38,13 @@ class AppTapBarController: ICinemaViewController {
         
         let viewControllers = [menuVC, reelsVC, homeVC, ticketVC, notificationVC]
         
-        
         self.tabBarView = AppTabBarView(tabs: viewControllers,
                                         tabBarViewModel: TabBarViewModel.shared).hostigView()
         view.addSubview(tabBarView!)
         tabBarView?.fillSuperviewConstraints()
         
     }
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-//        tabBarView?.fillSuperviewConstraints()
-    }
+  
     
     // MARK: - Intializers
     //

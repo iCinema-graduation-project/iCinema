@@ -105,14 +105,15 @@ struct MovieCellView: View {
             AsyncImage(url: URL(string: movie.cinema.logo)) { image in
                 image
                     .resizable()
-                    .makeCircled(size: CGSize(width: 15, height: 15),
-                                 strockColor: Color(uiColor: .iCinemaYellowColor),
-                                 lineWidth: 0.5)
+                    
 
             } placeholder: {
                 Color.gray
             }
-
+            .makeCircled(size: CGSize(width: 15, height: 15),
+                         strockColor: Color(uiColor: .iCinemaYellowColor),
+                         lineWidth: 0.5)
+            
             Text(movie.cinema.name)
                 .font(Font(UIFont.caption1))
         }
@@ -138,7 +139,7 @@ struct MovieCellView: View {
 
 //struct MovieCellView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        let movie = Movie(poster: "posterImage", name: "Black Adam", bookmarket: true)
+//        let movie = Movie(Slider: "SliderImage", name: "Black Adam", bookmarket: true)
 //        MovieCellView(movie: movie)
 //    }
 //}

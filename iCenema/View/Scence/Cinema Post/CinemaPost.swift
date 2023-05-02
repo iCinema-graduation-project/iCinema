@@ -41,7 +41,7 @@ struct PostHeader: View {
 
 struct PostContent: View {
     var body: some View {
-        Image("posterImage3")
+        Image("SliderImage3")
             .resizable()
             .frame(width: .infinity)
             .aspectRatio(contentMode: .fit)

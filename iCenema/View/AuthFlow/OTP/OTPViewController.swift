@@ -116,13 +116,10 @@ class OTPViewController: ICinemaViewController {
             
             if let value = response.value as? VerifyCode {
                 self.handelValue(value)
-                
             } else if let error = response.error {
                 self.handelError(error)
-                
             } else {
                 SPAlert.showUnKnownError()
-                
             }
         }
         
@@ -132,15 +129,13 @@ class OTPViewController: ICinemaViewController {
         let userDefaults = UserDefaults.standard
         userDefaults.save(customObject: value.data, inKey: .user)
         
-        if value.key == "compelete_data" {
+        switch value.key {
+        case .compelete_data:
             self.coordinator?.push(to: EditUserProfileViewController.self)
-            
-        }else if value.key == "success" {
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+            navigationController?.viewControllers.last?.navigationItem.hidesBackButton = true
+        case .success:
             self.coordinator?.push()
-            
-        } else {
-            SPAlert.showUnKnownError()
-            
         }
 
     }

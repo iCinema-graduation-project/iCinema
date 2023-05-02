@@ -59,7 +59,7 @@ struct TicketView: View {
 
 struct TicketView_Previews: PreviewProvider {
     static var previews: some View {
-        TicketView(ticket: Ticket(image: "posterImage"), height: 0)
+        TicketView(ticket: Ticket(image: "SliderImage"), height: 0)
     }
 }
 

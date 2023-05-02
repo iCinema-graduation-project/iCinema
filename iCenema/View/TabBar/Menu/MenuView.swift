@@ -7,84 +7,54 @@
 
 import SwiftUI
 
-class MenuViewModel: ObservableObject {
-    @Published var viewController: Any? = nil
-    
-    public func updateViewController(viewController: Any) {
-        self.viewController = viewController
-    }
-}
 
 struct MenuView: View {
-    @ObservedObject var viewModel: MenuViewModel = MenuViewModel()
+    let menuSections: [MenuSection]
     
     @Environment(\.colorScheme) var colorScheme
-    
-    
-    let menuSections: [MenuSection] = [
-        MenuSection(title: .menu.general, cells: [
-            MenuCell(imageSystemName: "person", text: .menu.following, viewController: FollowingViewController.self),
-            MenuCell(imageSystemName: "clock", text: .menu.activity, viewController: FollowingViewController.self),
-            MenuCell(imageSystemName: "bookmark", text: .menu.saved, viewController: SavedViewController.self),
-            MenuCell(imageSystemName: "wallet.pass", text: .menu.icinemaWallet, viewController: ICinemaWalletViewController.self),
-            MenuCell(imageSystemName: "globe", text: .menu.language, viewController: LanguageViewController.self),
-
-        ]),
-        
-        MenuSection(title: .menu.service, cells: [
-            MenuCell(imageSystemName: "mail", text: .menu.contactUs, viewController: FollowingViewController.self),
-            MenuCell(imageSystemName: "person.3", text: .menu.aboutUs, viewController: FollowingViewController.self),
-            MenuCell(imageSystemName: "star", text: .menu.rateUs, viewController: FollowingViewController.self),
-            MenuCell(imageSystemName: "iphone.and.arrow.forward", text: .menu.logout, viewController: {
-                UserDefaults.standard.reset()
-            })
-        ])
-    ]
-    
     var body: some View {
-                
-        List {
-            menuSection {
-                HStack(spacing: 15.0) {
-                    Image("profile")
-                        .makeCircled(size: CGSize(width: 40, height: 40),
-                                     strockColor: Color(uiColor: .iCinemaYellowColor),
-                                     strockSpacing: 4, lineWidth: 1.5)
-                    VStack(alignment: .leading) {
-                        Text("Ahmed Yamany")
-                            .font(Font(UIFont.title3))
-                        Text("+20 1551608020")
-                            .foregroundColor(.gray)
-                            .font(Font(UIFont.body))
-                    }
-                }
-                .foregroundColor(Color(uiColor: .iCinemaTextColor))
-            }
-            
-            
-            ForEach(menuSections , id: \.id) { section in
+        
+        ICinemaView {
+            List {
                 menuSection {
-                    Text(section.title)
-                        .foregroundColor(Color(uiColor: .iCinemaYellowColor))
-                        .font(Font(UIFont.footnote))
-                    
-                    ForEach(section.cells, id: \.id) { cell in
-                        menuCell(imageSystemName: cell.imageSystemName, text: cell.text)
-                            .onTapGesture {
-                                viewModel.updateViewController(viewController: cell.viewController)
-                            }
-
+                    HStack(spacing: 15.0) {
+                        Image("profile")
+                            .makeCircled(size: CGSize(width: 40, height: 40),
+                                         strockColor: Color(uiColor: .iCinemaYellowColor),
+                                         strockSpacing: 4, lineWidth: 1.5)
+                        VStack(alignment: .leading) {
+                            Text("Ahmed Yamany")
+                                .font(Font(UIFont.title3))
+                            Text("+20 1551608020")
+                                .foregroundColor(.gray)
+                                .font(Font(UIFont.body))
+                        }
+                    }
+                    .foregroundColor(Color(uiColor: .iCinemaTextColor))
+                }
+                
+                ForEach(menuSections , id: \.id) { section in
+                    menuSection {
+                        Text(section.title)
+                            .foregroundColor(Color(uiColor: .iCinemaYellowColor))
+                            .font(Font(UIFont.footnote))
+                        
+                        ForEach(section.cells, id: \.id) { cell in
+                            menuCell(imageSystemName: cell.imageSystemName, text: cell.text)
+                                .onTapGesture {
+                                    cell.action()
+                                }
+                        }
                     }
                 }
+                
+                HStack {}
+                    .frame(height: 50)
+                    .listRowBackground(Color.clear)
             }
-
-            HStack {}
-                .listRowBackground(Color.clear)
-        }
-            
             .modifier(FormHiddenBackground())
             .background(Color(uiColor: .iCinemaBackgroundColor))
-
+        }
     }
     
     private func menuSection<Content: View>(@ViewBuilder content: @escaping () -> Content) -> some View {
@@ -100,13 +70,14 @@ struct MenuView: View {
                 .foregroundColor(Color(uiColor: .iCinemaYellowColor))
             Text(text)
                 .font(Font(UIFont.callout))
+            Spacer()
         }
     }
 }
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView(menuSections: [])
     }
 }
 
