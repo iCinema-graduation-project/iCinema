@@ -59,16 +59,13 @@ struct MovieListCellView: View {
     // Movie Image
     @ViewBuilder
     private func movieImage() -> some View{
-        AsyncImage(url: URL(string: movie.image)) { image in
+        ICinemaAsyncImage(url: URL(string: movie.image)) { image in
             image
                 .resizable()
                 .addBorder(withColor: Color(uiColor: .iCinemaYellowColor),
                                                         height: .cinemaProfile.movieListSize.height)
 
-        } placeholder: {
-            Color.gray
         }
-        
         .frame(width: .cinemaProfile.movieListSize.width, height: .cinemaProfile.movieListSize.height)
         .cornerRadius(.view.cornerRadius)
 

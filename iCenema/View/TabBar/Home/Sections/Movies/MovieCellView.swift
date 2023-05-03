@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import SPAlert
 import NetworkLayer
+import UIICinema
 
 struct MovieCellView: View {
     
@@ -52,12 +53,10 @@ struct MovieCellView: View {
     
     @ViewBuilder
     private func movieImage() -> some View {
-        AsyncImage(url: URL(string: movie.image)) { image in
+        ICinemaAsyncImage(url: URL(string: movie.image)) { image in
             image
                 .resizable()
 
-        } placeholder: {
-            Color.gray
         }
         .addBorder(withColor: Color(uiColor: .iCinemaYellowColor),
                            height: .home.movies.imageHeight)
@@ -102,13 +101,11 @@ struct MovieCellView: View {
     @ViewBuilder
     private func movieCinema() -> some View {
         HStack {
-            AsyncImage(url: URL(string: movie.cinema.logo)) { image in
+            ICinemaAsyncImage(url: URL(string: movie.cinema.logo)) { image in
                 image
                     .resizable()
                     
 
-            } placeholder: {
-                Color.gray
             }
             .makeCircled(size: CGSize(width: 15, height: 15),
                          strockColor: Color(uiColor: .iCinemaYellowColor),

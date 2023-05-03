@@ -14,12 +14,10 @@ struct CinemaProfileSliderView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(viewModel.images, id: \.id) { imageLink in
-                    AsyncImage(url: URL(string: imageLink.image)) { image in
+                    ICinemaAsyncImage(url: URL(string: imageLink.image)) { image in
                         image
                             .resizable()
                         
-                    } placeholder: {
-                        Color.gray
                     }
                     .frame(width: .cinemaProfile.sliderSize.width, height: .cinemaProfile.sliderSize.height)
                 }

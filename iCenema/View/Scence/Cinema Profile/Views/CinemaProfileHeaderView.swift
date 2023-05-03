@@ -20,13 +20,11 @@ struct CinemaProfileHeaderView: View {
     
     @ViewBuilder
     private func cinemaProfileImage() -> some View {
-        AsyncImage(url: URL(string: viewModel.logo)) { image in
+        ICinemaAsyncImage(url: URL(string: viewModel.logo)) { image in
             image
                 .resizable()
 
             
-        } placeholder: {
-            Color.gray
         }
         .makeCircled(size: CGSize(width: .cinemaProfile.imageSize.width, height: .cinemaProfile.imageSize.height),
                      strockColor: Color(uiColor: .iCinemaYellowColor),

@@ -111,15 +111,17 @@ class WelcomeViewController: ICinemaViewController {
     }
     
     @objc private func guestButtonTapped() {
-        guestButton.addAnimate {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) { granted, error in
-                if granted {
-                    self.schenualNotification()
-                } else {
-                    
-                }
-            }
-        }
+        self.coordinator?.push(to: AppTapBarController.self)
+            
+            
+//            UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) { granted, error in
+//                if granted {
+//                    self.schenualNotification()
+//                } else {
+//
+//                }
+//            }
+        
     }
     
     func schenualNotification() {

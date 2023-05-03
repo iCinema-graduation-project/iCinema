@@ -58,7 +58,7 @@ open class Coordinator: NSObject {
         case .segue:
             
             // Ensure that the current index is greater than 0 to avoid presenting a segue on the first view controller
-            if currentIndex <= 0{
+            if currentIndex <= -1{
                 fatalError("you should not present segue at first ViewController at coordinator array")
             }
             guard let lastVC = navigationController.viewControllers.last as? CoordinatorViewController else {return}

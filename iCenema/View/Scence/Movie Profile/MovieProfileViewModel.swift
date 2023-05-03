@@ -24,7 +24,7 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
     @Published var categories: [Category] = []
     @Published var images: [MovieImage] = []
     @Published var comments: [String] = []
-    @Published var videoPlayerViewModel: PlayerViewModel? = nil
+    @Published var videoPlayerViewModels: [PlayerViewModel] = []
 
 
     var dismissAction: (() -> Void) = { }
@@ -48,7 +48,8 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
         self.categories = movie.categories ?? []
         self.images = movie.images ?? []
         self.comments = movie.comments ?? []
-        self.videoPlayerViewModel = .init(url: URL(string: self.trailer)!)
+        self.videoPlayerViewModels.append(.init(url: URL(string: self.trailer)!))
+        self.videoPlayerViewModels.append(.init(url: URL(string: self.trailer)!))
     }
     
     

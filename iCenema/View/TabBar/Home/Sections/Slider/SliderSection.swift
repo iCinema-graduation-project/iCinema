@@ -35,7 +35,6 @@ final class SliderCollectionViewSection: CompositionalLayoutableSection {
 }
 
 
-
 // MARK: - Data Source
 //
 extension SliderCollectionViewSection: CompositionalLayoutableSectionDataSource {
@@ -49,7 +48,8 @@ extension SliderCollectionViewSection: CompositionalLayoutableSectionDataSource 
                 
         let zoomAnimation = AnimationType.zoom(scale: 0.2)
         cell.animate(animations: [zoomAnimation])
-        cell.homeSlide = self.items[indexPath.row]
+        cell.inject(with: self.items[indexPath.row], hostingViewController: hostingViewController)
+        
         return cell
     }
     

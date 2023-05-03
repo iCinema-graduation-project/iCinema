@@ -6,6 +6,7 @@
 //
 
 import UIKit.UIFont
+import SwiftUI
 
 /*
  Stolzl
@@ -24,6 +25,8 @@ import UIKit.UIFont
  }
 
  */
+
+let fontName = "Stolzl"
 
 // MARK: - Buttons
 public extension UIFont {
@@ -80,5 +83,52 @@ public extension UIFont {
 
     static var textfeild: UIFont {
         return UIFont(name: "Stolzl-Medium", size: 18)!
+    }
+}
+
+
+public extension Font {
+    static let custom = Custom.self
+    
+    struct Custom {
+        static var button: Font { return Font(UIFont.button) }
+
+        static var smallButton: Font { return Font(UIFont.smallButton) }
+        
+        static var title1: Font {
+            return Font(UIFont.title1)
+        }
+
+        static var title2: Font {
+            return Font(UIFont.title2)
+        }
+
+        static var title3: Font {
+            return Font(UIFont.title3)
+        }
+
+        static var callout: Font {
+            return Font(UIFont.callout)
+        }
+
+        static var footnote: Font {
+            return Font(UIFont.footnote)
+        }
+
+        static var body: Font {
+            return Font(UIFont.body)
+        }
+
+        static var caption1: Font {
+            return Font(UIFont.caption1)
+        }
+        static var caption2: Font {
+            return Font(UIFont.caption2)
+        }
+        
+        static var textfeild: Font {
+            return Font(UIFont.textfeild)
+        }
+
     }
 }

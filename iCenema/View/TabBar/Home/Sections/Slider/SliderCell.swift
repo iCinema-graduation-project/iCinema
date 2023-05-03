@@ -17,20 +17,15 @@ final class SliderCollectionViewCell: UICollectionViewCell, IdentifiableView {
     
     private lazy var viewButton: ICinemaButton = ICinemaButton(title: .view, action: self.viewButtonTapped)
     
-    
-    var homeSlide: HomeSlide? = nil {
-        didSet {
-            guard let homeSlide = homeSlide else { return }
-            SliderImage.kf.setImage(with: URL(string: homeSlide.image))
-        }
-    }
+    var homeSlide: HomeSlide!
+    var hostingViewController: ICinemaViewController!
     
     // MARK: - initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSliderView()
         self.addViewButton()
-        self.addPoterImage()
+        self.addSliderImage()
         self.addSliderDescriptionLabel()
     }
     
@@ -38,8 +33,26 @@ final class SliderCollectionViewCell: UICollectionViewCell, IdentifiableView {
         super.init(coder: coder)
     }
     
+    public func inject(with homeSlide: HomeSlide, hostingViewController: ICinemaViewController) {
+        self.homeSlide = homeSlide
+        self.hostingViewController = hostingViewController
+        SliderImage.kf.setImage(with: URL(string: homeSlide.image))
+    }
+    
     // MARK: - Actions
-    func viewButtonTapped(){
+    private func viewButtonTapped(){
+        switch self.homeSlide.type {
+        case .cinema:
+            guard let cinema = homeSlide.cinema else { return }
+            let cinemaProfile = CinemaProfileViewController()
+            cinemaProfile.inject(with: cinema.id)
+            self.hostingViewController.presentViewController(cinemaProfile)
+        case .movie:
+            guard let movie = homeSlide.movie else { return }
+            let movieProfile = MovieProfileViewController()
+            movieProfile.inject(with: movie.id)
+            self.hostingViewController.presentViewController(movieProfile)
+        }
         
     }
     
@@ -61,7 +74,7 @@ final class SliderCollectionViewCell: UICollectionViewCell, IdentifiableView {
         viewButton.centerXInSuperview()
         viewButton.makeConstraints(bottomAnchor: contentView.bottomAnchor)
     }
-    private func addPoterImage() {
+    private func addSliderImage() {
         SliderView.addSubview(SliderImage)
         SliderImage.layer.masksToBounds = true
         SliderImage.fillXSuperViewConstraints()

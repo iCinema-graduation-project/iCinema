@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct MenuView: View {
     let menuSections: [MenuSection]
     
@@ -25,13 +24,11 @@ struct MenuView: View {
                 menuSection {
                     HStack(spacing: 15.0) {
                         
-                        AsyncImage(url: URL(string: image)) { image in
+                        ICinemaAsyncImage(url: URL(string: image)) { image in
                             image
                                 .resizable()
-                                
+                                .frame(width: 40, height: 40)
 
-                        } placeholder: {
-                            Color.gray
                         }
                         .makeCircled(size: CGSize(width: 40, height: 40),
                                      strockColor: Color(uiColor: .iCinemaYellowColor),

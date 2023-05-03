@@ -6,6 +6,7 @@
 //
 
 import UIKit.UIColor
+import SwiftUI
 
 extension UIColor {
     static var iCinemaBackgroundColor: UIColor {
@@ -38,6 +39,42 @@ extension UIColor {
     
     static var iCinemaOnlyGray: UIColor {
         UIColor(named: "iCinemaOnlyGray")!
+    }
+
+}
+
+
+extension Color {
+    static var iCinemaBackgroundColor: Color {
+        Color("iCinemaBackgroundColor")
+    }
+    
+    static var iCinemaSecondBackgroudColor: Color {
+        Color("iCinemaSecondBackgroudColor")
+    }
+    
+    static var iCinemaYellowColor: Color {
+        Color("iCinemaYellowColor")
+    }
+    
+    static var iCinemaYellowColorReverce: Color {
+        Color("iCinemaYellowColorReverce")
+    }
+    
+    static var iCinemaTextColor: Color {
+        Color("iCinemaTextColor")
+    }
+    
+    static var iCinemaTextColorReverce: Color {
+        Color("iCinemaTextColorReverce")
+    }
+    
+    static var iCinemaOnlyYellow: Color {
+        Color("iCinemaOnlyYellow")
+    }
+    
+    static var iCinemaOnlyGray: Color {
+        Color("iCinemaOnlyGray")
     }
 
 }

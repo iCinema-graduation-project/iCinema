@@ -63,11 +63,9 @@ struct ProfileView<Content: View>: View {
                 
                 ToolbarItem(placement: .principal) {
                     HStack{
-                        AsyncImage(url: URL(string: imageUrl ?? "")) { image in
+                        ICinemaAsyncImage(url: URL(string: imageUrl ?? "")) { image in
                             image
                                 .resizable()
-                        } placeholder: {
-                            Color.clear
                         }
                         .makeCircled(size: CGFloat.profile.imageSize,
                                      strockColor: Color(uiColor: .iCinemaYellowColor),

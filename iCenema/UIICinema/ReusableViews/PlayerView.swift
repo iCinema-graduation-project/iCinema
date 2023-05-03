@@ -10,9 +10,17 @@ import UIKit
 import AVKit
 
 class PlayerViewModel: ObservableObject {
+    
+    let id = UUID()
+    
     @Published var player: AVPlayer? // can be changable depending on modified URL, etc.
     init(url: URL) {
         self.player = AVPlayer(url: url)
+    }
+    
+    
+    static func == (lhs: PlayerViewModel, rhs: PlayerViewModel) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
@@ -21,7 +29,6 @@ struct PlayerView: UIViewControllerRepresentable {
     // just thing wrapper, as intended
     var viewModel: PlayerViewModel
 
-    
     func makeUIViewController(context: Context) -> UIViewController {
         let controller = AVPlayerViewController()
         controller.player = viewModel.player

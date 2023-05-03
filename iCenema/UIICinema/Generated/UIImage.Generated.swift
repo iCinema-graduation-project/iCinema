@@ -9,7 +9,10 @@ import UIKit.UIImage
 
 
 extension UIImage {
-    static let welcomeImage: UIImage? = UIImage(named: "welcomeImage")
+    
+    static let ICinemaLogo: UIImage = UIImage(named: "ICinemaLogo")!
+    
+    static let welcomeImage: UIImage = UIImage(named: "welcomeImage")!
     static let tabBar = TabBar.self
     
     static let bookmark = "bookmark"

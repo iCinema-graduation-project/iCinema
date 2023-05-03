@@ -46,11 +46,9 @@ struct CinemaCellView: View {
     }
     
     @ViewBuilder private func profileImage() -> some View {
-        AsyncImage(url: URL(string: cinema.logo)) { image in
+        ICinemaAsyncImage(url: URL(string: cinema.logo)) { image in
             image
                 .resizable()
-        } placeholder: {
-            Color.gray
         }
         .makeCircled(size: CGFloat.home.cinemas.imageSize,
                      strockColor: Color(uiColor: .iCinemaYellowColor),

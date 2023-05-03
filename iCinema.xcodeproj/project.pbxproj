@@ -177,6 +177,7 @@
 		73CD5C6129CFA5B6008078A5 /* CinemaChairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD5C6029CFA5B6008078A5 /* CinemaChairsViewController.swift */; };
 		73CD5C6329CFA5EA008078A5 /* CinemaChairsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD5C6229CFA5EA008078A5 /* CinemaChairsView.swift */; };
 		73D3C38A29FC764D00CE5256 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 73D3C38929FC764D00CE5256 /* Kingfisher */; };
+		73E3C1422A02CDF50016EBC4 /* ICinemaAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E3C1412A02CDF50016EBC4 /* ICinemaAsyncImage.swift */; };
 		73EC918C29834531002F3568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918B29834531002F3568 /* AppDelegate.swift */; };
 		73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC918D29834531002F3568 /* SceneDelegate.swift */; };
 		73EC919529834533002F3568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73EC919429834533002F3568 /* Assets.xcassets */; };
@@ -402,6 +403,7 @@
 		73C9D73C29D09EE300B84564 /* CinemaDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDateViewModel.swift; sourceTree = "<group>"; };
 		73CD5C6029CFA5B6008078A5 /* CinemaChairsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsViewController.swift; sourceTree = "<group>"; };
 		73CD5C6229CFA5EA008078A5 /* CinemaChairsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaChairsView.swift; sourceTree = "<group>"; };
+		73E3C1412A02CDF50016EBC4 /* ICinemaAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaAsyncImage.swift; sourceTree = "<group>"; };
 		73EC918829834531002F3568 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EC918B29834531002F3568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73EC918D29834531002F3568 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1252,21 +1254,21 @@
 			children = (
 				73687B7629AEA318007DB431 /* MovieSectionHeader.swift */,
 				733DAA2829B3BA3D00741211 /* DumySection.swift */,
-				73F0C36C29AD202000F95B01 /* Poster */,
+				73F0C36C29AD202000F95B01 /* Slider */,
 				73687B7129AEA1FB007DB431 /* Movies */,
 				739864C329AFFC8F008420F6 /* Cinemas */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
 		};
-		73F0C36C29AD202000F95B01 /* Poster */ = {
+		73F0C36C29AD202000F95B01 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
 				73F0C36F29AD206000F95B01 /* SliderSection.swift */,
 				73F0C37329AD7AE900F95B01 /* SliderCell.swift */,
 				738EEF2F29AE66E100CDEE88 /* SliderPaginationView.swift */,
 			);
-			path = Poster;
+			path = Slider;
 			sourceTree = "<group>";
 		};
 		73F0C37529AD7E8000F95B01 /* Model */ = {
@@ -1305,6 +1307,7 @@
 				7385C89729FBE9FC00378653 /* SpAlertView.swift */,
 				731976D02A001D5A00514103 /* PlayerView.swift */,
 				73FC29B42A014FB300D5ED8F /* ICinemaAlertView.swift */,
+				73E3C1412A02CDF50016EBC4 /* ICinemaAsyncImage.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -1776,6 +1779,7 @@
 				731FBF6D29B0BF7E00798DF5 /* UIView+Anchor.swift in Sources */,
 				73BFEFA22989EFA600969452 /* OTPViewController.swift in Sources */,
 				7384A19429FD77E5007235D0 /* MovieSaver.swift in Sources */,
+				73E3C1422A02CDF50016EBC4 /* ICinemaAsyncImage.swift in Sources */,
 				731976D12A001D5A00514103 /* PlayerView.swift in Sources */,
 				731FBF5329B0BF7E00798DF5 /* IGAdditions.swift in Sources */,
 				732959BB29B761A900E2DF9B /* CinemaProfilePickerView.swift in Sources */,

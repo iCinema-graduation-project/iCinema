@@ -27,12 +27,16 @@ struct HomeData: Codable {
 // MARK: - HomeSlide
 struct HomeSlide: Codable {
     let id: Int
-    let type: String
+    let type: HomeSlideType
     let movie: Movie?
     let cinema: Cinema?
     let image: String
 }
 
+enum HomeSlideType: String, Codable {
+    case cinema
+    case movie
+}
 
 // MARK: - Category
 struct HomeCategory: Codable {
