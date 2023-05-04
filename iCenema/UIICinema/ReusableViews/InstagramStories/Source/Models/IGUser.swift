@@ -8,13 +8,15 @@
 import Foundation
 
 public class IGUser: Codable {
-    public let internalIdentifier: String
+    public let id: String
     public let name: String
     public let picture: String
+    public let following: Bool
     
     enum CodingKeys: String, CodingKey {
-        case internalIdentifier = "id"
+        case id = "id"
         case name = "name"
         case picture = "picture"
+        case following
     }
 }

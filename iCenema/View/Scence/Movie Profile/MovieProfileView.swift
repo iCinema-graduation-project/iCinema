@@ -13,7 +13,6 @@ struct MovieProfileView: View {
     @EnvironmentObject var viewModel: MovieProfileViewModel
     
     var body: some View {
-        
         ProfileView(profileViewDelegate: viewModel, imageUrl: viewModel.image, ingnoreSaveArea: .all) {
             VStack {
                 movieImage()
@@ -80,9 +79,9 @@ struct MovieProfileView: View {
     }
     
     private func moviesTrailserSection() -> some View {
-        horizontalScrollable(title: "Trailers", scrollableContent:  {
+        horizontalScrollable(title: .movieProfile.trailers, scrollableContent:  {
             ForEach(viewModel.videoPlayerViewModels, id: \.id) { videoPlayerViewModel in
-                PlayerView(viewModel: videoPlayerViewModel)
+                VideoPlayerView(viewModel: videoPlayerViewModel)
                     .frame(height: 200)
                     .frame(width: CGFloat.screenBounds.width - 40 )
                     .cornerRadius(20)
@@ -115,7 +114,7 @@ struct MovieProfileView: View {
     }
     
     private func movieRelatedSection() -> some View {
-        horizontalScrollable(title: "Related", scrollableContent:  {
+        horizontalScrollable(title: .movieProfile.related, scrollableContent:  {
             ForEach(0..<5, id: \.self) {_ in
                 ICinemaAsyncImage(url: URL(string: "http://icinema.live/defaults/default.png")) { image in
                     image
@@ -130,7 +129,7 @@ struct MovieProfileView: View {
     }
     
     private func movieCastAndCrewSection() -> some View {
-        horizontalScrollable(title: "Cast & Crew", scrollableContent:  {
+        horizontalScrollable(title: .movieProfile.cast, scrollableContent:  {
             ForEach(0..<5, id: \.self) {_ in
                 VStack {
                     ICinemaAsyncImage(url: URL(string: "http://icinema.live/defaults/default.png")) { image in
@@ -161,12 +160,15 @@ struct MovieProfileView: View {
     private func movieRatingsSection() -> some View {
         horizontalScrollable(title: "Ratings & Reviews", notScollableContens:  {
             MovieRatings()
+                .environmentObject(viewModel)
         })
     }
 }
 
 
 struct MovieRatings: View {
+    @EnvironmentObject var viewModel: MovieProfileViewModel
+
     @State var alert = ICinemaAlert(height: 300)
     
     let text = """
@@ -181,7 +183,7 @@ struct MovieRatings: View {
                 HStack {
                     
                     VStack(spacing: -5.0) {
-                        Text("1.3")
+                        Text("\(viewModel.averageRate)")
                             .font(.custom(fontName, size: 60))
                             .fontWeight(.bold)
 
@@ -217,9 +219,7 @@ struct MovieRatings: View {
                 }
                 
                 HStack {
-                   
                     Spacer()
-                    
                     Button {
                         alert.show {
                             VStack {
@@ -261,16 +261,12 @@ struct MovieRatings: View {
                             Image(systemName: "plus")
                         }
                         .font(Font.custom.callout)
-
                     }
-
                 }
             }
             .padding(.horizontal, .cell.padding.left * 2)
             .foregroundColor(Color.iCinemaTextColor)
-            
             ratings()
-
         }
     }
     
@@ -289,7 +285,6 @@ struct MovieRatings: View {
                                 Text("1 Aug")
                                     .font(Font.custom.body)
                                     .foregroundColor(.gray)
-
                             }
                             
                             HStack {

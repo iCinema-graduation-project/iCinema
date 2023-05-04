@@ -21,7 +21,7 @@ enum SnapMovementDirectionState {
 //Identifiers
 fileprivate let snapViewTagIndicator: Int = 8
 
-final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
+final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate, IdentifiableView {
     
     // MARK: - Views
     private lazy var storyHeaderView: IGStoryPreviewHeaderView = {
@@ -569,7 +569,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
     private func gearupTheProgressors(type: MimeType, playerView: IGPlayerView? = nil) {
         if let holderView = getProgressIndicatorView(with: snapIndex),
             let progressView = getProgressView(with: snapIndex){
-            progressView.story_identifier = self.story?.internalIdentifier
+            progressView.story_identifier = self.story?.id
             progressView.snapIndex = snapIndex
             DispatchQueue.main.async {
                 if type == .image {
@@ -657,7 +657,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate {
         /**
          Once we set isDeleted, snaps and snaps count will be reduced by one. So, instead of snapIndex+1, we need to pass snapIndex to willMoveToPreviousOrNextSnap. But the corresponding progressIndicator is not currently in active. Another possible way is we can always remove last presented progress indicator. So that snapIndex and tag will matches, so that progress indicator starts.
          */
-        story?.snaps[snapIndex].isDeleted = true
+//        story?.snaps[snapIndex].isDeleted = true
         direction = .forward
         for sIndex in 0..<snapIndex {
             if let holderView = self.getProgressIndicatorView(with: sIndex),
@@ -799,7 +799,7 @@ extension IGStoryPreviewCell: IGPlayerObserver {
             if videoView.error == nil && (story?.isCompletelyVisible)! == true {
                 if let holderView = getProgressIndicatorView(with: snapIndex),
                     let progressView = getProgressView(with: snapIndex) {
-                    progressView.story_identifier = self.story?.internalIdentifier
+                    progressView.story_identifier = self.story?.id
                     progressView.snapIndex = snapIndex
                     if let duration = videoView.currentItem?.asset.duration {
                         if Float(duration.value) > 0 {

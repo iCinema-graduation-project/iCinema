@@ -72,6 +72,12 @@
 "cinemaProfile.location" = "الموقع";
 "cinemaProfile.ratings" = "التقيمات";
 
+// MARK: - Movie Profile
+"movieProfile.trailers" = "Trailer";
+"movieProfile.related" = "Related";
+"movieProfile.cast" = "Cast & Crew";
+"movieProfile.retings" = "Ratings & Reviews";
+
 
 // MARK: - Booking
 "booking.pickADay" = "اختار يوما:";

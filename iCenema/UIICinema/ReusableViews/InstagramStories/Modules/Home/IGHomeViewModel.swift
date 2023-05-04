@@ -35,7 +35,7 @@ struct IGHomeViewModel {
     }
     public func cellForItemAt(indexPath:IndexPath) -> IGStory? {
         if indexPath.row == 0 {
-            return stories?.myStory[indexPath.row]
+            return stories?.myStory?[indexPath.row]
         }else {
             return stories?.otherStories[indexPath.row-1]
         }

@@ -43,6 +43,7 @@ final class IGStoryPreviewController: UIViewController, UIGestureRecognizerDeleg
         gesture.direction = .down
         return gesture
     }()
+    
     // FIXME: - show action gusture
     // action Sheet to delet the story
     private let showActionSheetGesture: UISwipeGestureRecognizer = {
@@ -113,21 +114,21 @@ final class IGStoryPreviewController: UIViewController, UIGestureRecognizerDeleg
             }
         }
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        if UIDevice.current.userInterfaceIdiom == .phone {
-//            // Don't forget to reset when view is being removed
-//            IGAppUtility.lockOrientation(.all)
-//        }
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            // Don't forget to reset when view is being removed
+            IGAppUtility.lockOrientation(.all)
+        }
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         isTransitioning = true
         storyView.snapsCollectionView.collectionViewLayout.invalidateLayout()
     }
+    
     init(layout:IGLayoutType = .cubic,stories: [IGStory],handPickedStoryIndex: Int, handPickedSnapIndex: Int = 0) {
         self.layoutType = layout
         self.stories = stories
@@ -144,7 +145,6 @@ final class IGStoryPreviewController: UIViewController, UIGestureRecognizerDeleg
         self.present(actionSheetController, animated: true) { [weak self] in
             self?.currentCell?.pauseEntireSnap()
         }
-        // TODO:- show action sheet
     }
     
     private func deleteSnap() {

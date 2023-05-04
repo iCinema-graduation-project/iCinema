@@ -66,6 +66,14 @@ extension String {
         static let ratings = getLocalized(with: "cinemaProfile.ratings")
     }
     
+    static let movieProfile = MovieProfile.self
+    struct MovieProfile {
+        static let trailers = getLocalized(with: "movieProfile.trailers")
+        static let related = getLocalized(with: "movieProfile.related")
+        static let cast = getLocalized(with: "movieProfile.cast")
+        static let retings = getLocalized(with: "movieProfile.retings")
+
+    }
     
     // MARK: - Home
     static let home = Home.self

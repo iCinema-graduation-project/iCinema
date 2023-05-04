@@ -13,19 +13,11 @@ public enum MimeType: String {
     case unknown
 }
 public class IGSnap: Codable {
-    public let internalIdentifier: String
-    public let mimeType: String
+    public let mimeType: String = "video"
     public let lastUpdated: String
     public let url: String
     // Store the deleted snaps id in NSUserDefaults, so that when app get relaunch deleted snaps will not display.
-    public var isDeleted: Bool {
-        set{
-            UserDefaults.standard.set(newValue, forKey: internalIdentifier)
-        }
-        get{
-            return UserDefaults.standard.value(forKey: internalIdentifier) != nil
-        }
-    }
+
     public var kind: MimeType {
         switch mimeType {
             case MimeType.image.rawValue:
@@ -37,9 +29,8 @@ public class IGSnap: Codable {
         }
     }
     enum CodingKeys: String, CodingKey {
-        case internalIdentifier = "id"
         case mimeType = "mime_type"
-        case lastUpdated = "last_updated"
+        case lastUpdated = "created_at"
         case url = "url"
     }
 }

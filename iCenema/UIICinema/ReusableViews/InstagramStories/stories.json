@@ -1,110 +1,39 @@
 {
-    "other_stories_count": 3,
-    "my_story": [
+    "reels_count": 3,
+    "reels": [
         {
-            "id": "a1",
-            "last_updated": 1504799962,
-            "user": {
-                "id": "b1",
-                "name": "My Story",
-                "picture": "https://avatars2.githubusercontent.com/u/32802714?s=200&v=4"
-            },
-            "snaps_count": 6,
-            "snaps": [
-                {
-                    "id": "c1",
-                    "mime_type": "image",
-                    "url": "https://images.bluethumb.com.au/uploads/listing/286656/alex-frayne-same-world-different-worlds-duplicate-bluethumb-4b98.jpg?w=766&h=766&fit=crop&auto=compress&cs=tinysrgb&q=70&s=cf290be516222fb5ec77b2db7e031879",
-                    "last_updated": "1m"
-                },
-                {
-                    "id": "c2",
-                    "mime_type": "video",
-                    "url": "http://mirrors.standaloneinstaller.com/video-sample/small.mp4",
-                    "last_updated": "2m"
-                },
-                {
-                    "id": "c3",
-                    "mime_type": "image",
-                    "url": "https://images.bluethumb.com.au/uploads/listing/310962/alex-frayne-silhouette-duplicate-bluethumb-7868.jpg?w=766&h=766&fit=crop&auto=compress&cs=tinysrgb&q=70&s=dff4209ba8e0ebb3e733c4a391bf9d9f",
-                    "last_updated": "3m"
-                },
-                {
-                    "id": "c4",
-                    "mime_type": "image",
-                    "url": "https://images.bluethumb.com.au/uploads/listing/220637/alex-frayne-5-minutes-cruising-around-adelaide-bluethumb-128e.jpg?w=766&h=766&fit=crop&auto=compress&cs=tinysrgb&q=70&s=2804e1b9b52933d1ae2362443d88a1e9",
-                    "last_updated": "4m"
-                },
-                {
-                    "id": "c5",
-                    "mime_type": "image",
-                    "url": "https://images.bluethumb.com.au/uploads/listing/303083/nadia-culph-beauty-in-death-bluethumb-12c9.jpeg?w=766&h=766&fit=crop&auto=compress&cs=tinysrgb&q=70&s=0c9762634b60e792e050b3b503d8e154",
-                    "last_updated": "5m"
-                },
-                {
-                    "id": "c6",
-                    "mime_type": "image",
-                    "url": "https://images.bluethumb.com.au/uploads/listing/303957/nadia-culph-listing-bluethumb-c105.jpeg?w=766&h=766&fit=crop&auto=compress&cs=tinysrgb&q=70&s=59c39b246a193e383b75bf25939c24dd",
-                    "last_updated": "6m"
-                }
-            ]
-        }
-    ],
-    "other_stories": [
-        {
-            "id": "a1",
-            "last_updated": 1504799962,
-            "user": {
-                "id": "b1",
+            "id": "1",
+            "count_likes": 0,
+            "count_comments": 0,
+            "cinema": {
+                "id": "1",
                 "name": "galaxy",
-                "picture": "https://res.cloudinary.com/qidz/image/upload/q_30/v1595323825/a2jn0uj41s51b2h4zlh2.jpg"
+                "picture": "https://res.cloudinary.com/qidz/image/upload/q_30/v1595323825/a2jn0uj41s51b2h4zlh2.jpg",
+                "following": true
             },
-            "snaps_count": 1,
             "snaps": [
                 {
-                    "id": "c1",
-                    "mime_type": "video",
                     "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-                    "last_updated": "1m"
+                    "created_at": "1 second ago"
                 }
             ]
         },
         {
-            "id": "a2",
-            "last_updated": 1504799992,
-            "user": {
-                "id": "b2",
-                "name": "Vox",
-                "picture": "https://res.cloudinary.com/qidz/image/upload/q_30/v1595323825/a2jn0uj41s51b2h4zlh2.jpg"
+            "id": "2",
+            "count_likes": 0,
+            "count_comments": 0,
+            "cinema": {
+                "id": "1",
+                "name": "galaxy",
+                "picture": "https://res.cloudinary.com/qidz/image/upload/q_30/v1595323825/a2jn0uj41s51b2h4zlh2.jpg",
+                "following": true
             },
-            "snaps_count": 1,
             "snaps": [
                 {
-                    "id": "c2",
-                    "mime_type": "image",
-                    "url": "http://www.designbolts.com/wp-content/uploads/2017/04/paris-iPhone-7-Wallpaper-HD.jpg",
-                    "last_updated": "12m"
-                },
-            ]
-        },
-        {
-            "id": "a3",
-            "last_updated": 1504799092,
-            "user": {
-                "id": "b3",
-                "name": "Marchal",
-                "picture": "https://img.freepik.com/premium-vector/cinema-movie-logo-with-gradient-background-template_502990-937.jpg?w=2000",
-                "last_updated": "13m"
-            },
-            "snaps_count": 1,
-            "snaps": [
-                {
-                    "id": "c3",
-                    "mime_type": "video",
                     "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-                    "last_updated": "16m"
+                    "created_at": "1 second ago"
                 }
             ]
-        }
+        },
     ]
 }

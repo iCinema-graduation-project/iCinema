@@ -25,7 +25,7 @@ class IGVideoCacheManager {
     
     static let shared = IGVideoCacheManager()
     private init(){}
-    typealias Response = Result<URL, Error>
+    typealias Response = Result<URL>
     
     private let fileManager = FileManager.default
     private lazy var mainDirectoryUrl: URL? = {
@@ -36,7 +36,7 @@ class IGVideoCacheManager {
     func getFile(for stringUrl: String, completionHandler: @escaping (Response) -> Void) {
         
         guard let file = directoryFor(stringUrl: stringUrl) else {
-            completionHandler(Result.failure(VideoError.fileRetrieveError))
+//            completionHandler(Result.failure(VideoError.fileRetrieveError))
             return
         }
         
@@ -55,7 +55,7 @@ class IGVideoCacheManager {
                 }
             } else {
                 DispatchQueue.main.async {
-                    completionHandler(Result.failure(VideoError.downloadError))
+//                    completionHandler(Result.failure(VideoError.downloadError))
                 }
             }
         }

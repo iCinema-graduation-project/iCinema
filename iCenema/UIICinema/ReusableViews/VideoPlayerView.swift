@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 import AVKit
 
-class PlayerViewModel: ObservableObject {
+class VideoPlayerViewModel: ObservableObject {
     
     let id = UUID()
     
@@ -19,15 +19,15 @@ class PlayerViewModel: ObservableObject {
     }
     
     
-    static func == (lhs: PlayerViewModel, rhs: PlayerViewModel) -> Bool {
+    static func == (lhs: VideoPlayerViewModel, rhs: VideoPlayerViewModel) -> Bool {
         lhs.id == rhs.id
     }
 }
 
-struct PlayerView: UIViewControllerRepresentable {
+struct VideoPlayerView: UIViewControllerRepresentable {
     
     // just thing wrapper, as intended
-    var viewModel: PlayerViewModel
+    var viewModel: VideoPlayerViewModel
 
     func makeUIViewController(context: Context) -> UIViewController {
         let controller = AVPlayerViewController()

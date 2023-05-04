@@ -24,12 +24,10 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
     @Published var categories: [Category] = []
     @Published var images: [MovieImage] = []
     @Published var comments: [String] = []
-    @Published var videoPlayerViewModels: [PlayerViewModel] = []
-
+    @Published var videoPlayerViewModels: [VideoPlayerViewModel] = []
 
     var dismissAction: (() -> Void) = { }
     var startBookingMovie: ((_ movieId: Int) -> Void) = { _ in }
-
     
     public func updateModel(with movie: Movie) {
         self.id = movie.id
@@ -48,7 +46,6 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
         self.categories = movie.categories ?? []
         self.images = movie.images ?? []
         self.comments = movie.comments ?? []
-        self.videoPlayerViewModels.append(.init(url: URL(string: self.trailer)!))
         self.videoPlayerViewModels.append(.init(url: URL(string: self.trailer)!))
     }
     

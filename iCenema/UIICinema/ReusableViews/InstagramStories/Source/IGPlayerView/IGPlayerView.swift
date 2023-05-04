@@ -45,7 +45,7 @@ class IGPlayerView: UIView {
     private var timeObserverToken: AnyObject?
     private var playerItemStatusObserver: NSKeyValueObservation?
     private var playerTimeControlStatusObserver: NSKeyValueObservation?
-    private var playerLayer: AVPlayerLayer?
+    private var playerLayer: AVPlayerLayer? = AVPlayerLayer()
     private var playerItem: AVPlayerItem? = nil {
         willSet {
             // Remove any previous KVO observer.

@@ -50,9 +50,9 @@ class CinemaProfileViewController: ICinemaViewController {
             ActivityIndicator.shared.stop()
             
             if let value = response.value {
-                withAnimation(.linear(duration: 0.5)) {
+//                withAnimation(.linear(duration: 0.5)) {
                     self.viewModel.updateModel(with: value.data)
-                }
+//                }
             } else {
                 super.handelError(response.error)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

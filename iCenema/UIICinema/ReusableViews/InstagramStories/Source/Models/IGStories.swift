@@ -11,11 +11,11 @@ import Foundation
 public class IGStories: Codable {
     public let otherStoriesCount: Int
     public let otherStories: [IGStory]
-    public let myStory: [IGStory]
+    public let myStory: [IGStory]?
     
     enum CodingKeys: String, CodingKey {
-        case otherStoriesCount = "other_stories_count"
-        case otherStories = "other_stories"
+        case otherStoriesCount = "reels_count"
+        case otherStories = "reels"
         case myStory = "my_story"
     }
     func copy() throws -> IGStories {
