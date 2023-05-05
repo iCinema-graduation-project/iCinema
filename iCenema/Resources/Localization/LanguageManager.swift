@@ -72,6 +72,7 @@ extension String {
         static let related = getLocalized(with: "movieProfile.related")
         static let cast = getLocalized(with: "movieProfile.cast")
         static let retings = getLocalized(with: "movieProfile.retings")
+        static let addReview = getLocalized(with: "movieProfile.addReview")
 
     }
     

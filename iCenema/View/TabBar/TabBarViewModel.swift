@@ -13,7 +13,7 @@ class TabBarViewModel: ObservableObject {
     
     @Published var isHidden: Bool = false
     
-    @Published var selectedTabIndex: Int = 1 {
+    @Published var selectedTabIndex: Int = 2 {
         didSet {
             self.xAxis = self.readers.reversed()[selectedTabIndex].frame(in: .global).minX + 15
         }

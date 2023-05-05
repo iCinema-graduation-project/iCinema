@@ -117,10 +117,10 @@ final class IGStoryPreviewController: UIViewController, UIGestureRecognizerDeleg
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            // Don't forget to reset when view is being removed
-            IGAppUtility.lockOrientation(.all)
-        }
+//        if UIDevice.current.userInterfaceIdiom == .phone {
+//            // Don't forget to reset when view is being removed
+//            IGAppUtility.lockOrientation(.all)
+//        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

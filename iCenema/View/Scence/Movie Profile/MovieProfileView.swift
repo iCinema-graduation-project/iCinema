@@ -11,7 +11,8 @@ import UIICinema
 
 struct MovieProfileView: View {
     @EnvironmentObject var viewModel: MovieProfileViewModel
-    
+    @State var rate: Int = 2
+
     var body: some View {
         ProfileView(profileViewDelegate: viewModel, imageUrl: viewModel.image, ingnoreSaveArea: .all) {
             VStack {
@@ -21,6 +22,7 @@ struct MovieProfileView: View {
                 movieRelatedSection()
                 movieCastAndCrewSection()
                 movieRatingsSection()
+                aboutCinema()
                 VStack {}.frame(height: 100)
             }
         }
@@ -79,42 +81,18 @@ struct MovieProfileView: View {
     }
     
     private func moviesTrailserSection() -> some View {
-        horizontalScrollable(title: .movieProfile.trailers, scrollableContent:  {
+        HorizontalScrollableView(title: .movieProfile.related) {
             ForEach(viewModel.videoPlayerViewModels, id: \.id) { videoPlayerViewModel in
                 VideoPlayerView(viewModel: videoPlayerViewModel)
                     .frame(height: 200)
                     .frame(width: CGFloat.screenBounds.width - 40 )
                     .cornerRadius(20)
             }
-        })
-    }
-    
-    private func horizontalScrollable<Content: View>(title: String,
-                                                     notScollableContens: (() -> Content)? = nil,
-                                                     scrollableContent: (() -> Content)? = nil) -> some View {
-        VStack(alignment: .leading, spacing: 5.0) {
-            Text(title)
-                .foregroundColor(Color(uiColor: .iCinemaTextColor))
-                .font(Font(UIFont.title3))
-                .padding(.leading, .cell.padding.left * 2)
-            
-            if let notScollableContens = notScollableContens { notScollableContens() }
-            
-            if let scrollableContent = scrollableContent {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        scrollableContent()
-                    }
-                    .padding(.horizontal, .cell.padding.left * 2)
-                }
-            }
-            Divider()
-                .padding(.cell.padding.left * 2)
         }
     }
     
     private func movieRelatedSection() -> some View {
-        horizontalScrollable(title: .movieProfile.related, scrollableContent:  {
+        HorizontalScrollableView(title: .movieProfile.related) {
             ForEach(0..<5, id: \.self) {_ in
                 ICinemaAsyncImage(url: URL(string: "http://icinema.live/defaults/default.png")) { image in
                     image
@@ -125,11 +103,11 @@ struct MovieProfileView: View {
                 .addBorder(withColor: Color(uiColor: .iCinemaYellowColor),
                            cornorRadius: .view.cornerRadius, height: 97)
             }
-        })
+        }
     }
     
     private func movieCastAndCrewSection() -> some View {
-        horizontalScrollable(title: .movieProfile.cast, scrollableContent:  {
+        HorizontalScrollableView(title: .movieProfile.cast) {
             ForEach(0..<5, id: \.self) {_ in
                 VStack {
                     ICinemaAsyncImage(url: URL(string: "http://icinema.live/defaults/default.png")) { image in
@@ -154,17 +132,56 @@ struct MovieProfileView: View {
                 .padding(.leading, .cell.padding.left)
             }
             .padding(.top, 5)
-        })
+        }
+      
     }
     
     private func movieRatingsSection() -> some View {
-        horizontalScrollable(title: "Ratings & Reviews", notScollableContens:  {
+        HorizontalScrollableView(title: "Ratings & Reviews", scrollable: false) {
             MovieRatings()
                 .environmentObject(viewModel)
-        })
+        }
+    }
+    
+    private func aboutCinema() -> some View {
+        HorizontalScrollableView(title: "About Cinema", hasDivider: false, scrollable: false, content: {
+            VStack(alignment: .leading, spacing: 10.0) {
+                abountCinemaCell(title: "Name",
+                                 subtitle: viewModel.cinemaProfileViewModel.name)
+                abountCinemaCell(title: "Location",
+                                 subtitle: viewModel.cinemaProfileViewModel.address)
+                abountCinemaCell(title: "Average Rate",
+                                 subtitle: String(viewModel.cinemaProfileViewModel.averageRate))
+            }
+            .padding(.horizontal, .cell.padding.left * 2)
+
+        }, trailingContent: abountCinemaTrilingView )
+    }
+    
+    private func abountCinemaCell(title: String, subtitle: String) -> some View {
+        VStack(alignment: .leading) {
+            Text(title)
+                .font(Font.custom.footnote)
+            
+            Text(subtitle)
+                .font(.custom.caption2)
+                .foregroundColor(Color(uiColor: .darkGray))
+        }
+        .foregroundColor(.gray)
+    }
+    
+    private func abountCinemaTrilingView() ->  some View {
+        VStack {
+            Text(String.moreDetails)
+                .onTapGesture {
+                    viewModel.showCinemaInformation(viewModel.cinemaProfileViewModel.id)
+                }
+                .font(Font.custom.callout)
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .foregroundColor(.iCinemaYellowColor)
+        }
     }
 }
-
 
 struct MovieRatings: View {
     @EnvironmentObject var viewModel: MovieProfileViewModel
@@ -172,28 +189,28 @@ struct MovieRatings: View {
     @State var alert = ICinemaAlert(height: 300)
     
     let text = """
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias error harum maxime adipisci amet laborum. Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur fugiat, temporibus enim commodi iusto libero magni deleniti quod quam consequuntur! Commodi minima excepturi repudiandae velit hic maxime doloremque. Quaerat provident commodi consectetur veniam similique ad earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam quasi aliquam eligendi, placeat qui corporis!
-"""
-
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga
+    """
+    
+    @State var rate: Int = 2
     @State var title: String = ""
+    @State var review: String = ""
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5.0) {
             VStack {
                 HStack {
-                    
                     VStack(spacing: -5.0) {
                         Text("\(viewModel.averageRate)")
                             .font(.custom(fontName, size: 60))
                             .fontWeight(.bold)
-
+                        
                         Text("out of 5")
                             .font(Font.custom.callout)
                             .foregroundColor(.gray)
                     }
-                    
                     Spacer()
-                    
+                    // ratings progress views
                     HStack(spacing: 10.0) {
                         VStack(alignment: .trailing, spacing: 3.0) {
                             ForEach(0..<6, id: \.self) { index in
@@ -222,46 +239,18 @@ struct MovieRatings: View {
                     Spacer()
                     Button {
                         alert.show {
-                            VStack {
-                                Text("Write a Review")
-                                    .font(.custom.title3)
-                                
-                                HStack(spacing: 5.0) {
-                                    
-                                    ForEach(0..<5, id: \.self) { index in
-                                        Image(systemName: index > 0 ? "star" : "star.fill")
-                                            .resizable()
-                                            .frame(width: 20, height: 20)
-                                            .foregroundColor(Color.iCinemaYellowColor)
-                                    }
-                                }
-
-                                TextField("Title", text: $title)
-                                    .frame(height: 44)
-                                    .padding(.horizontal, 8)
-                                    .background(Color.iCinemaBackgroundColor)
-                                    .cornerRadius(.iCinemaButton.cornerRadius)
-                                    .padding(.vertical)
-                                
-                                TextField("Review (Optional)", text: $title)
-                                    .padding(8)
-                                    .frame(maxHeight: .infinity, alignment: .top)
-                                    .background(Color.iCinemaBackgroundColor)
-                                    .cornerRadius(.iCinemaButton.cornerRadius)
-                                
-                                
-                            }
-                            .padding()
-                            .foregroundColor(.iCinemaTextColor)
+                            self.addRatingsView()
                         }
                     } label: {
                         Label {
-                            Text("Add Review")
+                            Text(String.movieProfile.addReview)
                         } icon: {
                             Image(systemName: "plus")
                         }
                         .font(Font.custom.callout)
                     }
+                    .foregroundColor(.iCinemaYellowColor)
+
                 }
             }
             .padding(.horizontal, .cell.padding.left * 2)
@@ -269,6 +258,23 @@ struct MovieRatings: View {
             ratings()
         }
     }
+    
+    private func addRatingsView() -> some View {
+        VStack {
+            RatingAndReviewView(rate: $rate, title: $title, review: $review)
+            HStack(spacing: 20.0) {
+                CancelButtonView(title: "cancele", type: .small) {
+                    alert.hide()
+                }
+                
+                ICinemaButtonView(title: "Send", type: .small) {
+                    
+                }
+            }
+        }
+        .padding(.bottom)
+    }
+    
     
     private func ratings() -> some View {
 
@@ -281,7 +287,6 @@ struct MovieRatings: View {
                                 Text("Palestine in our Hearts")
                                     .font(Font.custom.callout)
                                 Spacer()
-                                
                                 Text("1 Aug")
                                     .font(Font.custom.body)
                                     .foregroundColor(.gray)
@@ -289,7 +294,6 @@ struct MovieRatings: View {
                             
                             HStack {
                                 HStack(spacing: 3.0) {
-                                    
                                     ForEach(0..<5, id: \.self) { index in
                                         Image(systemName: index > 1 ? "star" : "star.fill")
                                             .resizable()
@@ -298,11 +302,9 @@ struct MovieRatings: View {
                                     }
                                 }
                                 Spacer()
-                                
                                 Text("Ahmed Yamany")
                                     .font(Font.custom.body)
                                     .foregroundColor(.gray)
-
                             }
 
                             Text(self.text)
@@ -310,14 +312,12 @@ struct MovieRatings: View {
                                 .multilineTextAlignment(.leading)
                                 .lineSpacing(5)
                                 .padding(.top, 5)
-                            
-                            
                             Spacer()
                         }
                         .padding(10)
                     }
                     .foregroundColor(Color.iCinemaTextColor)
-                    .frame(width: .screenBounds.width - 40, height: 200)
+                    .frame(width: .screenBounds.width - 40, height: 170)
                     .padding(.leading, .cell.padding.left)
                     .background(Color.iCinemaSecondBackgroudColor)
                     .cornerRadius(.view.cornerRadius)
@@ -333,13 +333,11 @@ struct MovieRatings: View {
 }
 
 
-
-
 struct MovieProfileView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = MovieProfileViewModel()
         
-        let movie = Movie(id: 1, image: "http://icinema.live/defaults/default.png", cover: Optional("http://icinema.live/defaults/default.png"), name: "Lilly Wehner III", saved: false, cinema: iCinema.Cinema(id: 1, logo: "http://icinema.live/defaults/default.png", cover: Optional("http://icinema.live/defaults/default.png"), name: "Dr. Stella Ritchie", following: Optional(false), averageRate: Optional(0), countFollow: nil, address: Optional("91894 Viviane Station\nNorth Laurenland, KS 42786-6649"), distance: Optional("11927.36km"), images: nil, movies: nil), trailer: Optional("http://icinema.live/defaults/default_video.mp4"), description: Optional("Alice quite jumped; but she thought it would be like, \'--for they haven\'t got much evidence YET,\' she said to herself, \'Why, they\'re only a pack of cards, after all. I needn\'t be afraid of them!\'."), brief: Optional("Alice thought over all the rest of it in the house down!\' said the Pigeon went on, half to Alice. \'Only a thimble,\' said Alice indignantly. \'Ah! then yours wasn\'t a really good school,\' said the."), releaseDate: Optional("2022-03-18"), timeInMinutes: Optional(71), minAge: Optional(12), averageRate: Optional(0), categories: Optional([iCinema.Category(id: 14, name: "Romance"), iCinema.Category(id: 18, name: "American"), iCinema.Category(id: 22, name: "English")]), images: Optional([iCinema.MovieImage(id: 1, image: "http://icinema.live/defaults/default.png")]), comments: Optional([]))
+        let movie = Movie(id: 1, image: "http://icinema.live/defaults/default.png", cover: Optional("http://icinema.live/defaults/default.png"), name: "Lilly Wehner III", saved: false, cinema: iCinema.Cinema(id: 1, logo: "http://icinema.live/defaults/default.png", cover: Optional("http://icinema.live/defaults/default.png"), name: "Dr. Stella Ritchie", following: Optional(false), averageRate: Optional(0), countFollow: nil, address: Optional("91894 Viviane Station\nNorth Laurenland, KS 42786-6649"), distance: Optional("11927.36km"), images: nil, movies: nil), trailer: Optional("http://icinema.live/defaults/default_video.mp4"), description: Optional("Alice quite jumped; but she thought it would be like, \'--for they haven\'t got much evidence YET,\' she said to herself, \'Why, they\'re only a pack of cards, after all. I needn\'t be afraid of them!\'."), brief: Optional("Alice thought over all the rest of it in the house down!\' said the Pigeon went on, half to Alice. \'Only a thimble,\' said Alice indignantly. \'Ah! then yours wasn\'t a really good school,\' said the."), releaseDate: Optional("2022-03-18"), timeInMinutes: Optional(71), minAge: Optional(12), averageRate: Optional(3), categories: Optional([iCinema.Category(id: 14, name: "Romance"), iCinema.Category(id: 18, name: "American"), iCinema.Category(id: 22, name: "English")]), images: Optional([iCinema.MovieImage(id: 1, image: "http://icinema.live/defaults/default.png")]), comments: Optional([]))
         viewModel.updateModel(with: movie)
 
         return MovieProfileView()

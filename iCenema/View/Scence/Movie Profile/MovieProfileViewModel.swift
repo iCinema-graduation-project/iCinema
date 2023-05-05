@@ -13,7 +13,8 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
     @Published var cover: String = ""
     @Published var name: String = ""
     @Published var saved: Bool = false
-    @Published var cinema: CinemaProfileViewModel = .init()
+    @Published var cinemaProfileViewModel: CinemaProfileViewModel = .init()
+    @Published var cinema: Cinema!
     @Published var trailer: String = ""
     @Published var description: String = ""
     @Published var brief: String = ""
@@ -28,6 +29,7 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
 
     var dismissAction: (() -> Void) = { }
     var startBookingMovie: ((_ movieId: Int) -> Void) = { _ in }
+    var showCinemaInformation: ((_ cinemaId: Int) -> Void) = { _ in }
     
     public func updateModel(with movie: Movie) {
         self.id = movie.id
@@ -35,7 +37,8 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
         self.cover = movie.cover ?? ""
         self.name = movie.name
         self.saved = movie.saved
-        self.cinema.updateModel(with: movie.cinema)
+        self.cinemaProfileViewModel.updateModel(with: movie.cinema)
+        self.cinema = movie.cinema
         self.trailer = movie.trailer ?? ""
         self.description = movie.description ?? ""
         self.brief = movie.brief ?? ""

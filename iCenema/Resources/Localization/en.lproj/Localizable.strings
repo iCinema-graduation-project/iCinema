@@ -76,6 +76,7 @@
 "movieProfile.related" = "Related";
 "movieProfile.cast" = "Cast & Crew";
 "movieProfile.retings" = "Ratings & Reviews";
+"movieProfile.addReview" = "Add Review";
 
 // MARK: - Booking
 "booking.pickADay" = "pick a day: ";

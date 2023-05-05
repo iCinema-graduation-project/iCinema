@@ -22,6 +22,7 @@ class MovieProfileViewController: ICinemaViewController {
         self.updateUI()
         self.updateDismissAction()
         self.updateStartBookingMovie()
+        self.updateShowCinemaInformation()
     }
     
     // MARK: - Update UI
@@ -73,6 +74,13 @@ class MovieProfileViewController: ICinemaViewController {
     private func updateStartBookingMovie() {
         viewModel.startBookingMovie = { movie in
             Booking.shared.startBooking(movie)
+        }
+    }
+    private func updateShowCinemaInformation() {
+        viewModel.showCinemaInformation = { cinemaId in
+            let cinemaProfile = CinemaProfileViewController()
+            cinemaProfile.inject(with: cinemaId)
+            self.presentViewController(cinemaProfile)
         }
     }
 
