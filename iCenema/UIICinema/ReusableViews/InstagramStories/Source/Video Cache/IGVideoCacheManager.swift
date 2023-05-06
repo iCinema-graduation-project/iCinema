@@ -25,7 +25,7 @@ class IGVideoCacheManager {
     
     static let shared = IGVideoCacheManager()
     private init(){}
-    typealias Response = Result<URL>
+    typealias Response = Result<URL, Error>
     
     private let fileManager = FileManager.default
     private lazy var mainDirectoryUrl: URL? = {
