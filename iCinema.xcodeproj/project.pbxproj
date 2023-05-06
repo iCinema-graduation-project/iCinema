@@ -79,6 +79,7 @@
 		732959BB29B761A900E2DF9B /* CinemaProfilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732959BA29B761A900E2DF9B /* CinemaProfilePickerView.swift */; };
 		732959BE29B76B2400E2DF9B /* MoviesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732959BD29B76B2400E2DF9B /* MoviesListView.swift */; };
 		733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733116B72990A9AE00EFD002 /* OTPViewModel.swift */; };
+		73342EA52A066E9E003CBBD8 /* CompositionalLayoutableSection in Frameworks */ = {isa = PBXBuildFile; productRef = 73342EA42A066E9E003CBBD8 /* CompositionalLayoutableSection */; };
 		7336EB3229CB2344005D2D44 /* ActivityIndicator2.json in Resources */ = {isa = PBXBuildFile; fileRef = 7336EB3129CB2344005D2D44 /* ActivityIndicator2.json */; };
 		7337853629FF1AE700DEACEB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337853529FF1AE700DEACEB /* HomeViewModel.swift */; };
 		7337853829FF1C2600DEACEB /* CinemaFollowingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337853729FF1C2600DEACEB /* CinemaFollowingService.swift */; };
@@ -136,7 +137,6 @@
 		739FAA4329ED669100BAC9ED /* ActivityKeyBoardField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739FAA4229ED669100BAC9ED /* ActivityKeyBoardField.swift */; };
 		739FAA4629ED676D00BAC9ED /* CreditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739FAA4529ED676D00BAC9ED /* CreditCardView.swift */; };
 		739FAA4829ED99AD00BAC9ED /* EWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739FAA4729ED99AC00BAC9ED /* EWalletView.swift */; };
-		73A2E3BB2A066D57007F7CB5 /* CompositionalLayoutableSection in Frameworks */ = {isa = PBXBuildFile; productRef = 73A2E3BA2A066D57007F7CB5 /* CompositionalLayoutableSection */; };
 		73A30CA729835B1F00D672E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73A30CA929835B1F00D672E6 /* Localizable.strings */; };
 		73A30CAC29835B4000D672E6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAB29835B4000D672E6 /* LanguageManager.swift */; };
 		73A30CAF29835E1700D672E6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30CAE29835E1700D672E6 /* WelcomeViewController.swift */; };
@@ -312,6 +312,7 @@
 		732959BA29B761A900E2DF9B /* CinemaProfilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfilePickerView.swift; sourceTree = "<group>"; };
 		732959BD29B76B2400E2DF9B /* MoviesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListView.swift; sourceTree = "<group>"; };
 		733116B72990A9AE00EFD002 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
+		73342EA32A066E89003CBBD8 /* CompositionalLayoutableSection */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CompositionalLayoutableSection; sourceTree = "<group>"; };
 		7336EB3129CB2344005D2D44 /* ActivityIndicator2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityIndicator2.json; sourceTree = "<group>"; };
 		7337853529FF1AE700DEACEB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7337853729FF1C2600DEACEB /* CinemaFollowingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaFollowingService.swift; sourceTree = "<group>"; };
@@ -368,7 +369,6 @@
 		739FAA4229ED669100BAC9ED /* ActivityKeyBoardField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityKeyBoardField.swift; sourceTree = "<group>"; };
 		739FAA4529ED676D00BAC9ED /* CreditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardView.swift; sourceTree = "<group>"; };
 		739FAA4729ED99AC00BAC9ED /* EWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EWalletView.swift; sourceTree = "<group>"; };
-		73A2E3B92A066D43007F7CB5 /* CompositionalLayoutableSection */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CompositionalLayoutableSection; path = Packages/CompositionalLayoutableSection; sourceTree = "<group>"; };
 		73A30CA429835B0200D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		73A30CA829835B1F00D672E6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73A30CAA29835B2500D672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -470,12 +470,12 @@
 				73215FB529F409F200C62B7E /* SPAlert in Frameworks */,
 				73D3C38A29FC764D00CE5256 /* Kingfisher in Frameworks */,
 				73BB560829E9A2D700F34A62 /* Lottie in Frameworks */,
+				73342EA52A066E9E003CBBD8 /* CompositionalLayoutableSection in Frameworks */,
 				7308841129EBB42A0090D621 /* SPConfetti in Frameworks */,
 				73BB560229E9A2AB00F34A62 /* SwiftUITrackableScrollView in Frameworks */,
 				73F29D9E29FAED3200B9B52E /* FilesManager in Frameworks */,
 				73F29D8F29FAD65100B9B52E /* UIICinema in Frameworks */,
 				738F24C829FA89A9007B7A2D /* MakeConstraints in Frameworks */,
-				73A2E3BB2A066D57007F7CB5 /* CompositionalLayoutableSection in Frameworks */,
 				73BB55FF29E9A29000F34A62 /* CountryPickerView in Frameworks */,
 				DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */,
 				7313574729FA8ECC00977858 /* Coordinator in Frameworks */,
@@ -1180,7 +1180,7 @@
 		73EC917F29834531002F3568 = {
 			isa = PBXGroup;
 			children = (
-				73A2E3B92A066D43007F7CB5 /* CompositionalLayoutableSection */,
+				73342EA32A066E89003CBBD8 /* CompositionalLayoutableSection */,
 				73F29D8D29FAD5CB00B9B52E /* UIICinema */,
 				73C0A2B029FABDE1008065BA /* LocationManager */,
 				73B21A2229FA7C9A0087019D /* NetworkLayer */,
@@ -1444,7 +1444,7 @@
 				73F29D8E29FAD65100B9B52E /* UIICinema */,
 				73F29D9D29FAED3200B9B52E /* FilesManager */,
 				73D3C38929FC764D00CE5256 /* Kingfisher */,
-				73A2E3BA2A066D57007F7CB5 /* CompositionalLayoutableSection */,
+				73342EA42A066E9E003CBBD8 /* CompositionalLayoutableSection */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -2293,13 +2293,13 @@
 			package = 73215FB329F409F200C62B7E /* XCRemoteSwiftPackageReference "SPAlert" */;
 			productName = SPAlert;
 		};
+		73342EA42A066E9E003CBBD8 /* CompositionalLayoutableSection */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CompositionalLayoutableSection;
+		};
 		738F24C729FA89A9007B7A2D /* MakeConstraints */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MakeConstraints;
-		};
-		73A2E3BA2A066D57007F7CB5 /* CompositionalLayoutableSection */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CompositionalLayoutableSection;
 		};
 		73B21A2529FA7CB00087019D /* NetworkLayer */ = {
 			isa = XCSwiftPackageProductDependency;
