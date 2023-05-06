@@ -19,7 +19,6 @@ class MovieProfileViewController: ICinemaViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateUI()
         self.updateDismissAction()
         self.updateStartBookingMovie()
         self.updateShowCinemaInformation()
@@ -50,9 +49,8 @@ class MovieProfileViewController: ICinemaViewController {
             ActivityIndicator.shared.stop()
             
             if let value = response.value {
-//                withAnimation(.linear(duration: 0.5)) {
-                    self.viewModel.updateModel(with: value.data)
-//                }
+                self.updateUI()
+                self.viewModel.updateModel(with: value.data)
             } else {
                 super.handelError(response.error)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

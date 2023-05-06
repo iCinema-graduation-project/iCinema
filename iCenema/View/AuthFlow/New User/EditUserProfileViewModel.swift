@@ -11,8 +11,6 @@ import UIKit.UIImage
 import Alamofire
 import NetworkLayer
 import LocationManager
-import SwiftyJSON
-
 
 class EditUserProfileViewModel: ObservableObject {
     // MARK: - Publishers

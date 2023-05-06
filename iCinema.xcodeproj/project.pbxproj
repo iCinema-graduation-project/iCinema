@@ -84,6 +84,7 @@
 		7337853629FF1AE700DEACEB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337853529FF1AE700DEACEB /* HomeViewModel.swift */; };
 		7337853829FF1C2600DEACEB /* CinemaFollowingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337853729FF1C2600DEACEB /* CinemaFollowingService.swift */; };
 		7337853A29FF1C3F00DEACEB /* CinemaFollowingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337853929FF1C3F00DEACEB /* CinemaFollowingModel.swift */; };
+		733B335A2A0671DB001A1F47 /* BookingDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733B33592A0671DB001A1F47 /* BookingDetailModel.swift */; };
 		733DAA2129B37B5D00741211 /* InterstsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2029B37B5D00741211 /* InterstsView.swift */; };
 		733DAA2529B3A0CA00741211 /* CinemaProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */; };
 		733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2629B3B5A200741211 /* TabBarViewModel.swift */; };
@@ -317,6 +318,7 @@
 		7337853529FF1AE700DEACEB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7337853729FF1C2600DEACEB /* CinemaFollowingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaFollowingService.swift; sourceTree = "<group>"; };
 		7337853929FF1C3F00DEACEB /* CinemaFollowingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaFollowingModel.swift; sourceTree = "<group>"; };
+		733B33592A0671DB001A1F47 /* BookingDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailModel.swift; sourceTree = "<group>"; };
 		733DAA2029B37B5D00741211 /* InterstsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstsView.swift; sourceTree = "<group>"; };
 		733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileViewController.swift; sourceTree = "<group>"; };
 		733DAA2629B3B5A200741211 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
@@ -860,6 +862,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		733B33562A06719B001A1F47 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				733B33592A0671DB001A1F47 /* BookingDetailModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		733DAA2229B3A06300741211 /* Scence */ = {
 			isa = PBXGroup;
 			children = (
@@ -887,6 +897,7 @@
 		7353D38D29C9F2EC00BB8272 /* Booking */ = {
 			isa = PBXGroup;
 			children = (
+				733B33562A06719B001A1F47 /* Models */,
 				7353D38E29C9F2FF00BB8272 /* StepperView.swift */,
 				73B404EC29D091F00044F58D /* Date */,
 				73AB522129D10C81008A3CFF /* Select Hall */,
@@ -1702,6 +1713,7 @@
 				739FAA4629ED676D00BAC9ED /* CreditCardView.swift in Sources */,
 				73687B7529AEA23F007DB431 /* MovieCell.swift in Sources */,
 				7365DF0029EAAAFE00E7AC35 /* utls.swift in Sources */,
+				733B335A2A0671DB001A1F47 /* BookingDetailModel.swift in Sources */,
 				7365DEFE29EAA9BF00E7AC35 /* TicketView.swift in Sources */,
 				730E1C2329A966DC00F2AB85 /* NotificationViewController.swift in Sources */,
 				73AB522329D10CEA008A3CFF /* SelectHallView.swift in Sources */,

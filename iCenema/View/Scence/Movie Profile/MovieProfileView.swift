@@ -81,7 +81,7 @@ struct MovieProfileView: View {
     }
     
     private func moviesTrailserSection() -> some View {
-        HorizontalScrollableView(title: .movieProfile.related) {
+        HorizontalScrollableView(title: .movieProfile.trailers) {
             ForEach(viewModel.videoPlayerViewModels, id: \.id) { videoPlayerViewModel in
                 VideoPlayerView(viewModel: videoPlayerViewModel)
                     .frame(height: 200)

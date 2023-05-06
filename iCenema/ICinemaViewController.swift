@@ -67,7 +67,6 @@ class ICinemaViewController: CoordinatorViewController {
     public func handelError(_ error: NetworkError?) {
         if let error = error {
            let errorMessage = NetworkError.getErrorMessage(from: error)
-           SPAlert.showAlert(with: errorMessage)
            
        }else {
            SPAlert.showUnKnownError()

@@ -14,9 +14,10 @@ class CinemaChairsViewController: ICinemaViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addStepperView()
-
+        
+        guard let userInfo = userInfo,  let time = userInfo["time"] as? Time else { return }
+        print(time)
         let cinemaChairs = CinemaChairsView()
             .environmentObject(viewModel)
         
