@@ -7,17 +7,21 @@
 
 import SwiftUI
 
-struct HorizontalScrollableView<Content: View, TrailingContent: View>: View {
+struct ScrollableSectionView<Content: View, TrailingContent: View>: View {
     let title: String
+    var axis: Axis.Set
     var hasDivider: Bool = true
     var scrollable: Bool = true
     var content: (() -> Content)
     var trailingContent: (()-> TrailingContent)
     
-    init(title: String, hasDivider: Bool = true, scrollable: Bool = true,
+    init(title: String, hasDivider: Bool = true,
+         axis: Axis.Set = .horizontal,
+         scrollable: Bool = true,
          @ViewBuilder content: @escaping () -> Content,
          @ViewBuilder trailingContent: @escaping () -> TrailingContent = {VStack {}}) {
         self.title = title
+        self.axis = axis
         self.hasDivider = hasDivider
         self.scrollable = scrollable
         self.content = content
@@ -38,7 +42,7 @@ struct HorizontalScrollableView<Content: View, TrailingContent: View>: View {
 
             
             if scrollable {
-                ScrollView(.horizontal, showsIndicators: false) {
+                ScrollView(self.axis, showsIndicators: false) {
                     HStack {
                         content()
                     }

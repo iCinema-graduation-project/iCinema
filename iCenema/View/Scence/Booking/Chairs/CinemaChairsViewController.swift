@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MakeConstraints
 
 class CinemaChairsViewController: ICinemaViewController {
 
@@ -17,9 +18,8 @@ class CinemaChairsViewController: ICinemaViewController {
         addStepperView()
         
         guard let userInfo = userInfo,  let time = userInfo["time"] as? Time else { return }
-        print(time)
-        let cinemaChairs = CinemaChairsView()
-            .environmentObject(viewModel)
+        
+        let cinemaChairs = CinemaChairsView(view: self, time: time)
         
         let cinemaChairsView = cinemaChairs.hostigView()
         

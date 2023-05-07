@@ -15,18 +15,18 @@ struct StarsView: View {
   var body: some View {
     HStack {
         ForEach(1..<6) { index in
-            if rating > index {
+            if rating >= index {
                 fullStar
                     .onTapGesture {
                         withAnimation {
-                            rating = index + 1
+                            rating = index
                         }
                     }
             }else {
                 emptyStar
                     .onTapGesture {
                         withAnimation {
-                            rating = index + 1
+                            rating = index
                         }
                     }
             }

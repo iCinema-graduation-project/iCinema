@@ -46,12 +46,12 @@ class MenuViewController: ICinemaViewController {
                 
             }),
             
-            MenuCell(imageSystemName: "person.3", text: .menu.aboutUs, action: {
+            MenuCell(imageSystemName: "person.2", text: .menu.aboutUs, action: {
                 
             }),
             
             MenuCell(imageSystemName: "star", text: .menu.rateUs, action: {
-                
+                self.rateUs()
             }),
             
             MenuCell(imageSystemName: "iphone.and.arrow.forward", text: .menu.logout, action: {
@@ -61,6 +61,7 @@ class MenuViewController: ICinemaViewController {
         ])
     ]
     
+    @ObservedObject var rateViewModel = RatingViewModel()
     
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -119,6 +120,24 @@ class MenuViewController: ICinemaViewController {
         }
     }
     
+    private func rateUs() {
+        let alert = ICinemaAlert(height: .screenBounds.height / 2.5)
+        alert.show {
+            VStack {
+                RatingAndReviewView(viewModel: self.rateViewModel)
+                HStack(spacing: 20.0) {
+                    CancelButtonView(title: "cancele", type: .small) {
+                        alert.hide()
+                    }
+                    
+                    ICinemaButtonView(title: "Send", type: .small) {
+                        
+                    }
+                }
+            }
+            .padding(.bottom)
+        }
+    }
     private func logout() {
         let alertView = ICinemaAlert(width: 300, height: 160)
         alertView.show {
@@ -148,6 +167,7 @@ class MenuViewController: ICinemaViewController {
             .padding()
         }
     }
+    
 }
 
 

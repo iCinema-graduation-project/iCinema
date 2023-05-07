@@ -81,7 +81,7 @@ struct MovieProfileView: View {
     }
     
     private func moviesTrailserSection() -> some View {
-        HorizontalScrollableView(title: .movieProfile.trailers) {
+        ScrollableSectionView(title: .movieProfile.trailers) {
             ForEach(viewModel.videoPlayerViewModels, id: \.id) { videoPlayerViewModel in
                 VideoPlayerView(viewModel: videoPlayerViewModel)
                     .frame(height: 200)
@@ -92,7 +92,7 @@ struct MovieProfileView: View {
     }
     
     private func movieRelatedSection() -> some View {
-        HorizontalScrollableView(title: .movieProfile.related) {
+        ScrollableSectionView(title: .movieProfile.related) {
             ForEach(0..<5, id: \.self) {_ in
                 ICinemaAsyncImage(url: URL(string: "http://icinema.live/defaults/default.png")) { image in
                     image
@@ -107,7 +107,7 @@ struct MovieProfileView: View {
     }
     
     private func movieCastAndCrewSection() -> some View {
-        HorizontalScrollableView(title: .movieProfile.cast) {
+        ScrollableSectionView(title: .movieProfile.cast) {
             ForEach(0..<5, id: \.self) {_ in
                 VStack {
                     ICinemaAsyncImage(url: URL(string: "http://icinema.live/defaults/default.png")) { image in
@@ -137,14 +137,14 @@ struct MovieProfileView: View {
     }
     
     private func movieRatingsSection() -> some View {
-        HorizontalScrollableView(title: "Ratings & Reviews", scrollable: false) {
+        ScrollableSectionView(title: "Ratings & Reviews", scrollable: false) {
             MovieRatings()
                 .environmentObject(viewModel)
         }
     }
     
     private func aboutCinema() -> some View {
-        HorizontalScrollableView(title: "About Cinema", hasDivider: false, scrollable: false, content: {
+        ScrollableSectionView(title: "About Cinema", hasDivider: false, scrollable: false, content: {
             VStack(alignment: .leading, spacing: 10.0) {
                 abountCinemaCell(title: "Name",
                                  subtitle: viewModel.cinemaProfileViewModel.name)
@@ -192,9 +192,7 @@ struct MovieRatings: View {
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga
     """
     
-    @State var rate: Int = 2
-    @State var title: String = ""
-    @State var review: String = ""
+    @State var rateViewModel: RatingViewModel = RatingViewModel()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5.0) {
@@ -261,7 +259,7 @@ struct MovieRatings: View {
     
     private func addRatingsView() -> some View {
         VStack {
-            RatingAndReviewView(rate: $rate, title: $title, review: $review)
+            RatingAndReviewView(viewModel: rateViewModel)
             HStack(spacing: 20.0) {
                 CancelButtonView(title: "cancele", type: .small) {
                     alert.hide()

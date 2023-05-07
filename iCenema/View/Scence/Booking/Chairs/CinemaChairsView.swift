@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-
 struct CinemaChairsView: View {
-    
+    let view: CinemaChairsViewController
+    let time: Time
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var viewModel: CinemaChairsViewModel
     
     let rowSize: CGFloat = 25
     
@@ -33,18 +32,18 @@ struct CinemaChairsView: View {
                 
                 Image(uiImage: colorScheme == .dark ? .chairs.arch : UIImage())
                 
-                ScrollView(.horizontal, showsIndicators: true) {
-                    ScrollView(.vertical, showsIndicators: true) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    ScrollView(.vertical, showsIndicators: false) {
                         VStack {
-                            ForEach(array.indices, id: \.self) { list in
+                            ForEach(time.seats.indices, id: \.self) { row in
                                 HStack {
-                                    ForEach(array[list].indices, id: \.self) { index in
-                                        let value = array[list][index]
-                                        Image(uiImage: self.getChair(for: value))
+                                    ForEach(time.seats[row].indices, id: \.self) { colomun in
+                                        let seat = time.seats[row][colomun]
+                                        Image(uiImage: self.getChair(for: seat))
                                             .frame(width: rowSize, height: rowSize)
-                                            .shadow(radius: value == 3 ? 0 : 1)
+//                                            .shadow(radius: value == 3 ? 0 : 1)
                                             .onTapGesture {
-                                                array[list][index] = 3
+//                                                array[co][index] = 3
                                             }
                                     }
                                 }
@@ -53,8 +52,8 @@ struct CinemaChairsView: View {
                         .padding()
                     }
                 }
-                        .frame(height: 280)
-                
+                .frame(height: 280)
+                .padding(.horizontal)
                 
                 VStack {
                     HStack {
@@ -86,7 +85,6 @@ struct CinemaChairsView: View {
                 Spacer()
                 
                 ICinemaButtonView(title: .next) {
-                    self.viewModel.dismissAction()
                 }
                 .padding(.bottom, CGFloat.view.padding.bottom)
             }
@@ -94,23 +92,27 @@ struct CinemaChairsView: View {
 
     }
     
-    private func getChair(for value: Int) -> UIImage {
-        if value == 0 {
-            return UIImage.chairs.ordinary
-        } else if value == 1 {
-            return UIImage.chairs.booked
-        } else if value == 2 {
-            return UIImage.chairs.premium
-        } else if value == 3 {
-            return UIImage.chairs.selected
-        } else {
-            return UIImage()
+    private func getChair(for seat: Seat) -> UIImage {
+        switch seat.status{
+        case .empity: return UIImage()
+        case .normal: return UIImage.chairs.ordinary
         }
+//        if value == 0 {
+//            return UIImage.chairs.ordinary
+//        } else if value == 1 {
+//            return UIImage.chairs.booked
+//        } else if value == 2 {
+//            return UIImage.chairs.premium
+//        } else if value == 3 {
+//            return UIImage.chairs.selected
+//        } else {
+//            return UIImage()
+//        }
     }
     
     private func makeChairDescriptionView(value: Int, text: String) -> some View {
         VStack {
-            Image(uiImage: self.getChair(for: value))
+            Image(uiImage: UIImage())
                 .font(.system(size: rowSize))
                 .frame(width: rowSize, height: rowSize)
                 .shadow(radius: 1)
@@ -120,9 +122,9 @@ struct CinemaChairsView: View {
         
 }
 
-struct CinemaChairsView_Previews: PreviewProvider {
-    static var previews: some View {
-        CinemaChairsView()
-    }
-}
+//struct CinemaChairsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CinemaChairsView()
+//    }
+//}
 

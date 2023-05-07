@@ -9,6 +9,7 @@ import SwiftUI
 import SPAlert
 import NetworkLayer
 
+
 class CinemaProfileViewModel: ProfileViewDelegate, ObservableObject {
 
     @Published var id: Int = 0
