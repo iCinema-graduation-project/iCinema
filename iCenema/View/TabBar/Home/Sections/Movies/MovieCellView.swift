@@ -46,7 +46,7 @@ struct MovieCellView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(uiColor: .iCinemaSecondBackgroudColor))
         .onAppear {
-            saved = movie.saved
+            saved = movie.saved ?? false
         }
     }
     

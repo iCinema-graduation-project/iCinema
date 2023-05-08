@@ -27,7 +27,7 @@ class MovieProfileViewController: ICinemaViewController {
     // MARK: - Update UI
     //
     private func updateUI() {
-        let movieProfileView =  MovieProfileView()
+        let movieProfileView =  MovieProfileView(view: self)
             .environmentObject(viewModel)
             .hostigView()
         

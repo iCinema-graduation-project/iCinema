@@ -24,9 +24,12 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
     @Published var averageRate: Int = 0
     @Published var categories: [Category] = []
     @Published var images: [MovieImage] = []
-    @Published var comments: [String] = []
     @Published var videoPlayerViewModels: [VideoPlayerViewModel] = []
-
+    @Published var related: [Movie] = []
+    @Published var rates: Rates = .init(rate1: 0, rate2: 0, rate3: 0, rate4: 0, rate5: 0)
+    @Published var countRate: Int = 0
+    @Published var comments: [Comment] = []
+    
     var dismissAction: (() -> Void) = { }
     var startBookingMovie: ((_ movieId: Int) -> Void) = { _ in }
     var showCinemaInformation: ((_ cinemaId: Int) -> Void) = { _ in }
@@ -36,7 +39,7 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
         self.image = movie.image
         self.cover = movie.cover ?? ""
         self.name = movie.name
-        self.saved = movie.saved
+        self.saved = movie.saved ?? false
         self.cinemaProfileViewModel.updateModel(with: movie.cinema)
         self.cinema = movie.cinema
         self.trailer = movie.trailer ?? ""
@@ -50,10 +53,10 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
         self.images = movie.images ?? []
         self.comments = movie.comments ?? []
         self.videoPlayerViewModels.append(.init(url: URL(string: self.trailer)!))
+        self.related = movie.related ?? []
+        self.rates = movie.rates ?? .init(rate1: 0, rate2: 0, rate3: 0, rate4: 0, rate5: 0)
+        self.countRate = movie.countRate ?? 0
+        
     }
-    
-    
-
-    
-   
+ 
 }
