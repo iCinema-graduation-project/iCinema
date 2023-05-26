@@ -27,16 +27,16 @@ extension UIImage {
     static let ticketsEmpty = "tickets.empty"
     
     struct TabBar {
-        static let home = UIImage(named: "home")
-        static let homeSelected = UIImage(named: "homeS")
-        static let menu = UIImage(named: "menu")
-        static let menuSelected = UIImage(named: "menuS")
-        static let notification = UIImage(named: "notification")
-        static let notificationSelected = UIImage(named: "notificationS")
-        static let reels = UIImage(named: "reels")
-        static let reelsSelected = UIImage(named: "reelsS")
-        static let ticket = UIImage(named: "ticket")
-        static let ticketSelected = UIImage(named: "ticketS")
+        static let home = UIImage(named: "home")!
+        static let homeSelected = UIImage(named: "homeS")!
+        static let menu = UIImage(named: "menu")!
+        static let menuSelected = UIImage(named: "menuS")!
+        static let notification = UIImage(named: "notification")!
+        static let notificationSelected = UIImage(named: "notificationS")!
+        static let reels = UIImage(named: "reels")!
+        static let reelsSelected = UIImage(named: "reelsS")!
+        static let ticket = UIImage(named: "ticket")!
+        static let ticketSelected = UIImage(named: "ticketS")!
     }
 
 
@@ -54,6 +54,12 @@ extension UIImage {
         static let eWallet = UIImage(named: "E-Wallet")!
         static let iCinemaWallet = UIImage(named: "icinema-Wallet")!
         static let visa = UIImage(named: "visa")!
+    }
+    
+    static let cinemaUser = CinemaUser.self
+    struct CinemaUser {
+        static let scanQR = UIImage(named: "scanQR")!
+        static let scanQRWhite = UIImage(named: "scanQR1")!
     }
     
 }

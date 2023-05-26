@@ -5,7 +5,7 @@
   Created by Ahmed Yamany on 27/01/2023.
 */
 
-"register" = "Register";
+"register" = "User Login";
 "view" = "view";
 "cinemas" = "Cinemas";
 "follow" = "Follow";
@@ -18,7 +18,7 @@
 
 // MARK: - Welcome
 "welecome.descriptionLabel" = "iCinema provides you with a unique experience to know everything related to movies, you can watch, book, and search for everything you want";
-"welecome.guest" = "Guest";
+"welecome.guest" = "Cinema Login";
 
 // MARK: - Phone
 "phone.descriptionLabel" = "Enter your country code and your phone number";
@@ -86,3 +86,19 @@
 "booking.creditCard" = "Credit Card";
 "booking.e-wallet" = "E-Wallet";
 "booking.icinema-wallet" = "iCinema Wallet";
+
+
+
+
+// Cinema
+"app.splash.title" = "I Cinema";
+"app.splash.getCookies" = "Get Cooking";
+"app.splash.description" = "Simple way to manage your booing";
+"app.splash.Button" = "Start";
+
+// MARK: - Sign in
+"app.signin.EmailTextFieldTitle" = "Email";
+"app.signin.EmailTextFieldPlaceholder" = "Enter Email";
+"app.signin.passwordTextFieldTitle" = "Password";
+"app.signin.passwordTextFieldPlaceholder" = "Enter Password";
+"app.signin.signInButton" = "Sign In";

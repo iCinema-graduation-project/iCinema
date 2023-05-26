@@ -74,6 +74,9 @@ public extension UIFont {
     static var caption2: UIFont {
         return UIFont(name: "Stolzl-Regular", size: 8)!
     }
+    static func custom(size: CGFloat) -> UIFont {
+        return UIFont(name: "Stolzl-Bold", size: size)!
+    }
 }
 
 

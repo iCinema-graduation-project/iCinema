@@ -111,9 +111,10 @@ class WelcomeViewController: ICinemaViewController {
     }
     
     @objc private func guestButtonTapped() {
-        self.coordinator?.push(to: AppTapBarController.self)
-            
-            
+        self.coordinator?.setViewControllers([SignInViewController.self, SignInViewController.self, CinemaTapBarController.self])
+        
+        
+        
 //            UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) { granted, error in
 //                if granted {
 //                    self.schenualNotification()
