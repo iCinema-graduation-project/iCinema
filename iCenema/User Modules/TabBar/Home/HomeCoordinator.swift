@@ -9,7 +9,7 @@ import UIKit
 import Coordinator
 
 final class HomeCoordinator: Coordinator {
- /*
+ /**
     The HomeCoordinator is responsible for booking
     to access booking you have to first present movie or cinema Profile
     that requiers to hide the presenterViewController's navigationController's navigationBar
@@ -17,21 +17,20 @@ final class HomeCoordinator: Coordinator {
  */
     override init() {
         super.init()
-        setViewControllers([HomeViewController.self, CinemaDateViewController.self,
-                            CinemaChairsViewController.self,
-                            PaymentMethodViewController.self, BookingSuccessViewController.self])
+        setViewControllers([
+            HomeViewController.self,
+            CinemaDateViewController.self,
+            CinemaChairsViewController.self,
+            PaymentMethodViewController.self,
+            BookingSuccessViewController.self
+        ])
     }
-    
-    
     override func push(userInfo: [String : Any]? = nil) {
         super.push(userInfo: userInfo)
-        
         /// Make sure that navigationController's navigationBar is not hiden
         self.navigationController.navigationBar.isHidden = false
         self.navigationController.interactivePopGestureRecognizer?.isEnabled = true
-    
     }
-    
     override func pop() {
         /// whene comming back from the booking
         if currentIndex == 1 {
@@ -43,9 +42,6 @@ final class HomeCoordinator: Coordinator {
                 self.navigationController.interactivePopGestureRecognizer?.isEnabled = false
             }
         }
-        
         super.pop()
-
     }
-    
 }

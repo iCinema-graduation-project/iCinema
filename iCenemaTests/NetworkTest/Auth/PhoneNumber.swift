@@ -11,17 +11,15 @@ import Combine
 
 final class PhoneNumber: XCTestCase {
     
-    var service =  PhoneNumberLoginService()
+    var service: NetworkLayer<Login> = .init(endpoint: "login", method: .post)
     internal var cancellableSet: Set<AnyCancellable> = []
 
     override func setUpWithError() throws { }
-
     override func tearDownWithError() throws { }
 
 
     func testLogin() {
         self.service.networkRequest.update(parameters: ["phone": "01551608020"])
-
         service.request()
             .sink { response in
                 if let value = response.value {
@@ -32,14 +30,12 @@ final class PhoneNumber: XCTestCase {
     
     func testValidationError() {
         self.service.networkRequest.update(parameters: ["phone": ""])
-
         service.request()
             .sink { response in
                 if let value = response.value {
                     XCTAssertEqual(value.key, "fail")
                 }
             }.store(in: &cancellableSet)
-
     }
 
 }

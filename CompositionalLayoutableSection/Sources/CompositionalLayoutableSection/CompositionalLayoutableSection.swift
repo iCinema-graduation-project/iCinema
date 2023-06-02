@@ -18,7 +18,6 @@ public protocol CompositionalLayoutableSectionDataSource: UICollectionViewDataSo
     /// Why not using items.count?
     /// because XCode gives me error build failed with a nonzero exit code so this was the solve to ignore this bug
     var itemsCount: Int { get set }
-    
     /// updates items and should reloads collection view data
     func update(_ collectionView: UICollectionView, with items: [ResposeType])
 
@@ -29,24 +28,22 @@ public protocol CompositionalLayoutableSectionDataSource: UICollectionViewDataSo
 public protocol CompositionalLayoutableSectionLayout {
     /// Returns the layout for an item in the section.
     func itemLayoutInGroup() -> NSCollectionLayoutItem
-    
     /// Returns the layout for the group of items in the section.
     func groupLayoutInSection() -> NSCollectionLayoutGroup
-    
     /// Returns the layout for the section.
     func sectionLayout() -> NSCollectionLayoutSection
     
 }
 
+
+
 @objc public protocol CompositionalLayoutableSectionDelegate: UICollectionViewDelegate {
-    
     /// Registers the cell type to be used for the items in the section.
     @objc func registerCell(_ collectionView: UICollectionView)
-    
     /// Registers the supplementary view type to be used in the section.
     @objc optional func registerSupplementaryView(_ collectionView: UICollectionView)
-   
 }
+
 
 
 /*
@@ -61,11 +58,9 @@ public protocol CompositionalLayoutableSectionLayout {
  */
 @available(iOS 13.0, *)
 open class CompositionalLayoutableSection: NSObject {
-    
     open var dataSource: (any CompositionalLayoutableSectionDataSource)? = nil
     open var layout: (any CompositionalLayoutableSectionLayout)? = nil
     open var delegate: (any CompositionalLayoutableSectionDelegate)? = nil
-    
 }
 
 

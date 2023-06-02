@@ -25,7 +25,6 @@ class NetworkLayer<T>: APIRequest where T: Codable {
     init( endpoint: String, method: HTTPMethod) {
         self.networkRequest = .init(host: "http://icinema.live/api/v1/",
                                     endpoint: endpoint, method: method)
-        
         self.updateNetworkRequest()
     }
     

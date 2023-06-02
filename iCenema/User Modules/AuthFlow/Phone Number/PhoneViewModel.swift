@@ -16,7 +16,6 @@ import Alamofire
 class PhoneViewModel {
     
     @Published private(set) var isPhoneNumberValid: Bool = false
-    
     @Published var phoneNumber: String = ""    
     
     var service: NetworkLayer<Login> = .init(endpoint: "login", method: .post)

@@ -32,9 +32,7 @@ final class CinemaCollectionViewSection: CompositionalLayoutableSection {
         dataSource = self
         layout = self
         delegate = self
-    
     }
-    
 }
     
 // MARK: - Section Layout
@@ -121,6 +119,8 @@ extension CinemaCollectionViewSection: CompositionalLayoutableSectionDataSource 
     
 }
 
+
+
 // MARK: - Delegate
 //
 extension CinemaCollectionViewSection: CompositionalLayoutableSectionDelegate {
@@ -128,12 +128,9 @@ extension CinemaCollectionViewSection: CompositionalLayoutableSectionDelegate {
     func registerCell(_ collectionView: UICollectionView) {
         collectionView.register(cellType.self)
     }
-    
     func registerSupplementaryView(_ collectionView: UICollectionView) {
         collectionView.register(supplementaryViewType.self, supplementaryViewOfKind: supplementaryViewType.identifier)
     }
-    
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let hostingViewController = hostingViewController as? ICinemaViewController else { return }
 
@@ -141,7 +138,5 @@ extension CinemaCollectionViewSection: CompositionalLayoutableSectionDelegate {
         let cinema = self.items[indexPath.row]
         cinemaProfileVC.inject(with: cinema.id)
         hostingViewController.presentViewController(cinemaProfileVC)
-        
     }
-    
 }

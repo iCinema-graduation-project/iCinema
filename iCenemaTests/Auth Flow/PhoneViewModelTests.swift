@@ -17,7 +17,6 @@ final class PhoneViewModelTests: XCTestCase {
     override func setUpWithError() throws {
         viewModel = PhoneViewModel()
     }
-
     override func tearDownWithError() throws {
         viewModel = nil
     }
@@ -26,12 +25,10 @@ final class PhoneViewModelTests: XCTestCase {
         let expectation = self.expectation(description: "Phone number is valid")
         
         viewModel.phoneNumber = "01234567890"
-        
         viewModel.$isPhoneNumberValid.sink { isValid in
             XCTAssertTrue(isValid, "Phone number should be valid")
             expectation.fulfill()
         }.store(in: &cancellabelSet)
-        
         waitForExpectations(timeout: 1, handler: nil)
     }
     

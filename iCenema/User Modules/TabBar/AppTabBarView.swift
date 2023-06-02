@@ -107,7 +107,7 @@ struct TabBarView: View {
 
 struct AppTabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        AppTabBarView(tabs: [], tabBarViewModel: TabBarViewModel())
+        AppTabBarView(tabs: [], tabBarViewModel: TabBarViewModel.shared)
     }
 }
 

@@ -11,7 +11,7 @@ import Combine
 
 final class OTP: XCTestCase {
     
-    var service = OTPService()
+    var service: NetworkLayer<VerifyCode> = .init(endpoint: "verify-phone?_method=patch", method: .post)
     
     func testValidCode() {
         service.networkRequest.update(parameters: ["phone": "01551608020", "code": "123456"])
