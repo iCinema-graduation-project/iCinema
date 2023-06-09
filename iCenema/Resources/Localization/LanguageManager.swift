@@ -52,6 +52,7 @@ extension String {
         static let male = getLocalized(with: "newUser.male")
         static let createAccount = getLocalized(with: "newUser.createAccount")
         static let newUser = getLocalized(with: "newUser.newUser")
+        static let editUser = getLocalized(with: "newUser.editUser")
     }
     
     static let cinemaProfile = CinemaProfile.self

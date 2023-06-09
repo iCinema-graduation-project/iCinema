@@ -27,8 +27,9 @@ struct EWalletView: View {
                     .padding(.trailing)
                     .foregroundColor(Color(uiColor: .iCinemaYellowColor))
             }
+            .padding(.bottom)
             
-            ICinemaAlertView {
+            ICinemaAlertView(height: 260) {
                 VStack {
                     VStack(alignment: .leading) {
                         Text("Wallet Number")
@@ -54,6 +55,14 @@ struct EWalletView: View {
                 }
                 .font(Font(UIFont.footnote))
                 .padding()
+                
+                ICinemaButtonView(title: .saveEdits, type: .small) {
+                    withAnimation {
+                        showEWallet = false
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.bottom)
             }
             
         }

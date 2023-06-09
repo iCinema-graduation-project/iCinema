@@ -74,7 +74,7 @@ class EditUserProfileViewController: ICinemaViewController {
     // MARK: - Update UI
     //
     private func updateUI() {
-        navigationItem.addTitleView(title: .newUser.newUser)
+        navigationItem.addTitleView(title: .newUser.editUser)
         self.addScrollView()
         self.updateAvatarView()
         self.updateFullNameTextField()

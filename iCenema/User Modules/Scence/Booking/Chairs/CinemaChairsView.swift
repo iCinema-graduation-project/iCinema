@@ -85,6 +85,7 @@ struct CinemaChairsView: View {
                 Spacer()
                 
                 ICinemaButtonView(title: .next) {
+                    self.view.coordinator?.push()
                 }
                 .padding(.bottom, CGFloat.view.padding.bottom)
             }

@@ -36,10 +36,12 @@ struct CreditCardView: View {
             CardView()
                 .padding()
 
-//            ICinemaButtonView(title: .saveEdits, type: .small) {
-//                
-//            }
-//            .frame(maxWidth: .infinity, alignment: .center)
+            ICinemaButtonView(title: .saveEdits, type: .small) {
+                withAnimation {
+                    showCreditCardview = false
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
         }
         .offset(y: -50)
         .frame(maxWidth: .infinity, maxHeight: .infinity)

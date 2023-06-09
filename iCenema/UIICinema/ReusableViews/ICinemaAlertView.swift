@@ -96,13 +96,15 @@ open class ICinemaAlert {
 
 @available(iOS 13.0, *)
 public struct ICinemaAlertView<Content: View>: View {
+    var width: CGFloat = 342
+    var height: CGFloat = 220
     @ViewBuilder var content: Content
 
     public var body: some View {
         VStack {
             content
         }
-        .frame(width: 342, height: 220)
+        .frame(width: width, height: height)
         .background(Color(uiColor: .iCinemaSecondBackgroudColor))
         .addBorder(withColor: Color(uiColor: .iCinemaYellowColor), height: 220)
         .frame(width: 342)

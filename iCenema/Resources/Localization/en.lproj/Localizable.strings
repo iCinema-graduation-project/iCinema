@@ -41,6 +41,8 @@
 "newUser.male" = "Male";
 "newUser.createAccount" = "Create Account";
 "newUser.newUser" = "New User";
+"newUser.editUser" = "Edit User";
+
 
 // MARK: - Home
 "home.forYou" = "For You";

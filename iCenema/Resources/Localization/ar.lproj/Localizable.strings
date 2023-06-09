@@ -42,6 +42,7 @@
 "newUser.male" = "ذكر";
 "newUser.createAccount" = "إنشاء حساب";
 "newUser.newUser" = "مستخدم جديد";
+"newUser.editUser" = "تعديل المسخدم";
 
 // MARK: - Home
 "home.forYou" = "من اجلك";
