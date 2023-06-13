@@ -6,30 +6,68 @@
 //
 
 import UIKit
+import CompositionalLayoutableSection
+import SwiftUI
 
-class NotificationViewController: ICinemaViewController {
+class NotificationViewController: ICinemaViewController, CompositionalLayoutProvider {
+    // MARK: - Views
+    //
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
 
+    // MARK: - CompositionalLayoutProvider confirmation
+    //
+    lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [ ]
+    private lazy var datesource = CompositionalLayoutDataSource(self)
+    private lazy var delegate = CompositionalLayoutDelegate(self)
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        TabBarViewModel.shared.show()
-    }
-    
+    // MARK: - Life Cycle
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
+        // update collection view delegation
+        collectionView.delegate = delegate
+        collectionView.dataSource = datesource
+        
+        let section = NotificationCollectionViewSection(hostingViewController: self)
+        compositionalLayoutSections.append(section)
+        section.update(self.collectionView, with: [NotificationModel(title: "hello"), NotificationModel(title: "hello")])
+        
+        self.collectionView.updateCollectionViewCompositionalLayout(with: self)
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.frame = view.bounds
+    }
 
-        // Do any additional setup after loading the view.
+    
+    // MARK: - Update UI
+    private func updateUI(){
+        navigationItem.addTitleView(title: "Notifications", color: .iCinemaYellowColor)
+        self.addCollectionView()
+    }
+    private func addCollectionView() {
+        view.addSubview(collectionView)
+        collectionView.backgroundColor = .clear
+    }
+}
+
+
+struct NotificationView: UIViewControllerRepresentable {
+    
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        return UINavigationController(rootViewController: NotificationViewController())
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
     }
-    */
+}
 
+struct NotificationView_Previews: PreviewProvider {
+    static var previews: some View {
+        NotificationView()
+            .ignoresSafeArea()
+    }
 }

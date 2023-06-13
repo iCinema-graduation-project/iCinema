@@ -12,10 +12,10 @@ import UIICinema
 struct TicketsView: View {
     
     @State var tickets: [Ticket] = [
-    Ticket(image: "SliderImage"),
-    Ticket(image: "SliderImage2"),
-    Ticket(image: "SliderImage3"),
-    Ticket(image: "SliderImage"),
+    Ticket(image: "thor-top"),
+    Ticket(image: "thor-top"),
+    Ticket(image: "thor-top"),
+    Ticket(image: "thor-top"),
         ]
     
     @State private var showAlert: Bool = false

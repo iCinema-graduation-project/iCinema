@@ -18,7 +18,8 @@
 
 // MARK: - Welcome
 "welecome.descriptionLabel" = "iCinema provides you with a unique experience to know everything related to movies, you can watch, book, and search for everything you want";
-"welecome.guest" = "Cinema Login";
+//"welecome.guest" = "Cinema Login";
+"welecome.guest" = "Guest";
 
 // MARK: - Phone
 "phone.descriptionLabel" = "Enter your country code and your phone number";

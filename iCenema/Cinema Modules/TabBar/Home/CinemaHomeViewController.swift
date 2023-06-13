@@ -10,6 +10,7 @@ import QRScanner
 import AVFoundation
 import MakeConstraints
 import Coordinator
+import SwiftUI
 
 final class CinemaHomeViewController: ICinemaViewController {
 
@@ -22,7 +23,6 @@ final class CinemaHomeViewController: ICinemaViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         TabBarViewModel.shared.show()
-        
     }
     
     // MARK: - Update UI
@@ -55,17 +55,23 @@ final class CinemaHomeViewController: ICinemaViewController {
     // MARK: - Actions
     //
     @objc private func userProfileTapped() {
-        self.navigationController?.pushViewController(EditUserProfileViewController(), animated: true)
+        let alertView = ICinemaAlert(width: 328, height: 464, useBackground: false)
+        alertView.show {
+            VStack(spacing: 0.0) {
+                TicketTopView(ticket: Ticket(image: "thor-top"))
+                Spacer(minLength: 0)
+                TicketBottomView()  
+            }
+            .frame(height: 460)
+            .font(Font(UIFont.callout))
+            .glow(color: Color(uiColor: .iCinemaYellowColor), radius: 1)
+        }
+
     }
-    
-    
     @objc private func startQRCodeScanning() {
         let vc = QRCodeViewController()
-
         self.present(vc, animated: true)
     }
-    
-  
     
 }
 

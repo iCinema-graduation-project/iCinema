@@ -20,9 +20,11 @@ open class ICinemaAlert {
     
     let width: CGFloat
     let height: CGFloat
-    init(width:CGFloat = 342, height: CGFloat = 220) {
+    let useBackground: Bool
+    init(width:CGFloat = 342, height: CGFloat = 220, useBackground: Bool = true) {
         self.width = width
         self.height = height
+        self.useBackground = useBackground
     }
     
     public func show<Content: View>(content: @escaping () -> Content) {
@@ -44,8 +46,8 @@ open class ICinemaAlert {
                }
            }
            .frame(width: self.width, height: self.height)
-           .background(Color(uiColor: .iCinemaSecondBackgroudColor))
-           .addBorder(withColor: Color(uiColor: .iCinemaYellowColor), height: self.height)
+           .background(Color(uiColor: useBackground ? .iCinemaSecondBackgroudColor : .clear))
+           .addBorder(withColor: Color(uiColor: useBackground ? .iCinemaYellowColor: .clear), height: self.height)
            .frame(width: self.width)
 
        }().hostigView()

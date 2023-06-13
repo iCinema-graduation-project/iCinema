@@ -52,8 +52,6 @@ struct TicketView: View {
             .frame(height: 460)
             .font(Font(UIFont.callout))
             .glow(color: Color(uiColor: .iCinemaYellowColor), radius: 1)
-
-//        }
     }
 }
 

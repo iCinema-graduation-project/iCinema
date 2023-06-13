@@ -89,6 +89,10 @@
 		733DAA2529B3A0CA00741211 /* CinemaProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */; };
 		733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2629B3B5A200741211 /* TabBarViewModel.swift */; };
 		733DAA2929B3BA3D00741211 /* DumySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DAA2829B3BA3D00741211 /* DumySection.swift */; };
+		734117E02A38D1100024E8C6 /* NotificationCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734117DF2A38D1100024E8C6 /* NotificationCollectionViewSection.swift */; };
+		734117E22A38D2210024E8C6 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734117E12A38D2210024E8C6 /* NotificationModel.swift */; };
+		734117E72A38DB150024E8C6 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734117E52A38DB150024E8C6 /* NotificationCell.swift */; };
+		734117E82A38DB150024E8C6 /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 734117E62A38DB150024E8C6 /* NotificationCell.xib */; };
 		734A819229D33C9B00949EB4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A819129D33C9B00949EB4 /* ProfileView.swift */; };
 		734A819429D33E4C00949EB4 /* CinemaProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A819329D33E4C00949EB4 /* CinemaProfileViewModel.swift */; };
 		734A819629D3404400949EB4 /* ProfileViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A819529D3404400949EB4 /* ProfileViewDelegate.swift */; };
@@ -113,6 +117,7 @@
 		73687B7729AEA318007DB431 /* MovieSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73687B7629AEA318007DB431 /* MovieSectionHeader.swift */; };
 		736BECB629CE54E200944D16 /* MenuModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736BECB529CE54E200944D16 /* MenuModels.swift */; };
 		736BECB829CE6C2000944D16 /* +hostigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736BECB729CE6C1F00944D16 /* +hostigView.swift */; };
+		736D139B2A34FB0800E646B9 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 736D139A2A34FB0800E646B9 /* CountryPickerView */; };
 		736EAA8F2993060F00318F2E /* PhoneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */; };
 		7375ECD629E6CF9F00D6061D /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7375ECD529E6CF9F00D6061D /* SavedViewController.swift */; };
 		7375ECD829E6D04E00D6061D /* SavedCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7375ECD729E6D04E00D6061D /* SavedCollectionViewSection.swift */; };
@@ -170,7 +175,6 @@
 		73BB177F29E062340062155C /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB177E29E062340062155C /* FollowingViewController.swift */; };
 		73BB19F129BF7D1C00C3A373 /* +customObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F029BF7D1C00C3A373 /* +customObject.swift */; };
 		73BB19F329BF7D9B00C3A373 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB19F229BF7D9B00C3A373 /* User.swift */; };
-		73BB55FF29E9A29000F34A62 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB55FE29E9A29000F34A62 /* CountryPickerView */; };
 		73BB560229E9A2AB00F34A62 /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB560129E9A2AB00F34A62 /* SwiftUITrackableScrollView */; };
 		73BB560829E9A2D700F34A62 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB560729E9A2D700F34A62 /* Lottie */; };
 		73BBF3CB29969DFC00920F53 /* EditUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBF3CA29969DFC00920F53 /* EditUserViewModel.swift */; };
@@ -339,6 +343,10 @@
 		733DAA2429B3A0CA00741211 /* CinemaProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileViewController.swift; sourceTree = "<group>"; };
 		733DAA2629B3B5A200741211 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		733DAA2829B3BA3D00741211 /* DumySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumySection.swift; sourceTree = "<group>"; };
+		734117DF2A38D1100024E8C6 /* NotificationCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCollectionViewSection.swift; sourceTree = "<group>"; };
+		734117E12A38D2210024E8C6 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		734117E52A38DB150024E8C6 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		734117E62A38DB150024E8C6 /* NotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCell.xib; sourceTree = "<group>"; };
 		734A819129D33C9B00949EB4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		734A819329D33E4C00949EB4 /* CinemaProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaProfileViewModel.swift; sourceTree = "<group>"; };
 		734A819529D3404400949EB4 /* ProfileViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewDelegate.swift; sourceTree = "<group>"; };
@@ -510,7 +518,7 @@
 				73F29D8F29FAD65100B9B52E /* UIICinema in Frameworks */,
 				738F24C829FA89A9007B7A2D /* MakeConstraints in Frameworks */,
 				73C23A502A214A5500C43C4D /* QRScanner in Frameworks */,
-				73BB55FF29E9A29000F34A62 /* CountryPickerView in Frameworks */,
+				736D139B2A34FB0800E646B9 /* CountryPickerView in Frameworks */,
 				DB916A22A041C21240710AF0 /* Pods_iCinema.framework in Frameworks */,
 				7313574729FA8ECC00977858 /* Coordinator in Frameworks */,
 				73C0A2B229FABE02008065BA /* LocationManager in Frameworks */,
@@ -623,6 +631,10 @@
 			children = (
 				730E1C2029A966CF00F2AB85 /* NotificationCoordinator.swift */,
 				730E1C2229A966DC00F2AB85 /* NotificationViewController.swift */,
+				734117DF2A38D1100024E8C6 /* NotificationCollectionViewSection.swift */,
+				734117E12A38D2210024E8C6 /* NotificationModel.swift */,
+				734117E52A38DB150024E8C6 /* NotificationCell.swift */,
+				734117E62A38DB150024E8C6 /* NotificationCell.xib */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -1554,7 +1566,6 @@
 			);
 			name = iCinema;
 			packageProductDependencies = (
-				73BB55FE29E9A29000F34A62 /* CountryPickerView */,
 				73BB560129E9A2AB00F34A62 /* SwiftUITrackableScrollView */,
 				73BB560729E9A2D700F34A62 /* Lottie */,
 				7308841029EBB42A0090D621 /* SPConfetti */,
@@ -1568,6 +1579,7 @@
 				73D3C38929FC764D00CE5256 /* Kingfisher */,
 				73342EA42A066E9E003CBBD8 /* CompositionalLayoutableSection */,
 				73C23A4F2A214A5500C43C4D /* QRScanner */,
+				736D139A2A34FB0800E646B9 /* CountryPickerView */,
 			);
 			productName = iCenema;
 			productReference = 73EC918829834531002F3568 /* iCinema.app */;
@@ -1646,13 +1658,13 @@
 			);
 			mainGroup = 73EC917F29834531002F3568;
 			packageReferences = (
-				73BB55FD29E9A29000F34A62 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
 				73BB560029E9A2AB00F34A62 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
 				73BB560629E9A2D700F34A62 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				7308840F29EBB42A0090D621 /* XCRemoteSwiftPackageReference "SPConfetti" */,
 				73215FB329F409F200C62B7E /* XCRemoteSwiftPackageReference "SPAlert" */,
 				73D3C38829FC764D00CE5256 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				73C23A4E2A214A5500C43C4D /* XCRemoteSwiftPackageReference "QRScanner" */,
+				736D13992A34FB0800E646B9 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
 			);
 			productRefGroup = 73EC918929834531002F3568 /* Products */;
 			projectDirPath = "";
@@ -1672,6 +1684,7 @@
 			files = (
 				73C23A582A21593800C43C4D /* qr.json in Resources */,
 				73C23A382A21430400C43C4D /* SignInViewController.xib in Resources */,
+				734117E82A38DB150024E8C6 /* NotificationCell.xib in Resources */,
 				73EC919829834533002F3568 /* LaunchScreen.storyboard in Resources */,
 				73B35C5529C1DEEC00F93CA7 /* Stolzl-Thin.ttf in Resources */,
 				73B35C5629C1DEEC00F93CA7 /* Stolzl-Book.ttf in Resources */,
@@ -1855,6 +1868,7 @@
 				733DAA2929B3BA3D00741211 /* DumySection.swift in Sources */,
 				731FBF6B29B0BF7E00798DF5 /* CubeAttributesAnimator.swift in Sources */,
 				73C23A4B2A2149A400C43C4D /* CinemaTapBarController.swift in Sources */,
+				734117E02A38D1100024E8C6 /* NotificationCollectionViewSection.swift in Sources */,
 				73C23A352A21430400C43C4D /* SplashViewController.swift in Sources */,
 				7337853A29FF1C3F00DEACEB /* CinemaFollowingModel.swift in Sources */,
 				730E1C2129A966CF00F2AB85 /* NotificationCoordinator.swift in Sources */,
@@ -1864,6 +1878,7 @@
 				731FBF6529B0BF7E00798DF5 /* IGCommon.swift in Sources */,
 				731FBF6229B0BF7E00798DF5 /* IGCache.swift in Sources */,
 				730CA21E29BBE93000C82C0A /* MovieCellView.swift in Sources */,
+				734117E72A38DB150024E8C6 /* NotificationCell.swift in Sources */,
 				730E1C0E29A955F700F2AB85 /* HomeCoordinator.swift in Sources */,
 				73F7138A29B65A71001E469D /* +isHidden.swift in Sources */,
 				73AD757129F54CD700C55602 /* ICinemaWalletViewController.swift in Sources */,
@@ -1951,6 +1966,7 @@
 				731976CF29FFE92E00514103 /* MovieProfileModel.swift in Sources */,
 				7307989D2A040B3100B6560C /* +isPagingEnabled.swift in Sources */,
 				73FC29B52A014FB300D5ED8F /* ICinemaAlertView.swift in Sources */,
+				734117E22A38D2210024E8C6 /* NotificationModel.swift in Sources */,
 				73BB19F329BF7D9B00C3A373 /* User.swift in Sources */,
 				73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */,
 				733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */,
@@ -2384,7 +2400,7 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		73BB55FD29E9A29000F34A62 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
+		736D13992A34FB0800E646B9 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
 			requirement = {
@@ -2445,6 +2461,11 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = CompositionalLayoutableSection;
 		};
+		736D139A2A34FB0800E646B9 /* CountryPickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 736D13992A34FB0800E646B9 /* XCRemoteSwiftPackageReference "CountryPickerView" */;
+			productName = CountryPickerView;
+		};
 		738F24C729FA89A9007B7A2D /* MakeConstraints */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MakeConstraints;
@@ -2452,11 +2473,6 @@
 		73B21A2529FA7CB00087019D /* NetworkLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkLayer;
-		};
-		73BB55FE29E9A29000F34A62 /* CountryPickerView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 73BB55FD29E9A29000F34A62 /* XCRemoteSwiftPackageReference "CountryPickerView" */;
-			productName = CountryPickerView;
 		};
 		73BB560129E9A2AB00F34A62 /* SwiftUITrackableScrollView */ = {
 			isa = XCSwiftPackageProductDependency;
