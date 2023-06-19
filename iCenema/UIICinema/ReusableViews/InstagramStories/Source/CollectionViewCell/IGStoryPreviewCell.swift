@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import SwiftUI
 
 protocol StoryPreviewProtocol: AnyObject {
     func didCompletePreview()
@@ -66,16 +67,16 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate, Iden
     }()
     
     private lazy var reactStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [fullScreenButton, loveButton, commentsButton, shareButton])
+        let stackView = UIStackView(arrangedSubviews: [loveButton, commentsButton, shareButton])
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.heightAnchor.constraint(equalToConstant: 152).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: 136).isActive = true
         stackView.widthAnchor.constraint(equalToConstant: 28).isActive = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
-    private let fullScreenButton = UIButton()
+//    private let fullScreenButton = UIButton()
     private let loveButton = UIButton()
     private let commentsButton = UIButton()
     private let shareButton = UIButton()
@@ -162,7 +163,7 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate, Iden
         loadUIElements()
         installLayoutConstraints()
         self.addReactStackView()
-        self.configureFullScreenButton()
+//        self.configureFullScreenButton()
         self.configureLoveButton()
         self.configureCommentButton()
         self.configureShareButton()
@@ -191,19 +192,21 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate, Iden
         reactStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -80).isActive = true
     }
     
-    private func configureFullScreenButton() {
-        fullScreenButton.setImage(UIImage(systemName: "arrow.up.backward.and.arrow.down.forward"), for: .normal)
-        fullScreenButton.tintColor = .white
-    }
+//    private func configureFullScreenButton() {
+//        fullScreenButton.setImage(UIImage(systemName: "arrow.up.backward.and.arrow.down.forward"), for: .normal)
+//        fullScreenButton.tintColor = .white
+//    }
     
     private func configureLoveButton() {
-        loveButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        loveButton.setImage(UIImage(systemName: "heart"), for: .normal)
         loveButton.tintColor = .iCinemaYellowColor
+        loveButton.addTarget(self, action: #selector(self.LoveButtonAction(_:)), for: .touchUpInside)
     }
     
     private func configureCommentButton() {
         commentsButton.setImage(UIImage(systemName: "text.bubble"), for: .normal)
         commentsButton.tintColor = .white
+        commentsButton.addTarget(self, action: #selector(self.CommentButtonAction(_:)), for: .touchUpInside)
     }
     
     private func configureShareButton() {
@@ -215,6 +218,24 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate, Iden
         contentView.addSubview(playPauseImage)
         playPauseImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         playPauseImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+    }
+    
+    @objc private func LoveButtonAction(_ sender: UIButton) {
+        loveButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    }
+    
+    @objc private func CommentButtonAction(_ sender: UIButton) {
+        let a = ICinemaAlert()
+        a.show {
+            VStack {
+                TextField("Leave a Comment", text: .constant(""))
+                    .frame(height: 44)
+                    .padding(.horizontal, 8)
+                    .background(Color.iCinemaBackgroundColor)
+                    .cornerRadius(.iCinemaButton.cornerRadius)
+                    .padding(.vertical)
+            }
+        }
     }
     
     //MARK: - Private functions

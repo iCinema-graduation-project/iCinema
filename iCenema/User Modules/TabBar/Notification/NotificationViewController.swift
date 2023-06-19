@@ -31,7 +31,13 @@ class NotificationViewController: ICinemaViewController, CompositionalLayoutProv
         
         let section = NotificationCollectionViewSection(hostingViewController: self)
         compositionalLayoutSections.append(section)
-        section.update(self.collectionView, with: [NotificationModel(title: "hello"), NotificationModel(title: "hello")])
+        let models: [NotificationModel] = [
+            NotificationModel(image: "n1", title: "Your ticket is in 12 hours from now , don't forget to activate it .", time: "Today 10:00 PM"),
+            NotificationModel(image: "n2", title: "Rivoly Cinema added a new movie .", time: "Today 12:20 PM"),
+            NotificationModel(image: "n3", title: "The premier of Black Adam will be in 3 days , you con book your ticket now .", time: "Today 06:30 AM"),
+            NotificationModel(image: "n4", title: "Galaxy Cinema : after watching our movie, we hope you will rate us .", time: "Yesterday 05:00 PM")
+        ]
+        section.update(self.collectionView, with: models)
         
         self.collectionView.updateCollectionViewCompositionalLayout(with: self)
     }

@@ -7,6 +7,7 @@
 
 import UIKit
 import CompositionalLayoutableSection
+import MakeConstraints
 
 final class SearchResultViewController: ICinemaViewController, CompositionalLayoutProvider {
     
@@ -18,7 +19,6 @@ final class SearchResultViewController: ICinemaViewController, CompositionalLayo
     // MARK: - Properties
     //
     lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [
-        SavedCollectionViewSection(hostingViewController: self),
         DummyCollectionViewSection()
     ]
     
@@ -34,9 +34,7 @@ final class SearchResultViewController: ICinemaViewController, CompositionalLayo
         segmentControl.insertSegment(withTitle: "Position", at: 0, animated: true)
         segmentControl.insertSegment(withTitle: "Price", at: 1, animated: true)
         segmentControl.selectedSegmentIndex = 0
-       
         collectionView.reloadData()
-
     }
  
     // MARK: - Update UI
@@ -54,7 +52,6 @@ final class SearchResultViewController: ICinemaViewController, CompositionalLayo
     }
     
     private func updateCollectionView() {
-    
         // add and clear the background of the collection view
         view.addSubview(collectionView)
         collectionView.backgroundColor = .clear
@@ -67,13 +64,15 @@ final class SearchResultViewController: ICinemaViewController, CompositionalLayo
     }
     
     private func updatecollectionViewCompositionalLayout() {
-        // setup collection view compositional layout
-        collectionView.updateCollectionViewCompositionalLayout(with: self)
-//        compositionalLayoutSections.forEach { $0.delegate?.update(self.collectionView) }
-        
         // setup collection view delegate and datasource with compositional layout source and delegate
         collectionView.delegate = compositionalLayoutProviderDelegate
         collectionView.dataSource = compositionalLayoutProviderDataSource
+        
+        // setup collection view compositional layout
+        collectionView.updateCollectionViewCompositionalLayout(with: self)
+        let section = SavedCollectionViewSection(hostingViewController: self)
+        self.compositionalLayoutSections.append(section)
+        section.update(collectionView, with: [])
     }
     
     

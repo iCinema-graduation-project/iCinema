@@ -16,6 +16,12 @@
 "next" = "التالي";
 "saveEdits" = "حفظ التعديلات";
 "profile" = "بيانات الحساب";
+"ok" = "حسنا";
+"cancel" = "الغاء";
+"send" = "ارسال";
+"changeLanguage" = "سنفتح الإعدادات لتغيير اللغة";
+"yes" = "اجل";
+"no"="لا";
 
 // MARK: - Welcome
 "welecome.descriptionLabel" = "توفر لك iCinema تجربة فريدة لمعرفة كل ما يتعلق بالأفلام ، يمكنك مشاهدة كل ما تريده وحجزه والبحث عنه";
@@ -63,6 +69,8 @@
 "menu.aboutUs" = "من نحن";
 "menu.rateUs" = "قيمنا";
 "menu.logout" = "تسجيل خروج";
+"menu.logoutDescription" = "هل تريد حقًا تسجيل الخروج؟";
+
 
 // MARK: - Cinema Profile
 "cinemaProfile.followers" = "المتابعين";
@@ -74,11 +82,15 @@
 "cinemaProfile.ratings" = "التقيمات";
 
 // MARK: - Movie Profile
-"movieProfile.trailers" = "Trailer";
-"movieProfile.related" = "Related";
-"movieProfile.cast" = "Cast & Crew";
-"movieProfile.retings" = "Ratings & Reviews";
-"movieProfile.addReview" = "Add Review";
+"movieProfile.trailers" = "التريلر";
+"movieProfile.related" = "ذات صله";
+"movieProfile.cast" = "فريق العمل";
+"movieProfile.ratings" = "التقييمات والمراجعات";
+"movieProfile.addReview" = "إضافة مراجعة";
+"movieProfile.aboutCinema" = "عن السينما";
+"movieProfile.name" = "الاسم";
+"movieProfile.location" = "الموقع";
+"movieProfile.averageRate" = "التقييم";
 
 
 // MARK: - Booking

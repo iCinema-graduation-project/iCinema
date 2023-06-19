@@ -19,7 +19,6 @@ final class OTP: XCTestCase {
         service.request { response in
             guard let _ = response.value else { XCTAssertNil(response.value); return }
         }
-        
     }
     
     func testInValidCode() {

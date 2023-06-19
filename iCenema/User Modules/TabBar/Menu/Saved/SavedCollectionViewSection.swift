@@ -23,7 +23,6 @@ final class SavedCollectionViewSection: CompositionalLayoutableSection {
     
     var hostingViewController: UIViewController?
     init(hostingViewController: UIViewController) {
-       
         super.init()
         self.hostingViewController = hostingViewController
         dataSource = self
@@ -87,7 +86,6 @@ extension SavedCollectionViewSection: CompositionalLayoutableSectionLayout {
                                                       leading: 0,
                                                       bottom: .cell.padding.bottom,
                                                       trailing: 0)
-
         return group
     }
     

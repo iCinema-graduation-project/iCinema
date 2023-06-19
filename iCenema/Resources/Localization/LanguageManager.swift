@@ -18,6 +18,13 @@ extension String {
     static let next = getLocalized(with: "next")
     static let saveEdits = getLocalized(with: "saveEdits")
     static let profile = getLocalized(with: "profile")
+    static let ok = getLocalized(with: "ok")
+    static let cancel = getLocalized(with: "cancel")
+    static let send = getLocalized(with: "send")
+    static let yes = getLocalized(with: "yes")
+    static let no = getLocalized(with: "no")
+    static let changeLanguage = getLocalized(with: "changeLanguage")
+    
     // MARK: - Auth Flow
     static let welcome = Welcome.self
     static let phone = Phone.self
@@ -72,9 +79,12 @@ extension String {
         static let trailers = getLocalized(with: "movieProfile.trailers")
         static let related = getLocalized(with: "movieProfile.related")
         static let cast = getLocalized(with: "movieProfile.cast")
-        static let retings = getLocalized(with: "movieProfile.retings")
+        static let ratings = getLocalized(with: "movieProfile.ratings")
         static let addReview = getLocalized(with: "movieProfile.addReview")
-
+        static let aboutCinema = getLocalized(with: "movieProfile.aboutCinema")
+        static let name = getLocalized(with: "movieProfile.name")
+        static let location = getLocalized(with: "movieProfile.location")
+        static let averageRate = getLocalized(with: "movieProfile.averageRate")
     }
     
     // MARK: - Home
@@ -103,6 +113,7 @@ extension String {
         static let aboutUs = getLocalized(with: "menu.aboutUs")
         static let rateUs = getLocalized(with: "menu.rateUs")
         static let logout = getLocalized(with: "menu.logout")
+        static let logoutDescription = getLocalized(with: "menu.logoutDescription")
     }
     
     

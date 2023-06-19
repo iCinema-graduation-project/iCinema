@@ -45,7 +45,7 @@ extension NotificationCollectionViewSection: CompositionalLayoutableSectionDataS
         let cell = collectionView.dequeueReusableCell(cellType.self, for: indexPath)
         let fromAnimation = AnimationType.from(direction: .bottom, offset: 50.0)
         cell.animate(animations: [fromAnimation])
-        
+        cell.update(with: self.items[indexPath.row])
         return cell
     }
     func update(_ collectionView: UICollectionView, with items: [ResposeType]) {

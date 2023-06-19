@@ -145,20 +145,20 @@ struct MovieProfileView: View {
     }
     
     private func movieRatingsSection() -> some View {
-        ScrollableSectionView(title: "Ratings & Reviews", scrollable: false) {
+        ScrollableSectionView(title: String.movieProfile.ratings, scrollable: false) {
             MovieRatings()
                 .environmentObject(viewModel)
         }
     }
     
     private func aboutCinema() -> some View {
-        ScrollableSectionView(title: "About Cinema", hasDivider: false, scrollable: false, content: {
+        ScrollableSectionView(title: String.movieProfile.aboutCinema, hasDivider: false, scrollable: false, content: {
             VStack(alignment: .leading, spacing: 10.0) {
-                abountCinemaCell(title: "Name",
+                abountCinemaCell(title: String.movieProfile.name,
                                  subtitle: viewModel.cinemaProfileViewModel.name)
-                abountCinemaCell(title: "Location",
+                abountCinemaCell(title: String.movieProfile.location,
                                  subtitle: viewModel.cinemaProfileViewModel.address)
-                abountCinemaCell(title: "Average Rate",
+                abountCinemaCell(title: String.movieProfile.averageRate,
                                  subtitle: String(viewModel.cinemaProfileViewModel.averageRate))
             }
             .padding(.horizontal, .cell.padding.left * 2)

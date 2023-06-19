@@ -8,5 +8,7 @@
 import Foundation
 
 struct NotificationModel{
+    let image: String
     let title: String
+    let time: String
 }

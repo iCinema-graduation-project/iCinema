@@ -95,15 +95,15 @@ class MenuViewController: ICinemaViewController {
         alertView.show {
             VStack {
                 Spacer()
-                Text("We will open the settigns for you to change the language")
+                Text(String.changeLanguage)
                 Spacer()
                 HStack {
                     Spacer()
-                    CancelButtonView(title: "Cancel", type: .small) {
+                    CancelButtonView(title: .cancel, type: .small) {
                         alertView.hide()
                     }
                     Spacer()
-                    ICinemaButtonView(title: "OK", type: .small) {
+                    ICinemaButtonView(title: .ok, type: .small) {
                         Task {
                             let opened = await AppSettings.shared.open()
                             print("settings opened? \(opened)")
@@ -126,11 +126,11 @@ class MenuViewController: ICinemaViewController {
             VStack {
                 RatingAndReviewView(viewModel: self.rateViewModel)
                 HStack(spacing: 20.0) {
-                    CancelButtonView(title: "cancele", type: .small) {
+                    CancelButtonView(title: .cancel, type: .small) {
                         alert.hide()
                     }
                     
-                    ICinemaButtonView(title: "Send", type: .small) {
+                    ICinemaButtonView(title: .send, type: .small) {
                         
                     }
                 }
@@ -143,15 +143,15 @@ class MenuViewController: ICinemaViewController {
         alertView.show {
             VStack {
                 Spacer()
-                Text("Do you realy want to logout?")
+                Text(String.menu.logoutDescription)
                 Spacer()
                 HStack {
                     Spacer()
-                    CancelButtonView(title: "No", type: .small) {
+                    CancelButtonView(title: .no, type: .small) {
                         alertView.hide()
                     }
                     Spacer()
-                    ICinemaButtonView(title: "Yes", type: .small) {
+                    ICinemaButtonView(title: .yes, type: .small) {
                         UserDefaults.standard.reset {
                             alertView.hide()
                                                                                     

@@ -15,6 +15,12 @@
 "next" = "Next";
 "saveEdits" = "Save Edits";
 "profile" = "Profile";
+"ok" = "OK";
+"cancel" = "Cancel";
+"send" = "Send";
+"changeLanguage" = "We will open the settigns for you to change the language";
+"yes" = "Yes";
+"no"="No";
 
 // MARK: - Welcome
 "welecome.descriptionLabel" = "iCinema provides you with a unique experience to know everything related to movies, you can watch, book, and search for everything you want";
@@ -64,6 +70,8 @@
 "menu.aboutUs" = "About us";
 "menu.rateUs" = "Rate us";
 "menu.logout" = "Log Out";
+"menu.logoutDescription" = "Do you realy want to logout?";
+
 
 // MARK: - Cinema Profile
 "cinemaProfile.followers" = "Followers";
@@ -78,8 +86,12 @@
 "movieProfile.trailers" = "Trailer";
 "movieProfile.related" = "Related";
 "movieProfile.cast" = "Cast & Crew";
-"movieProfile.retings" = "Ratings & Reviews";
+"movieProfile.ratings" = "Ratings & Reviews";
 "movieProfile.addReview" = "Add Review";
+"movieProfile.aboutCinema" = "About Cinema";
+"movieProfile.name" = "Name";
+"movieProfile.location" = "Location";
+"movieProfile.averageRate" = "Average Rate";
 
 // MARK: - Booking
 "booking.pickADay" = "pick a day: ";
