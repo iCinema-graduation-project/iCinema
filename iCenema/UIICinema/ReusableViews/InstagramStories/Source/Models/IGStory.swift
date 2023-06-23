@@ -12,8 +12,8 @@ public class IGStory: Codable {
 
     public var snapsCount: Int = 1
     
-    public var count_likes: Int
-    public var count_comments: Int
+    public var count_likes: Int?
+    public var count_comments: Int?
     
     public var snaps: [IGSnap]
     public var user: IGUser

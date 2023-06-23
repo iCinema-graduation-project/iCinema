@@ -10,13 +10,13 @@ import Foundation
 public class IGUser: Codable {
     public let id: String
     public let name: String
-    public let picture: String
-    public let following: Bool
+    public let picture: String?
+    public let following: Bool?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"
-        case picture = "picture"
+        case picture = "logo"
         case following
     }
 }

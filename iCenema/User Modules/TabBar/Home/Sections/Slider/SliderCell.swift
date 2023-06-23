@@ -36,7 +36,8 @@ final class SliderCollectionViewCell: UICollectionViewCell, IdentifiableView {
     public func inject(with homeSlide: HomeSlide, hostingViewController: ICinemaViewController) {
         self.homeSlide = homeSlide
         self.hostingViewController = hostingViewController
-        SliderImage.kf.setImage(with: URL(string: homeSlide.image))
+        guard let image = homeSlide.movie?.image else { return }
+        SliderImage.kf.setImage(with: URL(string: image))
     }
     
     // MARK: - Actions
@@ -92,7 +93,7 @@ final class SliderCollectionViewCell: UICollectionViewCell, IdentifiableView {
         
         // FIXME: -  Slider description label
         // will come from network
-        SliderDescriptionLabel.text = "Don't miss the chance, the premiere of Avatar is in 3 days"
+        SliderDescriptionLabel.text = "Don't miss the chance, a new movie from Sobina cinema is in 3 days"
         SliderDescriptionLabel.textColor = .iCinemaTextColor
         SliderDescriptionLabel.textAlignment = .center
         SliderDescriptionLabel.font = .caption1

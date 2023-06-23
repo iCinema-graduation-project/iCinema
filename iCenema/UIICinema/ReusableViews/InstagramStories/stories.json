@@ -8,7 +8,7 @@
             "cinema": {
                 "id": "1",
                 "name": "galaxy",
-                "picture": "https://res.cloudinary.com/qidz/image/upload/q_30/v1595323825/a2jn0uj41s51b2h4zlh2.jpg",
+                "logo": "https://res.cloudinary.com/qidz/image/upload/q_30/v1595323825/a2jn0uj41s51b2h4zlh2.jpg",
                 "following": true
             },
             "snaps": [
@@ -25,7 +25,7 @@
             "cinema": {
                 "id": "1",
                 "name": "galaxy",
-                "picture": "https://res.cloudinary.com/qidz/image/upload/q_30/v1595323825/a2jn0uj41s51b2h4zlh2.jpg",
+                "logo": "https://res.cloudinary.com/qidz/image/upload/q_30/v1595323825/a2jn0uj41s51b2h4zlh2.jpg",
                 "following": true
             },
             "snaps": [
@@ -35,5 +35,69 @@
                 }
             ]
         },
+        {
+           "id": "3",
+           "count_likes": 0,
+           "count_comments": 0,
+           "cinema": {
+               "id": "2",
+               "picture": "",
+               "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFyA0fR2E6kzIuvbD6HpU0JG7MyhXAKrJCAA&usqp=CAU",
+               "cover": "http://icinema.live/defaults/default.png",
+               "name": "Mr. Maurice Weber DDS",
+               "following": true,
+               "average_rate": 0,
+               "address": "977 Rebeca Rue Apt. 108\nSisterside, OR 57748",
+               "distance": ""
+           },
+           "snaps": [
+               {
+                   "id": 777,
+                   "url": "http://icinema.live/defaults/default_video.mp4",
+                   "count_likes": 0,
+                   "count_comments": 0,
+                   "created_at": "1 second ago"
+               },
+               {
+                   "id": 345,
+                   "url": "http://icinema.live/defaults/default_video.mp4",
+                   "count_likes": 0,
+                   "count_comments": 0,
+                   "created_at": "1 second ago"
+               }
+           ]
+       },
+        {
+            "id": "19",
+            "count_likes": null,
+            "count_comments": 0,
+            "cinema": {
+                "id": "19",
+                "picture": null,
+                "logo": "https://c0.klipartz.com/pngpicture/279/229/gratis-png-logotipo-phoenix.png",
+                "cover": "http://icinema.live/defaults/default.png",
+                "name": "Deven Wolf",
+                "following": false,
+                "average_rate": 0,
+                "address": "42784 Mary Mill Suite 162\nEast Bernhardborough, KS 07765-6742",
+                "distance": "31.93km"
+            },
+            "snaps": [
+                {
+                    "id": 841,
+                    "url": "http://icinema.live/defaults/Reels/4.mp4",
+                    "count_likes": 0,
+                    "count_comments": 0,
+                    "created_at": "1 second ago"
+                },
+                {
+                    "id": 567,
+                    "url": "http://icinema.live/defaults/Reels/9.mp4",
+                    "count_likes": 0,
+                    "count_comments": 0,
+                    "created_at": "1 second ago"
+                }
+            ]
+        }
     ]
 }

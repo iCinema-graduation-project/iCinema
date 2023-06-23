@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2538D3EC40C7C4D8A26A1CBC /* Pods_iCinema_iCinemaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */; };
+		7301150B2A42EAEF00AF106E /* Reels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7301150A2A42EAEF00AF106E /* Reels.swift */; };
 		7307989D2A040B3100B6560C /* +isPagingEnabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7307989C2A040B3100B6560C /* +isPagingEnabled.swift */; };
 		7307FDFE29BCCD1D00B13E24 /* MovieProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7307FDFD29BCCD1D00B13E24 /* MovieProfileViewController.swift */; };
 		7308840A29EBA27D0090D621 /* PaymentMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7308840929EBA27D0090D621 /* PaymentMethodViewController.swift */; };
@@ -121,6 +122,7 @@
 		736EAA8F2993060F00318F2E /* PhoneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */; };
 		7375ECD629E6CF9F00D6061D /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7375ECD529E6CF9F00D6061D /* SavedViewController.swift */; };
 		7375ECD829E6D04E00D6061D /* SavedCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7375ECD729E6D04E00D6061D /* SavedCollectionViewSection.swift */; };
+		738439452A45DD18005B474B /* ReelsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738439442A45DD18005B474B /* ReelsNetwork.swift */; };
 		7384A19229FD4337007235D0 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384A19129FD4337007235D0 /* HomeModel.swift */; };
 		7384A19429FD77E5007235D0 /* MovieSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384A19329FD77E5007235D0 /* MovieSaver.swift */; };
 		7384A19629FD782A007235D0 /* SaveMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384A19529FD782A007235D0 /* SaveMovieModel.swift */; };
@@ -263,6 +265,7 @@
 /* Begin PBXFileReference section */
 		130D207388885F68BA0997E5 /* Pods_iCinema_iCinemaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCinema_iCinemaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFBF74A68AFC6696F4A77EC /* Pods-iCinema-iCinemaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCinema-iCinemaUITests.release.xcconfig"; path = "Target Support Files/Pods-iCinema-iCinemaUITests/Pods-iCinema-iCinemaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7301150A2A42EAEF00AF106E /* Reels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reels.swift; sourceTree = "<group>"; };
 		7307989C2A040B3100B6560C /* +isPagingEnabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+isPagingEnabled.swift"; sourceTree = "<group>"; };
 		7307FDFD29BCCD1D00B13E24 /* MovieProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProfileViewController.swift; sourceTree = "<group>"; };
 		7308840929EBA27D0090D621 /* PaymentMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewController.swift; sourceTree = "<group>"; };
@@ -374,6 +377,7 @@
 		736EAA8E2993060F00318F2E /* PhoneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModelTests.swift; sourceTree = "<group>"; };
 		7375ECD529E6CF9F00D6061D /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		7375ECD729E6D04E00D6061D /* SavedCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewSection.swift; sourceTree = "<group>"; };
+		738439442A45DD18005B474B /* ReelsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsNetwork.swift; sourceTree = "<group>"; };
 		7384A19129FD4337007235D0 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		7384A19329FD77E5007235D0 /* MovieSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSaver.swift; sourceTree = "<group>"; };
 		7384A19529FD782A007235D0 /* SaveMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMovieModel.swift; sourceTree = "<group>"; };
@@ -612,6 +616,8 @@
 			children = (
 				730E1C1329A95D9F00F2AB85 /* ReelsCoordinator.swift */,
 				730E1C1529A95DBA00F2AB85 /* ReelsViewController.swift */,
+				7301150A2A42EAEF00AF106E /* Reels.swift */,
+				738439442A45DD18005B474B /* ReelsNetwork.swift */,
 			);
 			path = Reels;
 			sourceTree = "<group>";
@@ -1934,6 +1940,7 @@
 				73F29D9329FADB9800B9B52E /* GenderView.swift in Sources */,
 				73C23A3B2A21482400C43C4D /* Strings+Generated.swift in Sources */,
 				738DB6B229E316A900CB05C9 /* CinemaCellView.swift in Sources */,
+				738439452A45DD18005B474B /* ReelsNetwork.swift in Sources */,
 				73F7138329B632E6001E469D /* CinemaProfileHeaderView.swift in Sources */,
 				731FBF5229B0BF7E00798DF5 /* UIView+Extension.swift in Sources */,
 				731FBF4E29B0BF7E00798DF5 /* IGMockLoader.swift in Sources */,
@@ -1970,6 +1977,7 @@
 				73BB19F329BF7D9B00C3A373 /* User.swift in Sources */,
 				73EC918E29834531002F3568 /* SceneDelegate.swift in Sources */,
 				733116B82990A9AE00EFD002 /* OTPViewModel.swift in Sources */,
+				7301150B2A42EAEF00AF106E /* Reels.swift in Sources */,
 				7375ECD629E6CF9F00D6061D /* SavedViewController.swift in Sources */,
 				738B51BD29E5947C009A20A5 /* MovieProfileViewModel.swift in Sources */,
 				73F29D9129FADA6C00B9B52E /* ICinemaButton.swift in Sources */,

@@ -121,7 +121,7 @@ final class IGStoryPreviewHeaderView: UIView {
         addSubview(followButton)
         followButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            followButton.igLeftAnchor.constraint(equalTo: snaperNameLabel.igRightAnchor, constant: 20),
+            followButton.igLeftAnchor.constraint(equalTo: lastUpdatedLabel.igRightAnchor, constant: 20),
             followButton.igCenterYAnchor.constraint(equalTo: igCenterYAnchor)
         ])
     }
@@ -174,7 +174,7 @@ final class IGStoryPreviewHeaderView: UIView {
         //Setting constraints for snapperNameLabel
         NSLayoutConstraint.activate([
             snaperNameLabel.igLeftAnchor.constraint(equalTo: detailView.igLeftAnchor),
-            snaperNameLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 100),
+            snaperNameLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 70),
             snaperNameLabel.igTopAnchor.constraint(equalTo: detailView.igTopAnchor)
             ])
         //Setting constraints for lastUpdatedLabel

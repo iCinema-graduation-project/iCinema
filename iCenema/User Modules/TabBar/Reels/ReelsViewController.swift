@@ -10,7 +10,9 @@ import SwiftUI
 import CompositionalLayoutableSection
 
 class ReelsViewController: ICinemaViewController {
-
+    
+    let reelsNetwork = ReelsNetwork()
+    
     private let stories: IGStories? = {
          do {
              return try IGMockLoader.loadMockFile(named: "stories.json", bundle: .main)
@@ -35,6 +37,22 @@ class ReelsViewController: ICinemaViewController {
                 self.navigationController?.pushViewController(storyPreviewScene, animated: true)
             }
         }
+        
+//        Task {
+//            do {
+//                try await reelsNetwork.getData()
+//            } catch {
+//
+//            }
+//        }
+        
+        reelsNetwork.network.request { response in
+            let str = String(decoding: response.data!, as: UTF8.self)
+            print(str)
+            print(response.error)
+            print(response.value)
+        }
+      
     }
     
    
