@@ -74,7 +74,7 @@ final class IGStoryPreviewHeaderView: UIView {
         return v
     }
     
-    internal let followButton: UIButton = {
+    lazy var followButton: UIButton = {
         let button = UIButton()
         
         button.widthAnchor.constraint(equalToConstant: 50).isActive = true
@@ -86,10 +86,13 @@ final class IGStoryPreviewHeaderView: UIView {
         button.layer.borderColor = UIColor.iCinemaYellowColor.cgColor
         button.layer.borderWidth = 0.5
         button.layer.cornerRadius = 5
-        
+        button.addTarget(self, action: #selector(self.followButtonAction), for: .touchUpInside)
         return button
     }()
     
+   @objc private func followButtonAction() {
+       self.followButton.setTitle("UnFollow", for: .normal)
+    }
     
     // MARK: - Properties
     public weak var delegate: StoryPreviewHeaderProtocol?

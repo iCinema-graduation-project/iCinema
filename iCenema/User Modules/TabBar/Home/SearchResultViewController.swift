@@ -18,23 +18,23 @@ final class SearchResultViewController: ICinemaViewController, CompositionalLayo
     
     // MARK: - Properties
     //
-    lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = [
-        DummyCollectionViewSection()
-    ]
-    
+    lazy var compositionalLayoutSections: [CompositionalLayoutableSection] = []
     lazy var compositionalLayoutProviderDataSource: UICollectionViewDataSource? = CompositionalLayoutDataSource(self)
     lazy var compositionalLayoutProviderDelegate: UICollectionViewDelegate? = CompositionalLayoutDelegate(self)
+    
+    var network: NetworkLayer<SearchModel> = .init(endpoint: "search", method: .get)
     
     // MARK: - Life Cycle
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
-
         segmentControl.insertSegment(withTitle: "Position", at: 0, animated: true)
         segmentControl.insertSegment(withTitle: "Price", at: 1, animated: true)
         segmentControl.selectedSegmentIndex = 0
         collectionView.reloadData()
+        
+        segmentControl.addTarget(self, action: #selector(self.segmentControlValueChanged), for: .valueChanged)
     }
  
     // MARK: - Update UI
@@ -44,13 +44,11 @@ final class SearchResultViewController: ICinemaViewController, CompositionalLayo
         self.updateCollectionView()
         self.updatecollectionViewCompositionalLayout()
     }
-    
     private func updateSegmentControll() {
         view.addSubview(segmentControl)
         segmentControl.fillXSuperViewConstraints(paddingLeft: .view.padding.left, paddingRight: .view.padding.right)
         segmentControl.makeConstraints(topAnchor: view.safeAreaLayoutGuide.topAnchor)
     }
-    
     private func updateCollectionView() {
         // add and clear the background of the collection view
         view.addSubview(collectionView)
@@ -62,7 +60,6 @@ final class SearchResultViewController: ICinemaViewController, CompositionalLayo
                                        padding: UIEdgeInsets(top: 8, left: 0,
                                                              bottom: 0, right: 0))
     }
-    
     private func updatecollectionViewCompositionalLayout() {
         // setup collection view delegate and datasource with compositional layout source and delegate
         collectionView.delegate = compositionalLayoutProviderDelegate
@@ -70,10 +67,23 @@ final class SearchResultViewController: ICinemaViewController, CompositionalLayo
         
         // setup collection view compositional layout
         collectionView.updateCollectionViewCompositionalLayout(with: self)
-        let section = SavedCollectionViewSection(hostingViewController: self)
-        self.compositionalLayoutSections.append(section)
-        section.update(collectionView, with: [])
+    }
+    public func updateSearch(with query: String) {
+        self.network.networkRequest.update(parameters: ["search": query])
+        network.request { [self] response in
+            if let value = response.value {
+                let section = SavedCollectionViewSection(hostingViewController: self)
+                self.compositionalLayoutSections.append(section)
+//                self.compositionalLayoutSections.append(DummyCollectionViewSection())
+                section.update(collectionView, with: value.data.movies)
+                self.collectionView.updateCollectionViewCompositionalLayout(with: self)
+            }
+        }
     }
     
     
+    @objc private func segmentControlValueChanged() {
+//        self.compositionalLayoutSections.first?.dataSource?.items
+    }
 }
+

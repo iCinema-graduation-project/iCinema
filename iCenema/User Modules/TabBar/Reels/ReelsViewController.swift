@@ -31,26 +31,18 @@ class ReelsViewController: ICinemaViewController {
         navigationController?.navigationBar.isHidden = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
  
-        DispatchQueue.main.async {
-            if let stories = self.stories, let stories_copy = try? stories.copy().otherStories {
-                let storyPreviewScene = IGStoryPreviewController.init(stories: stories_copy, handPickedStoryIndex:  0, handPickedSnapIndex: 0)
-                self.navigationController?.pushViewController(storyPreviewScene, animated: true)
-            }
-        }
-        
-//        Task {
-//            do {
-//                try await reelsNetwork.getData()
-//            } catch {
-//
+//        DispatchQueue.main.async {
+//            if let stories = self.stories, let stories_copy = try? stories.copy().otherStories {
+//                let storyPreviewScene = IGStoryPreviewController.init(stories: stories_copy, handPickedStoryIndex:  0, handPickedSnapIndex: 0)
+//                self.navigationController?.pushViewController(storyPreviewScene, animated: true)
 //            }
 //        }
-        
+                
         reelsNetwork.network.request { response in
-            let str = String(decoding: response.data!, as: UTF8.self)
-            print(str)
-            print(response.error)
-            print(response.value)
+            if let value = response.value?.data.reels {
+                let storyPreviewScene = IGStoryPreviewController.init(stories: value, handPickedStoryIndex:  0, handPickedSnapIndex: 0)
+                self.navigationController?.pushViewController(storyPreviewScene, animated: true)
+            }
         }
       
     }

@@ -15,14 +15,14 @@ enum ProgressorState {
     case finished
 }
 protocol ViewAnimator {
-    func start(with duration: TimeInterval, holderView: UIView, completion: @escaping (_ storyIdentifier: String, _ snapIndex: Int, _ isCancelledAbruptly: Bool) -> Void)
+    func start(with duration: TimeInterval, holderView: UIView, completion: @escaping (_ storyIdentifier: Int, _ snapIndex: Int, _ isCancelledAbruptly: Bool) -> Void)
     func resume()
     func pause()
     func stop()
     func reset()
 }
 extension ViewAnimator where Self: IGSnapProgressView {
-    func start(with duration: TimeInterval, holderView: UIView, completion: @escaping (_ storyIdentifier: String, _ snapIndex: Int, _ isCancelledAbruptly: Bool) -> Void) {
+    func start(with duration: TimeInterval, holderView: UIView, completion: @escaping (_ storyIdentifier: Int, _ snapIndex: Int, _ isCancelledAbruptly: Bool) -> Void) {
         // Modifying the existing widthConstraint and setting the width equalTo holderView's widthAchor
         self.state = .running
         self.widthConstraint?.isActive = false
@@ -42,7 +42,7 @@ extension ViewAnimator where Self: IGSnapProgressView {
                     return completion(strongSelf.story_identifier!, strongSelf.snapIndex!, strongSelf.story.isCancelledAbruptly)
                 }
             } else {
-                return completion(self?.story_identifier ?? "Unknown", self?.snapIndex ?? 0, self?.story.isCancelledAbruptly ?? true)
+                return completion(self?.story_identifier ?? 0, self?.snapIndex ?? 0, self?.story.isCancelledAbruptly ?? true)
             }
         }
     }
@@ -77,7 +77,7 @@ extension ViewAnimator where Self: IGSnapProgressView {
 
 final class IGSnapProgressView: UIView, ViewAnimator {
     
-    public var story_identifier: String?
+    public var story_identifier: Int?
     public var snapIndex: Int?
     public var story: IGStory!
     public var widthConstraint: NSLayoutConstraint?

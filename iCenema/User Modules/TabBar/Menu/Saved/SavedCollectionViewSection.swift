@@ -13,7 +13,7 @@ final class SavedCollectionViewSection: CompositionalLayoutableSection {
     typealias CellType = MovieCell
     typealias ResposeType = Movie
     
-    var items: [ResposeType] = [] {
+    public var items: [ResposeType] = [] {
         didSet {
             itemsCount = items.count
         }

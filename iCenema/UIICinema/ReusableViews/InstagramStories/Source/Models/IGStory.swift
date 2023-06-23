@@ -8,7 +8,7 @@
 import Foundation
 
 public class IGStory: Codable {
-    public var id: String
+    public var id: Int
 
     public var snapsCount: Int = 1
     

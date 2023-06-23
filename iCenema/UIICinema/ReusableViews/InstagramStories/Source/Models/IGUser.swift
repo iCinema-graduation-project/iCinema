@@ -8,7 +8,7 @@
 import Foundation
 
 public class IGUser: Codable {
-    public let id: String
+    public let id: Int
     public let name: String
     public let picture: String?
     public let following: Bool?
