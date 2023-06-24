@@ -116,9 +116,9 @@ struct MovieProfileView: View {
     
     private func movieCastAndCrewSection() -> some View {
         ScrollableSectionView(title: .movieProfile.cast) {
-            ForEach(0..<5, id: \.self) {_ in
+            ForEach(viewModel.actors, id: \.id) { cast in
                 VStack {
-                    ICinemaAsyncImage(url: URL(string: "http://icinema.live/defaults/default.png")) { image in
+                    ICinemaAsyncImage(url: URL(string: cast.image)) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -129,13 +129,10 @@ struct MovieProfileView: View {
                                  strockSpacing: 5,
                                  lineWidth: 0.5)
                     
-                    Text("Alex Gibney")
+                    Text(cast.name)
                         .foregroundColor(Color.iCinemaTextColor)
                         .font(.custom.body)
-                    
-                    Text("Director")
-                        .foregroundColor(Color.gray)
-                        .font(.custom.caption1)
+                 
                 }
                 .padding(.leading, .cell.padding.left)
             }

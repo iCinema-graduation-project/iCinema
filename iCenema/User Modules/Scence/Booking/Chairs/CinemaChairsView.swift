@@ -7,43 +7,47 @@
 
 import SwiftUI
 
+class CinemaChairesViewModel: ObservableObject{
+    @Published var selectedSeats: [Seat] = []
+    @Published var count: Int = 0
+}
+
 struct CinemaChairsView: View {
     let view: CinemaChairsViewController
-    let time: Time
+    var time: Time
     @Environment(\.colorScheme) var colorScheme
     
+    @ObservedObject var viewModel = CinemaChairesViewModel()
+    
     let rowSize: CGFloat = 25
-    
-    @State var array = [
-        [-1, 2, 2, 2, 2, -1, 2, 2, 2, 2, -1],
-        [0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, -1, 0, 0, 1, 1, 0],
-        [0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0],
-        [0, 0, 1, 1, 1, -1, 1, 1, 0, 0, 0],
-        [0, 0, 0, 0, 0, -1, 0, 0, 1, 1, 1],
-        [0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0],
-    ]
-    
+        
     var body: some View {
         ICinemaView {
             VStack(spacing: 10.0){
                 Spacer()
                 
                 Image(uiImage: colorScheme == .dark ? .chairs.arch : UIImage())
-                
+            
                 ScrollView(.horizontal, showsIndicators: false) {
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack {
                             ForEach(time.seats.indices, id: \.self) { row in
                                 HStack {
                                     ForEach(time.seats[row].indices, id: \.self) { colomun in
-                                        let seat = time.seats[row][colomun]
-                                        Image(uiImage: self.getChair(for: seat))
+                                        var seat = time.seats[row][colomun]
+                                        Image(uiImage: !viewModel.selectedSeats.contains(seat) ? self.getChair(for: seat) : UIImage.chairs.selected)
                                             .frame(width: rowSize, height: rowSize)
-//                                            .shadow(radius: value == 3 ? 0 : 1)
+                                        // .shadow(radius: value == 3 ? 0 : 1)
                                             .onTapGesture {
-//                                                array[co][index] = 3
+                                                if viewModel.selectedSeats.contains(seat) {
+                                                    viewModel.selectedSeats.removeAll { $0 == seat }
+                                                    viewModel.count -= seat.price ?? 0
+                                                    
+                                                } else {
+                                                    viewModel.selectedSeats.append(seat)
+                                                    viewModel.count += seat.price ?? 0
+                                                    print(viewModel.selectedSeats)
+                                                }
                                             }
                                     }
                                 }
@@ -58,23 +62,24 @@ struct CinemaChairsView: View {
                 VStack {
                     HStack {
                         Spacer()
-                        self.makeChairDescriptionView(value: 0, text: "Ordinary")
+                        self.makeChairDescriptionView(status: .normal, text: "Ordinary")
                         Spacer()
-                        self.makeChairDescriptionView(value: 2, text: "Premium")
+                        self.makeChairDescriptionView(status: .premium, text: "Premium")
                         Spacer()
                     }
                     HStack {
                         Spacer()
-                        self.makeChairDescriptionView(value: 1, text: "Booked")
+                        self.makeChairDescriptionView(status: .reserved, text: "Booked")
                         Spacer()
-                        self.makeChairDescriptionView(value: 3, text: "Selected")
+                        self.makeChairDescriptionView(status: .selected, text: "Selected")
                         Spacer()
                     }
                 }
                 
                 VStack(alignment: .leading) {
                     Text("Your tickets :")
-                    Text("4 ordinary seats, 90 EGP for ticket")
+                    
+                    Text("\(viewModel.selectedSeats.count) ordinary seats, \(viewModel.count) EGP for ticket")
                 }
                 .padding(10)
                 .frame(maxWidth: .infinity)
@@ -97,23 +102,15 @@ struct CinemaChairsView: View {
         switch seat.status{
         case .empity: return UIImage()
         case .normal: return UIImage.chairs.ordinary
+        case .premium: return UIImage.chairs.premium
+        case .reserved: return UIImage.chairs.booked
+        case .selected: return UIImage.chairs.selected
         }
-//        if value == 0 {
-//            return UIImage.chairs.ordinary
-//        } else if value == 1 {
-//            return UIImage.chairs.booked
-//        } else if value == 2 {
-//            return UIImage.chairs.premium
-//        } else if value == 3 {
-//            return UIImage.chairs.selected
-//        } else {
-//            return UIImage()
-//        }
     }
     
-    private func makeChairDescriptionView(value: Int, text: String) -> some View {
+    private func makeChairDescriptionView(status: SeatStatus, text: String) -> some View {
         VStack {
-            Image(uiImage: UIImage())
+            Image(uiImage: getChair(for: Seat(id: 0, status: status, price: nil)))
                 .font(.system(size: rowSize))
                 .frame(width: rowSize, height: rowSize)
                 .shadow(radius: 1)
@@ -122,10 +119,4 @@ struct CinemaChairsView: View {
     }
         
 }
-
-//struct CinemaChairsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CinemaChairsView()
-//    }
-//}
 

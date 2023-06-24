@@ -47,4 +47,6 @@ struct CinemaMovie: Codable, Hashable {
     let id: Int
     let image, cover: String
     let name: String
+    let description: String
+    let saved: Bool?
 }

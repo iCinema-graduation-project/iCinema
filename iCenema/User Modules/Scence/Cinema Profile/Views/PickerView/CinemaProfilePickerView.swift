@@ -9,8 +9,8 @@ import SwiftUI
 
 enum CinemaSections: String, CaseIterable {
     case movies = "Movies"
-    case reels = "Reels"
-    case posts = "Posts"
+//    case reels = "Reels"
+//    case posts = "Posts"
 }
 
 struct CinemaProfilePickerView: View {
@@ -20,14 +20,14 @@ struct CinemaProfilePickerView: View {
    
     var body: some View {
         VStack {
-            Picker("Choose Secction", selection: $pickerSelectedSectin) {
-                ForEach(CinemaSections.allCases, id: \.self) {
-                    Text($0.rawValue)
-                        .font(Font(UIFont.title3))
-                }
-            }
-            .pickerStyle(.segmented)
-            .padding(.horizontal)
+//            Picker("Choose Secction", selection: $pickerSelectedSectin) {
+//                ForEach(CinemaSections.allCases, id: \.self) {
+//                    Text($0.rawValue)
+//                        .font(Font(UIFont.title3))
+//                }
+//            }
+//            .pickerStyle(.segmented)
+//            .padding(.horizontal)
             
             ChosenSectionView(section: pickerSelectedSectin)
                 .environmentObject(viewModel)
@@ -46,10 +46,10 @@ struct ChosenSectionView: View {
         case .movies:
             MoviesListView()
                 .environmentObject(viewModel)
-        case .reels:
-            SelectedSectionView(selectedSecten: "Reels")
-        case.posts:
-            SelectedSectionView(selectedSecten: "Posts")
+//        case .reels:
+//            SelectedSectionView(selectedSecten: "Reels")
+//        case.posts:
+//            SelectedSectionView(selectedSecten: "Posts")
         }
     }
 }

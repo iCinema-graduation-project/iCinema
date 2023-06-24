@@ -23,6 +23,7 @@ struct Movie: Codable, Equatable, Hashable {
     let rates: Rates?
     let categories: [Category]?
     let images: [MovieImage]?
+    let actors: [Actor]?
     let related: [Movie]?
 
     let comments: [Comment]?
@@ -38,7 +39,7 @@ struct Movie: Codable, Equatable, Hashable {
         case related
         case images
         case averageRate = "average_rate"
-        case categories, saved, cinema, comments
+        case categories, saved, cinema, comments, actors
     }
     
     static func == (lhs: Movie, rhs: Movie) -> Bool {
@@ -73,7 +74,6 @@ struct Rates: Codable, Hashable {
     }
 }
 
-
 // MARK: - Comment
 struct Comment: Codable, Hashable {
     let id: Int
@@ -92,4 +92,11 @@ struct RatingUser: Codable, Hashable {
     let id: Int
     let image: String?
     let name: String
+}
+
+// MARK: - Actor
+struct Actor: Codable, Hashable {
+    let id: Int
+    let name: String
+    let image: String
 }

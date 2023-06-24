@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // MARK: - BookingDetailModel
 struct BookingDetailModel: Codable {
@@ -36,12 +37,12 @@ struct BookingDate: Codable, Hashable {
 }
 
 // MARK: - Time
-struct Time: Codable, Hashable {
+struct Time: Codable, Hashable, Identifiable {
     let id: Int
     let premiumPrice: Int?
     let price: Int?
     let time: String
-    let seats: [[Seat]]
+    var seats: [[Seat]]
 
     enum CodingKeys: String, CodingKey {
         case id = "time_view_id"
@@ -55,12 +56,16 @@ struct Time: Codable, Hashable {
 }
 
 // MARK: - Seat
-struct Seat: Codable, Hashable {
-    let status: Status
+struct Seat: Codable, Hashable, Identifiable {
+    let id: Int
+    var status: SeatStatus
     let price: Int?
 }
 
-enum Status: String, Codable {
+enum SeatStatus: String, Codable {
     case empity = "empity"
     case normal = "normal"
+    case premium = "premium"
+    case reserved = "reserved"
+    case selected = "selected"
 }

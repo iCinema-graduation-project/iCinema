@@ -234,6 +234,8 @@ final class IGStoryPreviewCell: UICollectionViewCell, UIScrollViewDelegate, Iden
                     .background(Color.iCinemaBackgroundColor)
                     .cornerRadius(.iCinemaButton.cornerRadius)
                     .padding(.vertical)
+                    .padding()
+                Spacer()
             }
         }
     }

@@ -32,9 +32,18 @@ struct MovieCellView: View {
                 self.cinemaLocation()
              
                 /// Movie Genries
-                Text("Action, Horror, Tragety")
-                    .font(Font(UIFont.caption2))
-                    .foregroundColor(.gray)
+//                if let categories = movie.categories {
+//                    
+//                    Group {
+//                        HStack {
+//                            ForEach(categories) { _ in
+//                                Text("Action, Horror, Tragety")
+//                                    .font(Font(UIFont.caption2))
+//                                    .foregroundColor(.gray)
+//                            }
+//                        }
+//                    }
+//                }
 
                 Spacer()
             }

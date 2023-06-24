@@ -29,6 +29,8 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
     @Published var rates: Rates = .init(rate1: 0, rate2: 0, rate3: 0, rate4: 0, rate5: 0)
     @Published var countRate: Int = 0
     @Published var comments: [Comment] = []
+    @Published var actors: [Actor] = []
+    
     
     var dismissAction: (() -> Void) = { }
     var startBookingMovie: ((_ movieId: Int) -> Void) = { _ in }
@@ -56,7 +58,7 @@ class MovieProfileViewModel: ProfileViewDelegate, ObservableObject {
         self.related = movie.related ?? []
         self.rates = movie.rates ?? .init(rate1: 0, rate2: 0, rate3: 0, rate4: 0, rate5: 0)
         self.countRate = movie.countRate ?? 0
-        
+        self.actors = movie.actors ?? []
     }
  
 }

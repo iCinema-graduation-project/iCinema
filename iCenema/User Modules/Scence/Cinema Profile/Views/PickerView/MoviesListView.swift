@@ -28,7 +28,8 @@ struct MovieListCellView: View {
 
     var showButtons = true
     @State var bookmarked = false
-    
+    @State var movieSaver =  MovieSaver()
+
     var body: some View {
         HStack {
             self.movieImage()
@@ -52,13 +53,13 @@ struct MovieListCellView: View {
         .padding(5)
         .padding(.horizontal)
         .onAppear {
-
+            bookmarked = movie.saved ?? false
         }
     }
     
     // Movie Image
     @ViewBuilder
-    private func movieImage() -> some View{
+    private func movieImage() -> some View {
         ICinemaAsyncImage(url: URL(string: movie.image)) { image in
             image
                 .resizable()
@@ -81,6 +82,8 @@ struct MovieListCellView: View {
             if self.showButtons {
                 Button {
                     bookmarked.toggle()
+                    movieSaver.update(id: movie.id)
+                    movieSaver.request { _ in }
                 } label: {
                     Image(systemName: bookmarked ? UIImage.bookmarkFill : UIImage.bookmark)
                         .resizable()
@@ -125,7 +128,7 @@ struct MovieListCellView: View {
     
     
     @ViewBuilder private func movieDescription() -> some View {
-        Text("To explore Pandora, genetically matched human scientists use Na'vi-human hybrids called \"avatars.\"")
+        Text(movie.description)
             .font(Font(UIFont.caption1))
             .multilineTextAlignment(.leading)
             .frame(height: 40)
