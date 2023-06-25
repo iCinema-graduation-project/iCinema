@@ -90,12 +90,13 @@ struct CinemaChairsView: View {
                 Spacer()
                 
                 ICinemaButtonView(title: .next) {
-                    self.view.coordinator?.push()
+                    let seatsId = viewModel.selectedSeats.map { $0.id }
+                    print(seatsId)
+                    self.view.coordinator?.push(userInfo: ["timeId": time.id, "seatsId": seatsId])
                 }
                 .padding(.bottom, CGFloat.view.padding.bottom)
             }
         }
-
     }
     
     private func getChair(for seat: Seat) -> UIImage {

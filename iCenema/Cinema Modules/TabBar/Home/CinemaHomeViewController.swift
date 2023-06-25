@@ -58,9 +58,9 @@ final class CinemaHomeViewController: ICinemaViewController {
         let alertView = ICinemaAlert(width: 328, height: 464, useBackground: false)
         alertView.show {
             VStack(spacing: 0.0) {
-                TicketTopView(ticket: Ticket(image: "thor-top"))
-                Spacer(minLength: 0)
-                TicketBottomView()  
+//                TicketTopView(ticket: Ticket(image: "thor-top"))
+//                Spacer(minLength: 0)
+//                TicketBottomView()
             }
             .frame(height: 460)
             .font(Font(UIFont.callout))

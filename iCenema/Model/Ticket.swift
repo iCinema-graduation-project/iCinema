@@ -7,7 +7,34 @@
 
 import Foundation
 
-struct Ticket: Identifiable {
-    let id = UUID()
-    let image: String
+
+// MARK: - Welcome
+struct TicketsModel: Codable {
+    let key, msg: String
+    let data: TicketsData
+}
+
+// MARK: - DataClass
+struct TicketsData: Codable {
+    let data: [Ticket]
+}
+
+// MARK: - Datum
+struct Ticket: Codable, Identifiable {
+    let id: String?
+    let seats: [TicketSeat]
+    let start, startsAfter, end: String
+    let price: String?
+    let movie: Movie
+
+    enum CodingKeys: String, CodingKey {
+        case id, seats, start
+        case startsAfter = "starts_after"
+        case end, price, movie
+    }
+}
+
+struct TicketSeat: Codable {
+    let id: Int
+    let name: String
 }

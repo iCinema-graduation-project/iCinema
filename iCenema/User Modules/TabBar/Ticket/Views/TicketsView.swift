@@ -7,35 +7,29 @@
 
 import SwiftUI
 import UIICinema
+import Coordinator
 
 
 struct TicketsView: View {
-    
-    @State var tickets: [Ticket] = [
-    Ticket(image: "thor-top"),
-    Ticket(image: "thor-top"),
-    Ticket(image: "thor-top"),
-    Ticket(image: "thor-top"),
-        ]
+    let view: TicketViewController
+    @EnvironmentObject var viewModel: TicketsViewModel
     
     @State private var showAlert: Bool = false
     var body: some View {
         ICinemaView{
             ZStack(alignment: .bottom) {
-                if tickets.count > 0 {
+                if viewModel.tickets.count > 0 {
                     VStack {
                         ZStack {
-                            ForEach(tickets) { ticket in
-                                InfiniteStackView(tickets: $tickets, ticket: ticket, showAlert: $showAlert)
+                            ForEach(viewModel.tickets) { ticket in
+                                InfiniteStackView(view: view, tickets: $viewModel.tickets, ticket: ticket, showAlert: $showAlert)
                             }
                         }
                         .padding(.horizontal)
                         .padding(.vertical, 50)
-                        
                         Spacer()
                     }
                 } else {
-                    
                     VStack(spacing: 20.0) {
                         Image("tickets.empty")
                             .resizable()
@@ -48,15 +42,13 @@ struct TicketsView: View {
                 if showAlert {
                     ICinemaAlertView {
                         VStack(spacing: 15.0) {
-                            Text("Do you realy wany to delet")
-                            
+                            Text("Do you realy wany to delete")
                             ICinemaButtonView(title: "Yes, Delete") {
                                 withAnimation {
                                     showAlert = false
-                                    tickets.removeFirst()
+                                    viewModel.tickets.removeFirst()
                                 }
                             }
-                            
                             CancelButtonView(title: "Cancel") {
                                 withAnimation {
                                     showAlert = false
@@ -65,37 +57,31 @@ struct TicketsView: View {
                             .background(.white)
                         }
                     }
-                        .padding(.bottom, 100)
-                        .transition(.move(edge: .bottom))
+                    .padding(.bottom, 100)
+                    .transition(.move(edge: .bottom))
                 }
             }
         }
-        
-    }
-    
- 
-}
-
-struct TicketsView_Previews: PreviewProvider {
-    static var previews: some View {
-        TicketsView()
     }
 }
 
 struct InfiniteStackView: View {
+    let view: TicketViewController
     @Binding var tickets: [Ticket]
     var ticket: Ticket
-    
     @Binding var showAlert: Bool
-
     @State var height: CGFloat = 0
-    
     @State private var offsetx: CGFloat = .zero
     @GestureState var isDragging: Bool = false
     
     var body: some View {
         VStack {
             TicketView(ticket: ticket, height: height)
+                .onTapGesture {
+                    let vc = TicketProfileViewController()
+                    vc.inject(with: ticket)
+                    view.presentViewController(vc)
+                }
         }
         .zIndex(Double(CGFloat(tickets.count) - self.getIndex()))
         .zIndex(getIndex() == 0 && offsetx > 100 ? Double(CGFloat(tickets.count) - self.getIndex()) - 1 : Double(CGFloat(tickets.count) - self.getIndex()))

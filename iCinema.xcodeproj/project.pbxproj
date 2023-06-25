@@ -127,6 +127,11 @@
 		7384A19229FD4337007235D0 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384A19129FD4337007235D0 /* HomeModel.swift */; };
 		7384A19429FD77E5007235D0 /* MovieSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384A19329FD77E5007235D0 /* MovieSaver.swift */; };
 		7384A19629FD782A007235D0 /* SaveMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384A19529FD782A007235D0 /* SaveMovieModel.swift */; };
+		738539122A472A9D00D1B193 /* BuyTicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738539112A472A9D00D1B193 /* BuyTicketModel.swift */; };
+		738539142A479FF600D1B193 /* TicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738539132A479FF600D1B193 /* TicketsViewModel.swift */; };
+		738539172A47AB1900D1B193 /* TicketProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738539162A47AB1900D1B193 /* TicketProfileViewModel.swift */; };
+		738539192A47AB6400D1B193 /* TicketProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738539182A47AB6400D1B193 /* TicketProfileViewController.swift */; };
+		7385391B2A47AC1F00D1B193 /* TicketProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385391A2A47AC1F00D1B193 /* TicketProfileView.swift */; };
 		7385C89829FBE9FC00378653 /* SpAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385C89729FBE9FC00378653 /* SpAlertView.swift */; };
 		73861C242984351E0020A63B /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C232984351E0020A63B /* EditUserView.swift */; };
 		73861C2629843A170020A63B /* ICinemaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73861C2529843A170020A63B /* ICinemaTextField.swift */; };
@@ -383,6 +388,11 @@
 		7384A19129FD4337007235D0 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		7384A19329FD77E5007235D0 /* MovieSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSaver.swift; sourceTree = "<group>"; };
 		7384A19529FD782A007235D0 /* SaveMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMovieModel.swift; sourceTree = "<group>"; };
+		738539112A472A9D00D1B193 /* BuyTicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTicketModel.swift; sourceTree = "<group>"; };
+		738539132A479FF600D1B193 /* TicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewModel.swift; sourceTree = "<group>"; };
+		738539162A47AB1900D1B193 /* TicketProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketProfileViewModel.swift; sourceTree = "<group>"; };
+		738539182A47AB6400D1B193 /* TicketProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketProfileViewController.swift; sourceTree = "<group>"; };
+		7385391A2A47AC1F00D1B193 /* TicketProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketProfileView.swift; sourceTree = "<group>"; };
 		7385C89729FBE9FC00378653 /* SpAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpAlertView.swift; sourceTree = "<group>"; };
 		73861C232984351E0020A63B /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		73861C2529843A170020A63B /* ICinemaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICinemaTextField.swift; sourceTree = "<group>"; };
@@ -627,9 +637,11 @@
 		730E1C0B29A9551000F2AB85 /* Ticket */ = {
 			isa = PBXGroup;
 			children = (
+				738539152A47AB0200D1B193 /* TicketProfile */,
 				7365DEF829EAA8C900E7AC35 /* Views */,
 				730E1C1C29A960E000F2AB85 /* TicketViewController.swift */,
 				730E1C1E29A960F300F2AB85 /* TicketCoordinator.swift */,
+				738539132A479FF600D1B193 /* TicketsViewModel.swift */,
 			);
 			path = Ticket;
 			sourceTree = "<group>";
@@ -1055,6 +1067,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		738539152A47AB0200D1B193 /* TicketProfile */ = {
+			isa = PBXGroup;
+			children = (
+				738539162A47AB1900D1B193 /* TicketProfileViewModel.swift */,
+				738539182A47AB6400D1B193 /* TicketProfileViewController.swift */,
+				7385391A2A47AC1F00D1B193 /* TicketProfileView.swift */,
+			);
+			path = TicketProfile;
+			sourceTree = "<group>";
+		};
 		738A44FF29CA8C2000FA07A8 /* lotti Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -1103,6 +1125,7 @@
 			isa = PBXGroup;
 			children = (
 				739FAA4229ED669100BAC9ED /* ActivityKeyBoardField.swift */,
+				738539112A472A9D00D1B193 /* BuyTicketModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1870,6 +1893,7 @@
 				730E1C1F29A960F300F2AB85 /* TicketCoordinator.swift in Sources */,
 				730E1C1429A95D9F00F2AB85 /* ReelsCoordinator.swift in Sources */,
 				73B0BD2229EEA95C00E755E0 /* SearchResultViewController.swift in Sources */,
+				7385391B2A47AC1F00D1B193 /* TicketProfileView.swift in Sources */,
 				73B404F229D092B60044F58D /* ICinemaView.swift in Sources */,
 				731FBF5E29B0BF7E00798DF5 /* IGRoundedView.swift in Sources */,
 				739FAA4829ED99AD00BAC9ED /* EWalletView.swift in Sources */,
@@ -1890,6 +1914,7 @@
 				734117E72A38DB150024E8C6 /* NotificationCell.swift in Sources */,
 				730E1C0E29A955F700F2AB85 /* HomeCoordinator.swift in Sources */,
 				73F7138A29B65A71001E469D /* +isHidden.swift in Sources */,
+				738539142A479FF600D1B193 /* TicketsViewModel.swift in Sources */,
 				73AD757129F54CD700C55602 /* ICinemaWalletViewController.swift in Sources */,
 				73FED1E2298874CD00395727 /* UIFont.Generated.swift in Sources */,
 				73EC91BC29834569002F3568 /* ICinemaViewController.swift in Sources */,
@@ -1920,6 +1945,7 @@
 				7365DEFA29EAA8D500E7AC35 /* TicketsView.swift in Sources */,
 				73C23A3F2A2148AB00C43C4D /* UIButton+Style.swift in Sources */,
 				731FBF6129B0BF7E00798DF5 /* IGURLSession.swift in Sources */,
+				738539172A47AB1900D1B193 /* TicketProfileViewModel.swift in Sources */,
 				731FBF7F29B0C2CB00798DF5 /* IGAddStoryCell.swift in Sources */,
 				731FBF8029B0C2CB00798DF5 /* IGHomeController.swift in Sources */,
 				739864C529AFFCD3008420F6 /* CinemasSection.swift in Sources */,
@@ -1961,6 +1987,7 @@
 				73AAAF4529B4FA1500ECCA57 /* CinemaProfileView.swift in Sources */,
 				73FC29AD2A01242D00D5ED8F /* +addUIRefreshControl.swift in Sources */,
 				73AB522629D10D26008A3CFF /* SelectHallViewController.swift in Sources */,
+				738539122A472A9D00D1B193 /* BuyTicketModel.swift in Sources */,
 				731FBF5029B0BF7E00798DF5 /* IGStoryPreviewModel.swift in Sources */,
 				73B404EE29D092240044F58D /* CinemaDateViewController.swift in Sources */,
 				733DAA2729B3B5A200741211 /* TabBarViewModel.swift in Sources */,
@@ -2017,6 +2044,7 @@
 				73FC29AF2A0137C500D5ED8F /* SavedViewModel.swift in Sources */,
 				731976D32A00316600514103 /* FollowingViewModel.swift in Sources */,
 				731FBF5829B0BF7E00798DF5 /* IGStory.swift in Sources */,
+				738539192A47AB6400D1B193 /* TicketProfileViewController.swift in Sources */,
 				73BB177F29E062340062155C /* FollowingViewController.swift in Sources */,
 				73F0C37429AD7AE900F95B01 /* SliderCell.swift in Sources */,
 				7359B75D2A054DEF00EDF9AF /* ScrollableSectionView.swift in Sources */,

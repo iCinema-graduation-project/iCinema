@@ -120,9 +120,9 @@ struct MovieListCellView: View {
 
             // MARK: - Genre
             Text("Action, Horror")
-//                        .font(.caption2)
                 .font(Font(UIFont.caption1))
                 .foregroundColor(.gray)
+            
         }
     }
     

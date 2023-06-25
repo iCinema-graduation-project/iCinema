@@ -22,6 +22,7 @@ class MovieProfileViewController: ICinemaViewController {
         self.updateDismissAction()
         self.updateStartBookingMovie()
         self.updateShowCinemaInformation()
+        
     }
     
     // MARK: - Update UI
@@ -40,8 +41,8 @@ class MovieProfileViewController: ICinemaViewController {
     public func inject(with movieId: Int) {
         self.service.networkRequest.update(parameters: ["id": movieId])
         self.makeNetworkRequest()
+        
     }
-    
     
     private func makeNetworkRequest() {
         ActivityIndicator.shared.play()
@@ -51,13 +52,13 @@ class MovieProfileViewController: ICinemaViewController {
             if let value = response.value {
                 self.updateUI()
                 self.viewModel.updateModel(with: value.data)
+                print(self.viewModel.id)
             } else {
                 super.handelError(response.error)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.dismiss()
                 }
             }
-            
         }
     }
 

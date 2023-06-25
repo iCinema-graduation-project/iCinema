@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
-
+import Foundation
 
 class PaymentMethodViewModel: ProfileViewDelegate {
     var dismissAction: (() -> Void) = {}
     
-    
     @Published var paymentMethod: PaymentMethod = .creditCard
     
-    @Published var isCreditCard: Bool = true {
+    @Published var isCreditCard: Bool = false {
         didSet {
             if isCreditCard {
                 paymentMethod = .creditCard
@@ -36,7 +35,7 @@ class PaymentMethodViewModel: ProfileViewDelegate {
 
         }
     }
-    @Published var isICinemaWallet: Bool = false {
+    @Published var isICinemaWallet: Bool = true {
         didSet {
             if isICinemaWallet {
                 paymentMethod = .iCinemaWallet
@@ -47,6 +46,6 @@ class PaymentMethodViewModel: ProfileViewDelegate {
         }
     }
     
+    var service: NetworkLayer<BuyTicketModel> = .init(endpoint: "booking/buy-ticket", method: .post)
     
-  
 }

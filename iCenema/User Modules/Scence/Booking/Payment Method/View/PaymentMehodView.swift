@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import SPAlert
+import NetworkLayer
 
-enum PaymentMethod {
-    case creditCard
+enum PaymentMethod: String {
+    case creditCard = "online"
     case eWallet
-    case iCinemaWallet
+    case iCinemaWallet = "wallet"
     case none
 }
-
 
 struct PaymentMehodView: View {
     
@@ -22,12 +23,14 @@ struct PaymentMehodView: View {
     @State private var showCreditCardview: Bool = false
     @State private var showEWallet: Bool = false
     
+    @State var showAlert: Bool = false
+    @State var alertMessage: String = ""
+    
     var body: some View {
         ICinemaView {
             ZStack(alignment: .center) {
                 
-                VStack() {
-                    
+                VStack {
                     VStack(alignment: .leading, spacing: 20.0) {
                         Text(String.booking.pickApayment)
                             .font(Font(UIFont.title3))
@@ -54,7 +57,7 @@ struct PaymentMehodView: View {
                         }
                         cell(image: .payment.iCinemaWallet,
                              title: .booking.icinemaWallet,
-                             subtitle: "Current balance : 0 EGP",
+                             subtitle: "Current balance : 270 EGP",
                              selected: $viewModel.isICinemaWallet)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -65,11 +68,25 @@ struct PaymentMehodView: View {
                     
                     ICinemaButtonView(title: String.next) {
                         if viewModel.paymentMethod != .none {
-                            viewModel.dismissAction()
+                            viewModel.service.networkRequest.update(parameters: ["payment_method": viewModel.paymentMethod.rawValue])
+                            
+                            print(viewModel.service.networkRequest.parameters)
+                            viewModel.service.request { response in
+                                if let _ = response.value {
+                                    viewModel.dismissAction()
+                                } else if let error = response.error {
+                                    self.alertMessage = NetworkError.getErrorMessage(from: error)
+                                    showAlert = true
+                                }
+                                    
+                            }
+                            
                         }
                         
                     }
                     .padding(.bottom, CGFloat.view.padding.bottom)
+                    .SPAlert(isPresent: $showAlert, message: alertMessage)
+
                 }
                 .padding(.top, .view.padding.top)
                 .foregroundColor(Color(uiColor: .iCinemaTextColor))
