@@ -120,7 +120,7 @@ struct MovieCellView: View {
                          strockColor: Color(uiColor: .iCinemaYellowColor),
                          lineWidth: 0.5)
             
-            Text(movie.cinema.name)
+            Text(movie.cinema.name ?? "")
                 .font(Font(UIFont.caption1))
         }
 

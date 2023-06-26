@@ -23,7 +23,7 @@ struct CinemaCellView: View {
             VStack {
                 self.profileImage()
 
-                Text(cinema.name)
+                Text(cinema.name ?? "")
                     .font(Font(UIFont.footnote))
                     .lineLimit(1)
                 

@@ -31,7 +31,7 @@ struct TicketProfileView: View {
                 VStack {
                     Spacer()
                     VStack {
-                     
+                        
                     }
                     .frame(height: 400)
                     .frame(maxWidth: .infinity)
@@ -47,7 +47,6 @@ struct TicketProfileView: View {
                                         .addBorder(withColor: Color(uiColor: .iCinemaYellowColor),
                                                    cornorRadius: 8, height: 110)
                                         .frame(width: 80)
-
                                 }
                                 VStack(alignment: .leading) {
                                     Text(viewModel.ticket.movie.name)
@@ -61,7 +60,7 @@ struct TicketProfileView: View {
                                     Text(categories)
                                         .font(Font(UIFont.caption1))
                                         .foregroundColor(Color(uiColor: .lightGray))
-                                        .lineLimit(0)
+                                        .lineLimit(2)
                                     
                                     Spacer()
                                     Text(viewModel.ticket.startsAfter)
@@ -72,25 +71,21 @@ struct TicketProfileView: View {
                             }
                             .frame(height: 109)
                             
-                            row("CINEMA", value: viewModel.ticket.movie.cinema.name)
+                            row("CINEMA", value: viewModel.ticket.movie.cinema.name ?? "")
                             row("START", value: viewModel.ticket.start)
                             row("END", value: viewModel.ticket.end)
                             row("SEATS", value: seats)
                             Divider()
                                 .background(Color(uiColor: .lightGray))
-//                            Spacer()
                             Image("code")
                                 .resizable()
                                 .frame(width: 120, height: 120)
                                 .padding(.bottom)
-////                                .offset(y: qrYPosition)
-//                                .glow(color: Color(uiColor: .iCinemaYellowColor), radius: 1)
-//                            Spacer()
+                                .glow(color: Color(uiColor: .iCinemaYellowColor), radius: 5)
                         }
                         .padding()
                     }
                     .padding(30)
-
                 }
             }
         }
@@ -101,7 +96,6 @@ struct TicketProfileView: View {
             }
         }
     }
-    
     
     private func text(_ string: String) -> some View {
         Text(string)

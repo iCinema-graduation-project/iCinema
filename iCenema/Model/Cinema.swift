@@ -13,7 +13,7 @@ struct Cinema: Codable, Equatable, Hashable {
     let id: Int
     let logo: String
     let cover: String?
-    let name: String
+    let name: String?
     let following: Bool?
     let averageRate: Int?
     let countFollow: Int?

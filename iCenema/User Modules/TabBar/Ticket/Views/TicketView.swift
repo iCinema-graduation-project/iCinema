@@ -166,6 +166,7 @@ struct TicketBottomView: View {
         }
         .onAppear {
             self.updateDate()
+            seats = ""
             ticket.seats.forEach { seats += "\($0.name), " }
         }
     }
